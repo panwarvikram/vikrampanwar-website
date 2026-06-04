@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Court Fee Calculator — vikrampanwar.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1a18; --ink-2: #4a4a46; --ink-3: #7a7a74; --ink-4: #b0b0a8;
+      --paper: #f7f4ee; --paper-2: #eeebe2; --rule: rgba(26,26,24,0.1);
+      --serif: 'EB Garamond', Georgia, serif; --sans: 'DM Sans', system-ui, sans-serif;
+      --pad: clamp(1.25rem, 4vw, 2.5rem); --max: 760px;
+    }
+    body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem var(--pad); border-bottom: 0.5px solid var(--rule); background: var(--paper); position: sticky; top: 0; z-index: 100; }
+    .nav-name { font-family: var(--serif); font-size: 16px; color: var(--ink); text-decoration: none; }
+    .nav-back { font-size: 12px; color: var(--ink-3); text-decoration: none; letter-spacing: 0.04em; }
+    .nav-back:hover { color: var(--ink); }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 2rem var(--pad) 4rem; }
+    h1 { font-family: var(--serif); font-size: clamp(24px, 5vw, 34px); font-weight: 400; margin-bottom: 0.4rem; }
+    .subtitle { font-size: 13px; color: var(--ink-3); margin-bottom: 2rem; }
+    .case-tabs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-bottom: 2rem; }
+    .tab { padding: 9px 4px; font-size: 12px; font-weight: 500; text-align: center; border: 0.5px solid var(--rule); border-radius: 6px; cursor: pointer; color: var(--ink-3); background: transparent; font-family: var(--sans); transition: all .15s; }
+    .tab.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .tab:hover:not(.active) { background: var(--paper-2); }
+    .section-title { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin: 1.5rem 0 0.75rem; }
+    .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .field { margin-bottom: 1rem; }
+    .field label { display: block; font-size: 13px; color: var(--ink-2); margin-bottom: 5px; }
+    .field input, .field select { width: 100%; padding: 8px 10px; font-size: 14px; border: 0.5px solid var(--rule); border-radius: 6px; background: white; color: var(--ink); font-family: var(--sans); outline: none; }
+    .field input:focus, .field select:focus { border-color: var(--ink-3); }
+    .divider { border: none; border-top: 0.5px solid var(--rule); margin: 1.5rem 0; }
+    .result-box { background: white; border: 0.5px solid var(--rule); border-radius: 10px; padding: 1.5rem; margin-top: 1rem; }
+    .result-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 4px; }
+    .result-total { font-family: var(--serif); font-size: 36px; font-weight: 400; color: var(--ink); margin-bottom: 0.25rem; }
+    .result-words { font-size: 13px; color: var(--ink-3); margin-bottom: 1.25rem; font-style: italic; }
+    .breakdown { border-top: 0.5px solid var(--rule); padding-top: 1rem; }
+    .brow { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 4px 0; }
+    .brow-label { font-size: 13px; color: var(--ink-3); flex: 1; }
+    .brow-value { font-size: 13px; font-weight: 500; color: var(--ink); white-space: nowrap; }
+    .brow-sub { border-top: 0.5px solid var(--rule); margin-top: 6px; padding-top: 6px; }
+    .brow-sub .brow-label { color: var(--ink); font-weight: 500; font-size: 14px; }
+    .brow-sub .brow-value { font-size: 14px; }
+    .slab-note { font-size: 12px; color: var(--ink-3); background: var(--paper-2); border-radius: 6px; padding: 8px 12px; margin-top: 10px; line-height: 1.5; }
+    .note { font-size: 11px; color: var(--ink-3); margin-top: 1rem; line-height: 1.5; font-style: italic; }
+    .reset-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 1rem; margin-right: 8px; padding: 8px 16px; background: transparent; color: var(--ink-3); border: 0.5px solid var(--rule); border-radius: 6px; font-size: 13px; font-family: var(--sans); cursor: pointer; transition: all .15s; }
+    .reset-btn:hover { background: var(--paper-2); color: var(--ink); }
+    .print-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 1rem; padding: 10px 20px; background: var(--ink); color: var(--paper); border: none; border-radius: 6px; font-size: 14px; font-weight: 500; font-family: var(--sans); cursor: pointer; transition: opacity .15s; }
+    .print-btn:hover { opacity: 0.85; }
+    .hidden { display: none; }
+    footer { text-align: center; padding: 2rem var(--pad); border-top: 0.5px solid var(--rule); }
+    footer p { font-size: 11px; color: var(--ink-4); }
+    optgroup { font-weight: 500; }
+
+    @media (max-width: 520px) { .case-tabs { grid-template-columns: repeat(2, 1fr); } .grid2 { grid-template-columns: 1fr; } }
+
+    @media print {
+      body { background: white; font-size: 12pt; }
+      nav, .case-tabs, .print-btn, .reset-btn, .calc-inputs { display: none !important; }
+      .wrap { padding: 0; max-width: 100%; }
+      .result-box { border: 1px solid #ccc; }
+      .print-header { display: block !important; }
+      .print-footer { display: block !important; }
+    }
+    .print-header { display: none; padding-bottom: 1rem; border-bottom: 1px solid #ccc; margin-bottom: 1.5rem; }
+    .print-footer { display: none; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #ccc; font-size: 11px; color: #888; line-height: 1.6; }
+    .ph-title { font-family: var(--serif); font-size: 20pt; margin-bottom: 4px; }
+    .ph-sub { font-size: 10pt; color: #666; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="https://vikrampanwar.com">Vikram Panwar, Advocate</a>
+  <a class="nav-back" href="https://vikrampanwar.com">← Back to home</a>
+</nav>
+
+<div class="wrap">
+
+  <div class="print-header" id="printHeader">
+    <div class="ph-title">Court Fee — Calculation Sheet</div>
+    <div class="ph-sub" id="phSub"></div>
+  </div>
+
+  <h1>Court fee calculator</h1>
+  <p class="subtitle">Haryana District Courts — as per Court Fees Act 1870 &amp; amended Court Fees Act 2010</p>
+
+  <div class="case-tabs">
+    <button class="tab active" onclick="setCase('dsj',this)">D&amp;S Judge</button>
+    <button class="tab" onclick="setCase('cjsd',this)">Civil Judge SD</button>
+    <button class="tab" onclick="setCase('cjm',this)">CJM / Magistrate</button>
+    <button class="tab" onclick="setCase('recovery',this)">Recovery Suit</button>
+    <button class="tab" onclick="setCase('copying',this)">Copying charges</button>
+  </div>
+
+  <div class="calc-inputs">
+
+    <!-- DSJ PANEL -->
+    <div id="panel-dsj">
+      <p class="section-title">Nature of case — District &amp; Sessions Judge</p>
+      <div class="field">
+        <label>Case type</label>
+        <select id="dsj-type" onchange="calc()">
+          <optgroup label="Civil">
+            <option value="50">Regular Civil Appeal — ₹50 per relief</option>
+            <option value="50">Civil Misc. Appeal — ₹50</option>
+            <option value="50">Rent Appeal — ₹50</option>
+            <option value="50">Civil Suit — ₹50</option>
+            <option value="50">Suit (unquantifiable subject matter) — ₹50</option>
+            <option value="10">Civil Misc. Application — ₹10</option>
+            <option value="25">Caveat Petition — ₹25</option>
+          </optgroup>
+          <optgroup label="MACT / Arbitration">
+            <option value="10">MACT Petition — ₹10</option>
+            <option value="10">Execution Application (MACT Award) — ₹10</option>
+            <option value="10">Pauper Application — ₹10</option>
+            <option value="300">Petition U/s 34 Arbitration &amp; Conciliation Act — ₹300</option>
+            <option value="150">Petition U/s 9 Arbitration &amp; Conciliation Act — ₹150</option>
+            <option value="200">Execution Petition U/s 36 Arbitration Act — ₹200</option>
+          </optgroup>
+          <optgroup label="Matrimonial">
+            <option value="50">HMA U/s 13 &amp; 13-B / Section 24 HM Act — ₹50</option>
+            <option value="100">Special Marriage Act — ₹100</option>
+            <option value="500">Parsi Marriage &amp; Divorce Act 1936 — ₹500</option>
+            <option value="500">Punjab Customary Law / Ancestral land declaration — ₹500</option>
+          </optgroup>
+          <optgroup label="Criminal">
+            <option value="10">Criminal Appeal (accused on bail) — ₹10</option>
+            <option value="10">Criminal Revision — ₹10</option>
+            <option value="10">Bail Application (Anticipatory) — ₹10</option>
+            <option value="10">Criminal Misc. Application — ₹10</option>
+          </optgroup>
+          <optgroup label="Miscellaneous">
+            <option value="10">Power of Attorney (Vakalatnama) — ₹10</option>
+            <option value="10">Certified copy of Judgment/Order/Award — ₹10</option>
+            <option value="20">Certified copy of order (Rent Controller) — ₹20</option>
+            <option value="20">Certified Copy of Decree Sheet — ₹20</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label>Number of reliefs claimed</label>
+          <input type="number" id="dsj-reliefs" value="1" min="1" max="20" oninput="calc()">
+        </div>
+        <div class="field">
+          <label>Process fee</label>
+          <select id="dsj-process" onchange="calc()">
+            <option value="0">None</option>
+            <option value="50">₹50 — Civil Appeal / Revision / HMA / Criminal Appeal</option>
+            <option value="25">₹25 — Civil Misc. / Criminal Misc. / Bail / Execution</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Vakalatnama (if separate from above)</label>
+        <select id="dsj-vak" onchange="calc()">
+          <option value="0">Not required / already included</option>
+          <option value="10">Yes — ₹10</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- CJSD PANEL -->
+    <div id="panel-cjsd" class="hidden">
+      <p class="section-title">Nature of case — Civil Judge (Senior Division)</p>
+      <div class="field">
+        <label>Case type</label>
+        <select id="cjsd-type" onchange="calc()">
+          <optgroup label="Civil">
+            <option value="50">Civil Suit (except Recovery Suit) — ₹50 per relief</option>
+            <option value="50">Suit (unquantifiable subject matter) — ₹50</option>
+            <option value="50">Ejectment Petition — ₹50</option>
+            <option value="10">Succession Application — ₹10</option>
+            <option value="50">Guardian &amp; Wards Act Petition — ₹50</option>
+            <option value="50">Hindu Marriage Act Petition U/s 9 — ₹50</option>
+            <option value="10">Civil Misc. Application — ₹10</option>
+            <option value="10">Execution Application — ₹10</option>
+            <option value="10">Pauper Application — ₹10</option>
+            <option value="25">Caveat Petition — ₹25</option>
+          </optgroup>
+          <optgroup label="Miscellaneous">
+            <option value="10">Power of Attorney (Vakalatnama) — ₹10</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label>Number of reliefs claimed</label>
+          <input type="number" id="cjsd-reliefs" value="1" min="1" max="20" oninput="calc()">
+        </div>
+        <div class="field">
+          <label>Process fee</label>
+          <select id="cjsd-process" onchange="calc()">
+            <option value="0">None</option>
+            <option value="50">₹50 — Civil Suit / Ejectment / Succession / Guardian / HMA</option>
+            <option value="25">₹25 — Civil Misc. / Execution Application</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Vakalatnama (if separate)</label>
+        <select id="cjsd-vak" onchange="calc()">
+          <option value="0">Not required / already included</option>
+          <option value="10">Yes — ₹10</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- CJM PANEL -->
+    <div id="panel-cjm" class="hidden">
+      <p class="section-title">Nature of case — Chief Judicial Magistrate</p>
+      <div class="field">
+        <label>Case type</label>
+        <select id="cjm-type" onchange="calc()">
+          <optgroup label="Criminal">
+            <option value="50">Private Criminal Complaint under IPC — ₹50</option>
+            <option value="50">Complaint U/s 138 Negotiable Instruments Act 1881 — ₹50</option>
+            <option value="50">Petition U/s 125 Cr.P.C — ₹50</option>
+            <option value="10">Anticipatory Bail Application — ₹10</option>
+            <option value="10">Criminal Misc. Application — ₹10</option>
+          </optgroup>
+          <optgroup label="Miscellaneous">
+            <option value="10">Power of Attorney (Vakalatnama) — ₹10</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label>Process fee</label>
+          <select id="cjm-process" onchange="calc()">
+            <option value="0">None</option>
+            <option value="50">₹50 — Complaint under IPC / Act</option>
+            <option value="25">₹25 — Criminal Misc. Application</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Vakalatnama (if separate)</label>
+          <select id="cjm-vak" onchange="calc()">
+            <option value="0">Not required</option>
+            <option value="10">Yes — ₹10</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECOVERY PANEL -->
+    <div id="panel-recovery" class="hidden">
+      <p class="section-title">Recovery Suit — graduated fee (Court Fees Act 2010 amendment)</p>
+      <div class="field">
+        <label>Amount claimed in suit (₹)</label>
+        <input type="number" id="rec-amount" value="100000" min="1" oninput="calc()">
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label>Process fee</label>
+          <select id="rec-process" onchange="calc()">
+            <option value="0">None</option>
+            <option value="50">Yes — ₹50</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Vakalatnama</label>
+          <select id="rec-vak" onchange="calc()">
+            <option value="0">Not required</option>
+            <option value="10">Yes — ₹10</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- COPYING PANEL -->
+    <div id="panel-copying" class="hidden">
+      <p class="section-title">Copying agency charges — Vol. IV Chapter 17 HC Rules</p>
+      <div class="field">
+        <label>Type of document</label>
+        <select id="copy-type" onchange="calc()">
+          <option value="civil">Judgments / Decrees / Orders — Civil cases (₹2/page, min ₹5)</option>
+          <option value="criminal">Judgments / Papers — Criminal cases (₹2/page, min ₹5)</option>
+          <option value="exhibit">Original documents / Exhibits (₹2/page, min ₹5)</option>
+          <option value="partb">Documents in Part-B of file (₹2/page, min ₹5)</option>
+          <option value="unattested">Unattested copies of all documents (₹1/page, min ₹2)</option>
+          <option value="register">Entries in register (₹1 per entry per copy)</option>
+        </select>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label>Number of pages</label>
+          <input type="number" id="copy-pages" value="10" min="1" oninput="calc()">
+        </div>
+        <div class="field">
+          <label>Number of additional carbon copies</label>
+          <input type="number" id="copy-carbon" value="0" min="0" oninput="calc()">
+        </div>
+      </div>
+      <div class="field">
+        <label>Urgent fee applicable?</label>
+        <select id="copy-urgent" onchange="calc()">
+          <option value="0">No</option>
+          <option value="5">Yes — ₹5 extra per copy</option>
+        </select>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+  <div class="result-box" id="resultBox">
+    <div class="result-label">Total court fee payable</div>
+    <div class="result-total" id="rtotal">₹0</div>
+    <div class="result-words" id="rwords"></div>
+    <div class="breakdown" id="breakdown"></div>
+    <div id="slabNote"></div>
+    <p class="note" id="rnote"></p>
+    <div>
+      <button class="reset-btn" onclick="resetCalc()">↺ Reset</button>
+      <button class="print-btn" onclick="printCalc()">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+        Print / Save as PDF
+      </button>
+    </div>
+  </div>
+
+  <div class="print-footer" id="printFooter">
+    <p>This is an estimated calculation for reference only. Actual court fee is subject to the court's assessment. Prepared using vikrampanwar.com — Vikram Panwar, Advocate, District Courts, Charkhi Dadri &amp; Bhiwani.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p><a href="https://vikrampanwar.com" style="color:inherit;text-decoration:none;">vikrampanwar.com</a> &nbsp;·&nbsp; Legal tools for reference only &nbsp;·&nbsp; 2026</p>
+</footer>
+
+<script>
+let currentCase = 'dsj';
+
+function setCase(c, el) {
+  currentCase = c;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  ['dsj','cjsd','cjm','recovery','copying'].forEach(p => {
+    document.getElementById('panel-'+p).classList.toggle('hidden', p !== c);
+  });
+  calc();
+}
+
+function fmt(n) { return '₹' + Math.round(n).toLocaleString('en-IN'); }
+function v(id) { return parseFloat(document.getElementById(id).value) || 0; }
+function si(id) { return parseInt(document.getElementById(id).value) || 0; }
+function gv(id) { return document.getElementById(id).value; }
+
+function toWords(n) {
+  const a = ['','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+  const b = ['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+  n = Math.round(n);
+  if (n === 0) return 'zero';
+  let s = '';
+  if (n >= 10000000) { s += toWords(Math.floor(n/10000000)) + ' crore '; n %= 10000000; }
+  if (n >= 100000) { s += toWords(Math.floor(n/100000)) + ' lakh '; n %= 100000; }
+  if (n >= 1000) { s += toWords(Math.floor(n/1000)) + ' thousand '; n %= 1000; }
+  if (n >= 100) { s += a[Math.floor(n/100)] + ' hundred '; n %= 100; }
+  if (n > 0) { if (s !== '') s += 'and '; if (n < 20) s += a[n]; else s += b[Math.floor(n/10)] + (n%10 ? ' ' + a[n%10] : ''); }
+  return s.trim();
+}
+
+const RECOVERY_SLABS = [
+  {from:1,to:10000,base:0,rate:2.5,baseAt:1,label:'Up to ₹10,000 — 2½% of amount exceeding ₹1'},
+  {from:10000,to:20000,base:250,rate:3.5,baseAt:10000,label:'₹10,000–20,000 — ₹250 + 3½% of excess over ₹10,000'},
+  {from:20000,to:30000,base:600,rate:4.5,baseAt:20000,label:'₹20,000–30,000 — ₹600 + 4½% of excess over ₹20,000'},
+  {from:30000,to:40000,base:1050,rate:5.5,baseAt:30000,label:'₹30,000–40,000 — ₹1,050 + 5½% of excess over ₹30,000'},
+  {from:40000,to:50000,base:1600,rate:6.5,baseAt:40000,label:'₹40,000–50,000 — ₹1,600 + 6½% of excess over ₹40,000'},
+  {from:50000,to:60000,base:2250,rate:7.5,baseAt:50000,label:'₹50,000–60,000 — ₹2,250 + 7½% of excess over ₹50,000'},
+  {from:60000,to:75000,base:3000,rate:6.5,baseAt:60000,label:'₹60,000–75,000 — ₹3,000 + 6½% of excess over ₹60,000'},
+  {from:75000,to:100000,base:3975,rate:5.5,baseAt:75000,label:'₹75,000–1,00,000 — ₹3,975 + 5½% of excess over ₹75,000'},
+  {from:100000,to:200000,base:5350,rate:3.5,baseAt:100000,label:'₹1,00,000–2,00,000 — ₹5,350 + 3½% of excess over ₹1,00,000'},
+  {from:200000,to:300000,base:8850,rate:2.25,baseAt:200000,label:'₹2,00,000–3,00,000 — ₹8,850 + 2¼% of excess over ₹2,00,000'},
+  {from:300000,to:400000,base:11100,rate:2.25,baseAt:300000,label:'₹3,00,000–4,00,000 — ₹11,100 + 2¼% of excess over ₹3,00,000'},
+  {from:400000,to:Infinity,base:13350,rate:2.25,baseAt:400000,label:'Above ₹4,00,000 — ₹13,350 + 2¼% of excess over ₹4,00,000'},
+];
+
+function calcRecovery(amt) {
+  let slab = RECOVERY_SLABS.find(s => amt > s.from && amt <= s.to) || RECOVERY_SLABS[RECOVERY_SLABS.length-1];
+  let fee = slab.base + (amt - slab.baseAt) * (slab.rate / 100);
+  return { fee: Math.round(fee), slabLabel: slab.label };
+}
+
+function calc() {
+  let rows = [], total = 0, note = '', slabHTML = '';
+
+  if (currentCase === 'dsj') {
+    let fpr = parseInt(document.getElementById('dsj-type').value) || 50;
+    let rel = si('dsj-reliefs');
+    let proc = parseInt(document.getElementById('dsj-process').value) || 0;
+    let vak = parseInt(document.getElementById('dsj-vak').value) || 0;
+    let caseFee = fpr * rel;
+    total = caseFee + proc + vak;
+    rows = [['Court fee (₹'+fpr+' × '+rel+' relief'+(rel>1?'s':'')+')', fmt(caseFee)]];
+    if (proc > 0) rows.push(['Process fee', fmt(proc)]);
+    if (vak > 0) rows.push(['Vakalatnama', fmt(vak)]);
+    note = 'Court Fees Act 1870 — District & Sessions Judge, Haryana.';
+  }
+
+  else if (currentCase === 'cjsd') {
+    let fpr = parseInt(document.getElementById('cjsd-type').value) || 50;
+    let rel = si('cjsd-reliefs');
+    let proc = parseInt(document.getElementById('cjsd-process').value) || 0;
+    let vak = parseInt(document.getElementById('cjsd-vak').value) || 0;
+    let caseFee = fpr * rel;
+    total = caseFee + proc + vak;
+    rows = [['Court fee (₹'+fpr+' × '+rel+' relief'+(rel>1?'s':'')+')', fmt(caseFee)]];
+    if (proc > 0) rows.push(['Process fee', fmt(proc)]);
+    if (vak > 0) rows.push(['Vakalatnama', fmt(vak)]);
+    note = 'Court Fees Act 1870 — Civil Judge (Senior Division), Haryana.';
+  }
+
+  else if (currentCase === 'cjm') {
+    let fee = parseInt(document.getElementById('cjm-type').value) || 50;
+    let proc = parseInt(document.getElementById('cjm-process').value) || 0;
+    let vak = parseInt(document.getElementById('cjm-vak').value) || 0;
+    total = fee + proc + vak;
+    rows = [['Court fee', fmt(fee)]];
+    if (proc > 0) rows.push(['Process fee', fmt(proc)]);
+    if (vak > 0) rows.push(['Vakalatnama', fmt(vak)]);
+    note = 'Court fees — Chief Judicial Magistrate, Haryana.';
+  }
+
+  else if (currentCase === 'recovery') {
+    let amt = v('rec-amount');
+    let proc = parseInt(document.getElementById('rec-process').value) || 0;
+    let vak = parseInt(document.getElementById('rec-vak').value) || 0;
+    let { fee, slabLabel } = calcRecovery(amt);
+    total = fee + proc + vak;
+    rows = [
+      ['Claim amount', fmt(amt)],
+      ['Court fee (graduated slab)', fmt(fee)],
+    ];
+    if (proc > 0) rows.push(['Process fee', fmt(proc)]);
+    if (vak > 0) rows.push(['Vakalatnama', fmt(vak)]);
+    slabHTML = '<div class="slab-note">Slab applied: ' + slabLabel + '</div>';
+    note = 'Recovery Suit — Court Fees Act 2010 amendment, Haryana District Courts.';
+  }
+
+  else if (currentCase === 'copying') {
+    let type = gv('copy-type');
+    let pages = si('copy-pages');
+    let carbon = si('copy-carbon');
+    let urgent = parseInt(document.getElementById('copy-urgent').value) || 0;
+    let ratePerPage = (type === 'unattested') ? 1 : (type === 'register') ? 1 : 2;
+    let min = (type === 'unattested') ? 2 : (type === 'register') ? 1 : 5;
+    let mainCopy = Math.max(ratePerPage * pages, min);
+    let carbonFee = carbon * pages;
+    let urgentFee = urgent > 0 ? 5 : 0;
+    total = mainCopy + carbonFee + urgentFee;
+    rows = [
+      ['Attested copy ('+pages+' pages × ₹'+ratePerPage+', min ₹'+min+')', fmt(mainCopy)],
+    ];
+    if (carbon > 0) rows.push(['Additional carbon copies ('+carbon+' × '+pages+' pages × ₹1)', fmt(carbonFee)]);
+    if (urgentFee > 0) rows.push(['Urgent fee', fmt(urgentFee)]);
+    note = 'Vol. IV Chapter 17 of Punjab & Haryana High Court Rules and Orders — Rate of fee for copies (Copying Agency).';
+  }
+
+  document.getElementById('rtotal').textContent = fmt(total);
+  document.getElementById('rwords').textContent = toWords(total) + ' rupees';
+  let html = '';
+  rows.forEach(r => { html += `<div class="brow"><span class="brow-label">${r[0]}</span><span class="brow-value">${r[1]}</span></div>`; });
+  html += `<div class="brow brow-sub"><span class="brow-label">Total payable</span><span class="brow-value">${fmt(total)}</span></div>`;
+  document.getElementById('breakdown').innerHTML = html;
+  document.getElementById('slabNote').innerHTML = slabHTML;
+  document.getElementById('rnote').textContent = note;
+
+  let d = new Date().toLocaleDateString('en-IN', {day:'numeric',month:'long',year:'numeric'});
+  document.getElementById('phSub').textContent = 'Calculated on: ' + d;
+}
+
+function resetCalc() {
+  document.querySelectorAll('input[type="number"]').forEach(i => { i.value = i.defaultValue || 1; });
+  document.querySelectorAll('select').forEach(s => { s.selectedIndex = 0; });
+  calc();
+}
+
+function printCalc() { window.print(); }
+
+calc();
+</script>
+
+</body>
+</html>

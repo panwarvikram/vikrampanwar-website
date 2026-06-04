@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MACT Compensation Calculator — vikrampanwar.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1a18; --ink-2: #4a4a46; --ink-3: #7a7a74; --ink-4: #b0b0a8;
+      --paper: #f7f4ee; --paper-2: #eeebe2; --rule: rgba(26,26,24,0.1);
+      --serif: 'EB Garamond', Georgia, serif; --sans: 'DM Sans', system-ui, sans-serif;
+      --pad: clamp(1.25rem, 4vw, 2.5rem); --max: 760px;
+    }
+    body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem var(--pad); border-bottom: 0.5px solid var(--rule); background: var(--paper); }
+    .nav-name { font-family: var(--serif); font-size: 16px; color: var(--ink); text-decoration: none; }
+    .nav-back { font-size: 12px; color: var(--ink-3); text-decoration: none; letter-spacing: 0.04em; }
+    .nav-back:hover { color: var(--ink); }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 2rem var(--pad) 4rem; }
+    h1 { font-family: var(--serif); font-size: clamp(24px, 5vw, 34px); font-weight: 400; margin-bottom: 0.4rem; }
+    .subtitle { font-size: 13px; color: var(--ink-3); margin-bottom: 2rem; }
+    .case-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 2rem; }
+    .tab { padding: 9px 4px; font-size: 12px; font-weight: 500; text-align: center; border: 0.5px solid var(--rule); border-radius: 6px; cursor: pointer; color: var(--ink-3); background: transparent; font-family: var(--sans); transition: all .15s; }
+    .tab.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .tab:hover:not(.active) { background: var(--paper-2); }
+    .section-title { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin: 1.5rem 0 0.75rem; }
+    .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .field { margin-bottom: 1rem; }
+    .field label { display: block; font-size: 13px; color: var(--ink-2); margin-bottom: 5px; }
+    .field input, .field select { width: 100%; padding: 8px 10px; font-size: 14px; border: 0.5px solid var(--rule); border-radius: 6px; background: white; color: var(--ink); font-family: var(--sans); outline: none; }
+    .field input:focus, .field select:focus { border-color: var(--ink-3); }
+    .auto-note { font-size: 11px; color: var(--ink-4); margin-top: 3px; }
+    .mw-btn { font-size: 11px; padding: 4px 10px; border: 0.5px solid var(--rule); border-radius: 4px; background: var(--paper-2); color: var(--ink-3); cursor: pointer; font-family: var(--sans); margin-top: 4px; }
+    .mw-btn:hover { color: var(--ink); border-color: var(--ink-3); }
+    .divider { border: none; border-top: 0.5px solid var(--rule); margin: 1.5rem 0; }
+    .result-box { background: white; border: 0.5px solid var(--rule); border-radius: 10px; padding: 1.5rem; margin-top: 1rem; }
+    .result-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 4px; }
+    .result-total { font-family: var(--serif); font-size: 36px; font-weight: 400; color: var(--ink); margin-bottom: 0.25rem; }
+    .result-words { font-size: 13px; color: var(--ink-3); margin-bottom: 1.25rem; font-style: italic; }
+    .breakdown { border-top: 0.5px solid var(--rule); padding-top: 1rem; }
+    .brow { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 4px 0; }
+    .brow-label { font-size: 13px; color: var(--ink-3); flex: 1; }
+    .brow-value { font-size: 13px; font-weight: 500; color: var(--ink); white-space: nowrap; }
+    .brow-sub { border-top: 0.5px solid var(--rule); margin-top: 6px; padding-top: 6px; }
+    .brow-sub .brow-label { color: var(--ink); font-weight: 500; font-size: 14px; }
+    .brow-sub .brow-value { font-size: 14px; }
+    .interest-note { font-size: 12px; color: var(--ink-3); margin-top: 8px; font-style: italic; }
+    .citations { margin-top: 1rem; padding: 0.75rem 1rem; background: var(--paper-2); border-radius: 6px; }
+    .citations p { font-size: 12px; color: var(--ink-3); line-height: 1.6; }
+    .citations strong { color: var(--ink-2); font-weight: 500; }
+    .print-btn { display: flex; align-items: center; gap: 8px; margin-top: 1.25rem; padding: 10px 20px; background: var(--ink); color: var(--paper); border: none; border-radius: 6px; font-size: 14px; font-weight: 500; font-family: var(--sans); cursor: pointer; transition: opacity .15s; }
+    .print-btn:hover { opacity: 0.85; }
+    .hidden { display: none; }
+    footer { text-align: center; padding: 2rem var(--pad); border-top: 0.5px solid var(--rule); }
+    footer p { font-size: 11px; color: var(--ink-4); }
+
+    @media (max-width: 520px) {
+      .case-tabs { grid-template-columns: repeat(2, 1fr); }
+      .grid2, .grid3 { grid-template-columns: 1fr; }
+    }
+
+    /* PRINT STYLES */
+    @media print {
+      body { background: white; font-size: 12pt; }
+      nav, .case-tabs, .print-btn, .calc-inputs { display: none !important; }
+      .wrap { padding: 0; max-width: 100%; }
+      .result-box { border: 1px solid #ccc; box-shadow: none; }
+      .print-header { display: block !important; }
+      .print-footer { display: block !important; }
+      h1 { font-size: 20pt; }
+      .result-total { font-size: 28pt; }
+    }
+    .print-header { display: none; padding-bottom: 1rem; border-bottom: 1px solid #ccc; margin-bottom: 1rem; }
+    .print-footer { display: none; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #ccc; font-size: 11px; color: #888; }
+    .ph-title { font-family: var(--serif); font-size: 20pt; margin-bottom: 4px; }
+    .ph-sub { font-size: 10pt; color: #666; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="https://vikrampanwar.com">Vikram Panwar, Advocate</a>
+  <a class="nav-back" href="https://vikrampanwar.com">← Back to home</a>
+</nav>
+
+<div class="wrap">
+
+  <div class="print-header" id="printHeader">
+    <div class="ph-title">MACT Compensation — Estimated Calculation</div>
+    <div class="ph-sub" id="phSub"></div>
+  </div>
+
+  <h1>MACT compensation calculator</h1>
+  <p class="subtitle">Based on Sarla Verma (2009), Pranay Sethi (2017) &amp; Raj Kumar (2011) — for reference &amp; pleading assistance</p>
+
+  <div class="case-tabs">
+    <button class="tab active" onclick="setCase('death',this)">Death</button>
+    <button class="tab" onclick="setCase('injury',this)">Injury</button>
+    <button class="tab" onclick="setCase('disability',this)">Disability</button>
+    <button class="tab" onclick="setCase('property',this)">Property</button>
+  </div>
+
+  <!-- CLAIMANT DETAILS -->
+  <div class="calc-inputs">
+    <div class="section-title">Claimant / case details (for print)</div>
+    <div class="grid2">
+      <div class="field"><label>Claim petition no.</label><input type="text" id="petition" placeholder="e.g. MAC Pet. No. 123/2024" oninput="calc()"></div>
+      <div class="field"><label>Date of accident</label><input type="date" id="accdate" oninput="calc()"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Name of deceased / injured</label><input type="text" id="victimname" placeholder="Full name" oninput="calc()"></div>
+      <div class="field"><label>Name of claimant(s)</label><input type="text" id="claimantname" placeholder="Full name(s)" oninput="calc()"></div>
+    </div>
+
+    <!-- DEATH PANEL -->
+    <div id="panel-death">
+      <div class="section-title">Victim details</div>
+      <div class="grid2">
+        <div class="field">
+          <label>Age of deceased</label>
+          <input type="number" id="d-age" value="35" min="1" max="80" oninput="deathAutoM()">
+          <div class="auto-note" id="d-mnote">Multiplier auto-set from age</div>
+        </div>
+        <div class="field">
+          <label>Employment type</label>
+          <select id="d-emp" onchange="calc()">
+            <option value="permanent">Permanent / salaried</option>
+            <option value="self" selected>Self-employed / fixed salary</option>
+            <option value="unemployed">Unemployed / homemaker</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label>Monthly income (₹)</label>
+          <input type="number" id="d-income" value="15000" oninput="calc()">
+          <button class="mw-btn" onclick="setMW('d-income')">Use Haryana min. wage (unskilled)</button>
+        </div>
+        <div class="field">
+          <label>Number of dependents</label>
+          <select id="d-deps" onchange="calc()">
+            <option value="1">1 dependent — deduct 1/2</option>
+            <option value="2" selected>2–3 dependents — deduct 1/3</option>
+            <option value="4">4+ dependents — deduct 1/4</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label>Multiplier (Sarla Verma table)</label>
+          <input type="number" id="d-mult" value="13" min="1" max="18" step="1" oninput="calc()">
+        </div>
+        <div class="field">
+          <label>Years case pending (for interest)</label>
+          <input type="number" id="d-years" value="2" min="0" max="30" oninput="calc()">
+        </div>
+      </div>
+      <div class="section-title">Conventional heads (Pranay Sethi 2017)</div>
+      <div class="grid3">
+        <div class="field"><label>Funeral expenses (₹)</label><input type="number" id="d-fun" value="15000" oninput="calc()"></div>
+        <div class="field"><label>Loss of estate (₹)</label><input type="number" id="d-est" value="15000" oninput="calc()"></div>
+        <div class="field"><label>Consortium (₹)</label><input type="number" id="d-cons" value="40000" oninput="calc()"></div>
+      </div>
+      <div class="field"><label>Medical expenses before death (₹)</label><input type="number" id="d-med" value="0" oninput="calc()"></div>
+    </div>
+
+    <!-- INJURY PANEL -->
+    <div id="panel-injury" class="hidden">
+      <div class="section-title">Claimant details</div>
+      <div class="grid2">
+        <div class="field">
+          <label>Age</label>
+          <input type="number" id="i-age" value="30" oninput="calc()">
+        </div>
+        <div class="field">
+          <label>Monthly income (₹)</label>
+          <input type="number" id="i-income" value="12000" oninput="calc()">
+          <button class="mw-btn" onclick="setMW('i-income')">Use Haryana min. wage</button>
+        </div>
+      </div>
+      <div class="section-title">Treatment & loss of income</div>
+      <div class="grid2">
+        <div class="field"><label>Medical / hospital expenses (₹)</label><input type="number" id="i-med" value="50000" oninput="calc()"></div>
+        <div class="field"><label>Future medical expenses (₹)</label><input type="number" id="i-futmed" value="0" oninput="calc()"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Days of hospitalisation</label><input type="number" id="i-days" value="30" oninput="calc()"></div>
+        <div class="field"><label>Months unable to work</label><input type="number" id="i-months" value="2" oninput="calc()"></div>
+      </div>
+      <div class="section-title">Non-pecuniary heads</div>
+      <div class="grid2">
+        <div class="field"><label>Pain &amp; suffering (₹)</label><input type="number" id="i-pain" value="50000" oninput="calc()"></div>
+        <div class="field"><label>Attendant charges (₹)</label><input type="number" id="i-attend" value="10000" oninput="calc()"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Loss of amenities (₹)</label><input type="number" id="i-amen" value="20000" oninput="calc()"></div>
+        <div class="field"><label>Conveyance for treatment (₹)</label><input type="number" id="i-conv" value="5000" oninput="calc()"></div>
+      </div>
+      <div class="field"><label>Years case pending (for interest)</label><input type="number" id="i-years" value="2" min="0" max="30" oninput="calc()"></div>
+    </div>
+
+    <!-- DISABILITY PANEL -->
+    <div id="panel-disability" class="hidden">
+      <div class="section-title">Victim details</div>
+      <div class="grid2">
+        <div class="field">
+          <label>Age</label>
+          <input type="number" id="dis-age" value="30" oninput="disAutoM()">
+          <div class="auto-note" id="dis-mnote">Multiplier auto-set from age</div>
+        </div>
+        <div class="field">
+          <label>Employment type</label>
+          <select id="dis-emp" onchange="calc()">
+            <option value="permanent">Permanent / salaried</option>
+            <option value="self" selected>Self-employed / fixed salary</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label>Monthly income (₹)</label>
+          <input type="number" id="dis-income" value="15000" oninput="calc()">
+          <button class="mw-btn" onclick="setMW('dis-income')">Use Haryana min. wage</button>
+        </div>
+        <div class="field">
+          <label>Disability % (functional)</label>
+          <input type="number" id="dis-pct" value="50" min="1" max="100" oninput="calc()">
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label>Disability type</label>
+          <select id="dis-type" onchange="calc()">
+            <option value="permanent">Permanent total disability</option>
+            <option value="partial" selected>Permanent partial disability</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Multiplier (Sarla Verma)</label>
+          <input type="number" id="dis-mult" value="16" min="1" max="18" oninput="calc()">
+        </div>
+      </div>
+      <div class="section-title">Other heads</div>
+      <div class="grid2">
+        <div class="field"><label>Medical expenses (₹)</label><input type="number" id="dis-med" value="75000" oninput="calc()"></div>
+        <div class="field"><label>Future medical care (₹)</label><input type="number" id="dis-futmed" value="0" oninput="calc()"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Pain &amp; suffering (₹)</label><input type="number" id="dis-pain" value="50000" oninput="calc()"></div>
+        <div class="field"><label>Attendant charges (₹)</label><input type="number" id="dis-attend" value="0" oninput="calc()"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Loss of amenities (₹)</label><input type="number" id="dis-amen" value="25000" oninput="calc()"></div>
+        <div class="field"><label>Years case pending (for interest)</label><input type="number" id="dis-years" value="2" min="0" max="30" oninput="calc()"></div>
+      </div>
+    </div>
+
+    <!-- PROPERTY PANEL -->
+    <div id="panel-property" class="hidden">
+      <div class="section-title">Vehicle &amp; damage details</div>
+      <div class="grid2">
+        <div class="field">
+          <label>Vehicle type</label>
+          <select id="p-type" onchange="calc()">
+            <option value="car">Car / jeep</option>
+            <option value="two">Two-wheeler</option>
+            <option value="truck">Truck / commercial vehicle</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Is it a total loss?</label>
+          <select id="p-totalloss" onchange="calc()">
+            <option value="no">No — repairable</option>
+            <option value="yes">Yes — total loss</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Market value at time of accident (₹)</label><input type="number" id="p-mktval" value="300000" oninput="calc()"></div>
+        <div class="field"><label>Repair estimate (₹)</label><input type="number" id="p-repair" value="80000" oninput="calc()"></div>
+      </div>
+      <div class="section-title">Additional losses</div>
+      <div class="grid3">
+        <div class="field"><label>Towing / salvage (₹)</label><input type="number" id="p-tow" value="2000" oninput="calc()"></div>
+        <div class="field"><label>Loss of use / transport (₹)</label><input type="number" id="p-use" value="5000" oninput="calc()"></div>
+        <div class="field"><label>Other property damage (₹)</label><input type="number" id="p-other" value="0" oninput="calc()"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- RESULT -->
+  <div class="result-box" id="resultBox">
+    <div class="result-label">Estimated total compensation</div>
+    <div class="result-total" id="rtotal">₹0</div>
+    <div class="result-words" id="rwords"></div>
+    <div class="breakdown" id="breakdown"></div>
+    <div class="interest-note" id="interestNote"></div>
+    <div class="citations" id="citations"></div>
+    <button class="print-btn" onclick="printCalc()">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+      Print / Save as PDF
+    </button>
+  </div>
+
+  <div class="print-footer" id="printFooter">
+    <p>This is an estimated calculation for reference purposes only. Actual compensation is subject to evidence led before the Tribunal and the discretion of the court. Prepared using vikrampanwar.com — Vikram Panwar, Advocate, District Courts, Charkhi Dadri &amp; Bhiwani.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p><a href="/index.html" style="color:inherit;text-decoration:none;">vikrampanwar.com</a> &nbsp;·&nbsp; Legal tools for reference only &nbsp;·&nbsp; 2026</p>
+</footer>
+
+<script>
+  const HARYANA_MW = 10765;
+  const INTEREST_RATE = 0.09;
+  const MT = [[0,18],[1,18],[2,18],[3,18],[4,18],[5,18],[6,18],[7,18],[8,18],[9,18],[10,18],[11,18],[12,18],[13,18],[14,18],[15,18],[16,18],[17,18],[18,18],[19,18],[20,18],[21,18],[22,18],[23,18],[24,18],[25,18],[26,17],[27,17],[28,16],[29,16],[30,16],[31,15],[32,15],[33,14],[34,14],[35,13],[36,13],[37,12],[38,12],[39,11],[40,11],[41,10],[42,10],[43,9],[44,9],[45,8],[46,8],[47,7],[48,7],[49,6],[50,6],[51,5],[52,5],[53,4],[54,4],[55,3],[56,3],[57,2],[58,2],[59,2],[60,1],[61,1]];
+
+  let currentCase = 'death';
+
+  function gm(age) { let a = Math.min(Math.max(parseInt(age)||25,0),61); let f = MT.find(r=>r[0]===a); return f?f[1]:1; }
+  function fmt(n) { return '₹' + Math.round(n).toLocaleString('en-IN'); }
+  function v(id) { return parseFloat(document.getElementById(id).value)||0; }
+  function si(id) { return parseInt(document.getElementById(id).value)||0; }
+  function gv(id) { return document.getElementById(id).value; }
+
+  function setMW(id) { document.getElementById(id).value = HARYANA_MW; calc(); }
+
+  function setCase(c, el) {
+    currentCase = c;
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    el.classList.add('active');
+    ['death','injury','disability','property'].forEach(p => {
+      document.getElementById('panel-'+p).classList.toggle('hidden', p!==c);
+    });
+    calc();
+  }
+
+  function deathAutoM() { let m=gm(si('d-age')); document.getElementById('d-mult').value=m; document.getElementById('d-mnote').textContent='Auto: age '+si('d-age')+' → multiplier ×'+m+' (Sarla Verma)'; calc(); }
+  function disAutoM() { let m=gm(si('dis-age')); document.getElementById('dis-mult').value=m; document.getElementById('dis-mnote').textContent='Auto: age '+si('dis-age')+' → multiplier ×'+m+' (Sarla Verma)'; calc(); }
+
+  function fp(age, emp) {
+    if(emp==='unemployed') return {rate:0,label:'Not applicable'};
+    if(emp==='permanent') {
+      if(age<40) return {rate:.50,label:'50% (permanent employment, below 40 — Pranay Sethi)'};
+      if(age<=50) return {rate:.30,label:'30% (permanent employment, 40–50 — Pranay Sethi)'};
+      if(age<=60) return {rate:.15,label:'15% (permanent employment, 50–60 — Pranay Sethi)'};
+      return {rate:0,label:'Nil (above 60)'};
+    }
+    if(age<40) return {rate:.40,label:'40% (self-employed, below 40 — Pranay Sethi)'};
+    if(age<=50) return {rate:.25,label:'25% (self-employed, 40–50 — Pranay Sethi)'};
+    if(age<=60) return {rate:.10,label:'10% (self-employed, 50–60 — Pranay Sethi)'};
+    return {rate:0,label:'Nil (above 60)'};
+  }
+
+  function toWords(n) {
+    const a=['','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+    const b=['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+    n = Math.round(n);
+    if(n===0) return 'zero';
+    if(n<0) return 'minus '+toWords(-n);
+    let str='';
+    if(n>=10000000){str+=toWords(Math.floor(n/10000000))+' crore ';n%=10000000;}
+    if(n>=100000){str+=toWords(Math.floor(n/100000))+' lakh ';n%=100000;}
+    if(n>=1000){str+=toWords(Math.floor(n/1000))+' thousand ';n%=1000;}
+    if(n>=100){str+=a[Math.floor(n/100)]+' hundred ';n%=100;}
+    if(n>0){if(str!=='')str+='and ';if(n<20)str+=a[n];else str+=b[Math.floor(n/10)]+(n%10?' '+a[n%10]:'');}
+    return str.trim().replace(/\s+/g,' ');
+  }
+
+  function calc() {
+    let rows=[], total=0, interestText='', citationHTML='';
+    let petition=document.getElementById('petition').value;
+    let accdate=document.getElementById('accdate').value;
+    let victim=document.getElementById('victimname').value;
+    let claimant=document.getElementById('claimantname').value;
+
+    if(currentCase==='death'){
+      let age=si('d-age'), emp=gv('d-emp'), income=v('d-income');
+      let deps=gv('d-deps'), mult=si('d-mult'), years=si('d-years');
+      let funeral=v('d-fun'), estate=v('d-est'), cons=v('d-cons'), med=v('d-med');
+      let fpData=fp(age,emp);
+      let ann=income*12;
+      let annFP=ann*(1+fpData.rate);
+      let dedRate=deps==='1'?.5:deps==='2'?1/3:.25;
+      let dedLabel=deps==='1'?'1/2 (1 dependent)':deps==='2'?'1/3 (2–3 dependents)':'1/4 (4+ dependents)';
+      let dep=annFP*(1-dedRate);
+      let lod=dep*mult;
+      let conv=funeral+estate+cons+med;
+      total=lod+conv;
+      let interest=total*INTEREST_RATE*years;
+      let grandTotal=total+interest;
+      rows=[
+        ['Monthly income',fmt(income)],
+        ['Annual income (×12)',fmt(ann)],
+        ['Future prospects ('+fpData.label+')',fmt(ann*fpData.rate)],
+        ['Income after adding future prospects',fmt(annFP)],
+        ['Less: personal & living expenses ('+dedLabel+')','-'+fmt(annFP*dedRate)],
+        ['Annual dependency amount',fmt(dep)],
+        ['Loss of dependency (×multiplier '+mult+')',fmt(lod)],
+        ['—'],
+        ['Funeral expenses [Pranay Sethi — ₹15,000]',fmt(funeral)],
+        ['Loss of estate [Pranay Sethi — ₹15,000]',fmt(estate)],
+        ['Loss of consortium [Pranay Sethi — ₹40,000]',fmt(cons)],
+        ['Medical expenses (pre-death)',fmt(med)],
+      ];
+      interestText = years>0 ? 'Interest @ 9% p.a. for '+years+' year(s): '+fmt(interest)+' | Total with interest: '+fmt(grandTotal) : '';
+      citationHTML = '<strong>Sarla Verma v. DTC (2009) 6 SCC 121</strong> — multiplier table (age of deceased). <strong>National Insurance Co. v. Pranay Sethi (2017) 16 SCC 680</strong> — future prospects percentages; conventional heads (funeral ₹15,000, loss of estate ₹15,000, consortium ₹40,000).';
+    }
+
+    else if(currentCase==='injury'){
+      let income=v('i-income'), days=si('i-days'), months=si('i-months'), years=si('i-years');
+      let med=v('i-med'), futmed=v('i-futmed'), pain=v('i-pain'), attend=v('i-attend'), amen=v('i-amen'), conv=v('i-conv');
+      let dailyLoss=(income*12/365)*days;
+      let monthlyLoss=income*months;
+      total=med+futmed+dailyLoss+monthlyLoss+pain+attend+amen+conv;
+      let interest=total*INTEREST_RATE*years;
+      rows=[
+        ['Medical / hospital expenses',fmt(med)],
+        ['Future medical expenses',fmt(futmed)],
+        ['Loss of income during hospitalisation ('+days+' days)',fmt(dailyLoss)],
+        ['Loss of income during recovery ('+months+' months)',fmt(monthlyLoss)],
+        ['Pain & suffering',fmt(pain)],
+        ['Attendant / nursing charges',fmt(attend)],
+        ['Loss of amenities of life',fmt(amen)],
+        ['Conveyance for treatment',fmt(conv)],
+      ];
+      interestText = years>0 ? 'Interest @ 9% p.a. for '+years+' year(s): '+fmt(interest)+' | Total with interest: '+fmt(total+interest) : '';
+      citationHTML = '<strong>Motor Vehicles Act 1988, Section 166.</strong> Heads as settled by Supreme Court in <strong>Ramachandrappa v. Manager, Royal Sundaram (2011) 13 SCC 236</strong> and related precedents.';
+    }
+
+    else if(currentCase==='disability'){
+      let age=si('dis-age'), emp=gv('dis-emp'), income=v('dis-income');
+      let pct=Math.min(v('dis-pct'),100)/100, mult=si('dis-mult'), years=si('dis-years');
+      let med=v('dis-med'), futmed=v('dis-futmed'), pain=v('dis-pain'), attend=v('dis-attend'), amen=v('dis-amen');
+      let fpData=fp(age,emp);
+      let ann=income*12*(1+fpData.rate);
+      let capLoss=ann*pct*mult;
+      total=capLoss+med+futmed+pain+attend+amen;
+      let interest=total*INTEREST_RATE*years;
+      rows=[
+        ['Annual income with future prospects ('+fpData.label+')',fmt(ann)],
+        ['Loss of earning capacity: '+Math.round(pct*100)+'% disability × multiplier '+mult,fmt(capLoss)],
+        ['Medical expenses',fmt(med)],
+        ['Future medical care',fmt(futmed)],
+        ['Pain & suffering',fmt(pain)],
+        ['Attendant charges',fmt(attend)],
+        ['Loss of amenities',fmt(amen)],
+      ];
+      interestText = years>0 ? 'Interest @ 9% p.a. for '+years+' year(s): '+fmt(interest)+' | Total with interest: '+fmt(total+interest) : '';
+      citationHTML = '<strong>Raj Kumar v. Ajay Kumar (2011) 1 SCC 343</strong> — disability % applied to functional loss of earning capacity. <strong>Pranay Sethi (2017)</strong> for future prospects. <strong>Sarla Verma (2009)</strong> for multiplier.';
+    }
+
+    else if(currentCase==='property'){
+      let mktval=v('p-mktval'), repair=v('p-repair'), totalloss=gv('p-totalloss');
+      let tow=v('p-tow'), use=v('p-use'), other=v('p-other');
+      let vehicleComp=totalloss==='yes'?mktval:Math.min(repair,mktval);
+      let compLabel=totalloss==='yes'?'Market value (total loss — vehicle written off)':'Repair cost (capped at market value)';
+      total=vehicleComp+tow+use+other;
+      rows=[
+        [compLabel,fmt(vehicleComp)],
+        ['Towing / salvage charges',fmt(tow)],
+        ['Loss of use / alternate transport',fmt(use)],
+        ['Other property damage',fmt(other)],
+      ];
+      citationHTML = '<strong>Motor Vehicles Act 1988, Section 166.</strong> Total loss compensation = pre-accident market value. Repair cost capped at market value. Loss of use allowed as per judicial discretion.';
+    }
+
+    document.getElementById('rtotal').textContent = fmt(total);
+    document.getElementById('rwords').textContent = toWords(total)+' rupees (estimated)';
+
+    let html='';
+    rows.forEach(r=>{
+      if(r[0]==='—'){ html+='<div style="border-top:.5px solid var(--rule);margin:6px 0"></div>'; return; }
+      html+=`<div class="brow"><span class="brow-label">${r[0]}</span><span class="brow-value">${r[1]}</span></div>`;
+    });
+    html+=`<div class="brow brow-sub"><span class="brow-label">Total estimated compensation</span><span class="brow-value">${fmt(total)}</span></div>`;
+    document.getElementById('breakdown').innerHTML=html;
+    document.getElementById('interestNote').textContent=interestText;
+    document.getElementById('citations').innerHTML='<p>'+citationHTML+'</p>';
+
+    let sub = [];
+    if(petition) sub.push('Petition: '+petition);
+    if(victim) sub.push('Deceased/Injured: '+victim);
+    if(claimant) sub.push('Claimant(s): '+claimant);
+    if(accdate) sub.push('Date of accident: '+new Date(accdate).toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'}));
+    sub.push('Calculated on: '+new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'}));
+    document.getElementById('phSub').textContent = sub.join('   |   ');
+  }
+
+  function printCalc() { window.print(); }
+
+  deathAutoM();
+</script>
+
+</body>
+</html>

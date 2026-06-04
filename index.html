@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vikram Panwar, Advocate — District Courts & Tribunals, Haryana. Civil, Criminal, Matrimonial, MACT & Consumer matters." />
+  <title>Vikram Panwar, Advocate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a18;
+      --ink-2: #4a4a46;
+      --ink-3: #7a7a74;
+      --ink-4: #b0b0a8;
+      --paper: #f7f4ee;
+      --paper-2: #eeebe2;
+      --rule: rgba(26,26,24,0.1);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --max: 820px;
+      --pad: clamp(1.5rem, 5vw, 4rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem var(--pad);
+      border-bottom: 0.5px solid var(--rule);
+      background: var(--paper);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      color: var(--ink-3);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    /* WRAPPER */
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 4rem var(--pad) 3rem;
+      border-bottom: 0.5px solid var(--rule);
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      margin-bottom: 1rem;
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(40px, 7vw, 62px);
+      font-weight: 400;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: var(--ink-3);
+      letter-spacing: 0.03em;
+      margin-bottom: 2rem;
+    }
+
+    .hero-bio {
+      font-size: 15px;
+      color: var(--ink-2);
+      line-height: 1.8;
+      max-width: 580px;
+    }
+
+    .legacy {
+      border-left: 1.5px solid var(--ink-4);
+      padding-left: 1.1rem;
+      margin-top: 2rem;
+      max-width: 520px;
+    }
+
+    .legacy p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--ink-3);
+      line-height: 1.65;
+    }
+
+    .legacy span {
+      display: block;
+      font-size: 11px;
+      color: var(--ink-4);
+      letter-spacing: 0.06em;
+      margin-top: 8px;
+      text-transform: uppercase;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 2.5rem var(--pad);
+      border-bottom: 0.5px solid var(--rule);
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      margin-bottom: 1.5rem;
+    }
+
+    /* PRACTICE AREAS */
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 10px;
+    }
+
+    .practice-item {
+      background: var(--paper-2);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .practice-item .icon {
+      font-size: 20px;
+      margin-bottom: 10px;
+      display: block;
+      opacity: 0.6;
+    }
+
+    .practice-item h3 {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .practice-item p {
+      font-size: 12px;
+      color: var(--ink-3);
+    }
+
+    .practice-item.wide {
+      grid-column: 1 / -1;
+    }
+
+    /* TOOLS */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 10px;
+    }
+
+    .tool-card {
+      border: 0.5px solid var(--rule);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      text-decoration: none;
+      display: block;
+      transition: background 0.15s, border-color 0.15s;
+      cursor: pointer;
+      background: transparent;
+      color: inherit;
+    }
+
+    .tool-card:hover { background: var(--paper-2); border-color: var(--ink-3); }
+    .tool-card:hover h3 { color: var(--ink); }
+
+    .tool-card .icon {
+      font-size: 20px;
+      display: block;
+      margin-bottom: 10px;
+      opacity: 0.5;
+    }
+
+    .tool-card h3 {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    .tool-card.soon h3 { color: var(--ink-4); }
+
+    /* CHAMBERS */
+    .chambers {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .chamber {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .chamber-line {
+      width: 1.5px;
+      background: var(--ink-4);
+      flex-shrink: 0;
+      align-self: stretch;
+      min-height: 36px;
+      margin-top: 3px;
+    }
+
+    .chamber h3 {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 5px;
+    }
+
+    .chamber p {
+      font-size: 13px;
+      color: var(--ink-3);
+      line-height: 1.5;
+    }
+
+    /* CONTACT */
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .contact-row .icon {
+      font-size: 18px;
+      opacity: 0.4;
+      flex-shrink: 0;
+      width: 24px;
+      text-align: center;
+    }
+
+    .contact-row a {
+      font-size: 15px;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 0.5px solid var(--rule);
+      padding-bottom: 1px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .contact-row a:hover {
+      color: var(--ink-2);
+      border-color: var(--ink-3);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2rem var(--pad);
+      text-align: center;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    footer p {
+      font-size: 11px;
+      color: var(--ink-4);
+      letter-spacing: 0.04em;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero  { animation: fadeUp 0.6s ease both; }
+    .section:nth-child(2) { animation: fadeUp 0.6s ease 0.1s both; }
+    .section:nth-child(3) { animation: fadeUp 0.6s ease 0.15s both; }
+    .section:nth-child(4) { animation: fadeUp 0.6s ease 0.2s both; }
+    .section:nth-child(5) { animation: fadeUp 0.6s ease 0.25s both; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="https://vikrampanwar.com" style="text-decoration:none;color:inherit;">Vikram Panwar, Advocate</a>
+    <ul class="nav-links">
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <p class="hero-eyebrow">Advocate &amp; Legal Consultant</p>
+    <h1 class="hero-name">Vikram Panwar</h1>
+    <p class="hero-sub">District Courts &amp; Tribunals &nbsp;&middot;&nbsp; <strong>Charkhi Dadri &amp; Bhiwani</strong></p>
+    <p class="hero-bio">Adv. Vikram Panwar is a practising advocate appearing before District Courts and Tribunals across Charkhi Dadri and Bhiwani. With a broad practice spanning civil, criminal, matrimonial, motor accident, and consumer matters, he brings focused, practical counsel to every case — guided by legacy, committed to justice.</p>
+    <div class="legacy">
+      <p>Carrying forward the legacy of Late Thakur Vijay Singh Panwar (Advocate) — a name that has stood with honour at these courts since the 1970s.</p>
+      <span>Est. 1970s &nbsp;&middot;&nbsp; <strong>Charkhi Dadri &amp; Bhiwani</strong></span>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-label">Practice areas</p>
+    <div class="practice-grid">
+      <div class="practice-item">
+        <span class="icon">⚖️</span>
+        <h3>Civil</h3>
+        <p>Property, contracts &amp; recovery</p>
+      </div>
+      <div class="practice-item">
+        <span class="icon">🛡️</span>
+        <h3>Criminal</h3>
+        <p>Bail, trials &amp; appeals</p>
+      </div>
+      <div class="practice-item">
+        <span class="icon">👨‍👩‍👧</span>
+        <h3>Matrimonial</h3>
+        <p>Divorce, custody &amp; maintenance</p>
+      </div>
+      <div class="practice-item">
+        <span class="icon">🚗</span>
+        <h3>MACT</h3>
+        <p>Accident claims &amp; compensation</p>
+      </div>
+      <div class="practice-item wide">
+        <span class="icon">📋</span>
+        <h3>Consumer Protection</h3>
+        <p>District &amp; State Consumer Forums</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="tools">
+    <p class="section-label">Legal tools</p>
+    <div class="tools-grid">
+      <div class="tool-card" onclick="window.location.href='https://vikrampanwar.com/court-fee.html'">
+        <span class="icon">🧮</span>
+        <h3>Court fee calculator</h3>
+      </div>
+      <div class="tool-card" onclick="window.location.href='https://vikrampanwar.com/mact.html'">
+        <span class="icon">🚘</span>
+        <h3>MACT compensation calculator</h3>
+      </div>
+      <div class="tool-card" onclick="window.location.href='https://vikrampanwar.com/limitation.html'">
+        <span class="icon">📅</span>
+        <h3>Limitation period calculator</h3>
+      </div>
+      <div class="tool-card soon">
+        <span class="icon">＋</span>
+        <h3>More tools coming soon</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="contact">
+    <p class="section-label">Chambers</p>
+    <div class="chambers">
+      <div class="chamber">
+        <div class="chamber-line"></div>
+        <div>
+          <h3>Chamber No. 04</h3>
+          <p>District Court Complex, Charkhi Dadri — 127 306</p>
+        </div>
+      </div>
+      <div class="chamber">
+        <div class="chamber-line"></div>
+        <div>
+          <h3>Chamber No. 269</h3>
+          <p>District Courts, Bhiwani</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-label">Contact</p>
+    <div class="contact-list">
+      <div class="contact-row">
+        <span class="icon">📞</span>
+        <a href="tel:+919813920488">+91 98139 20488</a>
+      </div>
+      <div class="contact-row">
+        <span class="icon">✉️</span>
+        <a href="mailto:advocate@vikrampanwar.com">advocate@vikrampanwar.com</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>vikrampanwar.com &nbsp;&middot;&nbsp; All rights reserved &nbsp;&middot;&nbsp; 2026</p>
+  </footer>
+
+</body>
+</html>
