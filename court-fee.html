@@ -122,7 +122,11 @@
             <option value="150">Petition U/s 9 Arbitration &amp; Conciliation Act — ₹150</option>
             <option value="200">Execution Petition U/s 36 Arbitration Act — ₹200</option>
           </optgroup>
-          <optgroup label="Matrimonial">
+          <optgroup label="Bail matters (Sessions Court)">
+            <option value="10">Bail Application (Anticipatory) — ₹10</option>
+            <option value="10">Bail Application (Regular) — ₹10</option>
+          </optgroup>
+          <optgroup label="Family court">
             <option value="50">HMA U/s 13 &amp; 13-B / Section 24 HM Act — ₹50</option>
             <option value="100">Special Marriage Act — ₹100</option>
             <option value="500">Parsi Marriage &amp; Divorce Act 1936 — ₹500</option>
@@ -131,7 +135,6 @@
           <optgroup label="Criminal">
             <option value="10">Criminal Appeal (accused on bail) — ₹10</option>
             <option value="10">Criminal Revision — ₹10</option>
-            <option value="10">Bail Application (Anticipatory) — ₹10</option>
             <option value="10">Criminal Misc. Application — ₹10</option>
           </optgroup>
           <optgroup label="Miscellaneous">
@@ -157,10 +160,11 @@
         </div>
       </div>
       <div class="field">
-        <label>Vakalatnama (if separate from above)</label>
+        <label>Vakalatnama + Bar Welfare Fund</label>
         <select id="dsj-vak" onchange="calc()">
           <option value="0">Not required / already included</option>
-          <option value="10">Yes — ₹10</option>
+          <option value="10">Vakalatnama only — ₹10</option>
+          <option value="110">Vakalatnama + Bar Welfare Fund — ₹110 (₹10 + ₹100)</option>
         </select>
       </div>
     </div>
@@ -203,10 +207,11 @@
         </div>
       </div>
       <div class="field">
-        <label>Vakalatnama (if separate)</label>
+        <label>Vakalatnama + Bar Welfare Fund</label>
         <select id="cjsd-vak" onchange="calc()">
           <option value="0">Not required / already included</option>
-          <option value="10">Yes — ₹10</option>
+          <option value="10">Vakalatnama only — ₹10</option>
+          <option value="110">Vakalatnama + Bar Welfare Fund — ₹110 (₹10 + ₹100)</option>
         </select>
       </div>
     </div>
@@ -217,14 +222,15 @@
       <div class="field">
         <label>Case type</label>
         <select id="cjm-type" onchange="calc()">
-          <optgroup label="Criminal">
+          <optgroup label="Criminal complaints">
             <option value="50">Private Criminal Complaint under IPC — ₹50</option>
             <option value="50">Complaint U/s 138 Negotiable Instruments Act 1881 — ₹50</option>
-            <option value="50">Petition U/s 125 Cr.P.C — ₹50</option>
-            <option value="10">Anticipatory Bail Application — ₹10</option>
-            <option value="10">Criminal Misc. Application — ₹10</option>
+          </optgroup>
+          <optgroup label="Family court / maintenance">
+            <option value="50">Petition U/s 125 Cr.P.C (Maintenance) — ₹50</option>
           </optgroup>
           <optgroup label="Miscellaneous">
+            <option value="10">Criminal Misc. Application — ₹10</option>
             <option value="10">Power of Attorney (Vakalatnama) — ₹10</option>
           </optgroup>
         </select>
@@ -239,10 +245,11 @@
           </select>
         </div>
         <div class="field">
-          <label>Vakalatnama (if separate)</label>
+          <label>Vakalatnama + Bar Welfare Fund</label>
           <select id="cjm-vak" onchange="calc()">
             <option value="0">Not required</option>
-            <option value="10">Yes — ₹10</option>
+            <option value="10">Vakalatnama only — ₹10</option>
+            <option value="110">Vakalatnama + Bar Welfare Fund — ₹110 (₹10 + ₹100)</option>
           </select>
         </div>
       </div>
@@ -264,10 +271,11 @@
           </select>
         </div>
         <div class="field">
-          <label>Vakalatnama</label>
+          <label>Vakalatnama + Bar Welfare Fund</label>
           <select id="rec-vak" onchange="calc()">
             <option value="0">Not required</option>
-            <option value="10">Yes — ₹10</option>
+            <option value="10">Vakalatnama only — ₹10</option>
+            <option value="110">Vakalatnama + Bar Welfare Fund — ₹110 (₹10 + ₹100)</option>
           </select>
         </div>
       </div>
@@ -389,6 +397,12 @@ function calcRecovery(amt) {
   return { fee: Math.round(fee), slabLabel: slab.label };
 }
 
+function vakRows(vak) {
+  if (vak === 110) return [['Vakalatnama', fmt(10)], ['Bar Welfare Fund', fmt(100)]];
+  if (vak === 10) return [['Vakalatnama', fmt(10)]];
+  return [];
+}
+
 function calc() {
   let rows = [], total = 0, note = '', slabHTML = '';
 
@@ -401,7 +415,7 @@ function calc() {
     total = caseFee + proc + vak;
     rows = [['Court fee (₹'+fpr+' × '+rel+' relief'+(rel>1?'s':'')+')', fmt(caseFee)]];
     if (proc > 0) rows.push(['Process fee', fmt(proc)]);
-    if (vak > 0) rows.push(['Vakalatnama', fmt(vak)]);
+    rows.push(...vakRows(vak));
     note = 'Court Fees Act 1870 — District & Sessions Judge, Haryana.';
   }
 
@@ -414,7 +428,7 @@ function calc() {
     total = caseFee + proc + vak;
     rows = [['Court fee (₹'+fpr+' × '+rel+' relief'+(rel>1?'s':'')+')', fmt(caseFee)]];
     if (proc > 0) rows.push(['Process fee', fmt(proc)]);
-    if (vak > 0) rows.push(['Vakalatnama', fmt(vak)]);
+    rows.push(...vakRows(vak));
     note = 'Court Fees Act 1870 — Civil Judge (Senior Division), Haryana.';
   }
 
@@ -425,7 +439,7 @@ function calc() {
     total = fee + proc + vak;
     rows = [['Court fee', fmt(fee)]];
     if (proc > 0) rows.push(['Process fee', fmt(proc)]);
-    if (vak > 0) rows.push(['Vakalatnama', fmt(vak)]);
+    rows.push(...vakRows(vak));
     note = 'Court fees — Chief Judicial Magistrate, Haryana.';
   }
 
@@ -440,7 +454,7 @@ function calc() {
       ['Court fee (graduated slab)', fmt(fee)],
     ];
     if (proc > 0) rows.push(['Process fee', fmt(proc)]);
-    if (vak > 0) rows.push(['Vakalatnama', fmt(vak)]);
+    rows.push(...vakRows(vak));
     slabHTML = '<div class="slab-note">Slab applied: ' + slabLabel + '</div>';
     note = 'Recovery Suit — Court Fees Act 2010 amendment, Haryana District Courts.';
   }
