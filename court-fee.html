@@ -94,6 +94,7 @@
     <button class="tab" onclick="setCase('cjsd',this)">Civil Judge SD</button>
     <button class="tab" onclick="setCase('cjm',this)">CJM / Magistrate</button>
     <button class="tab" onclick="setCase('recovery',this)">Recovery Suit</button>
+    <button class="tab" onclick="setCase('family',this)">Family Court</button>
     <button class="tab" onclick="setCase('copying',this)">Copying charges</button>
   </div>
 
@@ -282,6 +283,59 @@
     </div>
 
     <!-- COPYING PANEL -->
+    <!-- FAMILY COURT PANEL -->
+    <div id="panel-family" class="hidden">
+      <p class="section-title">Nature of case — Family Court</p>
+      <div class="field">
+        <label>Case type</label>
+        <select id="fam-type" onchange="calc()">
+          <optgroup label="Hindu Marriage Act">
+            <option value="50">HMA Petition U/s 13 (Divorce) — ₹50</option>
+            <option value="50">HMA Petition U/s 13-B (Mutual Divorce) — ₹50</option>
+            <option value="50">HMA Petition U/s 9 (Restitution of Conjugal Rights) — ₹50</option>
+            <option value="50">HMA Petition U/s 11 (Nullity of Marriage) — ₹50</option>
+            <option value="50">HMA Section 24 (Maintenance pendente lite) — ₹50</option>
+          </optgroup>
+          <optgroup label="Maintenance & Custody">
+            <option value="50">Petition U/s 125 Cr.P.C (Maintenance) — ₹50</option>
+            <option value="50">Guardian & Wards Act Petition (Custody) — ₹50</option>
+            <option value="50">Domestic Violence Act Petition — ₹50</option>
+          </optgroup>
+          <optgroup label="Special Acts">
+            <option value="100">Special Marriage Act — ₹100</option>
+            <option value="500">Parsi Marriage &amp; Divorce Act 1936 — ₹500</option>
+          </optgroup>
+          <optgroup label="Miscellaneous">
+            <option value="10">Civil Misc. Application — ₹10</option>
+            <option value="10">Execution Application — ₹10</option>
+            <option value="10">Power of Attorney (Vakalatnama) — ₹10</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label>Number of reliefs claimed</label>
+          <input type="number" id="fam-reliefs" value="1" min="1" max="10" oninput="calc()">
+        </div>
+        <div class="field">
+          <label>Process fee</label>
+          <select id="fam-process" onchange="calc()">
+            <option value="0">None</option>
+            <option value="50">Yes — ₹50</option>
+            <option value="25">Yes — ₹25 (Misc. Application)</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Vakalatnama + Bar Welfare Fund</label>
+        <select id="fam-vak" onchange="calc()">
+          <option value="0">Not required / already included</option>
+          <option value="10">Vakalatnama only — ₹10</option>
+          <option value="110">Vakalatnama + Bar Welfare Fund — ₹110 (₹10 + ₹100)</option>
+        </select>
+      </div>
+    </div>
+
     <div id="panel-copying" class="hidden">
       <p class="section-title">Copying agency charges — Vol. IV Chapter 17 HC Rules</p>
       <div class="field">
@@ -351,7 +405,7 @@ function setCase(c, el) {
   currentCase = c;
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
-  ['dsj','cjsd','cjm','recovery','copying'].forEach(p => {
+  ['dsj','cjsd','cjm','recovery','family','copying'].forEach(p => {
     document.getElementById('panel-'+p).classList.toggle('hidden', p !== c);
   });
   calc();
@@ -457,6 +511,19 @@ function calc() {
     rows.push(...vakRows(vak));
     slabHTML = '<div class="slab-note">Slab applied: ' + slabLabel + '</div>';
     note = 'Recovery Suit — Court Fees Act 2010 amendment, Haryana District Courts.';
+  }
+
+  else if (currentCase === 'family') {
+    let fpr = parseInt(document.getElementById('fam-type').value) || 50;
+    let rel = si('fam-reliefs');
+    let proc = parseInt(document.getElementById('fam-process').value) || 0;
+    let vak = parseInt(document.getElementById('fam-vak').value) || 0;
+    let caseFee = fpr * rel;
+    total = caseFee + proc + vak;
+    rows = [['Court fee (₹'+fpr+' × '+rel+' relief'+(rel>1?'s':'')+')', fmt(caseFee)]];
+    if (proc > 0) rows.push(['Process fee', fmt(proc)]);
+    rows.push(...vakRows(vak));
+    note = 'Court Fees Act 1870 — Family Court, Haryana. HMA, Maintenance, Custody & Matrimonial matters.';
   }
 
   else if (currentCase === 'copying') {
