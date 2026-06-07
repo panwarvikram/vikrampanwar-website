@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>BNSS to CrPC Converter | CrPC to BNSS Section Converter — vikrampanwar.com</title>
+<meta name="description" content="Free BNSS to CrPC and CrPC to BNSS section converter. All 241 sections of Bharatiya Nagarik Suraksha Sanhita 2023. Key changes, new provisions, bail, arrest, FIR, remand sections."/>
+<meta name="keywords" content="BNSS CrPC converter, BNSS to CrPC, CrPC to BNSS, Bharatiya Nagarik Suraksha Sanhita, BNSS 187 CrPC 167, anticipatory bail BNSS 482, FIR BNSS 173, remand BNSS 187, inherent powers BNSS 528 CrPC 482, arrest BNSS 35"/>
+<meta name="author" content="Vikram Panwar, Advocate"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://vikrampanwar.com/bnss-crpc.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://vikrampanwar.com/bnss-crpc.html"/>
+<meta property="og:title" content="BNSS ↔ CrPC Converter — vikrampanwar.com"/>
+<meta property="og:description" content="Free BNSS to CrPC converter. All 241 sections with key changes. Bail, arrest, FIR, remand, cognizance — Bharatiya Nagarik Suraksha Sanhita 2023."/>
+<meta property="og:site_name" content="vikrampanwar.com"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1a18;--ink-2:#4a4a46;--ink-3:#7a7a74;--ink-4:#b0b0a8;
+  --paper:#f7f4ee;--paper-2:#eeebe2;--rule:rgba(26,26,24,0.1);
+  --green:#2d6a4f;--green-bg:#d8f3dc;--red:#9b2226;--red-bg:#fde8e8;
+  --amber:#7d5a00;--amber-bg:#fff3cd;--blue:#1d4e89;--blue-bg:#dbeafe;
+  --serif:"EB Garamond",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;
+  --pad:clamp(1.25rem,4vw,2.5rem);--max:820px;
+}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem var(--pad);border-bottom:0.5px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100}
+.nav-name{font-family:var(--serif);font-size:16px;color:var(--ink);text-decoration:none}
+.nav-back{font-size:12px;color:var(--ink-3);text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:2rem var(--pad) 4rem}
+h1{font-family:var(--serif);font-size:clamp(24px,5vw,34px);font-weight:400;margin-bottom:.3rem}
+.subtitle{font-size:13px;color:var(--ink-3);margin-bottom:1.5rem}
+.section-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1rem}
+.search-box label{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:5px}
+.search-box input{width:100%;padding:10px 14px;font-size:16px;border:0.5px solid var(--rule);border-radius:8px;background:white;color:var(--ink);font-family:var(--sans);outline:none;font-weight:500}
+.search-box input:focus{border-color:var(--ink-3)}
+.search-box input::placeholder{color:var(--ink-4);font-weight:400}
+.divider{border:none;border-top:0.5px solid var(--rule);margin:1.25rem 0}
+.empty-state{text-align:center;padding:3rem 1rem;color:var(--ink-4);font-size:14px}
+
+/* RESULT CARD */
+.result-card{background:white;border:0.5px solid var(--rule);border-radius:12px;overflow:hidden;margin-bottom:12px}
+.card-header{padding:1.25rem 1.5rem;border-bottom:0.5px solid var(--rule)}
+.section-nums{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:.5rem}
+.sec-badge .act{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-4);display:block;margin-bottom:1px}
+.sec-badge .num{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--ink);line-height:1}
+.arrow{font-size:16px;color:var(--ink-4);padding-top:8px}
+.offence-title{font-family:var(--serif);font-size:19px;font-weight:400;color:var(--ink)}
+.card-body{padding:1.25rem 1.5rem}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem}
+.badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:500}
+.badge-new{background:var(--green-bg);color:var(--green)}
+.badge-modified{background:var(--amber-bg);color:var(--amber)}
+.badge-nochange{background:var(--paper-2);color:var(--ink-3)}
+.box{background:var(--paper-2);border-radius:6px;padding:.75rem 1rem;margin-bottom:.75rem}
+.box-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:5px}
+.box-text{font-size:13px;color:var(--ink-2);line-height:1.7}
+.action-row{display:flex;gap:8px;margin-top:1rem;padding-top:1rem;border-top:0.5px solid var(--rule)}
+.action-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:6px;font-size:12px;font-weight:500;font-family:var(--sans);cursor:pointer;border:0.5px solid var(--rule);background:transparent;color:var(--ink-2);transition:all .15s}
+.action-btn:hover{background:var(--paper-2);color:var(--ink)}
+.action-btn.copied{background:var(--green-bg);color:var(--green);border-color:var(--green)}
+
+/* MULTIPLE RESULTS */
+.mini-card{background:white;border:0.5px solid var(--rule);border-radius:8px;padding:1rem 1.25rem;cursor:pointer;transition:background .15s;margin-bottom:8px}
+.mini-card:hover{background:var(--paper-2)}
+.mini-card-row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.mini-sec{font-family:var(--serif);font-size:16px}
+.mini-title{font-size:13px;color:var(--ink-2);margin-top:2px}
+.count-note{font-size:12px;color:var(--ink-3);margin-bottom:.75rem}
+
+footer{text-align:center;padding:2rem var(--pad);border-top:0.5px solid var(--rule);margin-top:2rem}
+footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
+@media print{nav,.section-row,.action-row{display:none!important}body{background:white}}
+@media(max-width:500px){.section-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-name" href="https://vikrampanwar.com">Vikram Panwar, Advocate</a>
+  <a class="nav-back" href="https://vikrampanwar.com">← Back to home</a>
+</nav>
+<div class="wrap">
+  <h1>BNSS ↔ CrPC converter</h1>
+  <p class="subtitle">Enter a CrPC or BNSS section number to get the equivalent — 241 sections of Bharatiya Nagarik Suraksha Sanhita 2023</p>
+
+  <div class="section-row">
+    <div class="search-box">
+      <label>BNSS section</label>
+      <input type="text" id="bnss-input" placeholder="e.g. 187" oninput="search('bnss')"/>
+    </div>
+    <div class="search-box">
+      <label>CrPC section</label>
+      <input type="text" id="crpc-input" placeholder="e.g. 167" oninput="search('crpc')"/>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+  <div id="result-area"><div class="empty-state">Enter a BNSS or CrPC section number above to see the equivalent</div></div>
+</div>
+<footer><p>vikrampanwar.com &nbsp;·&nbsp; BNSS ↔ CrPC Converter &nbsp;·&nbsp; 241 sections<br>For reference only — verify against official BNSS text and Gazette notifications.</p></footer>
+
+<script>
+const DATA=[
+  // DEFINITIONS & COURTS (1–30)
+  {bnss:"1",crpc:"1",subject:"Short title, extent and commencement",summary:"Contains the Act name, Bharatiya Nagarik Suraksha Sanhita, 2023, and provisions regarding the commencement date.",cat:"definitions",change:"modified"},
+  {bnss:"2",crpc:"2",subject:"Definitions",summary:"Several new subsections added: 2(1)(a) audio-video electronic means, 2(1)(b) bail, 2(1)(d) bail bond, 2(1)(e) bond, 2(1)(i) electronic communication. Subsections 2(f), 2(k), 2(q), 2(t) of CrPC excluded. Certain subsections modified.",cat:"definitions",change:"modified"},
+  {bnss:"2(1)(a)",crpc:"—",subject:"Definition: 'audio-video electronic means'",summary:"Newly added definition.",cat:"definitions",change:"new"},
+  {bnss:"2(1)(b)",crpc:"—",subject:"Definition: 'bail'",summary:"Newly added definition.",cat:"definitions",change:"new"},
+  {bnss:"2(1)(d)",crpc:"—",subject:"Definition: 'bail bond'",summary:"Newly added definition.",cat:"definitions",change:"new"},
+  {bnss:"2(1)(e)",crpc:"—",subject:"Definition: 'bond'",summary:"Newly added definition.",cat:"definitions",change:"new"},
+  {bnss:"2(1)(i)",crpc:"—",subject:"Definition: 'electronic communication'",summary:"Newly added definition.",cat:"definitions",change:"new"},
+  {bnss:"2(1)(y)",crpc:"2(wa)",subject:"Definition: 'victim'",summary:"The words 'for which accused person has been charged and the expression victim' are replaced by 'of the accused person'.",cat:"definitions",change:"modified"},
+  {bnss:"2(2)",crpc:"2(y)",subject:"Words and expressions used",summary:"Words used in BNSS but not defined here but defined in Bharatiya Nyaya Sanhita, 2023, and in the Information Technology Act, 2000, shall have the meanings assigned to them.",cat:"definitions",change:"modified"},
+  {bnss:"3",crpc:"3",subject:"Construction of references",summary:"CrPC sub-sections 3(1) and 3(2) excluded; clauses (a) and (b) of sub-section 3(3) merged and rearranged; clauses (c) and (d) of sub-section 3(3) CrPC also excluded.",cat:"definitions",change:"modified"},
+  {bnss:"4",crpc:"4",subject:"Trial of offences under Bharatiya Nyaya Sanhita and other laws",summary:"No change.",cat:"definitions",change:"no-change"},
+  {bnss:"5",crpc:"5",subject:"Saving",summary:"No change.",cat:"definitions",change:"no-change"},
+  {bnss:"6",crpc:"6",subject:"Classes of Criminal Courts",summary:"Words 'in any Metropolitan area, Metropolitan Magistrates' are excluded.",cat:"definitions",change:"modified"},
+  {bnss:"7",crpc:"7",subject:"Territorial divisions",summary:"Proviso related to Metropolitan area excluded.",cat:"definitions",change:"modified"},
+  {bnss:"8",crpc:"9",subject:"Court of Session",summary:"'Assistant Sessions Judges' excluded. New subsections (7) and (8) added. Positions of Judicial Magistrate of the third class, Metropolitan Magistrate, and Assistant Session Judges abolished. Consequential amendments in sections 8, 11, 12, 14, 17, 22, 29, 113, 196, 214, 320, 321, 415, 422, and 436 of BNSS.",cat:"definitions",change:"modified"},
+  {bnss:"9",crpc:"11",subject:"Courts of Judicial Magistrates",summary:"The words 'not being a Metropolitan area' are excluded.",cat:"definitions",change:"modified"},
+  {bnss:"10",crpc:"12",subject:"Chief Judicial Magistrate and Additional Chief Judicial Magistrate",summary:"Words 'not being a Metropolitan area' excluded.",cat:"definitions",change:"modified"},
+  {bnss:"11",crpc:"13",subject:"Special Judicial Magistrates",summary:"Words 'not being a Metropolitan area' excluded.",cat:"definitions",change:"modified"},
+  {bnss:"12",crpc:"14",subject:"Local jurisdiction of Judicial Magistrates",summary:"Words 'Metropolitan area' and Chief Metropolitan Magistrate excluded.",cat:"definitions",change:"modified"},
+  {bnss:"13",crpc:"15",subject:"Subordination of Judicial Magistrates",summary:"No change.",cat:"definitions",change:"no-change"},
+  {bnss:"14",crpc:"20",subject:"Executive Magistrates",summary:"Words 'in any Metropolitan area, Metropolitan Magistrates' excluded.",cat:"definitions",change:"modified"},
+  {bnss:"15",crpc:"21",subject:"Special Executive Magistrates",summary:"New addition: State Government may appoint police officers of the rank Superintendent of Police or equivalent, as Special Executive Magistrates.",cat:"definitions",change:"modified"},
+  {bnss:"16",crpc:"22",subject:"Local Jurisdiction of Executive Magistrates",summary:"No change.",cat:"definitions",change:"no-change"},
+  {bnss:"17",crpc:"23",subject:"Subordination of Executive Magistrates",summary:"Words 'other than the additional District Magistrate' excluded.",cat:"definitions",change:"modified"},
+  {bnss:"18",crpc:"24",subject:"Public Prosecutors",summary:"New proviso added to subsection (1).",cat:"definitions",change:"modified"},
+  {bnss:"19",crpc:"25",subject:"Assistant Public Prosecutors",summary:"Timeline of fourteen days for notice to state government for appointment of APP mentioned. Proviso reframed but meaning is same.",cat:"definitions",change:"modified"},
+  {bnss:"20",crpc:"25A",subject:"Directorate of Prosecution",summary:"New subsection (1)(b) added regarding establishment of District Directorate of Prosecution. Subsections (8), (9), (10) and (11) also newly added.",cat:"definitions",change:"modified"},
+  {bnss:"21",crpc:"26",subject:"Courts by which offences are triable",summary:"No change.",cat:"definitions",change:"no-change"},
+  {bnss:"22",crpc:"28",subject:"Sentences which High Courts and Sessions Judges may pass",summary:"Sub-section 28(3) of CrPC excluded.",cat:"definitions",change:"modified"},
+  {bnss:"23",crpc:"29",subject:"Sentences which Magistrates may pass",summary:"Fine amount changed: ten thousand replaced by fifty thousand; five thousand replaced by ten thousand. Explanation defines 'community service'. Sub-section 29(4) CrPC excluded.",cat:"definitions",change:"modified"},
+
+  // ARREST & CUSTODY (35–62)
+  {bnss:"35",crpc:"41 & 41A",subject:"When police may arrest without warrant",summary:"New subsection 7 added: No arrest without prior permission of officer not below rank of DSP in case of offence punishable for less than three years imprisonment where person is infirm or above sixty years of age.",cat:"arrest",change:"modified"},
+  {bnss:"36",crpc:"41B",subject:"Procedure of arrest and duties of officer making arrest",summary:"Words 'any other person' added in clause (c).",cat:"arrest",change:"modified"},
+  {bnss:"37",crpc:"41C",subject:"Designated Police Officer",summary:"Sub-sections (2) and (3) merged in (1)(b); provision for designating a police officer not below rank of Assistant Sub-Inspector.",cat:"arrest",change:"modified"},
+  {bnss:"38",crpc:"41D",subject:"Right of arrested person to meet an advocate during interrogation",summary:"No change.",cat:"arrest",change:"no-change"},
+  {bnss:"39",crpc:"42",subject:"Arrest on refusal to give name and residence",summary:"Words 'his executing a bond with or without sureties' replaced by 'bond or bail bond'.",cat:"arrest",change:"modified"},
+  {bnss:"40",crpc:"43",subject:"Arrest by private person and procedure on such arrest",summary:"In sub-section (1), 'without unnecessary delay' specified as 'but within six hours from such arrest.' In sub-section (2), 're-arrest' replaced by 'take him in custody'.",cat:"arrest",change:"modified"},
+  {bnss:"41",crpc:"44",subject:"Arrest by Magistrate",summary:"No change.",cat:"arrest",change:"no-change"},
+  {bnss:"42",crpc:"45",subject:"Protection of members of the Armed Forces from arrest",summary:"No change.",cat:"arrest",change:"no-change"},
+  {bnss:"43",crpc:"46",subject:"Arrest how made",summary:"New sub-section (3) added regarding handcuffing of habitual or repeat offender or accused who has committed certain offences mentioned in the sub-section.",cat:"arrest",change:"modified"},
+  {bnss:"44",crpc:"47",subject:"Search of place entered by person sought to be arrested",summary:"No change.",cat:"arrest",change:"no-change"},
+  {bnss:"45",crpc:"48",subject:"Pursuit of offenders into other jurisdictions",summary:"No change.",cat:"arrest",change:"no-change"},
+  {bnss:"46",crpc:"49",subject:"No unnecessary restraint",summary:"No change.",cat:"arrest",change:"no-change"},
+  {bnss:"47",crpc:"50",subject:"Person arrested to be informed of grounds of arrest and right to bail",summary:"No change.",cat:"arrest",change:"no-change"},
+  {bnss:"48",crpc:"50A",subject:"Obligation to inform relative or friend about arrest",summary:"Words 'and also to the designated police officer in the district' added in sub-section (1). In sub-section (3), words 'may be prescribed in this behalf by' replaced by 'may, by rules, provide'.",cat:"arrest",change:"modified"},
+  {bnss:"49",crpc:"51",subject:"Search of arrested person",summary:"No change except word 'whenever' excluded from clause (ii) of sub-section (1).",cat:"arrest",change:"modified"},
+  {bnss:"50",crpc:"52",subject:"Power to seize offensive weapons",summary:"Words 'immediately after the arrest is made' added.",cat:"arrest",change:"modified"},
+  {bnss:"51",crpc:"53",subject:"Examination of accused by medical practitioner at request of police officer",summary:"'Not below the rank of sub-inspector' excluded from sub-section (1); sub-section (3) newly added for forwarding examination reports without delay. 'Indian Medical Council Act, 1956' replaced by 'National Medical Commission Act, 2019'. National Medical Register added as option.",cat:"arrest",change:"modified"},
+  {bnss:"52",crpc:"53A",subject:"Examination of person accused of rape by medical practitioner",summary:"Words 'police officer not below the rank of Sub-Inspector' replaced by 'any police officer'.",cat:"arrest",change:"modified"},
+  {bnss:"53",crpc:"54",subject:"Examination of arrested person by medical officer",summary:"New proviso added to sub-section (1): one more examination may be done if necessary in the opinion of the medical practitioner.",cat:"arrest",change:"modified"},
+  {bnss:"54",crpc:"54A",subject:"Identification of person arrested",summary:"Second proviso excluded; first proviso extended by adding: 'the identification process shall be recorded by any audio-video electronic means'.",cat:"arrest",change:"modified"},
+  {bnss:"55",crpc:"55",subject:"Procedure when police officer deputes subordinate to arrest without warrant",summary:"No change.",cat:"arrest",change:"no-change"},
+  {bnss:"56",crpc:"55A",subject:"Health and safety of arrested person",summary:"No change.",cat:"arrest",change:"no-change"},
+  {bnss:"57",crpc:"56",subject:"Person arrested to be taken before Magistrate or officer in charge of police station",summary:"No change.",cat:"arrest",change:"no-change"},
+  {bnss:"58",crpc:"57",subject:"Person arrested not to be detained more than twenty-four hours",summary:"No change except words 'whether having jurisdiction or not' added.",cat:"arrest",change:"modified"},
+  {bnss:"59",crpc:"58",subject:"Police to report apprehensions",summary:"No change.",cat:"arrest",change:"no-change"},
+  {bnss:"60",crpc:"59",subject:"Discharge of person apprehended",summary:"'Bail' replaced with 'bail bond'.",cat:"arrest",change:"modified"},
+  {bnss:"61",crpc:"60",subject:"Power, on escape, to pursue and retake",summary:"No change.",cat:"arrest",change:"no-change"},
+  {bnss:"62",crpc:"60A",subject:"Arrest to be made strictly according to the Sanhita",summary:"No change.",cat:"arrest",change:"no-change"},
+
+  // SUMMONS & WARRANTS (63–93)
+  {bnss:"63",crpc:"61",subject:"Form of summons",summary:"New clause (ii) added: summons may be issued 'in an encrypted or any other form of electronic communication and shall bear the image of the seal of the Court or digital signature'.",cat:"summons",change:"modified"},
+  {bnss:"64",crpc:"62",subject:"Summons how served",summary:"Two new provisos regarding electronic communication added under sub-sections (1) and (2). Word 'personally' added in sub-section (3).",cat:"summons",change:"modified"},
+  {bnss:"65",crpc:"63",subject:"Service of summons on corporate bodies, firms, and societies",summary:"Director and Manager added in sub-section (1). New sub-section (2) added regarding service of summons on any partner of a firm or other association.",cat:"summons",change:"modified"},
+  {bnss:"66",crpc:"64",subject:"Service when persons summoned cannot be found",summary:"Word 'male' excluded to make provision gender neutral.",cat:"summons",change:"modified"},
+  {bnss:"67",crpc:"65",subject:"Procedure when service cannot be effected as before provided",summary:"No change.",cat:"summons",change:"no-change"},
+  {bnss:"68",crpc:"66",subject:"Service on Government servant",summary:"No change.",cat:"summons",change:"no-change"},
+  {bnss:"69",crpc:"67",subject:"Service of summons outside local limits",summary:"No change.",cat:"summons",change:"no-change"},
+  {bnss:"70",crpc:"68",subject:"Proof of service in such cases and when serving officer not present",summary:"New sub-section (3) added: service of summons through electronic communication shall be considered duly served, and a copy shall be attested and kept as proof.",cat:"summons",change:"modified"},
+  {bnss:"71",crpc:"69",subject:"Service of summons on witness by post",summary:"Words 'by electronic communication or' added in sub-section (1). Sub-section (2) amended to include proof of delivery via electronic communication.",cat:"summons",change:"modified"},
+  {bnss:"72",crpc:"70",subject:"Form of warrant of arrest and duration",summary:"No change.",cat:"summons",change:"no-change"},
+  {bnss:"73",crpc:"71",subject:"Power to direct security to be taken",summary:"No change.",cat:"summons",change:"no-change"},
+  {bnss:"74",crpc:"72",subject:"Warrants to whom directed",summary:"No change.",cat:"summons",change:"no-change"},
+  {bnss:"75",crpc:"73",subject:"Warrant may be directed to any person",summary:"No change.",cat:"summons",change:"no-change"},
+  {bnss:"76",crpc:"74",subject:"Warrant directed to police officer",summary:"No change.",cat:"summons",change:"no-change"},
+  {bnss:"77",crpc:"75",subject:"Notification of substance of warrant",summary:"No change.",cat:"summons",change:"no-change"},
+  {bnss:"78",crpc:"76",subject:"Person arrested to be brought before court without delay",summary:"No change.",cat:"summons",change:"no-change"},
+  {bnss:"79",crpc:"77",subject:"Where warrant may be executed",summary:"No change.",cat:"summons",change:"no-change"},
+  {bnss:"80",crpc:"78",subject:"Warrant forwarded for execution outside jurisdiction",summary:"No change.",cat:"summons",change:"no-change"},
+  {bnss:"81",crpc:"79",subject:"Warrant directed to police officer for execution outside jurisdiction",summary:"No change.",cat:"summons",change:"no-change"},
+  {bnss:"82",crpc:"80",subject:"Procedure on arrest of person against whom warrant issued",summary:"New sub-section (2) added regarding information to designated police officer of the respective district where arrested person resides.",cat:"summons",change:"modified"},
+  {bnss:"83",crpc:"81",subject:"Procedure by Magistrate before whom such person arrested is brought",summary:"Word 'bail' replaced by 'bail bond'.",cat:"summons",change:"modified"},
+  {bnss:"84",crpc:"82",subject:"Proclamation for person absconding",summary:"In sub-section (4), IPC sections replaced by punishments related to corresponding BNS sections; offence punishable for ten years or more mentioned.",cat:"summons",change:"modified"},
+  {bnss:"85",crpc:"83",subject:"Attachment of property of person absconding",summary:"Words 'of property' added in clause (b) of sub-section (1).",cat:"summons",change:"modified"},
+  {bnss:"86",crpc:"—",subject:"Identification and attachment of property of proclaimed person",summary:"Newly added section.",cat:"summons",change:"new"},
+  {bnss:"87",crpc:"84",subject:"Claims and objections to attachment",summary:"No change.",cat:"summons",change:"no-change"},
+  {bnss:"88",crpc:"85",subject:"Release, sale and restoration of attached property",summary:"No change.",cat:"summons",change:"no-change"},
+  {bnss:"89",crpc:"86",subject:"Appeal from order rejecting application for restoration of attached property",summary:"No change.",cat:"summons",change:"no-change"},
+  {bnss:"90",crpc:"87",subject:"Issue of warrant in lieu of, or in addition to, summons",summary:"No change.",cat:"summons",change:"no-change"},
+  {bnss:"91",crpc:"88",subject:"Power to take bond or bail bond for appearance",summary:"Words 'or bail bond' added in heading; 'bond with or without sureties' replaced by 'bond or bail bond'.",cat:"summons",change:"modified"},
+  {bnss:"92",crpc:"89",subject:"Arrest on breach of bond or bail bond for appearance",summary:"Words 'or bail bond' added.",cat:"summons",change:"modified"},
+  {bnss:"93",crpc:"90",subject:"Provisions of this Chapter generally applicable to summonses and warrants",summary:"No change.",cat:"summons",change:"no-change"},
+
+  // SEARCH & SEIZURE (94–124)
+  {bnss:"94",crpc:"91",subject:"Summons to produce document or other thing",summary:"Words 'electronic communication, including communication devices which is likely to contain digital evidence' added. 'Either in physical form or in electronic form' added. Indian Evidence Act sections replaced by Bharatiya Sakshya Adhiniyam, 2023 sections. 'Telegram' excluded.",cat:"search",change:"modified"},
+  {bnss:"95",crpc:"92",subject:"Procedure as to letters",summary:"'Telegram' and 'or telegraph' words excluded.",cat:"search",change:"modified"},
+  {bnss:"96",crpc:"93",subject:"When search-warrant may be issued",summary:"Words 'or telegraph' excluded.",cat:"search",change:"modified"},
+  {bnss:"97",crpc:"94",subject:"Search of place suspected to contain stolen property, forged documents, etc.",summary:"'Metal Token Act, 1889' replaced by 'Coinage Act, 2011'. BNS sections replace corresponding IPC sections.",cat:"search",change:"modified"},
+  {bnss:"98",crpc:"95",subject:"Power to declare certain publications forfeited and to issue search-warrants",summary:"BNS sections replace corresponding IPC sections.",cat:"search",change:"modified"},
+  {bnss:"99",crpc:"96",subject:"Application to High Court to set aside declaration of forfeiture",summary:"No change.",cat:"search",change:"no-change"},
+  {bnss:"100",crpc:"97",subject:"Search for persons wrongfully confined",summary:"No change.",cat:"search",change:"no-change"},
+  {bnss:"101",crpc:"98",subject:"Power to compel restoration of abducted females",summary:"Words 'under the age of eighteen years' and 'husband' excluded.",cat:"search",change:"modified"},
+  {bnss:"102",crpc:"99",subject:"Direction, etc, of search-warrants",summary:"No change.",cat:"search",change:"no-change"},
+  {bnss:"103",crpc:"100",subject:"Persons in charge of closed place to allow search",summary:"In sub-section (8) BNS sections replace corresponding IPC sections.",cat:"search",change:"modified"},
+  {bnss:"104",crpc:"101",subject:"Disposal of things found in search beyond jurisdiction",summary:"No change.",cat:"search",change:"no-change"},
+  {bnss:"105",crpc:"—",subject:"Recording of search and seizure through audio-video electronic means",summary:"Newly added. The process of conducting search or taking possession of any property under this Chapter or under section 185, including preparation of list and signing by witnesses, shall be recorded through audio-video electronic means (preferably mobile phone). Police officer shall forward such recording to District Magistrate, SDM or Judicial Magistrate of the first class without delay.",cat:"search",change:"new"},
+  {bnss:"106",crpc:"102",subject:"Power of police officer to seize certain property",summary:"No change.",cat:"search",change:"no-change"},
+  {bnss:"107",crpc:"—",subject:"Attachment, forfeiture or restoration of property",summary:"Newly added section.",cat:"search",change:"new"},
+  {bnss:"108",crpc:"103",subject:"Magistrate may direct search in his presence",summary:"No change.",cat:"search",change:"no-change"},
+  {bnss:"109",crpc:"104",subject:"Power to impound document, etc, produced",summary:"No change.",cat:"search",change:"no-change"},
+  {bnss:"110",crpc:"105",subject:"Reciprocal arrangements regarding processes",summary:"No change.",cat:"search",change:"no-change"},
+
+  // FIR & INVESTIGATION (173–196)
+  {bnss:"172",crpc:"—",subject:"Persons bound to conform to lawful directions of police",summary:"Newly added. All persons shall conform to lawful directions of a police officer. A police officer may detain or remove any person resisting or ignoring such directions and may take such person before a Magistrate or, in petty cases, release within twenty-four hours.",cat:"fir",change:"new"},
+  {bnss:"173",crpc:"154",subject:"Information in cognizable cases (FIR)",summary:"By adding 'irrespective of the area where the offence is committed', scope expanded to lodge FIR — corresponds to concept of 'zero FIR'. 'By electronic communication' added — known as eFIR. Sub-section (3) newly added for preliminary inquiry for offences punishable for three years or more but less than seven years. Sub-section (4) adds: 'failing which such aggrieved person may make an application to the Magistrate'.",cat:"fir",change:"modified"},
+  {bnss:"174",crpc:"155",subject:"Information as to non-cognizable cases and investigation of such cases",summary:"Clause (ii) in sub-section (1) added regarding forwarding the daily diary report of non-cognizable cases fortnightly to the Magistrate.",cat:"fir",change:"modified"},
+  {bnss:"175",crpc:"156",subject:"Police officer's power to investigate cognizable case",summary:"New proviso to sub-section (1) added. Sub-section (4) newly added to protect public servants against undue harassment in the course of discharge of public duty.",cat:"fir",change:"modified"},
+  {bnss:"176",crpc:"157",subject:"Procedure for investigation",summary:"Audio-video electronic means added in clause (b) of sub-section (1). Sub-section (2): 'forward the daily diary report fortnightly to the Magistrate' added. Sub-section (3) newly added: forensic experts visit crime scene mandatory for offences punishable for seven years or more.",cat:"fir",change:"modified"},
+  {bnss:"177",crpc:"158",subject:"Report how submitted",summary:"No change.",cat:"fir",change:"no-change"},
+  {bnss:"178",crpc:"159",subject:"Power to hold investigation or preliminary inquiry",summary:"No change.",cat:"fir",change:"no-change"},
+  {bnss:"179",crpc:"160",subject:"Police officer's power to require attendance of witnesses",summary:"'Sixty-five years' replaced by 'sixty years' in the first proviso; 'or a person with acute illness' added. One new proviso added. Scope expanded.",cat:"fir",change:"modified"},
+  {bnss:"180",crpc:"161",subject:"Examination of witnesses by police",summary:"No change.",cat:"fir",change:"no-change"},
+  {bnss:"181",crpc:"162",subject:"Statements to police and use thereof",summary:"Heading changed. BSA sections replace corresponding Indian Evidence Act sections.",cat:"fir",change:"modified"},
+  {bnss:"182",crpc:"163",subject:"No inducement to be offered",summary:"No change.",cat:"fir",change:"no-change"},
+  {bnss:"183",crpc:"164",subject:"Recording of confessions and statements",summary:"First proviso to Section 183(6)(a): statements to be recorded by a woman Magistrate as far as practicable. Second proviso: mandatory recording by Magistrate for offences punishable with ten years or more, life imprisonment, or death. Fourth proviso: recording of statement of temporarily or permanently mentally or physically disabled person through audio-video electronic means.",cat:"fir",change:"modified"},
+  {bnss:"184",crpc:"164A",subject:"Medical examination of the victim of rape",summary:"'Without delay' replaced by 'Within a period of seven days' for medical practitioner to forward report to Investigating Officer.",cat:"fir",change:"modified"},
+  {bnss:"185",crpc:"165",subject:"Search by police officer",summary:"Proviso to sub-section (2) mandates recording of search through audio-video or electronic means. Sub-section (5) provides that copies of record under sub-section (1) or (3) shall be sent to Magistrate within 48 hours.",cat:"fir",change:"modified"},
+  {bnss:"186",crpc:"166",subject:"When officer in charge of police station may require another to issue search-warrant",summary:"No change.",cat:"fir",change:"no-change"},
+  {bnss:"187",crpc:"167",subject:"Procedure when investigation cannot be completed in twenty-four hours",summary:"New insertion in sub-section (2): Magistrate may authorise detention for up to fifteen days at any time during the initial forty or sixty days out of the detention period of sixty or ninety days. Magistrate may act irrespective of whether he has jurisdiction to try the case.",cat:"fir",change:"modified"},
+  {bnss:"188",crpc:"168",subject:"Report of investigation by subordinate police officer",summary:"No change.",cat:"fir",change:"no-change"},
+  {bnss:"189",crpc:"169",subject:"Release of accused when evidence deficient",summary:"Words 'with or without sureties' excluded; 'or bail bond' added.",cat:"fir",change:"modified"},
+  {bnss:"190",crpc:"170",subject:"Cases to be sent to Magistrate, when evidence is sufficient",summary:"New proviso added to sub-section (1) regarding taking security from accused not in custody and mandating the Magistrate to accept the same.",cat:"fir",change:"modified"},
+  {bnss:"191",crpc:"171",subject:"Complainant and witnesses not to be required to accompany police officer",summary:"No change.",cat:"fir",change:"no-change"},
+  {bnss:"192",crpc:"172",subject:"Diary of proceedings in investigation",summary:"No change.",cat:"fir",change:"no-change"},
+  {bnss:"193",crpc:"173",subject:"Report of police officer on completion of investigation",summary:"Section 193(2) extends two-month investigation requirement to POCSO offences (Sections 4, 6, 8, 10, 12) in addition to rape and gang rape. Reports to Magistrate may be forwarded by electronic communication. Report shall contain 'the sequence of custody in the case of electronic devices'. Police officer shall within 90 days inform progress of investigation to informant or victim. Sub-section (8) mandates submitting copies of police report for accused. Further investigation during trial permitted with Court permission.",cat:"fir",change:"modified"},
+
+  // COGNIZANCE & PROCESS (210–232)
+  {bnss:"210",crpc:"190",subject:"Cognizance of offences by Magistrates",summary:"Words 'including any complaint filed by a person authorised under any special law' and 'submitted in any mode including electronic mode' added in clauses (a) and (b) of sub-section (1).",cat:"cognizance",change:"modified"},
+  {bnss:"211",crpc:"191",subject:"Transfer on application of the accused",summary:"No change.",cat:"cognizance",change:"no-change"},
+  {bnss:"212",crpc:"192",subject:"Making over of cases to Magistrates",summary:"No change.",cat:"cognizance",change:"no-change"},
+  {bnss:"213",crpc:"193",subject:"Cognizance of offences by Courts of Session",summary:"No change.",cat:"cognizance",change:"no-change"},
+  {bnss:"215",crpc:"195",subject:"Prosecution for contempt of lawful authority, offences against public justice and documents in evidence",summary:"BNS sections replace corresponding IPC sections. Words 'or of some other public servant who is authorised by the concerned public servant so to do' added.",cat:"cognizance",change:"modified"},
+  {bnss:"218",crpc:"197",subject:"Prosecution of Judges and public servants",summary:"BNS sections replace IPC sections. Second proviso to 218(1)(b) added: Government shall take decision within 120 days from date of receipt of request for sanction; if it fails to do so, sanction shall be deemed accorded. This curbs delay tactics to protect accused public servants.",cat:"cognizance",change:"modified"},
+  {bnss:"219",crpc:"198",subject:"Prosecution for offences against marriage",summary:"'Child' replaces 'minor' and 'person under the age of 18 years'. 'Is an idiot, or a lunatic' replaced by 'is of unsound mind or is having intellectual disability requiring higher support needs'.",cat:"cognizance",change:"modified"},
+  {bnss:"223",crpc:"200",subject:"Examination of complainant",summary:"New first proviso to Section 223(1): no cognizance of an offence shall be taken by the Magistrate without giving the accused an opportunity of being heard. New sub-section (2): Magistrate shall not take cognizance on a complaint against a public servant for any offence in course of official duty unless the public servant is given an opportunity to make assertions and a report from the superior officer is received.",cat:"cognizance",change:"modified"},
+  {bnss:"225",crpc:"202",subject:"Postponement of issue of process",summary:"No change.",cat:"cognizance",change:"no-change"},
+  {bnss:"226",crpc:"203",subject:"Dismissal of complaint",summary:"No change.",cat:"cognizance",change:"no-change"},
+  {bnss:"227",crpc:"204",subject:"Issue of process",summary:"New proviso to sub-section (1): summons or warrant may also be issued through electronic means.",cat:"cognizance",change:"modified"},
+  {bnss:"229",crpc:"206",subject:"Special summons in cases of petty offence",summary:"'Pleader' replaced by 'advocate'. Threshold fine for 'petty offence' increased from one thousand to five thousand rupees. Monetary limit in summons increased from one thousand to five thousand rupees. Motor Vehicles Act, 1939 replaced by Motor Vehicles Act, 1988.",cat:"cognizance",change:"modified"},
+  {bnss:"230",crpc:"207",subject:"Supply to accused of copy of police report and other documents",summary:"Documents to be supplied free of cost without delay, and in no case beyond 14 days from the date of production or appearance of the accused. Documents also to be provided to victim if represented by an advocate. Supply in electronic form considered duly furnished.",cat:"cognizance",change:"modified"},
+  {bnss:"231",crpc:"208",subject:"Supply of copies of statements and documents to accused in other cases triable by Court of Session",summary:"Last proviso: supply in electronic form considered duly furnished. 'Pleader' replaced by 'advocate'.",cat:"cognizance",change:"modified"},
+  {bnss:"232",crpc:"209",subject:"Commitment of case to Court of Session when offence is triable exclusively by it",summary:"Two new provisos added. Proceedings to be completed within 90 days from date of taking cognizance; extensible by Magistrate for up to 180 days with written reasons. Second proviso: any application filed by accused or victim before Magistrate shall be forwarded to Court of Session with the committal.",cat:"cognizance",change:"modified"},
+
+  // CHARGE & SESSIONS TRIAL (234–261)
+  {bnss:"234",crpc:"211",subject:"Contents of charge",summary:"No change.",cat:"session",change:"no-change"},
+  {bnss:"235",crpc:"212",subject:"Particulars as to time, place and person",summary:"No change.",cat:"session",change:"no-change"},
+  {bnss:"241",crpc:"218",subject:"Separate charges for distinct offences",summary:"No change.",cat:"session",change:"no-change"},
+  {bnss:"248",crpc:"225",subject:"Trial to be conducted by Public Prosecutor",summary:"No change.",cat:"session",change:"no-change"},
+  {bnss:"249",crpc:"226",subject:"Opening case for prosecution",summary:"Words 'or under any other law for the time being in force' added.",cat:"session",change:"modified"},
+  {bnss:"250",crpc:"227",subject:"Discharge",summary:"New sub-section (1): accused may prefer an application for discharge within 60 days from the date of commencement of the case under Section 232.",cat:"session",change:"modified"},
+  {bnss:"251",crpc:"228",subject:"Framing of charge",summary:"Time limit for framing charge: within 60 days from date of first hearing. Charge may be read and explained to accused 'present either physically or through audio-video electronic means'.",cat:"session",change:"modified"},
+  {bnss:"252",crpc:"229",subject:"Conviction on plea of guilty",summary:"No change.",cat:"session",change:"no-change"},
+  {bnss:"253",crpc:"230",subject:"Date for prosecution evidence",summary:"No change.",cat:"session",change:"no-change"},
+  {bnss:"254",crpc:"231",subject:"Evidence for prosecution",summary:"New proviso: evidence of a witness may be recorded by audio-video electronic means. New sub-section (2): deposition of evidence of any police officer or public servant may be taken through audio-video electronic means.",cat:"session",change:"modified"},
+  {bnss:"255",crpc:"232",subject:"Acquittal",summary:"No change.",cat:"session",change:"no-change"},
+  {bnss:"256",crpc:"233",subject:"Entering upon defence",summary:"No change.",cat:"session",change:"no-change"},
+  {bnss:"257",crpc:"234",subject:"Arguments",summary:"'Pleader' replaced by 'advocate'.",cat:"session",change:"modified"},
+  {bnss:"258",crpc:"235",subject:"Judgment of acquittal or conviction",summary:"New addition for time-bound disposal: Judge shall give judgment within 30 days from completion of arguments, extendable to 45 days with written reasons.",cat:"session",change:"modified"},
+  {bnss:"259",crpc:"236",subject:"Previous conviction",summary:"No change.",cat:"session",change:"no-change"},
+
+  // MAGISTRATE TRIAL & SUMMARY (262–300)
+  {bnss:"262",crpc:"239",subject:"When accused shall be discharged",summary:"New sub-section 262(1): time limit for application for discharge by accused is within 60 days from date of supply of copies of document under section 230. Examination of accused through audio-video electronic means can be done per sub-section (2).",cat:"magistrate",change:"modified"},
+  {bnss:"263",crpc:"240",subject:"Framing of charge",summary:"Time limit for framing charge: within 60 days from date of first hearing on charge.",cat:"magistrate",change:"modified"},
+  {bnss:"264",crpc:"241",subject:"Conviction on plea of guilty",summary:"No change.",cat:"magistrate",change:"no-change"},
+  {bnss:"265",crpc:"242",subject:"Evidence for prosecution",summary:"New proviso to sub-section (3): evidence of a witness may be recorded by audio-video electronic means at designated place notified by State Government.",cat:"magistrate",change:"modified"},
+  {bnss:"266",crpc:"243",subject:"Evidence for defence",summary:"New second proviso to Section 266(2): examination of witnesses may be done by audio-video electronic means at designated place notified by State Government.",cat:"magistrate",change:"modified"},
+  {bnss:"267",crpc:"244",subject:"Evidence for prosecution",summary:"No change.",cat:"magistrate",change:"no-change"},
+  {bnss:"268",crpc:"245",subject:"When accused shall be discharged",summary:"No change.",cat:"magistrate",change:"no-change"},
+  {bnss:"269",crpc:"246",subject:"Procedure where accused is not discharged",summary:"New sub-section (7): if attendance of prosecution witnesses cannot be secured for cross-examination, it shall be deemed that such witness has not been examined for not being available and Magistrate shall proceed further.",cat:"magistrate",change:"modified"},
+  {bnss:"272",crpc:"249",subject:"Absence of complainant",summary:"Magistrate may proceed 'after giving thirty days' time to the complainant to be present'.",cat:"magistrate",change:"modified"},
+  {bnss:"273",crpc:"250",subject:"Compensation for accusation without reasonable cause",summary:"BNS sections replace IPC sections. Compensation amount under sub-section (6) increased from 'one hundred rupees' to 'two thousand rupees'.",cat:"magistrate",change:"modified"},
+  {bnss:"274",crpc:"251",subject:"Substance of accusation to be stated",summary:"New proviso: if Magistrate considers accusation groundless, he shall, after recording reasons in writing, release the accused, and such release shall have the effect of discharge.",cat:"magistrate",change:"modified"},
+  {bnss:"279",crpc:"256",subject:"Non-appearance or death of complainant",summary:"Words 'after giving thirty days' time to the complainant to be present' added. 'Pleader' replaced by 'advocate'.",cat:"magistrate",change:"modified"},
+  {bnss:"283",crpc:"260",subject:"Power to try summarily",summary:"BNS sections replace IPC sections. Sub-section (2) newly added with proviso for trial of offences punishable with three years or less in a summary way. No appeal shall lie against the Magistrate's decision to try a case summarily under this sub-section.",cat:"magistrate",change:"modified"},
+  {bnss:"289",crpc:"265A",subject:"Application of the Chapter (Plea Bargaining)",summary:"'Below the age of fourteen years' excluded from 289(1)(b), thereby expanding the scope.",cat:"magistrate",change:"modified"},
+  {bnss:"290",crpc:"265B",subject:"Application for plea bargaining",summary:"Time limit for plea bargaining: within 30 days from date of framing of charge. 290(4)(a): 'not exceeding sixty days' added regarding accused to work out a mutually satisfactory disposition.",cat:"magistrate",change:"modified"},
+  {bnss:"293",crpc:"265E",subject:"Disposal of the case (Plea Bargaining)",summary:"First-time offenders who opt for plea bargaining may be sentenced to one-fourth of minimum punishment instead of half; and one-ninth instead of one-fourth respectively.",cat:"magistrate",change:"modified"},
+
+  // EVIDENCE & WITNESSES (307–336)
+  {bnss:"307",crpc:"272",subject:"Language of Courts",summary:"No change.",cat:"evidence",change:"no-change"},
+  {bnss:"308",crpc:"273",subject:"Evidence to be taken in presence of accused",summary:"Words 'through audio-video electronic means at the designated place to be notified by the State Government' added.",cat:"evidence",change:"modified"},
+  {bnss:"316",crpc:"281",subject:"Record of examination of accused",summary:"'A Metropolitan Magistrate' replaced by 'any Magistrate, or by a Court of Session'; sub-sections related to Metropolitan Magistrate excluded. New proviso to 316(4): where accused is in custody and examined through electronic communication, his signature shall be taken within seventy-two hours of such examination.",cat:"evidence",change:"modified"},
+  {bnss:"323",crpc:"288",subject:"Return of commission",summary:"BSA sections replace corresponding Indian Evidence Act sections.",cat:"evidence",change:"modified"},
+  {bnss:"326",crpc:"291",subject:"Deposition of medical witness",summary:"No change.",cat:"evidence",change:"no-change"},
+  {bnss:"327",crpc:"291A",subject:"Identification report of Magistrate",summary:"BSA sections replace corresponding Indian Evidence Act sections.",cat:"evidence",change:"modified"},
+  {bnss:"328",crpc:"292",subject:"Evidence of officers of the Mint",summary:"BSA sections replace corresponding Indian Evidence Act sections.",cat:"evidence",change:"modified"},
+  {bnss:"329",crpc:"293",subject:"Reports of certain Government scientific experts",summary:"Words 'State Government or, and or certified' added and 'Government' excluded in 329(4)(g).",cat:"evidence",change:"modified"},
+  {bnss:"330",crpc:"294",subject:"No formal proof of certain documents",summary:"Two new provisos added. Time limit of 30 days for acceptance or denial of genuineness of document. Experts should be called only if disputed by any parties during trial.",cat:"evidence",change:"modified"},
+  {bnss:"331",crpc:"295",subject:"Affidavit in proof of conduct of public servants",summary:"No change.",cat:"evidence",change:"no-change"},
+  {bnss:"332",crpc:"296",subject:"Evidence of formal character on affidavit",summary:"No change.",cat:"evidence",change:"no-change"},
+  {bnss:"335",crpc:"299",subject:"Record of evidence in absence of accused",summary:"No change.",cat:"evidence",change:"no-change"},
+  {bnss:"336",crpc:"—",subject:"Evidence of public servants, experts, police officers in certain cases",summary:"Newly added section. Evidence of public servants, experts, police officers in certain cases may be secured through the successor officer of such a public servant.",cat:"evidence",change:"new"},
+  {bnss:"349",crpc:"311A",subject:"Power of Magistrate to order person to give specimen signatures or handwriting",summary:"Words 'or finger impressions' and 'or voice sample' added. New proviso: Magistrate may, for reasons to be recorded in writing, order any person to give such a specimen or sample without him being arrested.",cat:"evidence",change:"modified"},
+  {bnss:"351",crpc:"313",subject:"Power to examine the accused",summary:"No change.",cat:"evidence",change:"no-change"},
+  {bnss:"353",crpc:"315",subject:"Accused person to be competent witness",summary:"No change.",cat:"evidence",change:"no-change"},
+  {bnss:"355",crpc:"317",subject:"Provision for inquiries and trial in absence of accused in certain cases",summary:"'Pleader' replaced by 'advocate'. New explanation: 'For the purpose of this section, personal attendance of the accused includes attendance through audio-video electronic means'.",cat:"evidence",change:"modified"},
+  {bnss:"356",crpc:"—",subject:"Inquiry, trial or judgment in absentia of proclaimed offender",summary:"Newly added section. Provides for inquiry, trial or judgment in absentia of proclaimed offender. An extraordinary provision.",cat:"evidence",change:"new"},
+
+  // BAIL & BONDS (478–496)
+  {bnss:"478",crpc:"436",subject:"In what cases bail to be taken",summary:"'Bail' replaced by 'or bail bond'. 'Without sureties' excluded. In sub-section (2), 'bond or' and 'or bail bond' added.",cat:"bail",change:"modified"},
+  {bnss:"479",crpc:"436A",subject:"Maximum period for which an undertrial prisoner can be detained",summary:"'Or life imprisonment' added. New proviso: bail for first-time offenders. Two new sub-sections (2) and (3) added regarding bail for individuals with multiple pending investigations or trials for more than one offence, and applications by superintendent of jail.",cat:"bail",change:"modified"},
+  {bnss:"480",crpc:"437",subject:"When bail may be taken in case of non-bailable offence",summary:"In first proviso, 'is under the age of 16 years' replaced by 'child'. In third proviso, 'or for police custody beyond the first fifteen days' added. Words 'without sureties' excluded.",cat:"bail",change:"modified"},
+  {bnss:"481",crpc:"437A",subject:"Bail to require accused to appear before next appellate Court",summary:"Words 'bail bond with sureties' replaced by 'bond or bail bond'.",cat:"bail",change:"modified"},
+  {bnss:"482",crpc:"438",subject:"Direction for grant of bail to person apprehending arrest",summary:"No change.",cat:"bail",change:"no-change"},
+  {bnss:"483",crpc:"439",subject:"Special powers of High Court or Court of Session regarding bail",summary:"No change.",cat:"bail",change:"no-change"},
+  {bnss:"484",crpc:"440",subject:"Amount of bond and reduction thereof",summary:"No change.",cat:"bail",change:"no-change"},
+  {bnss:"485",crpc:"441",subject:"Bond of accused and sureties",summary:"'Bail or released on his own bond' replaced by 'bond or bail bond'. 'Bail' replaced by 'bond or bail bond' in sub-section (1). 'Or bail bond' added in sub-sections (2) and (3).",cat:"bail",change:"modified"},
+  {bnss:"486",crpc:"441A",subject:"Declaration by sureties",summary:"No change.",cat:"bail",change:"no-change"},
+  {bnss:"487",crpc:"442",subject:"Discharge from custody",summary:"Words 'bail bond' added in sub-sections (1) and (2).",cat:"bail",change:"modified"},
+  {bnss:"488",crpc:"443",subject:"Power to order sufficient bail when that first taken is insufficient",summary:"No change.",cat:"bail",change:"no-change"},
+  {bnss:"489",crpc:"444",subject:"Discharge of sureties",summary:"No change.",cat:"bail",change:"no-change"},
+  {bnss:"490",crpc:"445",subject:"Deposit instead of recognizance",summary:"Words 'bond with or without sureties' replaced by 'bond or bail bond'.",cat:"bail",change:"modified"},
+  {bnss:"491",crpc:"446",subject:"Procedure when bond has been forfeited",summary:"No change.",cat:"bail",change:"no-change"},
+  {bnss:"492",crpc:"446A",subject:"Cancellation of bond and bail bond",summary:"Words 'bail bond' added.",cat:"bail",change:"modified"},
+  {bnss:"494",crpc:"448",subject:"Bond required from child",summary:"Word 'minor' replaced by 'child'.",cat:"bail",change:"modified"},
+
+  // JUDGMENT & APPEALS (392–435)
+  {bnss:"392",crpc:"353",subject:"Judgment",summary:"'Pleaders' replaced by 'advocates'. New proviso to sub-section (4): Court shall, as far as practicable, upload copy of judgement on its portal within seven days from date of judgement. Words 'either in person or through audio-video electronic means' added in sub-section (5).",cat:"judgment",change:"modified"},
+  {bnss:"393",crpc:"354",subject:"Language and contents of judgment",summary:"No change.",cat:"judgment",change:"no-change"},
+  {bnss:"395",crpc:"357",subject:"Order to pay compensation",summary:"No change.",cat:"judgment",change:"no-change"},
+  {bnss:"396",crpc:"357A & 357B",subject:"Victim compensation scheme",summary:"No change.",cat:"judgment",change:"no-change"},
+  {bnss:"397",crpc:"357C",subject:"Treatment of victims",summary:"BNS sections replace corresponding IPC sections. POCSO Act sections 4, 6, 8 and 10 added.",cat:"judgment",change:"modified"},
+  {bnss:"398",crpc:"—",subject:"Witness protection scheme",summary:"Newly added. Every State Government shall prepare and notify a Witness Protection Scheme for the State with a view to ensure protection of the witnesses.",cat:"judgment",change:"new"},
+  {bnss:"407",crpc:"366",subject:"Sentence of death to be submitted by Court of Session for confirmation",summary:"Words 'shall be' replaced by 'forthwith'.",cat:"judgment",change:"modified"},
+  {bnss:"413",crpc:"372",subject:"No appeal to lie unless otherwise provided",summary:"No change.",cat:"judgment",change:"no-change"},
+  {bnss:"415",crpc:"374",subject:"Appeals from convictions",summary:"'A Metropolitan Magistrate or Assistant Sessions Judge' excluded.",cat:"judgment",change:"modified"},
+  {bnss:"417",crpc:"376",subject:"No appeal in petty cases",summary:"'Metropolitan Magistrate' excluded. Imprisonment limit reduced from six months to three months.",cat:"judgment",change:"modified"},
+  {bnss:"418",crpc:"377",subject:"Appeal by the State Government against sentence",summary:"Words 'the Delhi Special Police Establishment, constituted under the Delhi Special Police Establishment Act, 1946, or by any other' excluded.",cat:"judgment",change:"modified"},
+  {bnss:"419",crpc:"378",subject:"Appeal in case of acquittal",summary:"Same as section 418 — Delhi Special Police Establishment reference excluded.",cat:"judgment",change:"modified"},
+  {bnss:"430",crpc:"389",subject:"Suspension of sentence pending appeal; release of appellant on bail",summary:"'Or bail bond' added.",cat:"judgment",change:"modified"},
+  {bnss:"436",crpc:"395",subject:"Reference to High Court",summary:"'Metropolitan Magistrate' and 'or him' excluded.",cat:"judgment",change:"modified"},
+  {bnss:"438",crpc:"397",subject:"Calling for records to exercise powers of revision",summary:"Words 'or bail bond' added and 'bail' excluded.",cat:"judgment",change:"modified"},
+  {bnss:"447",crpc:"407",subject:"Power of High Court to transfer cases and appeals",summary:"In sub-section (4) 'or bail bond' added and 'with or without sureties' excluded. 'Not exceeding one thousand rupees' excluded from sub-section (7).",cat:"judgment",change:"modified"},
+  {bnss:"448",crpc:"408",subject:"Power of Sessions Judge to transfer cases and appeals",summary:"'One thousand rupees' replaced by 'sum'; 'two hundred and fifty rupees' replaced by 'sum not exceeding ten thousand rupees'.",cat:"judgment",change:"modified"},
+
+  // EXECUTION & MISCELLANEOUS (454–531)
+  {bnss:"454",crpc:"414",subject:"Execution of sentence of death passed by High Court",summary:"No change.",cat:"execution",change:"no-change"},
+  {bnss:"456",crpc:"416",subject:"Postponement of capital sentence on pregnant woman",summary:"Heading changed to 'Commutation of sentence of death on pregnant woman'.",cat:"execution",change:"modified"},
+  {bnss:"459",crpc:"419",subject:"Direction of warrant for execution",summary:"No change.",cat:"execution",change:"no-change"},
+  {bnss:"461",crpc:"421",subject:"Warrant for levy of fine",summary:"Words 'but no such payment has been made' added in sub-section (1).",cat:"execution",change:"modified"},
+  {bnss:"464",crpc:"424",subject:"Suspension of execution of sentence of imprisonment",summary:"Words 'with or without sureties' excluded; 'or bail bond' added.",cat:"execution",change:"modified"},
+  {bnss:"472",crpc:"—",subject:"Mercy Petition in death sentence cases",summary:"Newly added section.",cat:"execution",change:"new"},
+  {bnss:"473",crpc:"432",subject:"Power to suspend or remit sentences",summary:"Word 'male' excluded in sub-section (5).",cat:"execution",change:"modified"},
+  {bnss:"474",crpc:"433",subject:"Power to commute sentence",summary:"Five new clauses added regarding commutation of sentence; four clauses excluded from 433 CrPC.",cat:"execution",change:"modified"},
+  {bnss:"477",crpc:"435",subject:"State Government to act after concurrence with Central Government in certain cases",summary:"Word 'concurrence' replaces 'consultation'. Delhi Special Police Establishment reference excluded.",cat:"execution",change:"modified"},
+  {bnss:"497",crpc:"451",subject:"Order for custody and disposal of property pending trial in certain cases",summary:"Words 'or the Magistrate empowered to take cognizance or commit the case for trial', 'investigation,' and 'or the Magistrate' added in sub-section (1). New sub-sections (2), (3), (4), and (5) added for process of disposal, destruction, confiscation, or delivery of property.",cat:"execution",change:"modified"},
+  {bnss:"499",crpc:"453",subject:"Payment to innocent purchaser of money found on accused",summary:"Words 'within six months from the date of such order' added for specifying time limit for delivery to purchaser.",cat:"execution",change:"modified"},
+  {bnss:"505",crpc:"459",subject:"Power to sell perishable property",summary:"'Five hundred rupees' replaced by 'less than ten thousand rupees'.",cat:"execution",change:"modified"},
+  {bnss:"514",crpc:"468",subject:"Bar to taking cognizance after lapse of period of limitation",summary:"New explanation added: 'For the purpose of computing the period of limitation, the relevant date shall be the date of filing a complaint under section 223 or the date of recording information under section 173.' 'Elsewhere' excluded from sub-section (1).",cat:"execution",change:"modified"},
+  {bnss:"529",crpc:"483",subject:"Duty of High Court to exercise continuous superintendence over Courts",summary:"In heading, 'Court of Judicial Magistrates' replaced by 'Courts'. 'Courts of Session and', 'the Judges and' added. Word 'such' excluded.",cat:"execution",change:"modified"},
+  {bnss:"530",crpc:"—",subject:"Trial and proceedings to be held in electronic mode",summary:"Newly added section. Provides for trial and proceedings to be held in electronic mode.",cat:"execution",change:"new"},
+  {bnss:"531",crpc:"484",subject:"Repeal and savings",summary:"Proviso to sub-section (2)(a) excluded. Various replacements of 'prescribed' by 'provided by rules' or 'specified'. Proviso to sub-section (2)(d) excluded. 'Old' replaced by 'said' at many places.",cat:"execution",change:"modified"},
+  {bnss:"528",crpc:"482",subject:"Inherent powers of High Court",summary:"No change — inherent powers of the High Court to make orders necessary to prevent abuse of process of any Court or to secure the ends of justice retained in BNSS 528. Scope and application identical to CrPC 482.",cat:"execution",change:"no-change"},
+  {bnss:"227",crpc:"204",subject:"Issue of process",summary:"New proviso to sub-section (1): summons or warrant may also be issued through electronic means.",cat:"cognizance",change:"modified"},
+  {bnss:"379",crpc:"340",subject:"Procedure in cases mentioned in Section 195",summary:"Complaint by Court for false evidence, forgery etc. BNSS sections replace IPC sections referenced.",cat:"evidence",change:"modified"},
+  {bnss:"397",crpc:"357C",subject:"Treatment of victims",summary:"BNS sections replace corresponding IPC sections. POCSO Act sections 4, 6, 8 and 10 added.",cat:"judgment",change:"modified"},
+  {bnss:"94",crpc:"91",subject:"Summons to produce document or other thing",summary:"New sub-section (2): Court may issue summons for production of electronic communication or documents. New sub-section (3): any officer in charge of police station may require production by written order.",cat:"summons",change:"modified"},
+  {bnss:"100",crpc:"97",subject:"Search for persons wrongfully confined",summary:"No change.",cat:"search",change:"no-change"},
+  {bnss:"185",crpc:"165",subject:"Search by police officer",summary:"New addition: police officer may search electronic devices during investigation.",cat:"search",change:"modified"},
+  {bnss:"105",crpc:"102",subject:"Power of police officer to seize certain property",summary:"New sub-section (2): police officer may seize or freeze any property obtained through cybercrime or any offence under the law. Freezing of bank accounts included.",cat:"search",change:"modified"},
+
+];
+
+// Build indexes
+const BY_BNSS = {}, BY_CRPC = {};
+DATA.forEach(r => {
+  let bk = r.bnss.toLowerCase().replace(/\s/g,'');
+  if (!BY_BNSS[bk]) BY_BNSS[bk] = [];
+  BY_BNSS[bk].push(r);
+  if (r.crpc !== '—') {
+    let ck = r.crpc.toLowerCase().replace(/[\s&]/g,'');
+    // handle combined refs like "41 & 41A"
+    r.crpc.split('&').forEach(c => {
+      let k = c.trim().toLowerCase().replace(/\s/g,'');
+      if (!BY_CRPC[k]) BY_CRPC[k] = [];
+      BY_CRPC[k].push(r);
+    });
+  }
+});
+
+function getBadge(change) {
+  if (change === 'new') return '<span class="badge badge-new">New section in BNSS</span>';
+  if (change === 'no-change') return '<span class="badge badge-nochange">No change from CrPC</span>';
+  return '<span class="badge badge-modified">Modified in BNSS</span>';
+}
+
+let cIdx = 0;
+function renderCard(r) {
+  let id = 'c' + (++cIdx);
+  let crpcDisplay = r.crpc === '—' ? '<span style="color:var(--ink-4);font-size:14px">New — no CrPC equivalent</span>' : `<span class="act">CrPC</span><span class="num">${r.crpc}</span>`;
+  let bnssDisplay = r.bnss === '—' ? '<span style="color:var(--ink-4);font-size:14px">Omitted in BNSS</span>' : `<span class="act">BNSS</span><span class="num">${r.bnss}</span>`;
+  return `<div class="result-card">
+    <div class="card-header">
+      <div class="section-nums">
+        <div class="sec-badge">${bnssDisplay}</div>
+        <div class="arrow">↔</div>
+        <div class="sec-badge">${crpcDisplay}</div>
+      </div>
+      <div class="offence-title">${r.subject}</div>
+    </div>
+    <div class="card-body">
+      <div class="badges">${getBadge(r.change)}</div>
+      <div class="box">
+        <div class="box-label">Key changes / summary</div>
+        <div class="box-text">${r.summary}</div>
+      </div>
+      <div class="action-row">
+        <button class="action-btn" id="cp-${id}" onclick="cpSec('${id}','${r.bnss}','${r.crpc}','${r.subject.replace(/'/g,"\\'")}')">📋 Copy</button>
+        <button class="action-btn" onclick="window.print()">🖨 Print</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function cpSec(id, bnss, crpc, subject) {
+  let text = `BNSS ${bnss} ↔ CrPC ${crpc}\n${subject}\nSource: vikrampanwar.com`;
+  navigator.clipboard.writeText(text).then(() => {
+    let btn = document.getElementById('cp-' + id);
+    btn.textContent = '✓ Copied';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.innerHTML = '📋 Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function search(from) {
+  let inp = document.getElementById(from + '-input');
+  let other = document.getElementById(from === 'bnss' ? 'crpc-input' : 'bnss-input');
+  other.value = '';
+  let val = inp.value.trim();
+  let area = document.getElementById('result-area');
+  if (!val) { area.innerHTML = '<div class="empty-state">Enter a BNSS or CrPC section number above to see the equivalent</div>'; return; }
+  let valLow = val.toLowerCase().replace(/\s/g, '');
+  let results = from === 'bnss' ? (BY_BNSS[valLow] || []) : (BY_CRPC[valLow] || []);
+  if (!results.length) {
+    area.innerHTML = `<div class="empty-state">No match for ${from.toUpperCase()} ${val}<br><span style="font-size:12px;margin-top:8px;display:block">Check the section number and try again</span></div>`;
+    return;
+  }
+  if (results.length === 1) { area.innerHTML = renderCard(results[0]); return; }
+  area.innerHTML = `<p class="count-note">${results.length} entries found for ${from.toUpperCase()} ${val}</p>` +
+    results.map((r, i) => `<div class="mini-card" onclick="expandCard(${i}, '${from}', '${valLow}')">
+      <div class="mini-card-row">
+        <div>
+          <span class="mini-sec">BNSS ${r.bnss} ↔ CrPC ${r.crpc}</span>
+          <div class="mini-title">${r.subject}</div>
+        </div>
+        <span style="color:var(--ink-4)">›</span>
+      </div>
+    </div>`).join('');
+}
+
+function expandCard(idx, from, val) {
+  let results = from === 'bnss' ? (BY_BNSS[val] || []) : (BY_CRPC[val] || []);
+  let area = document.getElementById('result-area');
+  area.innerHTML = `<button onclick="search('${from}')" style="background:transparent;border:none;color:var(--ink-3);font-size:13px;cursor:pointer;margin-bottom:1rem;font-family:var(--sans)">← Back</button>` + renderCard(results[idx]);
+}
+</script>
+</body>
+</html>
