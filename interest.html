@@ -46,6 +46,7 @@ h1{font-family:var(--serif);font-size:clamp(24px,5vw,34px);font-weight:400;margi
 .field input,.field select{width:100%;padding:10px 14px;font-size:15px;border:0.5px solid var(--rule);border-radius:8px;background:white;color:var(--ink);font-family:var(--sans);outline:none}
 .field input:focus,.field select:focus{border-color:var(--ink-3)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
 .compound-extra{display:none}
 .compound-extra.show{display:block}
 .calc-btn{width:100%;padding:12px;font-size:15px;font-weight:500;font-family:var(--sans);border-radius:8px;border:none;background:var(--ink);color:var(--paper);cursor:pointer;transition:opacity .15s;margin-top:.25rem}
@@ -71,7 +72,7 @@ h1{font-family:var(--serif);font-size:clamp(24px,5vw,34px);font-weight:400;margi
 footer{text-align:center;padding:2rem var(--pad);border-top:0.5px solid var(--rule);margin-top:2rem}
 footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
 @media print{nav,.type-tabs,.preset-row,.calc-btn,.action-row{display:none!important}body{background:white}}
-@media(max-width:500px){.grid2{grid-template-columns:1fr}.type-tabs{flex-direction:column}}
+@media(max-width:500px){.grid2,.grid3{grid-template-columns:1fr}.type-tabs{flex-direction:column}}
 </style>
 </head>
 <body>
@@ -132,6 +133,42 @@ footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
   </div>
 
   <button class="calc-btn" onclick="calc()">Calculate</button>
+
+  <!-- PENDENTE LITE -->
+  <div style="margin-top:1rem">
+    <button onclick="togglePendente()" id="pl-btn" style="background:var(--blue-bg);border:0.5px solid var(--blue);border-radius:6px;padding:8px 18px;font-size:13px;font-weight:500;color:var(--blue);cursor:pointer;font-family:var(--sans);display:flex;align-items:center;gap:8px">
+      <span id="pl-arrow">＋</span> Pendente lite — two-stage interest
+    </button>
+    <div id="pl-panel" style="display:none;margin-top:10px;background:var(--paper-2);border-radius:8px;padding:1rem">
+      <p style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:.75rem">Pre-decree + Post-decree interest at different rates</p>
+      <div class="grid3">
+        <div class="field">
+          <label>Date of filing / suit</label>
+          <input type="date" id="pl-start" onchange="calcPL()"/>
+        </div>
+        <div class="field">
+          <label>Date of decree</label>
+          <input type="date" id="pl-decree" onchange="calcPL()"/>
+        </div>
+        <div class="field">
+          <label>Date of realisation</label>
+          <input type="date" id="pl-end" onchange="calcPL()"/>
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label>Pre-decree rate (% p.a.)</label>
+          <input type="number" id="pl-rate1" placeholder="e.g. 6" step="0.25" min="0" oninput="calcPL()"/>
+        </div>
+        <div class="field">
+          <label>Post-decree rate (% p.a.)</label>
+          <input type="number" id="pl-rate2" placeholder="e.g. 9" step="0.25" min="0" oninput="calcPL()"/>
+        </div>
+      </div>
+      <div id="pl-result"></div>
+    </div>
+  </div>
+
   <div id="result-area"></div>
 </div>
 
@@ -278,6 +315,66 @@ let today=new Date();
 let ago=new Date(today);ago.setFullYear(today.getFullYear()-1);
 document.getElementById('end-date').value=today.toISOString().split('T')[0];
 document.getElementById('start-date').value=ago.toISOString().split('T')[0];
+
+// Pendente lite
+let plOpen=false;
+function togglePendente(){
+  plOpen=!plOpen;
+  document.getElementById('pl-panel').style.display=plOpen?'block':'none';
+  document.getElementById('pl-arrow').textContent=plOpen?'－':'＋';
+  if(plOpen){
+    let sd=document.getElementById('start-date').value;
+    let ed=document.getElementById('end-date').value;
+    if(sd)document.getElementById('pl-start').value=sd;
+    if(ed)document.getElementById('pl-end').value=ed;
+  }
+}
+
+function calcPL(){
+  let P=parseFloat(document.getElementById('principal').value);
+  let ps=document.getElementById('pl-start').value;
+  let pd=document.getElementById('pl-decree').value;
+  let pe=document.getElementById('pl-end').value;
+  let r1=parseFloat(document.getElementById('pl-rate1').value);
+  let r2=parseFloat(document.getElementById('pl-rate2').value);
+  let area=document.getElementById('pl-result');
+  if(!P||P<=0||!ps||!pd||!pe||!r1||!r2){area.innerHTML='';return;}
+  if(new Date(pd)<=new Date(ps)||new Date(pe)<=new Date(pd)){
+    area.innerHTML='<p style="font-size:12px;color:var(--ink-3);margin-top:.5rem">Check dates — filing → decree → realisation</p>';
+    return;
+  }
+  let d1=daysBetween(ps,pd);
+  let d2=daysBetween(pd,pe);
+  let i1=(P*r1*d1)/(365*100);
+  let i2=(P*r2*d2)/(365*100);
+  let total=P+i1+i2;
+  let p1=periodLines(d1);
+  let p2=periodLines(d2);
+  area.innerHTML=`<div style="background:white;border:0.5px solid var(--rule);border-radius:10px;overflow:hidden;margin-top:.75rem">
+    <div style="padding:1rem 1.25rem;border-bottom:0.5px solid var(--rule)">
+      <div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:.4rem">Total amount (pendente lite)</div>
+      <div style="font-family:var(--serif);font-size:34px;font-weight:400">${fmt(total)}</div>
+      <div style="font-size:12px;color:var(--ink-3);margin-top:3px">${inWords(total)}</div>
+    </div>
+    <div style="padding:1rem 1.25rem">
+      <div class="brow"><span class="blabel">Principal</span><span class="bval">${fmt(P)}</span></div>
+      <div class="brow"><span class="blabel">Pre-decree (${r1}% &times; ${d1} days)</span><div style="text-align:right"><div class="bval interest">${fmt(i1)}</div><div style="font-size:11px;color:var(--ink-4)">${p1[0]}</div></div></div>
+      <div class="brow"><span class="blabel">Post-decree (${r2}% &times; ${d2} days)</span><div style="text-align:right"><div class="bval interest">${fmt(i2)}</div><div style="font-size:11px;color:var(--ink-4)">${p2[0]}</div></div></div>
+      <div class="brow"><span class="blabel">Total interest</span><span class="bval interest">${fmt(i1+i2)}</span></div>
+      <div class="brow"><span class="blabel" style="font-weight:500;color:var(--ink)">Total (Principal + Interest)</span><span class="bval total">${fmt(total)}</span></div>
+      <div class="action-row">
+        <button class="action-btn" onclick="copyPL(${r1},${r2},${d1},${d2},${Math.round(i1)},${Math.round(i2)},${Math.round(total)})">&#128203; Copy result</button>
+        <button class="action-btn" onclick="window.print()">&#128424; Print</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function copyPL(r1,r2,d1,d2,i1,i2,total){
+  let P=document.getElementById('principal').value;
+  let text='Pendente Lite Interest\nPrincipal: '+fmtPlain(P)+'\nPre-decree: '+r1+'% for '+d1+' days = '+fmtPlain(i1)+'\nPost-decree: '+r2+'% for '+d2+' days = '+fmtPlain(i2)+'\nTotal: '+fmtPlain(total)+'\nSource: vikrampanwar.com';
+  navigator.clipboard.writeText(text);
+}
 </script>
 </body>
 </html>
