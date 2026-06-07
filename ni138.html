@@ -284,7 +284,8 @@ function calc(){
     let today = new Date(); today.setHours(0,0,0,0);
 
     if(today <= payExpiry){
-      let daysLeft = daysBetween(today, payExpiry);
+      let daysElapsed = Math.max(0, daysBetween(receipt, today));
+      let daysLeft = Math.max(0, 15 - daysElapsed);
       overallStatus='amber';
       overallMsg=`Payment window still open. Drawer has until ${fmtDate(payExpiry)} to make payment. Complaint cannot be filed yet.`;
       cards.push(sCard('amber','15-day payment window','⏳ Running',
