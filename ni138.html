@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Section 138 NI Act — Cheque Bounce Limitation Checker | vikrampanwar.com</title>
+<meta name="description" content="Free Section 138 NI Act limitation checker. Calculate notice period, payment window and complaint filing deadline for cheque dishonour cases. Relevant judgments included."/>
+<meta name="keywords" content="Section 138 NI Act calculator, cheque bounce limitation, cheque dishonour notice period, NI Act complaint deadline, cheque bounce case Haryana, 138 NI Act limitation period"/>
+<meta name="author" content="Vikram Panwar, Advocate"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://vikrampanwar.com/ni138.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1a18;--ink-2:#4a4a46;--ink-3:#7a7a74;--ink-4:#b0b0a8;
+  --paper:#f7f4ee;--paper-2:#eeebe2;--rule:rgba(26,26,24,0.1);
+  --green:#2d6a4f;--green-bg:#d8f3dc;--green-b:#a8dab5;
+  --red:#9b2226;--red-bg:#fde8e8;--red-b:#f5b8b8;
+  --amber:#7d5a00;--amber-bg:#fff3cd;--amber-b:#f5d88a;
+  --blue:#1d4e89;--blue-bg:#dbeafe;--blue-b:#93c5fd;
+  --serif:"EB Garamond",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;
+  --pad:clamp(1.25rem,4vw,2.5rem);--max:740px;
+}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem var(--pad);border-bottom:0.5px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100}
+.nav-name{font-family:var(--serif);font-size:16px;color:var(--ink);text-decoration:none}
+.nav-back{font-size:12px;color:var(--ink-3);text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:2rem var(--pad) 4rem}
+h1{font-family:var(--serif);font-size:clamp(24px,5vw,34px);font-weight:400;margin-bottom:.3rem}
+.subtitle{font-size:13px;color:var(--ink-3);margin-bottom:.75rem}
+
+/* LAW REFERENCE BOX */
+.law-box{background:var(--paper-2);border-radius:8px;padding:.9rem 1.1rem;margin-bottom:1.5rem;font-size:13px;color:var(--ink-2);line-height:1.7}
+.law-box strong{color:var(--ink)}
+.law-steps{display:flex;flex-direction:column;gap:6px;margin-top:.6rem}
+.law-step{display:flex;gap:10px;align-items:flex-start}
+.law-step-num{background:var(--ink);color:var(--paper);border-radius:50%;width:20px;height:20px;font-size:11px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.law-step-text{font-size:13px;color:var(--ink-2)}
+
+/* FORM */
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:6px}
+.field input{width:100%;padding:10px 14px;font-size:15px;border:0.5px solid var(--rule);border-radius:8px;background:white;color:var(--ink);font-family:var(--sans);outline:none}
+.field input:focus{border-color:var(--ink-3)}
+.field-note{font-size:12px;color:var(--ink-4);margin-top:4px;line-height:1.5}
+.field-note.important{color:var(--amber)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.calc-btn{width:100%;padding:12px;font-size:15px;font-weight:500;font-family:var(--sans);border-radius:8px;border:none;background:var(--ink);color:var(--paper);cursor:pointer;transition:opacity .15s;margin-top:.25rem}
+.calc-btn:hover{opacity:.85}
+
+/* STATUS CARDS */
+.status-grid{display:flex;flex-direction:column;gap:10px;margin-top:1.5rem}
+.scard{border-radius:10px;padding:1.1rem 1.25rem;border:0.5px solid}
+.scard.green{background:var(--green-bg);border-color:var(--green-b)}
+.scard.red{background:var(--red-bg);border-color:var(--red-b)}
+.scard.amber{background:var(--amber-bg);border-color:var(--amber-b)}
+.scard.blue{background:var(--blue-bg);border-color:var(--blue-b)}
+.scard.neutral{background:var(--paper-2);border-color:var(--rule)}
+.sc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:.35rem}
+.sc-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.scard.green .sc-label{color:var(--green)}
+.scard.red .sc-label{color:var(--red)}
+.scard.amber .sc-label{color:var(--amber)}
+.scard.blue .sc-label{color:var(--blue)}
+.scard.neutral .sc-label{color:var(--ink-3)}
+.sc-badge{font-size:12px;font-weight:500;padding:3px 10px;border-radius:12px;white-space:nowrap;flex-shrink:0}
+.scard.green .sc-badge{background:var(--green);color:white}
+.scard.red .sc-badge{background:var(--red);color:white}
+.scard.amber .sc-badge{background:var(--amber);color:white}
+.scard.blue .sc-badge{background:var(--blue);color:white}
+.scard.neutral .sc-badge{background:var(--ink-4);color:white}
+.sc-title{font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink);margin-bottom:.25rem}
+.sc-detail{font-size:13px;color:var(--ink-2);line-height:1.6}
+.sc-date{font-size:13px;font-weight:500;color:var(--ink);margin-top:.4rem}
+
+/* JUDGMENTS */
+.judgments{margin-top:.75rem;border-top:0.5px solid rgba(0,0,0,.08);padding-top:.6rem}
+.j-toggle{background:transparent;border:none;font-size:12px;font-weight:500;cursor:pointer;font-family:var(--sans);padding:0;display:flex;align-items:center;gap:5px}
+.scard.green .j-toggle{color:var(--green)}
+.scard.red .j-toggle{color:var(--red)}
+.scard.amber .j-toggle{color:var(--amber)}
+.scard.blue .j-toggle{color:var(--blue)}
+.scard.neutral .j-toggle{color:var(--ink-3)}
+.j-list{display:none;margin-top:.6rem;display:flex;flex-direction:column;gap:6px}
+.j-list.show{display:flex}
+.j-item{background:rgba(255,255,255,.6);border-radius:6px;padding:.5rem .75rem}
+.j-case{font-size:12px;font-weight:500;color:var(--ink)}
+.j-principle{font-size:12px;color:var(--ink-3);margin-top:1px;line-height:1.5}
+
+/* OVERALL */
+.overall{border-radius:12px;padding:1.25rem 1.5rem;margin-top:1rem;text-align:center}
+.overall.green{background:var(--green-bg);border:1px solid var(--green-b)}
+.overall.red{background:var(--red-bg);border:1px solid var(--red-b)}
+.overall.amber{background:var(--amber-bg);border:1px solid var(--amber-b)}
+.overall-icon{font-size:28px;margin-bottom:.4rem}
+.overall-title{font-family:var(--serif);font-size:22px;font-weight:400;margin-bottom:.3rem}
+.overall.green .overall-title{color:var(--green)}
+.overall.red .overall-title{color:var(--red)}
+.overall.amber .overall-title{color:var(--amber)}
+.overall-detail{font-size:13px;color:var(--ink-2);line-height:1.6}
+
+/* REPRESENTATION NOTE */
+.repres-note{background:var(--blue-bg);border:0.5px solid var(--blue-b);border-radius:8px;padding:.9rem 1.1rem;margin-top:1rem;font-size:13px;color:var(--blue);line-height:1.6}
+.repres-note strong{color:var(--blue)}
+
+.action-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:1.25rem}
+.action-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:6px;font-size:12px;font-weight:500;font-family:var(--sans);cursor:pointer;border:0.5px solid var(--rule);background:transparent;color:var(--ink-2);transition:all .15s}
+.action-btn:hover{background:var(--paper-2);color:var(--ink)}
+.action-btn.copied{background:var(--green-bg);color:var(--green);border-color:var(--green)}
+
+footer{text-align:center;padding:2rem var(--pad);border-top:0.5px solid var(--rule);margin-top:2rem}
+footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
+@media print{nav,.calc-btn,.action-row,.j-toggle{display:none!important}body{background:white}.j-list{display:flex!important}}
+@media(max-width:500px){.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-name" href="https://vikrampanwar.com">Vikram Panwar, Advocate</a>
+  <a class="nav-back" href="https://vikrampanwar.com">← Back to home</a>
+</nav>
+<div class="wrap">
+  <h1>Section 138 NI Act</h1>
+  <p class="subtitle">Cheque dishonour — limitation &amp; notice checker</p>
+
+  <div class="law-box">
+    <strong>Statutory timeline under Section 138 NI Act, 1881</strong>
+    <div class="law-steps">
+      <div class="law-step"><div class="law-step-num">1</div><div class="law-step-text"><strong>30 days</strong> from date of bank intimation (return memo) to send legal notice — day of intimation excluded</div></div>
+      <div class="law-step"><div class="law-step-num">2</div><div class="law-step-text"><strong>15 days</strong> for drawer to make payment after receiving / refusing notice — day of receipt/refusal excluded</div></div>
+      <div class="law-step"><div class="law-step-num">3</div><div class="law-step-text"><strong>30 days</strong> from expiry of payment window to file complaint — cause of action arises on day 16</div></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Date of bank intimation / return memo</label>
+    <input type="date" id="d-intimation" onchange="calc()"/>
+    <div class="field-note important">⚑ Use the date you received the bank's return memo — not the cheque date. Day of intimation is excluded from the 30-day notice period.</div>
+  </div>
+
+  <div class="grid2">
+    <div class="field">
+      <label>Date legal notice sent / dispatched</label>
+      <input type="date" id="d-notice" onchange="calc()"/>
+      <div class="field-note">Must be within 30 days of bank intimation</div>
+    </div>
+    <div class="field">
+      <label>Date notice received / refused by drawer</label>
+      <input type="date" id="d-receipt" onchange="calc()"/>
+      <div class="field-note">Day of receipt or refusal is excluded from 15-day payment window</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Date complaint filed <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional — leave blank to see deadline)</span></label>
+    <input type="date" id="d-complaint" onchange="calc()"/>
+  </div>
+
+  <button class="calc-btn" onclick="calc()">Check limitation</button>
+  <div id="result-area"></div>
+</div>
+
+<footer><p>vikrampanwar.com &nbsp;·&nbsp; Section 138 NI Act Limitation Checker<br>For reference only — verify against latest judicial pronouncements applicable in your jurisdiction.<br>&copy; 2026 Vikram Panwar, Advocate &nbsp;&middot;&nbsp; Charkhi Dadri &amp; Bhiwani</p></footer>
+
+<script>
+function addDays(d, n){ let x=new Date(d); x.setDate(x.getDate()+n); return x; }
+function daysBetween(d1,d2){ return Math.round((new Date(d2)-new Date(d1))/86400000); }
+function fmtDate(d){ return d.toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'}); }
+
+// Judgment data
+const JUDGMENTS = {
+  intimation: [
+    {c:'Rayapati Power Generation Pvt. Ltd. v. IREDA (Delhi HC, 2022)', p:'While computing the 30-day limitation period under S.138(b), the day on which intimation is received from the bank that the cheque has been returned unpaid has to be excluded.'},
+    {c:'M/s. Saketh India Ltd. v. India Securities Ltd. (1999) 3 SCC 1', p:'Supreme Court: limitation rules require strict construction. The day of the act or event from which the period runs is excluded.'},
+  ],
+  notice_late: [
+    {c:'M/s. Saketh India Ltd. v. India Securities Ltd. (1999) 3 SCC 1', p:'If the 30-day window for notice is missed, the remedy under Section 138 extinguishes for that specific presentation. The holder must re-present the cheque.'},
+  ],
+  payment_window: [
+    {c:'Afrojkhan v. Smt. Mandodara (Bombay HC, 2019)', p:'The day on which accused refused to accept the demand notice is to be excluded while counting the 15-day period under S.138(c) NI Act.'},
+    {c:'Econ Antri Ltd. v. Rom Industries Ltd. (2014) 11 SCC 769', p:'Supreme Court: Complaint filed before expiry of 15 days from date of receipt of notice is not a complaint in the eye of law at all — not merely premature.'},
+  ],
+  complaint_early: [
+    {c:'Econ Antri Ltd. v. Rom Industries Ltd. (2014) 11 SCC 769', p:'A complaint filed before the expiry of 15 days from the date of receipt of notice is no complaint in eye of law. Court cannot take cognizance even if 15 days have expired by the time of hearing. Only remedy is to file a fresh complaint.'},
+  ],
+  complaint_ok: [
+    {c:'Dashrath Rupsingh Rathod v. State of Maharashtra (2014) 9 SCC 129', p:'Jurisdiction for filing complaint lies where the cheque is presented for payment — not where it was issued or where the drawer lives.'},
+  ],
+  complaint_barred: [
+    {c:'K. Bhaskaran v. Sankaran Vaidhyan Balan (1999) 7 SCC 510', p:'Supreme Court on elements of S.138: dishonour + notice + failure to pay within 15 days = offence complete. Courts may condone delay under S.142(b) proviso if sufficient cause is shown.'},
+  ],
+  representation: [
+    {c:'MSR Leathers v. S. Palaniappan (2013) 1 SCC 177', p:'Supreme Court: holder of cheque can present the cheque any number of times within its validity. Each dishonour creates a fresh cause of action. Right of prosecution is not lost by non-prosecution on first default.'},
+    {c:'Sicagen India Ltd. v. Mahindra Vadideni (2023 SC)', p:'Complaint based on second statutory notice after re-presentment is valid, even if an earlier notice was sent, provided the 30-day timelines are followed for the second dishonour.'},
+    {c:'Sumit Bansal v. MGI Developers & Promoters, 2026 SCC OnLine SC 49', p:'Each dishonoured cheque constitutes a separate cause of action. Multiple complaints do not amount to abuse of process.'},
+  ],
+};
+
+function jBlock(keys, color){
+  let judgments = [];
+  keys.forEach(k => { if(JUDGMENTS[k]) judgments = judgments.concat(JUDGMENTS[k]); });
+  if(!judgments.length) return '';
+  let id = 'j-'+Math.random().toString(36).substr(2,6);
+  return `<div class="judgments">
+    <button class="j-toggle" onclick="toggleJ('${id}')"><span id="arr-${id}">▾</span> Relevant judgments (${judgments.length})</button>
+    <div class="j-list" id="${id}">
+      ${judgments.map(j=>`<div class="j-item"><div class="j-case">${j.c}</div><div class="j-principle">${j.p}</div></div>`).join('')}
+    </div>
+  </div>`;
+}
+
+function toggleJ(id){
+  let el=document.getElementById(id);
+  let arr=document.getElementById('arr-'+id);
+  el.classList.toggle('show');
+  arr.textContent=el.classList.contains('show')?'▴':'▾';
+}
+
+function sCard(color, label, badge, title, detail, dateStr, jKeys){
+  return `<div class="scard ${color}">
+    <div class="sc-top"><span class="sc-label">${label}</span><span class="sc-badge">${badge}</span></div>
+    <div class="sc-title">${title}</div>
+    <div class="sc-detail">${detail}</div>
+    ${dateStr?`<div class="sc-date">${dateStr}</div>`:''}
+    ${jBlock(jKeys, color)}
+  </div>`;
+}
+
+function calc(){
+  let area = document.getElementById('result-area');
+  let intim = document.getElementById('d-intimation').value;
+  let notice = document.getElementById('d-notice').value;
+  let receipt = document.getElementById('d-receipt').value;
+  let complaint = document.getElementById('d-complaint').value;
+
+  if(!intim){ area.innerHTML=''; return; }
+
+  let dIntim = new Date(intim);
+  // Day of intimation excluded → 30-day window starts from day after
+  let noticeDeadline = addDays(dIntim, 30); // day 30 counting from day after intimation
+
+  let cards = [];
+  let overallStatus = 'green';
+  let overallMsg = '';
+  let showRepres = false;
+
+  // ── CARD 1: Notice validity ──
+  if(notice){
+    let dNotice = new Date(notice);
+    let daysSent = daysBetween(intim, notice); // day of intimation excluded naturally
+    if(dNotice <= noticeDeadline){
+      cards.push(sCard('green','Notice period','✓ Valid',
+        'Legal notice sent within time',
+        `Notice dispatched ${daysSent} day${daysSent!==1?'s':''} after bank intimation — within the 30-day window. Day of intimation is excluded in computation.`,
+        `Notice date: ${fmtDate(dNotice)} &nbsp;·&nbsp; Deadline: ${fmtDate(noticeDeadline)}`,
+        ['intimation']));
+    } else {
+      let late = daysBetween(noticeDeadline, notice);
+      overallStatus='red';
+      showRepres=true;
+      cards.push(sCard('red','Notice period','✗ Late',
+        'Legal notice sent beyond 30-day limit',
+        `Notice was sent ${daysSent} days after bank intimation — ${late} day${late!==1?'s':''} beyond the 30-day limit. The remedy under S.138 for this presentation is extinguished. However, if the cheque is still within its 3-month validity, it can be re-presented.`,
+        `Notice sent: ${fmtDate(dNotice)} &nbsp;·&nbsp; Deadline was: ${fmtDate(noticeDeadline)}`,
+        ['notice_late']));
+    }
+  } else {
+    cards.push(sCard('neutral','Notice period','Deadline',
+      'Notice must be sent by',
+      'Legal notice must be dispatched to the drawer within 30 days of receiving bank\'s return memo. Day of intimation is excluded.',
+      `Notice deadline: <strong>${fmtDate(noticeDeadline)}</strong>`,
+      ['intimation']));
+  }
+
+  // ── CARD 2: Payment window ──
+  if(notice && receipt){
+    let dReceipt = new Date(receipt);
+    // Day of receipt excluded → 15-day window starts from next day
+    let payExpiry = addDays(dReceipt, 15); // 15 days, day of receipt excluded
+    let causeOfAction = addDays(payExpiry, 1); // cause of action on day 16
+    let today = new Date(); today.setHours(0,0,0,0);
+
+    if(today <= payExpiry){
+      let daysLeft = daysBetween(today, payExpiry);
+      overallStatus='amber';
+      overallMsg=`Payment window still open. Drawer has until ${fmtDate(payExpiry)} to make payment. Complaint cannot be filed yet.`;
+      cards.push(sCard('amber','15-day payment window','⏳ Running',
+        'Payment window is still open',
+        `Drawer has ${daysLeft} day${daysLeft!==1?'s':''} remaining to make payment. Cause of action will arise on ${fmtDate(causeOfAction)}. Filing a complaint before expiry of this window is void in law — not merely premature.`,
+        `Window expires: <strong>${fmtDate(payExpiry)}</strong> &nbsp;·&nbsp; Cause of action arises: <strong>${fmtDate(causeOfAction)}</strong>`,
+        ['payment_window']));
+    } else {
+      cards.push(sCard('green','15-day payment window','✓ Expired',
+        'Payment window expired — cause of action arose',
+        `Drawer did not pay within 15 days. Day of receipt/refusal of notice is excluded in computation. Cause of action arose on ${fmtDate(causeOfAction)}.`,
+        `Window expired: ${fmtDate(payExpiry)} &nbsp;·&nbsp; Cause of action: <strong>${fmtDate(causeOfAction)}</strong>`,
+        ['payment_window']));
+    }
+
+    // ── CARD 3: Complaint limitation ──
+    let complaintDeadline = addDays(payExpiry, 30);
+
+    if(complaint){
+      let dComplaint = new Date(complaint);
+      // Check if complaint filed before 15 days expired
+      if(dComplaint <= payExpiry){
+        overallStatus='red';
+        overallMsg='Complaint filed before expiry of 15-day payment window. It is not a complaint in law — a fresh complaint must be filed.';
+        cards.push(sCard('red','Complaint filing','✗ Premature — Void',
+          'Complaint filed before 15-day window expired',
+          'A complaint filed before the expiry of 15 days from receipt of notice is not a complaint in the eye of law at all. The court cannot take cognizance even if 15 days have expired by the time of hearing. The complainant\'s only remedy is to file a fresh complaint within limitation.',
+          `Complaint filed: ${fmtDate(dComplaint)} &nbsp;·&nbsp; Earliest valid date: <strong>${fmtDate(causeOfAction)}</strong>`,
+          ['complaint_early']));
+      } else if(dComplaint <= complaintDeadline){
+        if(overallStatus!=='red') overallStatus='green';
+        overallMsg='Complaint is within limitation. Case is maintainable.';
+        let daysUsed = daysBetween(payExpiry, complaint);
+        cards.push(sCard('green','Complaint filing','✓ Within limitation',
+          'Complaint filed within time',
+          `Complaint filed ${daysUsed} day${daysUsed!==1?'s':''} after expiry of payment window — within the 30-day limitation period. Case is maintainable.`,
+          `Complaint filed: ${fmtDate(dComplaint)} &nbsp;·&nbsp; Deadline was: ${fmtDate(complaintDeadline)}`,
+          ['complaint_ok']));
+      } else {
+        let late = daysBetween(complaintDeadline, complaint);
+        overallStatus='red';
+        overallMsg='Complaint barred by limitation. Application for condonation of delay required under S.142(b) proviso NI Act.';
+        showRepres=true;
+        cards.push(sCard('red','Complaint filing','✗ Barred',
+          'Complaint barred by limitation',
+          `Complaint filed ${late} day${late!==1?'s':''} after the 30-day limitation period. Condonation of delay required under S.142(b) proviso NI Act by showing sufficient cause. Alternatively, if cheque is still within 3-month validity, consider re-presentation.`,
+          `Complaint filed: ${fmtDate(dComplaint)} &nbsp;·&nbsp; Deadline was: ${fmtDate(complaintDeadline)}`,
+          ['complaint_barred']));
+      }
+    } else {
+      let today2=new Date(); today2.setHours(0,0,0,0);
+      if(today2 <= payExpiry){
+        // window still open — no complaint card needed
+      } else if(today2 <= complaintDeadline){
+        let daysLeft2 = daysBetween(today2, complaintDeadline);
+        if(overallStatus!=='red') overallStatus='amber';
+        overallMsg=`Complaint must be filed by ${fmtDate(complaintDeadline)} — ${daysLeft2} day${daysLeft2!==1?'s':''} remaining.`;
+        cards.push(sCard('amber','Complaint filing',`${daysLeft2} days left`,
+          'Complaint must be filed by',
+          `Only ${daysLeft2} day${daysLeft2!==1?'s':''} remaining to file the complaint. Earliest date was ${fmtDate(causeOfAction)}.`,
+          `Complaint deadline: <strong>${fmtDate(complaintDeadline)}</strong>`,
+          ['complaint_ok']));
+      } else {
+        let late2=daysBetween(complaintDeadline, today2);
+        overallStatus='red';
+        overallMsg='Complaint limitation period has expired. Condonation of delay or re-presentation of cheque to be considered.';
+        showRepres=true;
+        cards.push(sCard('red','Complaint filing',`${late2} days overdue`,
+          'Complaint deadline has passed',
+          `The 30-day limitation period expired ${late2} day${late2!==1?'s':''} ago. Options: (1) Apply for condonation of delay under S.142(b) proviso showing sufficient cause; or (2) if cheque still within 3-month validity, re-present to generate fresh cause of action.`,
+          `Deadline was: <strong>${fmtDate(complaintDeadline)}</strong>`,
+          ['complaint_barred']));
+      }
+    }
+  } else if(notice && !receipt){
+    // receipt not entered — show payment window based on notice date + estimated receipt
+    let dNotice2 = new Date(notice);
+    cards.push(sCard('neutral','15-day payment window','Enter receipt date',
+      'Enter date notice was received / refused by drawer',
+      'The 15-day payment window runs from the date drawer received or refused the notice. Day of receipt/refusal is excluded. Enter that date above to calculate the payment window and complaint deadline.',
+      '',['payment_window']));
+  }
+
+  // Overall verdict
+  let icons={green:'✅',red:'❌',amber:'⚠️'};
+  let titles={green:'Case is within limitation',red:'Limitation issue detected',amber:'Action required'};
+  let overallHTML = overallMsg ? `<div class="overall ${overallStatus}">
+    <div class="overall-icon">${icons[overallStatus]}</div>
+    <div class="overall-title">${titles[overallStatus]}</div>
+    <div class="overall-detail">${overallMsg}</div>
+  </div>` : '';
+
+  // Re-presentation note
+  let represHTML = showRepres ? `<div class="repres-note">
+    <strong>Right of re-presentation not lost</strong><br>
+    If the cheque is still within its 3-month validity from date of issue, the holder can re-present the cheque. Each fresh dishonour creates a new cause of action with a fresh 30-day window for notice. The right of prosecution is not lost by non-prosecution on the first default.<br>
+    <span style="font-size:12px;margin-top:4px;display:block">MSR Leathers v. S. Palaniappan (2013) 1 SCC 177 &nbsp;·&nbsp; Sicagen India Ltd. v. Mahindra Vadideni (2023 SC)</span>
+  </div>` : '';
+
+  let actionHTML = `<div class="action-row">
+    <button class="action-btn" id="copy-btn" onclick="copyResult()">📋 Copy summary</button>
+    <button class="action-btn" onclick="window.print()">🖨 Print</button>
+  </div>`;
+
+  area.innerHTML = `<div class="status-grid">${cards.join('')}</div>${overallHTML}${represHTML}${actionHTML}`;
+}
+
+function copyResult(){
+  let intim=document.getElementById('d-intimation').value;
+  let notice=document.getElementById('d-notice').value;
+  let receipt=document.getElementById('d-receipt').value;
+  let complaint=document.getElementById('d-complaint').value;
+  if(!intim) return;
+  let dIntim=new Date(intim);
+  let noticeDeadline=addDays(dIntim,30);
+  let lines=['Section 138 NI Act — Limitation Check','vikrampanwar.com',''];
+  lines.push('Bank intimation date: '+fmtDate(dIntim));
+  lines.push('Notice deadline (30 days, day of intimation excluded): '+fmtDate(noticeDeadline));
+  if(notice){
+    let dNotice=new Date(notice);
+    lines.push('Notice dispatched: '+fmtDate(dNotice));
+    lines.push('Notice valid: '+(dNotice<=noticeDeadline?'Yes':'No — late'));
+  }
+  if(notice && receipt){
+    let dReceipt=new Date(receipt);
+    let payExpiry=addDays(dReceipt,15);
+    let coa=addDays(payExpiry,1);
+    let complaintDeadline=addDays(payExpiry,30);
+    lines.push('Notice received/refused by drawer: '+fmtDate(dReceipt));
+    lines.push('15-day payment window expires (day of receipt excluded): '+fmtDate(payExpiry));
+    lines.push('Cause of action arises: '+fmtDate(coa));
+    lines.push('Complaint deadline (30 days from cause of action): '+fmtDate(complaintDeadline));
+    if(complaint){
+      let dC=new Date(complaint);
+      lines.push('Complaint filed: '+fmtDate(dC));
+      if(dC<=payExpiry) lines.push('STATUS: Void — filed before 15-day window expired');
+      else if(dC<=complaintDeadline) lines.push('STATUS: Within limitation ✓');
+      else lines.push('STATUS: Barred by limitation ✗ — condonation required');
+    }
+  }
+  navigator.clipboard.writeText(lines.join('\n')).then(()=>{
+    let btn=document.getElementById('copy-btn');
+    btn.textContent='✓ Copied';btn.classList.add('copied');
+    setTimeout(()=>{btn.innerHTML='📋 Copy summary';btn.classList.remove('copied');},2000);
+  });
+}
+</script>
+</body>
+</html>
