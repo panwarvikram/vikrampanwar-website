@@ -452,14 +452,6 @@
         <span class="icon">🧮</span>
         <h3>Court fee calculator</h3>
       </div>
-      <div class="tool-card" onclick="window.location.href='https://vikrampanwar.com/mact.html'">
-        <span class="icon">🚘</span>
-        <h3>MACT compensation calculator</h3>
-      </div>
-      <div class="tool-card" onclick="window.location.href='https://vikrampanwar.com/limitation.html'">
-        <span class="icon">📅</span>
-        <h3>Limitation period calculator</h3>
-      </div>
       <div class="tool-card" onclick="window.location.href='https://vikrampanwar.com/bns-ipc.html'">
         <span class="icon">⚖️</span>
         <h3>BNS ↔ IPC converter</h3>
@@ -468,9 +460,32 @@
         <span class="icon">📋</span>
         <h3>BNSS ↔ CrPC converter</h3>
       </div>
-      <div class="tool-card soon">
-        <span class="icon">＋</span>
-        <h3>More tools coming soon</h3>
+      <div class="tool-card" onclick="window.location.href='https://vikrampanwar.com/limitation.html'">
+        <span class="icon">📅</span>
+        <h3>Limitation period calculator</h3>
+      </div>
+      <div class="tool-card" onclick="window.location.href='https://vikrampanwar.com/interest.html'">
+        <span class="icon">🧮</span>
+        <h3>Interest calculator</h3>
+      </div>
+      <div class="tool-card" onclick="window.location.href='https://vikrampanwar.com/court-fee.html'">
+        <span class="icon">📜</span>
+        <h3>Court fee calculator</h3>
+      </div>
+    </div>
+
+    <!-- MORE TOOLS -->
+    <div style="margin-top:1rem">
+      <button onclick="toggleMoreTools()" id="more-tools-btn" style="background:transparent;border:0.5px solid var(--rule);border-radius:6px;padding:7px 16px;font-size:12px;font-weight:500;color:var(--ink-3);cursor:pointer;font-family:var(--sans);transition:all .15s;display:flex;align-items:center;gap:6px">
+        <span id="more-tools-arrow">＋</span> More tools
+      </button>
+      <div id="more-tools-panel" style="display:none;margin-top:10px">
+        <div class="tools-grid">
+          <div class="tool-card" onclick="window.location.href='https://vikrampanwar.com/mact.html'">
+            <span class="icon">🚘</span>
+            <h3>MACT compensation calculator</h3>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -513,5 +528,14 @@
     <p>© 2026 Vikram Panwar, Advocate &nbsp;&middot;&nbsp; Charkhi Dadri & Bhiwani &nbsp;&middot;&nbsp; All rights reserved</p>
   </footer>
 
+<script>
+function toggleMoreTools(){
+  let panel=document.getElementById('more-tools-panel');
+  let arrow=document.getElementById('more-tools-arrow');
+  let open=panel.style.display==='block';
+  panel.style.display=open?'none':'block';
+  arrow.textContent=open?'＋':'－';
+}
+</script>
 </body>
 </html>

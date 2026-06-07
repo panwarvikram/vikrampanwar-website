@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Interest Calculator — vikrampanwar.com</title>
+<meta name="description" content="Free simple and compound interest calculator for legal proceedings. Calculate interest for court matters, money lending and financial disputes."/>
+<meta name="keywords" content="interest calculator legal, simple interest calculator India, compound interest calculator, sakra interest calculator Haryana, court interest calculator"/>
+<meta name="author" content="Vikram Panwar, Advocate"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://vikrampanwar.com/interest.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://vikrampanwar.com/interest.html"/>
+<meta property="og:title" content="Interest Calculator — vikrampanwar.com"/>
+<meta property="og:description" content="Free simple and compound interest calculator for legal proceedings and financial disputes."/>
+<meta property="og:site_name" content="vikrampanwar.com"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1a18;--ink-2:#4a4a46;--ink-3:#7a7a74;--ink-4:#b0b0a8;
+  --paper:#f7f4ee;--paper-2:#eeebe2;--rule:rgba(26,26,24,0.1);
+  --green:#2d6a4f;--green-bg:#d8f3dc;--blue:#1d4e89;--blue-bg:#dbeafe;
+  --serif:"EB Garamond",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;
+  --pad:clamp(1.25rem,4vw,2.5rem);--max:720px;
+}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem var(--pad);border-bottom:0.5px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100}
+.nav-name{font-family:var(--serif);font-size:16px;color:var(--ink);text-decoration:none}
+.nav-back{font-size:12px;color:var(--ink-3);text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:2rem var(--pad) 4rem}
+h1{font-family:var(--serif);font-size:clamp(24px,5vw,34px);font-weight:400;margin-bottom:.3rem}
+.subtitle{font-size:13px;color:var(--ink-3);margin-bottom:1.5rem}
+.type-tabs{display:flex;gap:8px;margin-bottom:1.5rem}
+.type-tab{flex:1;padding:8px 14px;font-size:13px;font-weight:500;border-radius:8px;border:0.5px solid var(--rule);background:white;color:var(--ink-3);cursor:pointer;font-family:var(--sans);transition:all .15s;text-align:center}
+.type-tab.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.preset-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:8px}
+.preset-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem}
+.preset-btn{padding:5px 12px;font-size:12px;font-weight:500;border-radius:6px;border:0.5px solid var(--rule);background:transparent;color:var(--ink-2);cursor:pointer;font-family:var(--sans);transition:all .15s;white-space:nowrap}
+.preset-btn:hover{background:var(--paper-2);border-color:var(--ink-3)}
+.preset-btn.sel{background:var(--blue-bg);color:var(--blue);border-color:var(--blue)}
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:6px}
+.field input,.field select{width:100%;padding:10px 14px;font-size:15px;border:0.5px solid var(--rule);border-radius:8px;background:white;color:var(--ink);font-family:var(--sans);outline:none}
+.field input:focus,.field select:focus{border-color:var(--ink-3)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.compound-extra{display:none}
+.compound-extra.show{display:block}
+.calc-btn{width:100%;padding:12px;font-size:15px;font-weight:500;font-family:var(--sans);border-radius:8px;border:none;background:var(--ink);color:var(--paper);cursor:pointer;transition:opacity .15s;margin-top:.25rem}
+.calc-btn:hover{opacity:.85}
+.result-box{background:white;border:0.5px solid var(--rule);border-radius:12px;overflow:hidden;margin-top:1.5rem}
+.result-header{padding:1.25rem 1.5rem;border-bottom:0.5px solid var(--rule)}
+.result-title{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:.5rem}
+.result-total{font-family:var(--serif);font-size:40px;font-weight:400;color:var(--ink);line-height:1}
+.result-words{font-size:13px;color:var(--ink-3);margin-top:4px}
+.result-body{padding:1.25rem 1.5rem}
+.brow{display:flex;justify-content:space-between;align-items:flex-start;padding:9px 0;border-bottom:0.5px solid var(--rule);font-size:14px;gap:16px}
+.brow:last-child{border-bottom:none}
+.blabel{color:var(--ink-3);flex-shrink:0}
+.bval{font-weight:500;color:var(--ink);text-align:right}
+.bval.interest{color:var(--green)}
+.bval.total{font-family:var(--serif);font-size:18px}
+.period-lines{text-align:right;font-size:13px;color:var(--ink-3);line-height:1.9}
+.period-lines .p-main{font-size:14px;font-weight:500;color:var(--ink)}
+.action-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:1rem;padding-top:1rem;border-top:0.5px solid var(--rule)}
+.action-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:6px;font-size:12px;font-weight:500;font-family:var(--sans);cursor:pointer;border:0.5px solid var(--rule);background:transparent;color:var(--ink-2);transition:all .15s}
+.action-btn:hover{background:var(--paper-2);color:var(--ink)}
+.action-btn.copied{background:var(--green-bg);color:var(--green);border-color:var(--green)}
+footer{text-align:center;padding:2rem var(--pad);border-top:0.5px solid var(--rule);margin-top:2rem}
+footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
+@media print{nav,.type-tabs,.preset-row,.calc-btn,.action-row{display:none!important}body{background:white}}
+@media(max-width:500px){.grid2{grid-template-columns:1fr}.type-tabs{flex-direction:column}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-name" href="https://vikrampanwar.com">Vikram Panwar, Advocate</a>
+  <a class="nav-back" href="https://vikrampanwar.com">← Back to home</a>
+</nav>
+<div class="wrap">
+  <h1>Interest calculator</h1>
+  <p class="subtitle">Simple interest &amp; compound interest — enter dates, principal and rate</p>
+
+  <div class="type-tabs">
+    <button class="type-tab active" id="tab-simple" onclick="setType('simple')">Simple interest</button>
+    <button class="type-tab" id="tab-compound" onclick="setType('compound')">Compound interest</button>
+  </div>
+
+  <div class="preset-label">Quick interest rate</div>
+  <div class="preset-row">
+    <button class="preset-btn" onclick="setRate(12,this)">1 Sakra &nbsp;·&nbsp; 12%</button>
+    <button class="preset-btn" onclick="setRate(15,this)">1.25 Sakra &nbsp;·&nbsp; 15%</button>
+    <button class="preset-btn" onclick="setRate(18,this)">1.5 Sakra &nbsp;·&nbsp; 18%</button>
+    <button class="preset-btn" onclick="setRate(24,this)">2 Sakra &nbsp;·&nbsp; 24%</button>
+    <button class="preset-btn" onclick="setRate(6,this)">6%</button>
+    <button class="preset-btn" onclick="setRate(9,this)">9%</button>
+    <button class="preset-btn" onclick="setRate(10,this)">10%</button>
+  </div>
+
+  <div class="field">
+    <label>Principal amount (₹)</label>
+    <input type="number" id="principal" placeholder="e.g. 500000" min="0" oninput="calc()"/>
+  </div>
+
+  <div class="grid2">
+    <div class="field">
+      <label>Rate of interest (% per annum)</label>
+      <input type="number" id="rate" placeholder="e.g. 12" step="0.25" min="0" oninput="onRateInput();calc()"/>
+    </div>
+    <div class="field compound-extra" id="freq-field">
+      <label>Compounding frequency</label>
+      <select id="freq" onchange="calc()">
+        <option value="1">Annual</option>
+        <option value="2">Half-yearly</option>
+        <option value="4">Quarterly</option>
+        <option value="12">Monthly</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="field">
+      <label>Start date</label>
+      <input type="date" id="start-date" onchange="calc()"/>
+    </div>
+    <div class="field">
+      <label>End date</label>
+      <input type="date" id="end-date" onchange="calc()"/>
+    </div>
+  </div>
+
+  <button class="calc-btn" onclick="calc()">Calculate</button>
+  <div id="result-area"></div>
+</div>
+
+<footer><p>vikrampanwar.com &nbsp;·&nbsp; Interest Calculator<br>For reference only. &copy; 2026 Vikram Panwar, Advocate &nbsp;&middot;&nbsp; Charkhi Dadri &amp; Bhiwani</p></footer>
+
+<script>
+let currentType='simple';
+
+function setType(t){
+  currentType=t;
+  document.getElementById('tab-simple').classList.toggle('active',t==='simple');
+  document.getElementById('tab-compound').classList.toggle('active',t==='compound');
+  document.getElementById('freq-field').classList.toggle('show',t==='compound');
+  calc();
+}
+
+function setRate(r,btn){
+  document.getElementById('rate').value=r;
+  document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+  calc();
+}
+
+function onRateInput(){
+  document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('sel'));
+}
+
+function daysBetween(d1,d2){
+  return Math.round((new Date(d2)-new Date(d1))/86400000);
+}
+
+function periodLines(days){
+  // Line 1: years months days
+  let y=Math.floor(days/365);
+  let rem1=days-y*365;
+  let m1=Math.floor(rem1/30);
+  let d1=rem1-m1*30;
+  let l1=(y>0?y+' year'+(y!==1?'s':'')+' ':'')+m1+' month'+(m1!==1?'s':'')+' '+d1+' day'+(d1!==1?'s':'');
+
+  // Line 2: total months + days
+  let tm=Math.floor(days/30);
+  let rd2=days-tm*30;
+  let l2=tm+' month'+(tm!==1?'s':'')+' '+rd2+' day'+(rd2!==1?'s':'');
+
+  // Line 3: weeks + days
+  let tw=Math.floor(days/7);
+  let rd3=days-tw*7;
+  let l3=tw+' week'+(tw!==1?'s':'')+' '+rd3+' day'+(rd3!==1?'s':'');
+
+  // Line 4: total days
+  let l4=days.toLocaleString('en-IN')+' days';
+
+  return [l1,l2,l3,l4];
+}
+
+function fmt(n){return '&#8377;'+Math.round(n).toLocaleString('en-IN');}
+function fmtPlain(n){return '₹'+Math.round(n).toLocaleString('en-IN');}
+
+function inWords(n){
+  n=Math.round(n);
+  if(n>=10000000)return(n/10000000).toFixed(2)+' crore';
+  if(n>=100000)return(n/100000).toFixed(2)+' lakh';
+  if(n>=1000)return(n/1000).toFixed(2)+' thousand';
+  return n.toString();
+}
+
+function calc(){
+  let area=document.getElementById('result-area');
+  let P=parseFloat(document.getElementById('principal').value);
+  let R=parseFloat(document.getElementById('rate').value);
+  let sd=document.getElementById('start-date').value;
+  let ed=document.getElementById('end-date').value;
+
+  if(!P||P<=0||!R||R<=0||!sd||!ed){area.innerHTML='';return;}
+  if(new Date(ed)<=new Date(sd)){
+    area.innerHTML='<div style="margin-top:1rem;padding:1rem;background:white;border:0.5px solid var(--rule);border-radius:8px;font-size:13px;color:var(--ink-3)">End date must be after start date</div>';
+    return;
+  }
+
+  let days=daysBetween(sd,ed);
+  let years=days/365;
+  let interest=0;
+  let freqLabel='';
+
+  if(currentType==='compound'){
+    let freq=parseInt(document.getElementById('freq').value);
+    let A=P*Math.pow(1+(R/100)/freq,freq*years);
+    interest=A-P;
+    let fl={1:'Annual',2:'Half-yearly',4:'Quarterly',12:'Monthly'};
+    freqLabel=fl[freq];
+  } else {
+    interest=(P*R*days)/(365*100);
+  }
+
+  let total=P+interest;
+  let pLines=periodLines(days);
+
+  let periodHTML=`<div class="period-lines">
+    <div class="p-main">${pLines[0]}</div>
+    <div>or ${pLines[1]}</div>
+    <div>or ${pLines[2]}</div>
+    <div>or ${pLines[3]}</div>
+  </div>`;
+
+  let compRow=currentType==='compound'
+    ?`<div class="brow"><span class="blabel">Compounding</span><span class="bval">${freqLabel}</span></div>`:'';
+
+  area.innerHTML=`<div class="result-box">
+    <div class="result-header">
+      <div class="result-title">Total amount payable</div>
+      <div class="result-total">${fmt(total)}</div>
+      <div class="result-words">${inWords(total)}</div>
+    </div>
+    <div class="result-body">
+      <div class="brow"><span class="blabel">Principal</span><span class="bval">${fmt(P)}</span></div>
+      <div class="brow"><span class="blabel">Rate</span><span class="bval">${R}% per annum</span></div>
+      ${compRow}
+      <div class="brow"><span class="blabel">Period</span>${periodHTML}</div>
+      <div class="brow"><span class="blabel">Interest</span><span class="bval interest">${fmt(interest)}</span></div>
+      <div class="brow"><span class="blabel" style="font-weight:500;color:var(--ink)">Total</span><span class="bval total">${fmt(total)}</span></div>
+      <div class="action-row">
+        <button class="action-btn" id="copy-btn" onclick="copyResult(${R},${days},${Math.round(interest)},${Math.round(total)})">&#128203; Copy result</button>
+        <button class="action-btn" onclick="window.print()">&#128424; Print</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function copyResult(rate,days,interest,total){
+  let P=document.getElementById('principal').value;
+  let sd=document.getElementById('start-date').value;
+  let ed=document.getElementById('end-date').value;
+  let type=currentType==='simple'?'Simple Interest':'Compound Interest';
+  let text=type+'\nPrincipal: '+fmtPlain(P)+'\nRate: '+rate+'% per annum\nPeriod: '+days+' days\nInterest: '+fmtPlain(interest)+'\nTotal: '+fmtPlain(total)+'\nFrom: '+sd+'  To: '+ed+'\nSource: vikrampanwar.com';
+  navigator.clipboard.writeText(text).then(()=>{
+    let btn=document.getElementById('copy-btn');
+    btn.textContent='✓ Copied';btn.classList.add('copied');
+    setTimeout(()=>{btn.innerHTML='&#128203; Copy result';btn.classList.remove('copied');},2000);
+  });
+}
+
+// Default dates
+let today=new Date();
+let ago=new Date(today);ago.setFullYear(today.getFullYear()-1);
+document.getElementById('end-date').value=today.toISOString().split('T')[0];
+document.getElementById('start-date').value=ago.toISOString().split('T')[0];
+</script>
+</body>
+</html>
