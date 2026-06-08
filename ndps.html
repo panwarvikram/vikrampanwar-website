@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>NDPS Act — Quantity Checker & Section Reference | vikrampanwar.com</title>
+<meta name="description" content="Free NDPS Act tool. Check small, intermediate or commercial quantity for ganja, heroin, charas, opium, smack and more. Section reference, punishment, bail conditions under Section 37 NDPS Act."/>
+<meta name="keywords" content="NDPS Act quantity checker, ganja commercial quantity, heroin small quantity, NDPS section 37 bail, NDPS Act Haryana, charas quantity NDPS, smack commercial quantity, poppy husk doda NDPS, NDPS punishment section 20 21 22"/>
+<meta name="author" content="Vikram Panwar, Advocate"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://vikrampanwar.com/ndps.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://vikrampanwar.com/ndps.html"/>
+<meta property="og:title" content="NDPS Act — Quantity Checker & Section Reference"/>
+<meta property="og:description" content="Check small, intermediate or commercial quantity under NDPS Act. Section reference, punishment and Section 37 bail conditions."/>
+<meta property="og:site_name" content="vikrampanwar.com"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1a18;--ink-2:#4a4a46;--ink-3:#7a7a74;--ink-4:#b0b0a8;
+  --paper:#f7f4ee;--paper-2:#eeebe2;--rule:rgba(26,26,24,0.1);
+  --green:#2d6a4f;--green-bg:#d8f3dc;--green-b:#a8dab5;
+  --red:#9b2226;--red-bg:#fde8e8;--red-b:#f5b8b8;
+  --amber:#7d5a00;--amber-bg:#fff3cd;--amber-b:#f5d88a;
+  --blue:#1d4e89;--blue-bg:#dbeafe;--blue-b:#93c5fd;
+  --purple:#4a1d96;--purple-bg:#ede9fe;--purple-b:#c4b5fd;
+  --serif:"EB Garamond",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;
+  --pad:clamp(1.25rem,4vw,2.5rem);--max:820px;
+}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem var(--pad);border-bottom:0.5px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100}
+.nav-name{font-family:var(--serif);font-size:16px;color:var(--ink);text-decoration:none}
+.nav-back{font-size:12px;color:var(--ink-3);text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:2rem var(--pad) 4rem}
+h1{font-family:var(--serif);font-size:clamp(24px,5vw,34px);font-weight:400;margin-bottom:.3rem}
+.subtitle{font-size:13px;color:var(--ink-3);margin-bottom:1.5rem}
+
+/* MODE TABS */
+.mode-tabs{display:flex;gap:8px;margin-bottom:1.5rem}
+.mode-tab{flex:1;padding:9px 14px;font-size:13px;font-weight:500;border-radius:8px;border:0.5px solid var(--rule);background:white;color:var(--ink-3);cursor:pointer;font-family:var(--sans);transition:all .15s;text-align:center}
+.mode-tab.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* QUANTITY CHECKER */
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:6px}
+.field select,.field input{width:100%;padding:10px 14px;font-size:15px;border:0.5px solid var(--rule);border-radius:8px;background:white;color:var(--ink);font-family:var(--sans);outline:none}
+.field select:focus,.field input:focus{border-color:var(--ink-3)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.calc-btn{width:100%;padding:12px;font-size:15px;font-weight:500;font-family:var(--sans);border-radius:8px;border:none;background:var(--ink);color:var(--paper);cursor:pointer;transition:opacity .15s;margin-top:.25rem}
+.calc-btn:hover{opacity:.85}
+
+/* RESULT CARD */
+.result-box{background:white;border:0.5px solid var(--rule);border-radius:12px;overflow:hidden;margin-top:1.5rem}
+.result-header{padding:1.25rem 1.5rem;border-bottom:0.5px solid var(--rule)}
+.rh-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:.5rem}
+.quantity-badge{font-size:13px;font-weight:500;padding:5px 14px;border-radius:20px;white-space:nowrap}
+.badge-small{background:var(--green-bg);color:var(--green);border:0.5px solid var(--green-b)}
+.badge-intermediate{background:var(--amber-bg);color:var(--amber);border:0.5px solid var(--amber-b)}
+.badge-commercial{background:var(--red-bg);color:var(--red);border:0.5px solid var(--red-b)}
+.result-drug{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink)}
+.result-qty{font-size:13px;color:var(--ink-3);margin-top:3px}
+.result-body{padding:1.25rem 1.5rem}
+.brow{display:flex;justify-content:space-between;align-items:flex-start;padding:9px 0;border-bottom:0.5px solid var(--rule);font-size:14px;gap:16px}
+.brow:last-child{border-bottom:none}
+.blabel{color:var(--ink-3);flex-shrink:0}
+.bval{font-weight:500;color:var(--ink);text-align:right;line-height:1.5}
+.bval.green{color:var(--green)}
+.bval.amber{color:var(--amber)}
+.bval.red{color:var(--red)}
+
+/* THRESHOLD BAR */
+.threshold-bar{margin:.75rem 0 1rem;padding:.75rem 1rem;background:var(--paper-2);border-radius:8px}
+.threshold-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:8px}
+.bar-track{height:10px;border-radius:5px;background:linear-gradient(to right,var(--green) 0%,var(--green) 33%,var(--amber) 33%,var(--amber) 66%,var(--red) 66%,var(--red) 100%);position:relative;margin-bottom:6px}
+.bar-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-4)}
+.bar-labels span{font-weight:500}
+
+/* BAIL WARNING */
+.bail-box{background:var(--red-bg);border:0.5px solid var(--red-b);border-radius:8px;padding:.9rem 1.1rem;margin-top:.75rem}
+.bail-box.amber{background:var(--amber-bg);border-color:var(--amber-b)}
+.bail-title{font-size:12px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.4rem}
+.bail-box .bail-title{color:var(--red)}
+.bail-box.amber .bail-title{color:var(--amber)}
+.bail-text{font-size:13px;color:var(--ink-2);line-height:1.6}
+
+/* S.50 WARNING */
+.s50-box{background:var(--purple-bg);border:0.5px solid var(--purple-b);border-radius:8px;padding:.9rem 1.1rem;margin-top:.75rem;font-size:13px;color:var(--purple);line-height:1.6}
+.s50-box strong{color:var(--purple)}
+
+/* HIRA SINGH NOTE */
+.hira-note{background:var(--blue-bg);border:0.5px solid var(--blue-b);border-radius:8px;padding:.75rem 1rem;margin-top:.75rem;font-size:12px;color:var(--blue);line-height:1.6}
+
+/* JUDGMENTS */
+.j-toggle{background:transparent;border:none;font-size:12px;font-weight:500;cursor:pointer;font-family:var(--sans);padding:0;display:flex;align-items:center;gap:5px;margin-top:.75rem;color:var(--ink-3)}
+.j-toggle:hover{color:var(--ink)}
+.j-list{display:none;margin-top:.6rem;flex-direction:column;gap:6px}
+.j-list.show{display:flex}
+.j-item{background:var(--paper-2);border-radius:6px;padding:.6rem .9rem}
+.j-case{font-size:12px;font-weight:500;color:var(--ink)}
+.j-principle{font-size:12px;color:var(--ink-3);margin-top:2px;line-height:1.5}
+
+/* SECTION REFERENCE */
+.sec-grid{display:flex;flex-direction:column;gap:10px}
+.sec-card{background:white;border:0.5px solid var(--rule);border-radius:10px;overflow:hidden}
+.sec-header{padding:1rem 1.25rem;cursor:pointer;display:flex;align-items:flex-start;gap:12px;transition:background .15s}
+.sec-header:hover{background:var(--paper-2)}
+.sec-num{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--ink);flex-shrink:0;min-width:60px}
+.sec-middle{flex:1}
+.sec-title{font-size:14px;font-weight:500;color:var(--ink);line-height:1.4;margin-bottom:4px}
+.sec-sub{font-size:12px;color:var(--ink-3)}
+.sec-badges{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px}
+.sbadge{font-size:11px;font-weight:500;padding:2px 8px;border-radius:10px}
+.sbadge-nb{background:var(--red-bg);color:var(--red)}
+.sbadge-b{background:var(--green-bg);color:var(--green)}
+.sbadge-special{background:var(--purple-bg);color:var(--purple)}
+.sec-body{display:none;padding:0 1.25rem 1rem;border-top:0.5px solid var(--rule)}
+.sec-body.open{display:block}
+.sec-detail-row{padding:8px 0;border-bottom:0.5px solid var(--rule);font-size:13px;display:flex;gap:12px;align-items:flex-start}
+.sec-detail-row:last-child{border-bottom:none}
+.sdl{color:var(--ink-4);font-size:11px;letter-spacing:.06em;text-transform:uppercase;min-width:80px;flex-shrink:0;padding-top:2px}
+.sdv{color:var(--ink-2);line-height:1.6;flex:1}
+
+.action-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:1rem;padding-top:1rem;border-top:0.5px solid var(--rule)}
+.action-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:6px;font-size:12px;font-weight:500;font-family:var(--sans);cursor:pointer;border:0.5px solid var(--rule);background:transparent;color:var(--ink-2);transition:all .15s}
+.action-btn:hover{background:var(--paper-2);color:var(--ink)}
+.action-btn.copied{background:var(--green-bg);color:var(--green);border-color:var(--green)}
+
+footer{text-align:center;padding:2rem var(--pad);border-top:0.5px solid var(--rule);margin-top:2rem}
+footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
+@media print{nav,.mode-tabs,.calc-btn,.action-row,.j-toggle{display:none!important}body{background:white}.sec-body{display:block!important}.j-list{display:flex!important}}
+@media(max-width:500px){.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-name" href="https://vikrampanwar.com">Vikram Panwar, Advocate</a>
+  <a class="nav-back" href="https://vikrampanwar.com">← Back to home</a>
+</nav>
+<div class="wrap">
+  <h1>NDPS Act</h1>
+  <p class="subtitle">Quantity checker · Section reference · Bail conditions · S.O. 1055(E) dated 19.10.2001</p>
+
+  <div class="mode-tabs">
+    <button class="mode-tab active" id="tab-qty" onclick="setMode('qty')">Quantity checker</button>
+    <button class="mode-tab" id="tab-sec" onclick="setMode('sec')">Section reference</button>
+  </div>
+
+  <!-- QUANTITY CHECKER -->
+  <div id="mode-qty">
+    <div class="grid2">
+      <div class="field">
+        <label>Substance / drug</label>
+        <select id="drug-select" onchange="updateUnit()">
+          <option value="">— Select substance —</option>
+          <optgroup label="Cannabis">
+            <option value="ganja">Ganja (Cannabis herb)</option>
+            <option value="charas">Charas (Cannabis resin)</option>
+          </optgroup>
+          <optgroup label="Opiates">
+            <option value="heroin">Heroin / Smack (Diacetylmorphine)</option>
+            <option value="opium">Opium (Afim)</option>
+            <option value="morphine">Morphine</option>
+            <option value="codeine">Codeine</option>
+            <option value="poppy_husk">Poppy husk (Doda / Phukki)</option>
+            <option value="poppy_straw">Poppy straw (concentrate)</option>
+          </optgroup>
+          <optgroup label="Stimulants / Psychotropics">
+            <option value="cocaine">Cocaine</option>
+            <option value="meth">Methamphetamine</option>
+            <option value="mdma">MDMA (Ecstasy)</option>
+          </optgroup>
+          <optgroup label="Pharmaceutical (commonly misused)">
+            <option value="alprazolam">Alprazolam (Alprax / Xanax)</option>
+            <option value="nitrazepam">Nitrazepam</option>
+            <option value="dextro">Dextropropoxyphene (Proxyvon / Spasmo)</option>
+            <option value="diphenoxylate">Diphenoxylate (Lomotil)</option>
+            <option value="pentazocine">Pentazocine (Fortwin)</option>
+            <option value="tramadol">Tramadol</option>
+          </optgroup>
+          <optgroup label="Hallucinogens">
+            <option value="lsd">LSD</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="field">
+        <label>Quantity seized</label>
+        <div style="display:flex;gap:8px">
+          <input type="number" id="qty-input" placeholder="e.g. 500" min="0" step="any" oninput="checkQty()" style="flex:1"/>
+          <select id="unit-select" onchange="checkQty()" style="width:90px;flex-shrink:0">
+            <option value="g">grams</option>
+            <option value="kg">kg</option>
+            <option value="mg">mg</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <button class="calc-btn" onclick="checkQty()">Check quantity</button>
+    <div id="qty-result"></div>
+  </div>
+
+  <!-- SECTION REFERENCE -->
+  <div id="mode-sec" style="display:none">
+    <div class="sec-grid" id="sec-grid"></div>
+  </div>
+</div>
+
+<footer><p>vikrampanwar.com &nbsp;·&nbsp; NDPS Act — Quantity Checker & Section Reference<br>Quantities per S.O. 1055(E) dt 19.10.2001. Hira Singh v. UoI (2020) — entire mixture weight counts.<br>For reference only. &copy; 2026 Vikram Panwar, Advocate &nbsp;&middot;&nbsp; Charkhi Dadri &amp; Bhiwani</p></footer>
+
+<script>
+// DRUG DATABASE — quantities in grams, per S.O. 1055(E) dt 19.10.2001
+const DRUGS = {
+  ganja:        {name:'Ganja (Cannabis herb)',        small:1000,  commercial:20000, section:'S.20', unit:'g'},
+  charas:       {name:'Charas (Cannabis resin)',       small:100,   commercial:1000,  section:'S.20', unit:'g'},
+  heroin:       {name:'Heroin / Smack',               small:5,     commercial:250,   section:'S.21', unit:'g'},
+  opium:        {name:'Opium (Afim)',                 small:25,    commercial:2500,  section:'S.17', unit:'g'},
+  morphine:     {name:'Morphine',                     small:5,     commercial:250,   section:'S.21', unit:'g'},
+  codeine:      {name:'Codeine',                      small:10,    commercial:1000,  section:'S.21', unit:'g'},
+  poppy_husk:   {name:'Poppy husk (Doda/Phukki)',    small:1000,  commercial:50000, section:'S.17', unit:'g'},
+  poppy_straw:  {name:'Poppy straw (concentrate)',    small:50,    commercial:5000,  section:'S.17', unit:'g'},
+  cocaine:      {name:'Cocaine',                      small:2,     commercial:100,   section:'S.21', unit:'g'},
+  meth:         {name:'Methamphetamine',               small:2,     commercial:50,    section:'S.22', unit:'g'},
+  mdma:         {name:'MDMA (Ecstasy)',               small:0.5,   commercial:10,    section:'S.22', unit:'g'},
+  alprazolam:   {name:'Alprazolam (Alprax/Xanax)',   small:1,     commercial:250,   section:'S.22', unit:'g'},
+  nitrazepam:   {name:'Nitrazepam',                   small:20,    commercial:500,   section:'S.22', unit:'g'},
+  dextro:       {name:'Dextropropoxyphene (Proxyvon)',small:20,    commercial:500,   section:'S.22', unit:'g'},
+  diphenoxylate:{name:'Diphenoxylate (Lomotil)',      small:2,     commercial:50,    section:'S.22', unit:'g'},
+  pentazocine:  {name:'Pentazocine (Fortwin)',        small:20,    commercial:500,   section:'S.22', unit:'g'},
+  tramadol:     {name:'Tramadol',                     small:20,    commercial:500,   section:'S.22', unit:'g'},
+  lsd:          {name:'LSD',                          small:0.001, commercial:0.1,   section:'S.22', unit:'g'},
+};
+
+function updateUnit(){
+  let key = document.getElementById('drug-select').value;
+  if(!key) return;
+  let d = DRUGS[key];
+  let sel = document.getElementById('unit-select');
+  // Suggest best unit based on thresholds
+  if(d.commercial >= 5000) sel.value = 'kg';
+  else if(d.commercial < 1) sel.value = 'mg';
+  else sel.value = 'g';
+  checkQty();
+}
+
+function toGrams(val, unit){
+  if(unit === 'kg') return val * 1000;
+  if(unit === 'mg') return val / 1000;
+  return val;
+}
+
+function fmtGrams(g){
+  if(g >= 1000) return (g/1000).toFixed(1).replace(/\.?0+$/,'') + ' kg';
+  if(g < 1) return (g*1000).toFixed(1).replace(/\.?0+$/,'') + ' mg';
+  return g + ' g';
+}
+
+function checkQty(){
+  let key = document.getElementById('drug-select').value;
+  let qtyRaw = parseFloat(document.getElementById('qty-input').value);
+  let unit = document.getElementById('unit-select').value;
+  let area = document.getElementById('qty-result');
+
+  if(!key){area.innerHTML='<div style="margin-top:1rem;padding:1rem;background:white;border:0.5px solid var(--rule);border-radius:8px;font-size:13px;color:var(--ink-3)">Please select a substance from the dropdown above.</div>';return;}
+  if(!qtyRaw || qtyRaw <= 0){
+    let inp=document.getElementById('qty-input');
+    inp.style.borderColor='var(--red)';
+    setTimeout(()=>inp.style.borderColor='',2000);
+    area.innerHTML='<div style="margin-top:1rem;padding:1rem;background:var(--red-bg);border:0.5px solid var(--red-b);border-radius:8px;font-size:13px;color:var(--red)">Please enter a valid quantity greater than zero.</div>';
+    return;
+  }
+
+  let d = DRUGS[key];
+  let qtyG = toGrams(qtyRaw, unit);
+  let cat, catLabel, badgeClass, punish, bail, section;
+
+  if(qtyG < d.small){
+    cat='small'; catLabel='Small quantity';badgeClass='badge-small';
+    punish='Up to 1 year rigorous imprisonment, or fine up to ₹10,000, or both';
+    bail='Bailable — bail may be granted by Magistrate. Section 37 twin conditions do NOT apply.';
+    section=d.section+'(a)';
+  } else if(qtyG < d.commercial){
+    cat='intermediate'; catLabel='Intermediate quantity';badgeClass='badge-intermediate';
+    punish='Up to 10 years rigorous imprisonment + fine up to ₹1 lakh';
+    bail='Non-bailable — but Section 37 twin conditions do NOT apply to intermediate quantity. Regular bail considerations apply.';
+    section=d.section+'(b)';
+  } else {
+    cat='commercial'; catLabel='Commercial quantity';badgeClass='badge-commercial';
+    punish='Minimum 10 years to maximum 20 years rigorous imprisonment + fine ₹1 lakh to ₹2 lakh';
+    bail='Non-bailable — Section 37 TWIN CONDITIONS apply. Court must be satisfied: (1) reasonable grounds to believe accused is not guilty; AND (2) accused is not likely to commit offence while on bail. Both conditions must be satisfied simultaneously.';
+    section=d.section+'(c)';
+  }
+
+  // Threshold bar position
+  let pct = Math.min(95, Math.max(5, (qtyG / d.commercial) * 60));
+  if(cat==='small') pct = Math.min(30, (qtyG/d.small)*30);
+  else if(cat==='intermediate') pct = 35 + ((qtyG-d.small)/(d.commercial-d.small))*25;
+  else pct = 65 + Math.min(30, ((qtyG-d.commercial)/d.commercial)*30);
+
+  area.innerHTML = `<div class="result-box">
+    <div class="result-header">
+      <div class="rh-top">
+        <div>
+          <div class="result-drug">${d.name}</div>
+          <div class="result-qty">Quantity: ${fmtGrams(qtyG)} (${qtyRaw} ${unit})</div>
+        </div>
+        <span class="quantity-badge ${badgeClass}">${catLabel}</span>
+      </div>
+    </div>
+    <div class="result-body">
+      <div class="threshold-bar">
+        <div class="threshold-label">Quantity thresholds — S.O. 1055(E) dt 19.10.2001</div>
+        <div class="bar-track"></div>
+        <div class="bar-labels">
+          <span style="color:var(--green)">Small &lt; ${fmtGrams(d.small)}</span>
+          <span style="color:var(--amber)">Intermediate</span>
+          <span style="color:var(--red)">Commercial ≥ ${fmtGrams(d.commercial)}</span>
+        </div>
+      </div>
+      <div class="brow"><span class="blabel">Classification</span><span class="bval ${cat==='small'?'green':cat==='commercial'?'red':'amber'}">${catLabel}</span></div>
+      <div class="brow"><span class="blabel">Section invoked</span><span class="bval">NDPS Act ${section}</span></div>
+      <div class="brow"><span class="blabel">Punishment</span><span class="bval">${punish}</span></div>
+      <div class="brow"><span class="blabel">Small qty threshold</span><span class="bval">${fmtGrams(d.small)}</span></div>
+      <div class="brow"><span class="blabel">Commercial qty threshold</span><span class="bval">${fmtGrams(d.commercial)}</span></div>
+      ${cat==='commercial'?`<div class="bail-box"><div class="bail-title">⚠ Section 37 — Twin bail conditions apply</div><div class="bail-text">${bail}</div></div>`:
+        cat==='intermediate'?`<div class="bail-box amber"><div class="bail-title">Non-bailable — regular bail conditions</div><div class="bail-text">${bail}</div></div>`:
+        `<div style="background:var(--green-bg);border:0.5px solid var(--green-b);border-radius:8px;padding:.9rem 1.1rem;margin-top:.75rem"><div style="font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;color:var(--green);margin-bottom:.3rem">Bailable offence</div><div style="font-size:13px;color:var(--ink-2)">${bail}</div></div>`}
+      <div class="s50-box"><strong>Section 50 — Mandatory procedure for personal search:</strong> If search is of a person (not vehicle/premises), the officer MUST inform the accused of his right to be searched before a Gazetted Officer or a Magistrate. Non-compliance with S.50 is a ground for acquittal regardless of quantity. — <em>State of Punjab v. Balbir Singh (1994) 3 SCC 299</em></div>
+      <div class="hira-note"><strong>Hira Singh v. Union of India (2020) 9 SCC 322:</strong> The entire weight of the mixture including neutral substance is counted — not just pure drug content. If 400g of powder contains heroin, entire 400g is counted towards the threshold.</div>
+      <button class="j-toggle" onclick="toggleJ('jlist-qty')"><span id="arr-jlist-qty">▾</span> Relevant judgments</button>
+      <div class="j-list" id="jlist-qty">
+        <div class="j-item"><div class="j-case">Hira Singh v. Union of India (2020) 9 SCC 322</div><div class="j-principle">Overruled E. Michael Raj (2008) — entire weight of mixture including neutral substance counts for determining small/commercial quantity. Weight of neutral substance cannot be excluded.</div></div>
+        <div class="j-item"><div class="j-case">State of Punjab v. Balbir Singh (1994) 3 SCC 299</div><div class="j-principle">Non-compliance with mandatory procedure under S.50 vitiates arrest and recovery. Accused is entitled to acquittal if S.50 not followed during personal search.</div></div>
+        <div class="j-item"><div class="j-case">Union of India v. Ram Samujh (1999) 9 SCC 429</div><div class="j-principle">Section 37 twin conditions for bail — court must record reasons that there are reasonable grounds to believe accused is not guilty AND that he is not likely to commit any offence while on bail.</div></div>
+        <div class="j-item"><div class="j-case">Tofan Singh v. State of Tamil Nadu (2021) 4 SCC 1</div><div class="j-principle">Statement made before NCB/Customs officer under S.67 NDPS is not admissible as confession since such officers are "police officers" within meaning of S.25 Evidence Act. Only statement before Magistrate under S.164 BNSS/CrPC is admissible.</div></div>
+        <div class="j-item"><div class="j-case">Arjunan v. State (2019) 3 SCC 173</div><div class="j-principle">S.50 right must be communicated meaningfully — failure to inform accused in language he understands constitutes non-compliance and vitiates recovery.</div></div>
+        <div class="j-item"><div class="j-case">Arif Khan @ Agha Khan v. State of Uttarakhand (2018) 18 SCC 380</div><div class="j-principle">S.27 NDPS — personal consumption defence. Accused must establish that drug was for personal use. Mere possession of small quantity is not by itself sufficient to invoke S.27.</div></div>
+      </div>
+      <div class="action-row">
+        <button class="action-btn" id="copy-qty-btn" onclick="copyQtyResult('${d.name}','${fmtGrams(qtyG)}','${catLabel}','NDPS ${section}','${punish.replace(/'/g,"\\'")}')">📋 Copy result</button>
+        <button class="action-btn" onclick="window.print()">🖨 Print</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function toggleJ(id){
+  let el=document.getElementById(id);
+  let key=id.replace('jlist-','');
+  let arr=document.getElementById('arr-'+id);
+  el.classList.toggle('show');
+  if(arr)arr.textContent=el.classList.contains('show')?'▴':'▾';
+}
+
+function copyQtyResult(drug,qty,cat,sec,pun){
+  let text=`NDPS Act — Quantity Check\n${drug}\nQuantity: ${qty}\nClassification: ${cat}\nSection: ${sec}\nPunishment: ${pun}\nSource: vikrampanwar.com`;
+  navigator.clipboard.writeText(text).then(()=>{
+    let btn=document.getElementById('copy-qty-btn');
+    btn.textContent='✓ Copied';btn.classList.add('copied');
+    setTimeout(()=>{btn.innerHTML='📋 Copy result';btn.classList.remove('copied');},2000);
+  });
+}
+
+// SECTION REFERENCE DATA
+const SECTIONS = [
+  {num:'S.15',title:'Punishment for contravention in relation to poppy straw',sub:'Poppy straw / doda / phukki',
+   bail:{small:'Bailable',inter:'Non-bailable',comm:'Non-bailable — S.37 applies'},
+   punish:{small:'Up to 1 yr RI + fine up to ₹10,000',inter:'Up to 10 yrs RI + fine up to ₹1 lakh',comm:'Min 10 yrs to max 20 yrs RI + fine ₹1 lakh to ₹2 lakh'},
+   note:'Poppy husk (doda/phukki) is very common in Haryana. Small qty = 1 kg, Commercial = 50 kg.',
+   judgments:[{c:'Hari Ram v. State of Rajasthan (2009) 13 SCC 211',p:'Poppy husk is covered under S.15 as poppy straw. Recovery from house requires proper search warrant procedure.'}]},
+  {num:'S.17',title:'Punishment for contravention in relation to prepared opium',sub:'Opium / afim',
+   bail:{small:'Bailable',inter:'Non-bailable',comm:'Non-bailable — S.37 applies'},
+   punish:{small:'Up to 1 yr RI + fine up to ₹10,000',inter:'Up to 10 yrs RI + fine up to ₹1 lakh',comm:'Min 10 yrs to max 20 yrs RI + fine ₹1 lakh to ₹2 lakh'},
+   note:'Opium small qty = 25g, Commercial = 2.5 kg.',
+   judgments:[]},
+  {num:'S.20',title:'Punishment for contravention in relation to cannabis',sub:'Ganja, charas (cannabis herb and resin)',
+   bail:{small:'Bailable',inter:'Non-bailable',comm:'Non-bailable — S.37 applies'},
+   punish:{small:'Up to 1 yr RI + fine up to ₹10,000',inter:'Up to 10 yrs RI + fine up to ₹1 lakh',comm:'Min 10 yrs to max 20 yrs RI + fine ₹1 lakh to ₹2 lakh'},
+   note:'Ganja: Small 1kg, Commercial 20kg. Charas: Small 100g, Commercial 1kg. Most common NDPS section in Haryana. Important: Bhang (leaves and seeds not accompanied by tops) is excluded from the definition of cannabis under S.2(iii) NDPS Act and is governed by state excise laws — not NDPS Act.',
+   judgments:[{c:'State of Punjab v. Balbir Singh (1994) 3 SCC 299',p:'S.50 compliance mandatory for personal search — non-compliance fatal to prosecution.'}]},
+  {num:'S.21',title:'Punishment for contravention in relation to manufactured drugs',sub:'Heroin, smack, morphine, cocaine, codeine',
+   bail:{small:'Bailable',inter:'Non-bailable',comm:'Non-bailable — S.37 applies'},
+   punish:{small:'Up to 1 yr RI + fine up to ₹10,000',inter:'Up to 10 yrs RI + fine up to ₹1 lakh',comm:'Min 10 yrs to max 20 yrs RI + fine ₹1 lakh to ₹2 lakh'},
+   note:'Heroin/Smack: Small 5g, Commercial 250g. Most serious drug offences under this section.',
+   judgments:[{c:'Hira Singh v. Union of India (2020) 9 SCC 322',p:'Entire mixture weight counts — overrules E. Michael Raj (2008). Neutral substance included.'}]},
+  {num:'S.22',title:'Punishment for contravention in relation to psychotropic substances',sub:'Alprazolam, nitrazepam, MDMA, methamphetamine, tramadol',
+   bail:{small:'Bailable',inter:'Non-bailable',comm:'Non-bailable — S.37 applies'},
+   punish:{small:'Up to 1 yr RI + fine up to ₹10,000',inter:'Up to 10 yrs RI + fine up to ₹1 lakh',comm:'Min 10 yrs to max 20 yrs RI + fine ₹1 lakh to ₹2 lakh'},
+   note:'Alprazolam: Small 1g, Commercial 250g. Tramadol added to schedule in 2018 — very common in Haryana.',
+   judgments:[]},
+  {num:'S.27',title:'Punishment for consumption of narcotic drug or psychotropic substance',sub:'Personal use / consumption',
+   bail:{small:'Bailable',inter:'—',comm:'—'},
+   punish:{small:'Rigorous imprisonment up to 1 year + fine up to ₹20,000 (hard drugs); up to 6 months + fine up to ₹10,000 (cannabis)',inter:'—',comm:'—'},
+   note:'S.27 is a defence available to drug users. Admitting consumption is an admission of possession — risk of conviction. S.64A provides diversion to de-addiction if accused volunteers.',
+   judgments:[{c:'Arif Khan @ Agha Khan v. State of Uttarakhand (2018) 18 SCC 380',p:'S.27 is a special provision — it covers only personal consumption. The accused must prove consumption was for personal use.'}]},
+  {num:'S.29',title:'Abetment and criminal conspiracy',sub:'Abetment / conspiracy to commit NDPS offences',
+   bail:{small:'Same as offence abetted',inter:'Same as offence abetted',comm:'Same as offence abetted'},
+   punish:{small:'Same as punishment for the offence',inter:'Same as punishment for the offence',comm:'Same as punishment for the offence'},
+   note:'S.37 twin conditions apply if the offence abetted involves commercial quantity.',
+   judgments:[]},
+  {num:'S.36A',title:'Offences triable by Special Courts',sub:'Jurisdiction of Special Courts',
+   bail:{small:'—',inter:'—',comm:'—'},
+   punish:{small:'—',inter:'—',comm:'—'},
+   note:'Offences under NDPS Act punishable with more than 3 years imprisonment are triable exclusively by Special Courts (Sessions level). District and Sessions Judge or Additional Sessions Judge designated as Special Judge.',
+   judgments:[]},
+  {num:'S.37',title:'Offences to be cognizable and non-bailable — bail conditions',sub:'Twin conditions for bail in commercial quantity cases',
+   bail:{small:'—',inter:'—',comm:'—'},
+   punish:{small:'—',inter:'—',comm:'—'},
+   note:'Most important section for bail arguments in NDPS matters.',
+   judgments:[
+     {c:'Union of India v. Ram Samujh (1999) 9 SCC 429',p:'Both twin conditions under S.37 must be satisfied simultaneously — reasonable grounds to believe not guilty AND not likely to commit offence on bail.'},
+     {c:'Narcotics Control Bureau v. Kishan Lal (1991) 1 SCC 705',p:'Section 37 is a special provision — it overrides general bail provisions under CrPC/BNSS. Limitations are mandatory.'},
+     {c:'Nagendra Nath Bora v. Commissioner of Narcotics (2012) 4 SCC 551',p:'S.37 conditions are stringent and mandatory. The court must record its satisfaction that there are reasonable grounds to believe the accused is not guilty — a mere prima facie view is not sufficient. The twin conditions operate as a threshold, not a final determination.'},
+     {c:'State of Kerala v. Rajesh (2020) 12 SCC 122',p:'Prolonged incarceration without trial not a ground to bypass S.37 conditions — though courts may consider delay as a relevant factor.'}
+   ]},
+  {num:'S.50',title:'Conditions under which search of persons shall be conducted',sub:'Mandatory procedure — personal search',
+   bail:{small:'—',inter:'—',comm:'—'},
+   punish:{small:'—',inter:'—',comm:'—'},
+   note:'Non-compliance with S.50 is fatal to prosecution even in commercial quantity cases. Most common ground for acquittal in NDPS matters.',
+   judgments:[
+     {c:'State of Punjab v. Balbir Singh (1994) 3 SCC 299',p:'Officer must mandatorily inform accused of right to be searched before Gazetted Officer or Magistrate. Non-compliance vitiates arrest and recovery entirely.'},
+     {c:'State of Rajasthan v. Parmanand (2014) 5 SCC 345',p:'Requirement of S.50 is mandatory only when a person is to be searched — not when vehicle, premises or bag is searched.'},
+     {c:'Arjunan v. State (2019) 3 SCC 173',p:'Accused must be given meaningful opportunity to exercise right under S.50 — not a mere formality. Failure to communicate in language accused understands = non-compliance.'}
+   ]},
+  {num:'S.52A',title:'Disposal of seized narcotic drugs and psychotropic substances',sub:'Sampling and disposal of seized contraband',
+   bail:{small:'—',inter:'—',comm:'—'},
+   punish:{small:'—',inter:'—',comm:'—'},
+   note:'Police must prepare inventory, take samples, get certification from Magistrate before disposal. Non-compliance with S.52A is a significant defence point — affects evidentiary value of seized substance.',
+   judgments:[
+     {c:'Union of India v. Mohanlal (2016) 3 SCC 379',p:'S.52A procedure is mandatory. Failure to follow sampling/certification procedure affects evidentiary value of the seized drugs. Samples must be drawn in presence of Magistrate.'}
+   ]},
+  {num:'S.67',title:'Power to call for information etc.',sub:'Statement to NCB officer — admissibility',
+   bail:{small:'—',inter:'—',comm:'—'},
+   punish:{small:'—',inter:'—',comm:'—'},
+   note:'Statement under S.67 to NCB/Customs officer is NOT admissible as confession — landmark ruling in Tofan Singh (2021).',
+   judgments:[
+     {c:'Tofan Singh v. State of Tamil Nadu (2021) 4 SCC 1',p:'Officers under NDPS Act are "police officers" within meaning of S.25 Indian Evidence Act / S.23 BSA. Therefore statement made to them is inadmissible as confession. Only S.164 BNSS/CrPC statement before Magistrate is admissible.'}
+   ]},
+];
+
+function buildSecGrid(){
+  let grid = document.getElementById('sec-grid');
+  grid.innerHTML = SECTIONS.map((s,i) => {
+    let bailRows = '';
+    if(s.bail.small !== '—') bailRows += `<div class="sec-detail-row"><span class="sdl">Bail</span><span class="sdv"><strong>Small:</strong> ${s.bail.small}<br><strong>Intermediate:</strong> ${s.bail.inter}<br><strong>Commercial:</strong> ${s.bail.comm}</span></div>`;
+    if(s.punish.small !== '—') bailRows += `<div class="sec-detail-row"><span class="sdl">Punishment</span><span class="sdv"><strong>Small:</strong> ${s.punish.small}<br><strong>Intermediate:</strong> ${s.punish.inter}<br><strong>Commercial:</strong> ${s.punish.comm}</span></div>`;
+    if(s.note) bailRows += `<div class="sec-detail-row"><span class="sdl">Note</span><span class="sdv">${s.note}</span></div>`;
+    let jHTML = s.judgments.length ? `<div class="sec-detail-row"><span class="sdl">Judgments</span><span class="sdv">${s.judgments.map(j=>`<div style="margin-bottom:6px"><div style="font-weight:500;font-size:12px;color:var(--ink)">${j.c}</div><div style="font-size:12px;color:var(--ink-3);margin-top:1px">${j.p}</div></div>`).join('')}</span></div>` : '';
+    let isSpecial = s.num==='S.37'||s.num==='S.50'||s.num==='S.52A'||s.num==='S.67';
+    return `<div class="sec-card">
+      <div class="sec-header" onclick="toggleSec(${i})">
+        <div class="sec-num">${s.num}</div>
+        <div class="sec-middle">
+          <div class="sec-title">${s.title}</div>
+          <div class="sec-sub">${s.sub}</div>
+          ${isSpecial?'<div class="sec-badges"><span class="sbadge sbadge-special">Procedural / key section</span></div>':''}
+        </div>
+        <span style="color:var(--ink-4);font-size:12px;flex-shrink:0;padding-top:4px" id="sarr-${i}">▾</span>
+      </div>
+      <div class="sec-body" id="sbody-${i}">${bailRows}${jHTML}</div>
+    </div>`;
+  }).join('');
+}
+
+function toggleSec(i){
+  let b=document.getElementById('sbody-'+i);
+  let a=document.getElementById('sarr-'+i);
+  b.classList.toggle('open');
+  a.textContent=b.classList.contains('open')?'▴':'▾';
+}
+
+function setMode(m){
+  document.getElementById('mode-qty').style.display=m==='qty'?'block':'none';
+  document.getElementById('mode-sec').style.display=m==='sec'?'block':'none';
+  document.getElementById('tab-qty').classList.toggle('active',m==='qty');
+  document.getElementById('tab-sec').classList.toggle('active',m==='sec');
+}
+
+buildSecGrid();
+</script>
+</body>
+</html>
