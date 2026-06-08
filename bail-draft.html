@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Bail Application Draft Generator — vikrampanwar.com</title>
+<meta name="description" content="Free bail application draft generator for Haryana District Courts. Generate structured bail application in Word format for Sessions courts, Magistrate courts and anticipatory bail."/>
+<meta name="keywords" content="bail application draft Haryana, bail application generator, bail application format District Court, anticipatory bail application format, bail application Charkhi Dadri, bail application Bhiwani"/>
+<meta name="author" content="Vikram Panwar, Advocate"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://vikrampanwar.com/bail-draft.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1a18;--ink-2:#4a4a46;--ink-3:#7a7a74;--ink-4:#b0b0a8;
+  --paper:#f7f4ee;--paper-2:#eeebe2;--rule:rgba(26,26,24,0.1);
+  --green:#2d6a4f;--green-bg:#d8f3dc;--green-b:#a8dab5;
+  --blue:#1d4e89;--blue-bg:#dbeafe;
+  --amber:#7d5a00;--amber-bg:#fff3cd;
+  --serif:"EB Garamond",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;
+  --pad:clamp(1.25rem,4vw,2.5rem);--max:780px;
+}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem var(--pad);border-bottom:0.5px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100}
+.nav-name{font-family:var(--serif);font-size:16px;color:var(--ink);text-decoration:none}
+.nav-back{font-size:12px;color:var(--ink-3);text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:2rem var(--pad) 4rem}
+h1{font-family:var(--serif);font-size:clamp(24px,5vw,34px);font-weight:400;margin-bottom:.3rem}
+.subtitle{font-size:13px;color:var(--ink-3);margin-bottom:1.5rem}
+
+/* STEPS */
+.step-bar{display:flex;gap:0;margin-bottom:2rem;border-radius:8px;overflow:hidden;border:0.5px solid var(--rule)}
+.step{flex:1;padding:10px 8px;text-align:center;font-size:12px;font-weight:500;background:var(--paper-2);color:var(--ink-4);cursor:pointer;transition:all .15s;border-right:0.5px solid var(--rule)}
+.step:last-child{border-right:none}
+.step.active{background:var(--ink);color:var(--paper)}
+.step.done{background:var(--green-bg);color:var(--green)}
+.step-num{display:block;font-size:16px;font-family:var(--serif);margin-bottom:2px}
+
+/* SECTION LABEL */
+.section-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:0.5px solid var(--rule)}
+
+/* FORM */
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;padding:10px 14px;font-size:14px;border:0.5px solid var(--rule);border-radius:8px;background:white;color:var(--ink);font-family:var(--sans);outline:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ink-3)}
+.field textarea{resize:vertical;min-height:80px;line-height:1.5}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.field-note{font-size:12px;color:var(--ink-4);margin-top:4px}
+
+/* GROUNDS */
+.grounds-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem}
+.ground-item{display:flex;align-items:flex-start;gap:10px;padding:.7rem .9rem;background:white;border:0.5px solid var(--rule);border-radius:8px;cursor:pointer;transition:all .15s}
+.ground-item:hover{background:var(--paper-2)}
+.ground-item.selected{background:var(--blue-bg);border-color:var(--blue)}
+.ground-item input[type=checkbox]{width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0;margin-top:2px}
+.ground-item label{font-size:13px;color:var(--ink-2);cursor:pointer;line-height:1.4}
+.ground-item.selected label{color:var(--blue)}
+
+/* NAV BUTTONS */
+.nav-btns{display:flex;gap:10px;margin-top:1.5rem}
+.btn-next{flex:1;padding:12px;font-size:15px;font-weight:500;font-family:var(--sans);border-radius:8px;border:none;background:var(--ink);color:var(--paper);cursor:pointer;transition:opacity .15s}
+.btn-next:hover{opacity:.85}
+.btn-back{padding:12px 20px;font-size:14px;font-weight:500;font-family:var(--sans);border-radius:8px;border:0.5px solid var(--rule);background:transparent;color:var(--ink-3);cursor:pointer}
+.btn-back:hover{background:var(--paper-2);color:var(--ink)}
+
+/* DOWNLOAD */
+.download-box{background:var(--green-bg);border:0.5px solid var(--green-b);border-radius:12px;padding:1.5rem;text-align:center;margin-top:1.5rem}
+.download-icon{font-size:36px;margin-bottom:.5rem}
+.download-title{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--green);margin-bottom:.5rem}
+.download-note{font-size:13px;color:var(--ink-3);margin-bottom:1.25rem;line-height:1.6}
+.download-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;font-size:15px;font-weight:500;font-family:var(--sans);border-radius:8px;border:none;background:var(--green);color:white;cursor:pointer;transition:opacity .15s}
+.download-btn:hover{opacity:.85}
+.disclaimer{background:var(--amber-bg);border-radius:8px;padding:.9rem 1.1rem;margin-top:1rem;font-size:12px;color:var(--amber);line-height:1.6}
+
+/* PANEL */
+.panel{display:none}
+.panel.active{display:block}
+
+footer{text-align:center;padding:2rem var(--pad);border-top:0.5px solid var(--rule);margin-top:2rem}
+footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
+@media(max-width:500px){.grid2,.grid3,.grounds-grid{grid-template-columns:1fr}.step-num{font-size:13px}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-name" href="https://vikrampanwar.com">Vikram Panwar, Advocate</a>
+  <a class="nav-back" href="https://vikrampanwar.com">← Back to home</a>
+</nav>
+<div class="wrap">
+  <h1>Bail application</h1>
+  <p class="subtitle">Generate a structured bail application draft in Word format — Sessions court, Magistrate court or anticipatory bail</p>
+
+  <!-- STEP BAR -->
+  <div class="step-bar">
+    <div class="step active" id="step-1" onclick="goStep(1)"><span class="step-num">1</span>Court & case</div>
+    <div class="step" id="step-2" onclick="goStep(2)"><span class="step-num">2</span>Accused</div>
+    <div class="step" id="step-3" onclick="goStep(3)"><span class="step-num">3</span>Grounds</div>
+    <div class="step" id="step-4" onclick="goStep(4)"><span class="step-num">4</span>Generate</div>
+  </div>
+
+  <!-- PANEL 1: COURT & CASE -->
+  <div class="panel active" id="panel-1">
+    <div class="section-label">Court details</div>
+    <div class="grid2">
+      <div class="field">
+        <label>Application type</label>
+        <select id="bail-type">
+          <option value="regular_sessions">Regular bail — Sessions Court</option>
+          <option value="regular_magistrate">Regular bail — Magistrate Court</option>
+          <option value="anticipatory">Anticipatory bail — Sessions Court (S.482 BNSS)</option>
+          <option value="interim">Interim bail</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Court</label>
+        <select id="court-name">
+          <option value="District & Sessions Court, Charkhi Dadri">District & Sessions Court, Charkhi Dadri</option>
+          <option value="District & Sessions Court, Bhiwani">District & Sessions Court, Bhiwani</option>
+          <option value="Court of Chief Judicial Magistrate, Charkhi Dadri">Court of CJM, Charkhi Dadri</option>
+          <option value="Court of Chief Judicial Magistrate, Bhiwani">Court of CJM, Bhiwani</option>
+          <option value="Court of Judicial Magistrate, Charkhi Dadri">Court of JM, Charkhi Dadri</option>
+          <option value="Court of Judicial Magistrate, Bhiwani">Court of JM, Bhiwani</option>
+          <option value="custom">Other (type below)</option>
+        </select>
+      </div>
+    </div>
+    <div class="field" id="custom-court-field" style="display:none">
+      <label>Court name (custom)</label>
+      <input type="text" id="custom-court" placeholder="e.g. Court of ACJM, Charkhi Dadri"/>
+    </div>
+    <div class="section-label" style="margin-top:1.5rem">Case details</div>
+    <div class="grid3">
+      <div class="field">
+        <label>FIR / Case number</label>
+        <input type="text" id="fir-no" placeholder="e.g. 123/2026"/>
+      </div>
+      <div class="field">
+        <label>Date of FIR</label>
+        <input type="date" id="fir-date"/>
+      </div>
+      <div class="field">
+        <label>Police station</label>
+        <input type="text" id="police-station" placeholder="e.g. PS Charkhi Dadri"/>
+      </div>
+    </div>
+    <div class="field">
+      <label>Sections invoked (BNS / IPC / Other)</label>
+      <input type="text" id="sections" placeholder="e.g. BNS 103, 109 / IPC 302, 307 / NDPS S.20"/>
+    </div>
+    <div class="grid2">
+      <div class="field">
+        <label>Sessions case number (if committed)</label>
+        <input type="text" id="sessions-no" placeholder="e.g. SC 45/2026 (if applicable)"/>
+      </div>
+      <div class="field">
+        <label>Date of arrest / custody since</label>
+        <input type="date" id="arrest-date"/>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field">
+        <label>Complainant / State</label>
+        <select id="complainant-type">
+          <option value="State of Haryana">State of Haryana</option>
+          <option value="custom-complainant">Named complainant</option>
+        </select>
+      </div>
+      <div class="field" id="complainant-name-field" style="display:none">
+        <label>Complainant name</label>
+        <input type="text" id="complainant-name" placeholder="Name of complainant"/>
+      </div>
+    </div>
+    <div class="nav-btns">
+      <button class="btn-next" onclick="goStep(2)">Next — Accused details →</button>
+    </div>
+  </div>
+
+  <!-- PANEL 2: ACCUSED -->
+  <div class="panel" id="panel-2">
+    <div class="section-label">Accused / applicant details</div>
+    <div class="grid2">
+      <div class="field">
+        <label>Full name of accused</label>
+        <input type="text" id="accused-name" placeholder="e.g. Ram Kumar"/>
+      </div>
+      <div class="field">
+        <label>Son / daughter / wife of</label>
+        <input type="text" id="accused-parent" placeholder="e.g. Shyam Kumar"/>
+      </div>
+    </div>
+    <div class="grid3">
+      <div class="field">
+        <label>Age</label>
+        <input type="number" id="accused-age" placeholder="e.g. 35" min="1" max="120"/>
+      </div>
+      <div class="field">
+        <label>Occupation</label>
+        <input type="text" id="accused-occ" placeholder="e.g. Farmer / Labourer"/>
+      </div>
+      <div class="field">
+        <label>Religion / caste (optional)</label>
+        <input type="text" id="accused-caste" placeholder="e.g. Hindu, Jat"/>
+      </div>
+    </div>
+    <div class="field">
+      <label>Permanent address</label>
+      <textarea id="accused-address" placeholder="Village/town, tehsil, district, state"></textarea>
+    </div>
+    <div class="grid2">
+      <div class="field">
+        <label>Custody / jail</label>
+        <input type="text" id="accused-jail" placeholder="e.g. District Jail, Charkhi Dadri"/>
+      </div>
+      <div class="field">
+        <label>Prior criminal antecedents</label>
+        <select id="prior-cases">
+          <option value="none">None — first offender</option>
+          <option value="acquitted">Earlier cases — acquitted</option>
+          <option value="discharged">Earlier cases — discharged</option>
+          <option value="pending">Other cases pending</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Surety details (optional)</label>
+      <input type="text" id="surety" placeholder="e.g. willing to furnish surety of ₹50,000"/>
+    </div>
+    <div class="section-label" style="margin-top:1.5rem">Family / dependants</div>
+    <div class="grid3">
+      <div class="field">
+        <label>Number of children</label>
+        <input type="number" id="children" placeholder="0" min="0"/>
+      </div>
+      <div class="field">
+        <label>Elderly dependants</label>
+        <input type="text" id="dependants" placeholder="e.g. aged parents"/>
+      </div>
+      <div class="field">
+        <label>Medical condition (if any)</label>
+        <input type="text" id="medical" placeholder="e.g. diabetes, heart condition"/>
+      </div>
+    </div>
+    <div class="nav-btns">
+      <button class="btn-back" onclick="goStep(1)">← Back</button>
+      <button class="btn-next" onclick="goStep(3)">Next — Grounds →</button>
+    </div>
+  </div>
+
+  <!-- PANEL 3: GROUNDS -->
+  <div class="panel" id="panel-3">
+    <div class="section-label">Select grounds for bail</div>
+    <div class="grounds-grid" id="grounds-grid">
+      <!-- populated by JS -->
+    </div>
+    <div class="field">
+      <label>Additional / custom grounds (optional)</label>
+      <textarea id="custom-grounds" placeholder="Add any specific facts or grounds not listed above..."></textarea>
+    </div>
+    <div class="field">
+      <label>Advocate name (for signature block)</label>
+      <input type="text" id="adv-name" placeholder="e.g. Vikram Panwar, Advocate"/>
+    </div>
+    <div class="field">
+      <label>Enrolment number (optional)</label>
+      <input type="text" id="adv-enrol" placeholder="e.g. H/1234/2015"/>
+    </div>
+    <div class="nav-btns">
+      <button class="btn-back" onclick="goStep(2)">← Back</button>
+      <button class="btn-next" onclick="goStep(4)">Generate draft →</button>
+    </div>
+  </div>
+
+  <!-- PANEL 4: GENERATE -->
+  <div class="panel" id="panel-4">
+    <div class="download-box">
+      <div class="download-icon">📄</div>
+      <div class="download-title">Bail application ready</div>
+      <div class="download-note">Your structured bail application draft has been generated.<br>Download as a Word (.docx) file — edit, review and finalise before filing.</div>
+      <button class="download-btn" onclick="generateDocx()">⬇ Download Word file (.docx)</button>
+    </div>
+    <div class="disclaimer">
+      ⚠ This draft is a structural framework only. The advocate must review, add specific legal arguments, verify facts and finalise before filing. This tool does not constitute legal advice.
+    </div>
+    <div class="nav-btns">
+      <button class="btn-back" onclick="goStep(3)">← Edit grounds</button>
+      <button class="btn-next" onclick="goStep(1)">Start new application</button>
+    </div>
+  </div>
+
+</div>
+<footer><p>vikrampanwar.com &nbsp;·&nbsp; Bail Application Draft Generator<br>For structural reference only — advocate must review and finalise before filing. &copy; 2026 Vikram Panwar, Advocate</p></footer>
+
+<!-- docx.js from CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.5.0/docx.umd.min.js"></script>
+
+<script>
+// GROUNDS DATA
+const GROUNDS_DATA = [
+  {id:'g1', label:'No prior criminal record — first offender'},
+  {id:'g2', label:'Permanent resident of the area — no risk of flight or absconding'},
+  {id:'g3', label:'Investigation is complete / charge sheet has been filed'},
+  {id:'g4', label:'Custodial interrogation is complete — further custody not required'},
+  {id:'g5', label:'Co-accused persons are already on bail'},
+  {id:'g6', label:'Accused is the sole breadwinner of the family'},
+  {id:'g7', label:'Accused has elderly / infirm dependants requiring care'},
+  {id:'g8', label:'Accused is suffering from serious medical condition'},
+  {id:'g9', label:'Recovery of any incriminating material from accused is complete'},
+  {id:'g10', label:'No likelihood of tampering with evidence or influencing witnesses'},
+  {id:'g11', label:'No likelihood of repeating the offence if released on bail'},
+  {id:'g12', label:'Accused is ready and willing to abide by all bail conditions'},
+  {id:'g13', label:'Prolonged incarceration without trial — right to speedy trial'},
+  {id:'g14', label:'Accused has deep roots in society — property / family ties'},
+  {id:'g15', label:'Accused was not the main conspirator — minor role in the offence'},
+  {id:'g16', label:'Complainant and accused are known to each other — civil dispute'},
+  {id:'g17', label:'FIR is the result of personal enmity / motivated complaint'},
+  {id:'g18', label:'Accused is willing to surrender passport / not leave jurisdiction'},
+];
+
+// Populate grounds
+let groundsGrid = document.getElementById('grounds-grid');
+groundsGrid.innerHTML = GROUNDS_DATA.map(g => `
+  <div class="ground-item" id="gi-${g.id}" onclick="toggleGround('${g.id}')">
+    <input type="checkbox" id="${g.id}" value="${g.id}"/>
+    <label for="${g.id}">${g.label}</label>
+  </div>`).join('');
+
+function toggleGround(id){
+  let cb = document.getElementById(id);
+  let item = document.getElementById('gi-'+id);
+  cb.checked = !cb.checked;
+  item.classList.toggle('selected', cb.checked);
+}
+
+// Court select
+document.getElementById('court-name').addEventListener('change', function(){
+  document.getElementById('custom-court-field').style.display = this.value === 'custom' ? 'block' : 'none';
+});
+document.getElementById('complainant-type').addEventListener('change', function(){
+  document.getElementById('complainant-name-field').style.display = this.value === 'custom-complainant' ? 'block' : 'none';
+});
+
+let currentStep = 1;
+function goStep(n){
+  document.getElementById('panel-'+currentStep).classList.remove('active');
+  document.getElementById('step-'+currentStep).classList.remove('active');
+  if(currentStep < n) document.getElementById('step-'+currentStep).classList.add('done');
+  currentStep = n;
+  document.getElementById('panel-'+n).classList.add('active');
+  document.getElementById('step-'+n).classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function fmtDate(dateStr){
+  if(!dateStr) return '___________';
+  let d = new Date(dateStr);
+  return d.toLocaleDateString('en-IN', {day:'2-digit', month:'long', year:'numeric'});
+}
+
+function getVal(id){ return (document.getElementById(id)||{}).value || ''; }
+
+function getSelectedGrounds(){
+  let selected = [];
+  GROUNDS_DATA.forEach(g => {
+    if(document.getElementById(g.id).checked) selected.push(g.label);
+  });
+  let custom = getVal('custom-grounds').trim();
+  if(custom) selected.push(custom);
+  return selected;
+}
+
+function generateDocx(){
+  const {
+    Document, Packer, Paragraph, TextRun, AlignmentType,
+    BorderStyle, SpacingType, HeadingLevel, UnderlineType
+  } = docx;
+
+  // Gather all data
+  let bailType = getVal('bail-type');
+  let courtSel = getVal('court-name');
+  let court = courtSel === 'custom' ? getVal('custom-court') : courtSel;
+  let firNo = getVal('fir-no') || '___/____';
+  let firDate = fmtDate(getVal('fir-date'));
+  let ps = getVal('police-station') || '__________';
+  let sections = getVal('sections') || '__________';
+  let sessionsNo = getVal('sessions-no');
+  let arrestDate = fmtDate(getVal('arrest-date'));
+  let complainantType = getVal('complainant-type');
+  let complainant = complainantType === 'custom-complainant' ? getVal('complainant-name') : 'State of Haryana';
+
+  let accusedName = getVal('accused-name') || '__________';
+  let accusedParent = getVal('accused-parent') || '__________';
+  let accusedAge = getVal('accused-age') || '__';
+  let accusedOcc = getVal('accused-occ') || '__________';
+  let accusedCaste = getVal('accused-caste');
+  let accusedAddress = getVal('accused-address') || '__________';
+  let jail = getVal('accused-jail') || '__________';
+  let priorCases = getVal('prior-cases');
+  let surety = getVal('surety') || 'such surety as this Hon\'ble Court may deem fit';
+  let children = getVal('children');
+  let dependants = getVal('dependants');
+  let medical = getVal('medical');
+  let grounds = getSelectedGrounds();
+  let advName = getVal('adv-name') || 'Advocate';
+  let advEnrol = getVal('adv-enrol');
+
+  // Title based on type
+  let appTitle = {
+    regular_sessions: 'APPLICATION FOR REGULAR BAIL UNDER SECTION 483 BNSS / SECTION 439 CR.P.C.',
+    regular_magistrate: 'APPLICATION FOR BAIL UNDER SECTION 480 BNSS / SECTION 437 CR.P.C.',
+    anticipatory: 'APPLICATION FOR ANTICIPATORY BAIL UNDER SECTION 482 BNSS / SECTION 438 CR.P.C.',
+    interim: 'APPLICATION FOR INTERIM BAIL',
+  }[bailType];
+
+  // Prior antecedents text
+  let priorText = {
+    none: 'The applicant has no prior criminal record and is a first offender.',
+    acquitted: 'In earlier cases, if any, the applicant has been honourably acquitted.',
+    discharged: 'In earlier cases, if any, the applicant has been discharged.',
+    pending: 'Details of pending cases, if any, are as per the record of this Hon\'ble Court.',
+  }[priorCases];
+
+  // Family paragraph
+  let familyParts = [];
+  if(children && parseInt(children) > 0) familyParts.push(`${children} minor child${parseInt(children)>1?'ren':''} who ${parseInt(children)>1?'are':'is'} dependent upon the applicant`);
+  if(dependants) familyParts.push(dependants);
+  if(medical) familyParts.push(`The applicant is suffering from ${medical} and requires medical attention`);
+  let familyText = familyParts.length ? 'The applicant has ' + familyParts.join('. ') + '.' : '';
+
+  function bold(text){ return new TextRun({text, bold:true, font:'Times New Roman', size:24}); }
+  function normal(text){ return new TextRun({text, font:'Times New Roman', size:24}); }
+  function para(children, opts={}){
+    return new Paragraph({
+      children: Array.isArray(children) ? children : [normal(children)],
+      spacing:{before:120, after:120, line:360},
+      alignment: opts.center ? AlignmentType.CENTER : opts.right ? AlignmentType.RIGHT : AlignmentType.BOTH,
+      ...opts
+    });
+  }
+  function heading(text){
+    return new Paragraph({
+      children:[new TextRun({text, bold:true, underline:{type:UnderlineType.SINGLE}, font:'Times New Roman', size:24})],
+      alignment:AlignmentType.CENTER,
+      spacing:{before:200, after:200}
+    });
+  }
+  function groundPara(n, text){
+    return new Paragraph({
+      children:[normal(`${n}. That ${text.charAt(0).toLowerCase()}${text.slice(1)}`)],
+      spacing:{before:80, after:80, line:360},
+      alignment:AlignmentType.BOTH,
+      indent:{left:360}
+    });
+  }
+
+  let children_content = [
+    // COURT HEADING
+    para([bold(court.toUpperCase())], {center:true}),
+    para([bold(appTitle)], {center:true}),
+    para('', {}),
+
+    // PARTIES
+    para([bold(complainant.toUpperCase()), normal(' ... COMPLAINANT/STATE')], {center:true}),
+    para([bold('VERSUS')], {center:true}),
+    para([bold(accusedName.toUpperCase()), normal(', '), normal(`s/o ${accusedParent}, aged ${accusedAge} years, ${accusedOcc}${accusedCaste?', '+accusedCaste:''}, r/o ${accusedAddress}, presently lodged in ${jail}`), normal(' ... APPLICANT/ACCUSED')], {center:true}),
+    para('', {}),
+
+    // CASE DETAILS
+    para([bold('FIR No.'), normal(` ${firNo} dated ${firDate}, PS ${ps}`), bold(' — Sections: '), normal(sections)], {}),
+    ...(sessionsNo ? [para([bold('Sessions Case No.: '), normal(sessionsNo)], {})] : []),
+    para([bold('Date of Arrest / Custody Since: '), normal(arrestDate)], {}),
+    para('', {}),
+
+    // APPLICATION BODY
+    heading('APPLICATION FOR BAIL'),
+
+    para([bold('MOST RESPECTFULLY SHOWETH:')], {}),
+    para('', {}),
+
+    para([
+      normal('1. That the applicant '),
+      bold(accusedName),
+      normal(` s/o ${accusedParent}, aged ${accusedAge} years, r/o ${accusedAddress} has been arrested and is presently in judicial custody at ${jail} in connection with FIR No. ${firNo} dated ${firDate} registered at Police Station ${ps} under Sections ${sections}.`),
+    ], {}),
+
+    para([normal('2. That the applicant is innocent of the charges levelled against him and has been falsely implicated in this case. The applicant has not committed any offence as alleged and the facts of the FIR are incorrect, exaggerated and motivated.')], {}),
+
+    para([normal(`3. That ${priorText}`)], {}),
+
+    ...(familyText ? [para([normal(`4. That ${familyText}`)], {})] : []),
+
+    para([bold(`${familyText?'5':'4'}. That the following grounds are respectfully submitted in support of this application for bail:`)], {}),
+    para('', {}),
+
+    // GROUNDS
+    heading('GROUNDS'),
+    ...grounds.map((g, i) => groundPara(i+1, g)),
+
+    para('', {}),
+    heading('PRAYER'),
+
+    para([
+      normal('In view of the aforesaid facts and circumstances, and in the interest of justice, it is most respectfully prayed that this Hon\'ble Court may graciously be pleased to:'),
+    ], {}),
+
+    para([
+      normal(`(i) Grant bail to the applicant ${accusedName} s/o ${accusedParent} in FIR No. ${firNo} under Sections ${sections}, PS ${ps}, on furnishing ${surety};`),
+    ], {indent:{left:360}}),
+
+    para([normal('(ii) Pass such other order or direction as this Hon\'ble Court may deem fit and proper in the facts and circumstances of the case.')], {indent:{left:360}}),
+
+    para('', {}),
+    para([bold('AND FOR THIS ACT OF KINDNESS, THE APPLICANT AS IN DUTY BOUND, SHALL EVER PRAY.')], {center:true}),
+    para('', {}),
+    para('', {}),
+
+    // SIGNATURE
+    para([normal('Place: __________')], {right:false}),
+    para([normal(`Date: ${new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'})}`)], {}),
+    para('', {}),
+    para([bold(advName)], {right:true}),
+    para([normal('Advocate')], {right:true}),
+    ...(advEnrol ? [para([normal(`Enrolment No.: ${advEnrol}`)], {right:true})] : []),
+    para([normal('Counsel for the Applicant/Accused')], {right:true}),
+    para('', {}),
+    para('', {}),
+
+    // VERIFICATION
+    heading('VERIFICATION'),
+    para([
+      normal(`I, ${accusedName} s/o ${accusedParent}, aged ${accusedAge} years, r/o ${accusedAddress}, the applicant above-named, do hereby solemnly affirm and declare that the contents of the above application are true and correct to the best of my knowledge and belief, and nothing material has been concealed therefrom.`),
+    ], {}),
+    para('', {}),
+    para([normal('Verified at __________ on this ____ day of __________, 2026.')], {}),
+    para('', {}),
+    para([bold('DEPONENT')], {right:true}),
+  ];
+
+  const doc = new Document({
+    creator: 'vikrampanwar.com',
+    title: `Bail Application — ${accusedName}`,
+    sections:[{
+      properties:{
+        page:{
+          size:{width:11906, height:16838}, // A4
+          margin:{top:1440, right:1080, bottom:1440, left:1440}
+        }
+      },
+      children: children_content
+    }]
+  });
+
+  Packer.toBlob(doc).then(blob => {
+    let url = URL.createObjectURL(blob);
+    let a = document.createElement('a');
+    a.href = url;
+    a.download = `Bail_Application_${accusedName.replace(/\s+/g,'_')}.docx`;
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+}
+</script>
+</body>
+</html>
