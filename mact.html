@@ -143,6 +143,7 @@
             <option value="self" selected>Self-employed / fixed salary</option>
             <option value="unemployed">Unemployed / homemaker</option>
           </select>
+          <div class="auto-note">Homemaker / unemployed: enter a notional income (e.g. min. wage). Future prospects still apply — Kirti (2021).</div>
         </div>
       </div>
       <div class="grid2">
@@ -163,7 +164,7 @@
       <div class="grid2">
         <div class="field">
           <label>Multiplier (Sarla Verma table)</label>
-          <input type="number" id="d-mult" value="13" min="1" max="18" step="1" oninput="calc()">
+          <input type="number" id="d-mult" value="16" min="1" max="18" step="1" oninput="calc()">
         </div>
         <div class="field">
           <label>Years case pending (for interest)</label>
@@ -171,12 +172,20 @@
         </div>
       </div>
       <div class="section-title">Conventional heads (Pranay Sethi 2017)</div>
+      <div class="auto-note" style="margin:-0.25rem 0 0.75rem">Base figures below. Pranay Sethi mandates a 10% rise every 3 yrs — courts apply this inconsistently and the retrospective effect is pending before a larger bench (2025), so adjust manually if claiming escalation.</div>
       <div class="grid3">
         <div class="field"><label>Funeral expenses (₹)</label><input type="number" id="d-fun" value="15000" oninput="calc()"></div>
         <div class="field"><label>Loss of estate (₹)</label><input type="number" id="d-est" value="15000" oninput="calc()"></div>
-        <div class="field"><label>Consortium (₹)</label><input type="number" id="d-cons" value="40000" oninput="calc()"></div>
+        <div class="field"><label>Consortium — per claimant (₹)</label><input type="number" id="d-cons" value="40000" oninput="calc()"></div>
       </div>
-      <div class="field"><label>Medical expenses before death (₹)</label><input type="number" id="d-med" value="0" oninput="calc()"></div>
+      <div class="grid2">
+        <div class="field">
+          <label>No. of consortium claimants</label>
+          <input type="number" id="d-conscount" value="1" min="1" max="12" oninput="calc()">
+          <div class="auto-note">Spousal + parental + filial, ₹40,000 each — Magma v. Nanu Ram (2018); Maya Singh (2025).</div>
+        </div>
+        <div class="field"><label>Medical expenses before death (₹)</label><input type="number" id="d-med" value="0" oninput="calc()"></div>
+      </div>
     </div>
 
     <!-- INJURY PANEL -->
@@ -252,9 +261,13 @@
         </div>
         <div class="field">
           <label>Multiplier (Sarla Verma)</label>
-          <input type="number" id="dis-mult" value="16" min="1" max="18" oninput="calc()">
+          <input type="number" id="dis-mult" value="17" min="1" max="18" oninput="calc()">
         </div>
       </div>
+      <label style="display:inline-flex;align-items:center;gap:8px;margin:0.25rem 0 0.5rem;font-size:13px;color:var(--ink-2);cursor:pointer">
+        <input type="checkbox" id="dis-allowfp" checked onchange="calc()" style="width:auto;padding:0;margin:0;border:0">
+        Include future prospects (uncheck if the Tribunal declines it on the facts)
+      </label>
       <div class="section-title">Other heads</div>
       <div class="grid2">
         <div class="field"><label>Medical expenses (₹)</label><input type="number" id="dis-med" value="75000" oninput="calc()"></div>
@@ -333,11 +346,25 @@
 <script>
   const HARYANA_MW = 10765;
   const INTEREST_RATE = 0.09;
-  const MT = [[0,18],[1,18],[2,18],[3,18],[4,18],[5,18],[6,18],[7,18],[8,18],[9,18],[10,18],[11,18],[12,18],[13,18],[14,18],[15,18],[16,18],[17,18],[18,18],[19,18],[20,18],[21,18],[22,18],[23,18],[24,18],[25,18],[26,17],[27,17],[28,16],[29,16],[30,16],[31,15],[32,15],[33,14],[34,14],[35,13],[36,13],[37,12],[38,12],[39,11],[40,11],[41,10],[42,10],[43,9],[44,9],[45,8],[46,8],[47,7],[48,7],[49,6],[50,6],[51,5],[52,5],[53,4],[54,4],[55,3],[56,3],[57,2],[58,2],[59,2],[60,1],[61,1]];
+  // Sarla Verma v. DTC (2009) 6 SCC 121 — operative multiplier table, reaffirmed by
+  // the Constitution Bench in Pranay Sethi (2017) and applied in Maya Singh v. Oriental (2025).
+  // Bands: 18 up to 25, then -1 every 5 yrs to 13 at 46-50, then -2 every 5 yrs.
 
   let currentCase = 'death';
 
-  function gm(age) { let a = Math.min(Math.max(parseInt(age)||25,0),61); let f = MT.find(r=>r[0]===a); return f?f[1]:1; }
+  function gm(age) {
+    let a = parseInt(age) || 0;
+    if (a <= 25) return 18;   // 15–25
+    if (a <= 30) return 17;   // 26–30
+    if (a <= 35) return 16;   // 31–35
+    if (a <= 40) return 15;   // 36–40
+    if (a <= 45) return 14;   // 41–45
+    if (a <= 50) return 13;   // 46–50
+    if (a <= 55) return 11;   // 51–55
+    if (a <= 60) return 9;    // 56–60
+    if (a <= 65) return 7;    // 61–65
+    return 5;                 // 66 and above
+  }
   function fmt(n) { return '₹' + Math.round(n).toLocaleString('en-IN'); }
   function v(id) { return parseFloat(document.getElementById(id).value)||0; }
   function si(id) { return parseInt(document.getElementById(id).value)||0; }
@@ -359,16 +386,18 @@
   function disAutoM() { let m=gm(si('dis-age')); document.getElementById('dis-mult').value=m; document.getElementById('dis-mnote').textContent='Auto: age '+si('dis-age')+' → multiplier ×'+m+' (Sarla Verma)'; calc(); }
 
   function fp(age, emp) {
-    if(emp==='unemployed') return {rate:0,label:'Not applicable'};
     if(emp==='permanent') {
       if(age<40) return {rate:.50,label:'50% (permanent employment, below 40 — Pranay Sethi)'};
       if(age<=50) return {rate:.30,label:'30% (permanent employment, 40–50 — Pranay Sethi)'};
       if(age<=60) return {rate:.15,label:'15% (permanent employment, 50–60 — Pranay Sethi)'};
       return {rate:0,label:'Nil (above 60)'};
     }
-    if(age<40) return {rate:.40,label:'40% (self-employed, below 40 — Pranay Sethi)'};
-    if(age<=50) return {rate:.25,label:'25% (self-employed, 40–50 — Pranay Sethi)'};
-    if(age<=60) return {rate:.10,label:'10% (self-employed, 50–60 — Pranay Sethi)'};
+    // Self-employed / fixed salary AND homemaker / unemployed (notional income).
+    // Future prospects apply to non-salaried & homemaker victims: Pranay Sethi (2017) +
+    // Kirti v. Oriental Insurance Co. Ltd. (2021) 2 SCC 166.
+    if(age<40) return {rate:.40,label:'40% (self-employed / notional income, below 40 — Pranay Sethi / Kirti)'};
+    if(age<=50) return {rate:.25,label:'25% (self-employed / notional income, 40–50 — Pranay Sethi / Kirti)'};
+    if(age<=60) return {rate:.10,label:'10% (self-employed / notional income, 50–60 — Pranay Sethi / Kirti)'};
     return {rate:0,label:'Nil (above 60)'};
   }
 
@@ -397,7 +426,9 @@
     if(currentCase==='death'){
       let age=si('d-age'), emp=gv('d-emp'), income=v('d-income');
       let deps=gv('d-deps'), mult=si('d-mult'), years=si('d-years');
-      let funeral=v('d-fun'), estate=v('d-est'), cons=v('d-cons'), med=v('d-med');
+      let funeral=v('d-fun'), estate=v('d-est'), consRate=v('d-cons'), med=v('d-med');
+      let consCount=si('d-conscount')||1;
+      let cons=consRate*consCount;
       let fpData=fp(age,emp);
       let ann=income*12;
       let annFP=ann*(1+fpData.rate);
@@ -418,13 +449,13 @@
         ['Annual dependency amount',fmt(dep)],
         ['Loss of dependency (×multiplier '+mult+')',fmt(lod)],
         ['—'],
-        ['Funeral expenses [Pranay Sethi — ₹15,000]',fmt(funeral)],
-        ['Loss of estate [Pranay Sethi — ₹15,000]',fmt(estate)],
-        ['Loss of consortium [Pranay Sethi — ₹40,000]',fmt(cons)],
+        ['Funeral expenses [Pranay Sethi — ₹15,000 base]',fmt(funeral)],
+        ['Loss of estate [Pranay Sethi — ₹15,000 base]',fmt(estate)],
+        ['Loss of consortium ('+fmt(consRate)+' × '+consCount+' claimant'+(consCount>1?'s':'')+')',fmt(cons)],
         ['Medical expenses (pre-death)',fmt(med)],
       ];
       interestText = years>0 ? 'Interest @ 9% p.a. for '+years+' year(s): '+fmt(interest)+' | Total with interest: '+fmt(grandTotal) : '';
-      citationHTML = '<strong>Sarla Verma v. DTC (2009) 6 SCC 121</strong> — multiplier table (age of deceased). <strong>National Insurance Co. v. Pranay Sethi (2017) 16 SCC 680</strong> — future prospects percentages; conventional heads (funeral ₹15,000, loss of estate ₹15,000, consortium ₹40,000).';
+      citationHTML = '<strong>Sarla Verma v. DTC (2009) 6 SCC 121</strong> — multiplier by age of deceased. <strong>National Insurance Co. v. Pranay Sethi (2017) 16 SCC 680</strong> — future prospects; conventional heads (funeral ₹15,000, estate ₹15,000, consortium ₹40,000), enhanced 10% every 3 years. <strong>Magma General Insurance v. Nanu Ram (2018) 18 SCC 130</strong> — consortium awarded per claimant (spousal, parental, filial). <strong>Kirti v. Oriental Insurance (2021) 2 SCC 166</strong> — future prospects apply to non-salaried & homemaker victims on notional income.';
     }
 
     else if(currentCase==='injury'){
@@ -452,7 +483,8 @@
       let age=si('dis-age'), emp=gv('dis-emp'), income=v('dis-income');
       let pct=Math.min(v('dis-pct'),100)/100, mult=si('dis-mult'), years=si('dis-years');
       let med=v('dis-med'), futmed=v('dis-futmed'), pain=v('dis-pain'), attend=v('dis-attend'), amen=v('dis-amen');
-      let fpData=fp(age,emp);
+      let allowFP=document.getElementById('dis-allowfp').checked;
+      let fpData=allowFP?fp(age,emp):{rate:0,label:'excluded — Tribunal discretion on the facts'};
       let ann=income*12*(1+fpData.rate);
       let capLoss=ann*pct*mult;
       total=capLoss+med+futmed+pain+attend+amen;
@@ -509,6 +541,7 @@
 
   function printCalc() { window.print(); }
 
+  disAutoM();
   deathAutoM();
 </script>
 
