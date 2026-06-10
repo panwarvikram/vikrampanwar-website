@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<!-- saved from url=(0051)file:///C:/Users/LENOVO/Downloads/bail-draft_1.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Bail Application Draft Generator — vikrampanwar.com</title>
-<meta name="description" content="Free bail application draft generator for Haryana District Courts. Generate a structured bail application in Word or PDF format for Sessions courts, Magistrate courts, anticipatory bail and Juvenile Justice Board matters."/>
-<meta name="keywords" content="bail application draft Haryana, bail application generator, bail application format District Court, anticipatory bail application format, JJB bail application, bail application Charkhi Dadri, bail application Bhiwani"/>
-<meta name="author" content="Vikram Panwar, Advocate"/>
-<meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://vikrampanwar.com/bail-draft.html"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<meta name="description" content="Free bail application draft generator for Haryana District Courts. Generate a structured bail application in Word or PDF format for Sessions courts, Magistrate courts, anticipatory bail and Juvenile Justice Board matters.">
+<meta name="keywords" content="bail application draft Haryana, bail application generator, bail application format District Court, anticipatory bail application format, JJB bail application, bail application Charkhi Dadri, bail application Bhiwani">
+<meta name="author" content="Vikram Panwar, Advocate">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://vikrampanwar.com/bail-draft.html">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./bail-draft_files/css2" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -79,8 +79,8 @@ footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
 </head>
 <body>
 <nav>
-  <a class="nav-name" href="https://vikrampanwar.com">Vikram Panwar, Advocate</a>
-  <a class="nav-back" href="https://vikrampanwar.com">← Back to home</a>
+  <a class="nav-name" href="https://vikrampanwar.com/">Vikram Panwar, Advocate</a>
+  <a class="nav-back" href="https://vikrampanwar.com/">← Back to home</a>
 </nav>
 <div class="wrap">
   <h1>Bail application</h1>
@@ -107,9 +107,9 @@ footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
           <option value="juvenile">JJB — Child in Conflict with Law (S.12 JJ Act)</option>
         </select>
       </div>
-      <div class="field" id="court-field">
+      <div class="field" id="court-field" style="display: block;">
         <label>Court</label>
-        <select id="court-name"></select>
+        <select id="court-name"><option value="District &amp; Sessions Court, Charkhi Dadri">District &amp; Sessions Court, Charkhi Dadri</option><option value="District &amp; Sessions Court, Bhiwani">District &amp; Sessions Court, Bhiwani</option><option value="custom">Other (type below)</option></select>
       </div>
       <div class="field" id="jjb-field" style="display:none">
         <label>Juvenile Justice Board</label>
@@ -121,7 +121,7 @@ footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
     </div>
     <div class="field" id="custom-court-field" style="display:none">
       <label>Court name (custom)</label>
-      <input type="text" id="custom-court" placeholder="e.g. Court of ACJM, Charkhi Dadri"/>
+      <input type="text" id="custom-court" placeholder="e.g. Court of ACJM, Charkhi Dadri">
     </div>
     <div class="grid2">
       <div class="field">
@@ -134,13 +134,37 @@ footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
       </div>
       <div class="field" id="prior-dismiss-field" style="display:none">
         <label>Earlier application dismissed on</label>
-        <input type="date" id="prior-dismiss-date"/>
+        <input type="date" id="prior-dismiss-date">
       </div>
     </div>
     <div class="field" id="changed-circ-field" style="display:none">
       <label>Changed circumstances since earlier dismissal</label>
-      <div class="grounds-grid" id="cc-grid"></div>
-      <input type="text" id="changed-other" placeholder="Other changed circumstance (optional)" style="margin-top:8px"/>
+      <div class="grounds-grid" id="cc-grid">
+  <label class="ground-item" id="ci-cc1">
+    <input type="checkbox" id="cc1" onchange="ccSync(&#39;cc1&#39;)">
+    <span>Challan / charge sheet now filed</span>
+  </label>
+  <label class="ground-item" id="ci-cc2">
+    <input type="checkbox" id="cc2" onchange="ccSync(&#39;cc2&#39;)">
+    <span>Investigation now complete</span>
+  </label>
+  <label class="ground-item" id="ci-cc3">
+    <input type="checkbox" id="cc3" onchange="ccSync(&#39;cc3&#39;)">
+    <span>Prosecution evidence recorded</span>
+  </label>
+  <label class="ground-item" id="ci-cc4">
+    <input type="checkbox" id="cc4" onchange="ccSync(&#39;cc4&#39;)">
+    <span>Considerable increase in custody</span>
+  </label>
+  <label class="ground-item" id="ci-cc5">
+    <input type="checkbox" id="cc5" onchange="ccSync(&#39;cc5&#39;)">
+    <span>Co-accused since granted bail</span>
+  </label>
+  <label class="ground-item" id="ci-cc6">
+    <input type="checkbox" id="cc6" onchange="ccSync(&#39;cc6&#39;)">
+    <span>Material witnesses examined</span>
+  </label></div>
+      <input type="text" id="changed-other" placeholder="Other changed circumstance (optional)" style="margin-top:8px">
       <p class="field-note">Selected items are woven into the "material change in circumstances" paragraph.</p>
     </div>
 
@@ -148,29 +172,29 @@ footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
     <div class="grid3">
       <div class="field">
         <label>FIR / Case number</label>
-        <input type="text" id="fir-no" placeholder="e.g. 125/2025"/>
+        <input type="text" id="fir-no" placeholder="e.g. 125/2025">
       </div>
       <div class="field">
         <label>Date of FIR</label>
-        <input type="date" id="fir-date"/>
+        <input type="date" id="fir-date">
       </div>
       <div class="field">
         <label>Police station</label>
-        <input type="text" id="police-station" placeholder="e.g. Baund Kalan, District Charkhi Dadri"/>
+        <input type="text" id="police-station" placeholder="e.g. Baund Kalan, District Charkhi Dadri">
       </div>
     </div>
     <div class="field">
       <label>Sections invoked (BNS / IPC / Other)</label>
-      <input type="text" id="sections" placeholder="e.g. 316(2), 318(4) &amp; 3(5) BNS / NDPS S.18(c)"/>
+      <input type="text" id="sections" placeholder="e.g. 316(2), 318(4) &amp; 3(5) BNS / NDPS S.18(c)">
     </div>
     <div class="grid2">
       <div class="field">
         <label>Sessions case number (if committed)</label>
-        <input type="text" id="sessions-no" placeholder="e.g. SC 45/2026 (if applicable)"/>
+        <input type="text" id="sessions-no" placeholder="e.g. SC 45/2026 (if applicable)">
       </div>
       <div class="field" id="arrest-field">
         <label id="arrest-label">Date of arrest / custody since</label>
-        <input type="date" id="arrest-date"/>
+        <input type="date" id="arrest-date">
         <p class="field-note">Days in custody are calculated automatically.</p>
       </div>
     </div>
@@ -187,12 +211,12 @@ footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
       </div>
       <div class="field" id="next-date-field">
         <label>Next date before trial court (optional)</label>
-        <input type="date" id="next-date"/>
+        <input type="date" id="next-date">
       </div>
     </div>
     <div class="field" id="case-status-other-field" style="display:none">
       <label>Case status (specify)</label>
-      <input type="text" id="case-status-other" placeholder="e.g. the matter is at the stage of arguments on charge"/>
+      <input type="text" id="case-status-other" placeholder="e.g. the matter is at the stage of arguments on charge">
     </div>
     <div class="field" id="facts-field">
       <label>Brief facts / gist of prosecution case (optional)</label>
@@ -209,7 +233,7 @@ footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
       </div>
       <div class="field" id="complainant-name-field" style="display:none">
         <label>Complainant name</label>
-        <input type="text" id="complainant-name" placeholder="Name of complainant"/>
+        <input type="text" id="complainant-name" placeholder="Name of complainant">
       </div>
     </div>
     <div class="nav-btns">
@@ -223,22 +247,22 @@ footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
     <div class="grid2">
       <div class="field">
         <label id="name-label">Full name of accused</label>
-        <input type="text" id="accused-name" placeholder="e.g. Ram Kumar"/>
+        <input type="text" id="accused-name" placeholder="e.g. Ram Kumar">
         <p class="field-note" id="ccl-name-note" style="display:none">Used inside the body only — the cause title will read "Child in Conflict with Law (CCL)".</p>
       </div>
       <div class="field">
         <label id="parent-label">Son / daughter / wife of</label>
-        <input type="text" id="accused-parent" placeholder="e.g. Shyam Kumar"/>
+        <input type="text" id="accused-parent" placeholder="e.g. Shyam Kumar">
       </div>
     </div>
     <div class="grid2">
       <div class="field">
         <label>Age</label>
-        <input type="number" id="accused-age" placeholder="e.g. 35" min="1" max="120"/>
+        <input type="number" id="accused-age" placeholder="e.g. 35" min="1" max="120">
       </div>
       <div class="field">
         <label>Religion / caste (optional)</label>
-        <input type="text" id="accused-caste" placeholder="e.g. Hindu, Jat"/>
+        <input type="text" id="accused-caste" placeholder="e.g. Hindu, Jat">
       </div>
     </div>
     <div class="field">
@@ -246,9 +270,9 @@ footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
       <textarea id="accused-address" placeholder="Village/town, tehsil, district, state"></textarea>
     </div>
     <div class="grid2">
-      <div class="field" id="jail-wrap">
+      <div class="field" id="jail-wrap" style="opacity: 1;">
         <label id="jail-label">Custody / jail</label>
-        <input type="text" id="accused-jail" placeholder="e.g. District Jail, Bhiwani"/>
+        <input type="text" id="accused-jail" placeholder="e.g. District Jail, Bhiwani">
         <p class="field-note" id="jail-note" style="display:none">Not required for anticipatory bail (no custody yet).</p>
       </div>
       <div class="field">
@@ -263,26 +287,26 @@ footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
     </div>
     <div class="field" id="guardian-wrap" style="display:none">
       <label>Natural guardian (name &amp; relation)</label>
-      <input type="text" id="guardian" placeholder="e.g. Sh. Bijender, father"/>
+      <input type="text" id="guardian" placeholder="e.g. Sh. Bijender, father">
       <p class="field-note">The child will undertake to reside with this guardian.</p>
     </div>
     <div class="field">
       <label>Surety details (optional)</label>
-      <input type="text" id="surety" placeholder="e.g. furnishing surety to the satisfaction of the Court"/>
+      <input type="text" id="surety" placeholder="e.g. furnishing surety to the satisfaction of the Court">
     </div>
     <div class="section-label" style="margin-top:1.5rem">Family / dependants</div>
     <div class="grid3">
       <div class="field">
         <label>Number of children</label>
-        <input type="number" id="children" placeholder="0" min="0"/>
+        <input type="number" id="children" placeholder="0" min="0">
       </div>
       <div class="field">
         <label>Elderly dependants</label>
-        <input type="text" id="dependants" placeholder="e.g. aged parents"/>
+        <input type="text" id="dependants" placeholder="e.g. aged parents">
       </div>
       <div class="field">
         <label>Medical condition (if any)</label>
-        <input type="text" id="medical" placeholder="e.g. diabetes, heart condition"/>
+        <input type="text" id="medical" placeholder="e.g. diabetes, heart condition">
       </div>
     </div>
     <div class="nav-btns">
@@ -294,17 +318,101 @@ footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
   <!-- PANEL 3 -->
   <div class="panel" id="panel-3">
     <div class="section-label">Select grounds for bail</div>
-    <div class="grounds-grid" id="grounds-grid"></div>
+    <div class="grounds-grid" id="grounds-grid">
+  <label class="ground-item" id="gi-g1">
+    <input type="checkbox" id="g1" value="g1" onchange="groundSync(&#39;g1&#39;)">
+    <span>No prior criminal record — first offender</span>
+  </label>
+  <label class="ground-item" id="gi-g2">
+    <input type="checkbox" id="g2" value="g2" onchange="groundSync(&#39;g2&#39;)">
+    <span>Permanent resident of the area — no risk of flight or absconding</span>
+  </label>
+  <label class="ground-item" id="gi-g3">
+    <input type="checkbox" id="g3" value="g3" onchange="groundSync(&#39;g3&#39;)">
+    <span>Investigation is complete / charge sheet has been filed</span>
+  </label>
+  <label class="ground-item" id="gi-g4">
+    <input type="checkbox" id="g4" value="g4" onchange="groundSync(&#39;g4&#39;)">
+    <span>Custodial interrogation is complete — further custody not required</span>
+  </label>
+  <label class="ground-item" id="gi-g5">
+    <input type="checkbox" id="g5" value="g5" onchange="groundSync(&#39;g5&#39;)">
+    <span>Co-accused already on bail (parity)</span>
+  </label>
+  <label class="ground-item" id="gi-g6">
+    <input type="checkbox" id="g6" value="g6" onchange="groundSync(&#39;g6&#39;)">
+    <span>Accused is the sole breadwinner of the family</span>
+  </label>
+  <label class="ground-item" id="gi-g7">
+    <input type="checkbox" id="g7" value="g7" onchange="groundSync(&#39;g7&#39;)">
+    <span>Accused has elderly / infirm dependants requiring care</span>
+  </label>
+  <label class="ground-item" id="gi-g8">
+    <input type="checkbox" id="g8" value="g8" onchange="groundSync(&#39;g8&#39;)">
+    <span>Accused is suffering from a serious medical condition</span>
+  </label>
+  <label class="ground-item" id="gi-g9">
+    <input type="checkbox" id="g9" value="g9" onchange="groundSync(&#39;g9&#39;)">
+    <span>Recovery of incriminating material from accused is complete</span>
+  </label>
+  <label class="ground-item" id="gi-g10">
+    <input type="checkbox" id="g10" value="g10" onchange="groundSync(&#39;g10&#39;)">
+    <span>No likelihood of tampering with evidence or influencing witnesses</span>
+  </label>
+  <label class="ground-item" id="gi-g11">
+    <input type="checkbox" id="g11" value="g11" onchange="groundSync(&#39;g11&#39;)">
+    <span>No likelihood of repeating the offence if released</span>
+  </label>
+  <label class="ground-item" id="gi-g12">
+    <input type="checkbox" id="g12" value="g12" onchange="groundSync(&#39;g12&#39;)">
+    <span>Accused is ready and willing to abide by all bail conditions</span>
+  </label>
+  <label class="ground-item" id="gi-g13">
+    <input type="checkbox" id="g13" value="g13" onchange="groundSync(&#39;g13&#39;)">
+    <span>Prolonged incarceration without trial — right to speedy trial</span>
+  </label>
+  <label class="ground-item" id="gi-g14">
+    <input type="checkbox" id="g14" value="g14" onchange="groundSync(&#39;g14&#39;)">
+    <span>Deep roots in society — property / family ties</span>
+  </label>
+  <label class="ground-item" id="gi-g15">
+    <input type="checkbox" id="g15" value="g15" onchange="groundSync(&#39;g15&#39;)">
+    <span>Not the main conspirator — minor role in the offence</span>
+  </label>
+  <label class="ground-item" id="gi-g16">
+    <input type="checkbox" id="g16" value="g16" onchange="groundSync(&#39;g16&#39;)">
+    <span>Dispute is essentially civil — criminal law misused for recovery</span>
+  </label>
+  <label class="ground-item" id="gi-g17">
+    <input type="checkbox" id="g17" value="g17" onchange="groundSync(&#39;g17&#39;)">
+    <span>FIR is the result of personal enmity / motivated complaint</span>
+  </label>
+  <label class="ground-item" id="gi-g18">
+    <input type="checkbox" id="g18" value="g18" onchange="groundSync(&#39;g18&#39;)">
+    <span>Willing to surrender passport / not leave jurisdiction</span>
+  </label>
+  <label class="ground-item" id="gi-g19">
+    <input type="checkbox" id="g19" value="g19" onchange="groundSync(&#39;g19&#39;)">
+    <span>Material / private witnesses already examined</span>
+  </label>
+  <label class="ground-item" id="gi-g20">
+    <input type="checkbox" id="g20" value="g20" onchange="groundSync(&#39;g20&#39;)">
+    <span>Private witnesses have not supported the prosecution (turned hostile)</span>
+  </label>
+  <label class="ground-item" id="gi-g21">
+    <input type="checkbox" id="g21" value="g21" onchange="groundSync(&#39;g21&#39;)">
+    <span>Trial likely to be protracted — no purpose in further custody</span>
+  </label></div>
 
     <div class="subfields" id="parity-sub">
       <div class="section-label">Parity details (co-accused already on bail)</div>
       <div class="grid2">
-        <div class="field"><label>Co-accused name</label><input type="text" id="parity-name" placeholder="e.g. Sandeep @ Sunny"/></div>
-        <div class="field"><label>Court that granted bail</label><input type="text" id="parity-court" placeholder="e.g. Hon'ble Punjab &amp; Haryana High Court"/></div>
+        <div class="field"><label>Co-accused name</label><input type="text" id="parity-name" placeholder="e.g. Sandeep @ Sunny"></div>
+        <div class="field"><label>Court that granted bail</label><input type="text" id="parity-court" placeholder="e.g. Hon&#39;ble Punjab &amp; Haryana High Court"></div>
       </div>
       <div class="grid2">
-        <div class="field"><label>Order / case number</label><input type="text" id="parity-case" placeholder="e.g. CRM-M No. 20338 of 2026"/></div>
-        <div class="field"><label>Order date</label><input type="date" id="parity-date"/></div>
+        <div class="field"><label>Order / case number</label><input type="text" id="parity-case" placeholder="e.g. CRM-M No. 20338 of 2026"></div>
+        <div class="field"><label>Order date</label><input type="date" id="parity-date"></div>
       </div>
     </div>
 
@@ -336,18 +444,18 @@ footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
     <div class="grid2">
       <div class="field">
         <label>Advocate name (signature block)</label>
-        <input type="text" id="adv-name" placeholder="e.g. Vikram Panwar"/>
+        <input type="text" id="adv-name" placeholder="e.g. Vikram Panwar">
       </div>
       <div class="field">
         <label>Enrolment number (optional)</label>
-        <input type="text" id="adv-enrol" placeholder="e.g. H/1234/2015"/>
+        <input type="text" id="adv-enrol" placeholder="e.g. H/1234/2015">
       </div>
     </div>
 
     <div class="section-label" style="margin-top:1.5rem">Supporting affidavit (optional)</div>
     <div class="field">
       <label style="display:flex;align-items:center;gap:8px;text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink-2);cursor:pointer">
-        <input type="checkbox" id="include-aff" onchange="affChanged()" style="width:16px;height:16px;accent-color:var(--blue)"/> Attach a supporting affidavit (starts on a separate page)
+        <input type="checkbox" id="include-aff" onchange="affChanged()" style="width:16px;height:16px;accent-color:var(--blue)"> Attach a supporting affidavit (starts on a separate page)
       </label>
     </div>
     <div id="aff-fields" style="display:none">
@@ -361,13 +469,13 @@ footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
         </div>
         <div class="field" id="aff-relation-field" style="display:none">
           <label>Relation with accused</label>
-          <input type="text" id="aff-relation" placeholder="e.g. father / brother / wife"/>
+          <input type="text" id="aff-relation" placeholder="e.g. father / brother / wife">
         </div>
       </div>
       <div id="aff-other-fields" style="display:none">
         <div class="grid2">
-          <div class="field"><label>Deponent name</label><input type="text" id="aff-name" placeholder="Full name"/></div>
-          <div class="field"><label>Son / wife of</label><input type="text" id="aff-parent" placeholder="e.g. Sh. ..."/></div>
+          <div class="field"><label>Deponent name</label><input type="text" id="aff-name" placeholder="Full name"></div>
+          <div class="field"><label>Son / wife of</label><input type="text" id="aff-parent" placeholder="e.g. Sh. ..."></div>
         </div>
         <div class="field"><label>Resident of</label><textarea id="aff-address" placeholder="Address of deponent"></textarea></div>
       </div>
@@ -404,9 +512,9 @@ footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
     </div>
   </div>
 </div>
-<footer><p>vikrampanwar.com &nbsp;·&nbsp; Bail Application Draft Generator<br>For structural reference only — advocate must review and finalise before filing. &copy; 2026 Vikram Panwar, Advocate</p></footer>
+<footer><p>vikrampanwar.com &nbsp;·&nbsp; Bail Application Draft Generator<br>For structural reference only — advocate must review and finalise before filing. © 2026 Vikram Panwar, Advocate</p></footer>
 
-<script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.min.js"></script>
+<script src="./bail-draft_files/index.umd.min.js.download"></script>
 <script>
 // ---------- GROUNDS ----------
 const GROUNDS_DATA = [
@@ -756,16 +864,20 @@ function buildModel(d){
   line([r('AND FOR THIS ACT OF KINDNESS, THE APPLICANT, AS IN DUTY BOUND, SHALL EVER PRAY.')],'left');
   sp();
 
-  // Closing — bound together so it never splits across pages
+  // Closing — keep each small sub-block intact, but allow a page break between them
   B.push({kind:'gstart'});
   line([r('Place: __________')],'left',{keep:true});
-  line([r('Date: '+new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'}))],'left',{keep:true});
-  B.push({kind:'spacer',keep:true});
+  line([r('Date: '+new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'}))],'left');
+  B.push({kind:'gend'});
+  sp();
+  B.push({kind:'gstart'});
   line([r(d.isJJB?'Applicant — Child in Conflict with Law (through natural guardian)':'Applicant/Accused')],'right',{keep:true});
   line([r(d.accusedName,1)],'right',{keep:true});
   if(!d.isJJB) line([r('S/o '+d.accusedParent)],'right',{keep:true});
-  line([r(d.accusedAddress)],'right',{keep:true});
-  B.push({kind:'spacer',keep:true});
+  line([r(d.accusedAddress)],'right');
+  B.push({kind:'gend'});
+  sp();
+  B.push({kind:'gstart'});
   line([r('Filed by:')],'left',{keep:true});
   line([r(d.advName,1)],'left',{keep:true});
   line([r('Advocate')],'left',{keep:true});
@@ -891,5 +1003,6 @@ b{font-weight:700}
   w.document.close();
 }
 </script>
-</body>
-</html>
+
+
+</body></html>
