@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Exemption from Personal Appearance — Application Generator — vikrampanwar.com</title>
+<meta name="description" content="Free generator for an application seeking exemption from personal appearance under Section 355 BNSS for Haryana District Courts (Sessions and Magistrate). Generate a one-page application in Word or PDF format."/>
+<meta name="keywords" content="exemption from personal appearance, Section 355 BNSS application, exemption application format, application for exemption Charkhi Dadri, exemption application Bhiwani, personal appearance exemption Magistrate"/>
+<meta name="author" content="Vikram Panwar, Advocate"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://vikrampanwar.com/exemption.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1a18;--ink-2:#4a4a46;--ink-3:#7a7a74;--ink-4:#b0b0a8;
+  --paper:#f7f4ee;--paper-2:#eeebe2;--rule:rgba(26,26,24,0.1);
+  --green:#2d6a4f;--green-bg:#d8f3dc;--green-b:#a8dab5;
+  --blue:#1d4e89;--blue-bg:#dbeafe;
+  --amber:#7d5a00;--amber-bg:#fff3cd;
+  --serif:"EB Garamond",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;
+  --pad:clamp(1.25rem,4vw,2.5rem);--max:780px;
+}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem var(--pad);border-bottom:0.5px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100}
+.nav-name{font-family:var(--serif);font-size:16px;color:var(--ink);text-decoration:none}
+.nav-back{font-size:12px;color:var(--ink-3);text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:2rem var(--pad) 4rem}
+h1{font-family:var(--serif);font-size:clamp(24px,5vw,34px);font-weight:400;margin-bottom:.3rem}
+.subtitle{font-size:13px;color:var(--ink-3);margin-bottom:1.5rem}
+.step-bar{display:flex;gap:0;margin-bottom:2rem;border-radius:8px;overflow:hidden;border:0.5px solid var(--rule)}
+.step{flex:1;padding:10px 8px;text-align:center;font-size:12px;font-weight:500;background:var(--paper-2);color:var(--ink-4);cursor:pointer;transition:all .15s;border-right:0.5px solid var(--rule)}
+.step:last-child{border-right:none}
+.step.active{background:var(--ink);color:var(--paper)}
+.step.done{background:var(--green-bg);color:var(--green)}
+.step-num{display:block;font-size:16px;font-family:var(--serif);margin-bottom:2px}
+.section-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:0.5px solid var(--rule)}
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;padding:10px 14px;font-size:14px;border:0.5px solid var(--rule);border-radius:8px;background:white;color:var(--ink);font-family:var(--sans);outline:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ink-3)}
+.field textarea{resize:vertical;min-height:80px;line-height:1.5}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.field-note{font-size:12px;color:var(--ink-4);margin-top:4px}
+.req-note{font-size:12px;color:var(--amber);margin-top:4px}
+.grounds-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem}
+.ground-item{display:flex;align-items:flex-start;gap:10px;padding:.7rem .9rem;background:white;border:0.5px solid var(--rule);border-radius:8px;cursor:pointer;transition:all .15s}
+.ground-item:hover{background:var(--paper-2)}
+.ground-item.selected{background:var(--blue-bg);border-color:var(--blue)}
+.ground-item input[type=checkbox]{width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0;margin-top:2px}
+.ground-item span{font-size:13px;color:var(--ink-2);cursor:pointer;line-height:1.4}
+.ground-item.selected span{color:var(--blue)}
+.subfields{background:var(--paper-2);border:0.5px solid var(--rule);border-radius:8px;padding:1rem;margin-bottom:1rem;display:none}
+.subfields.show{display:block}
+.subfields .section-label{margin-top:0}
+.nav-btns{display:flex;gap:10px;margin-top:1.5rem}
+.btn-next{flex:1;padding:12px;font-size:15px;font-weight:500;font-family:var(--sans);border-radius:8px;border:none;background:var(--ink);color:var(--paper);cursor:pointer;transition:opacity .15s}
+.btn-next:hover{opacity:.85}
+.btn-back{padding:12px 20px;font-size:14px;font-weight:500;font-family:var(--sans);border-radius:8px;border:0.5px solid var(--rule);background:transparent;color:var(--ink-3);cursor:pointer}
+.btn-back:hover{background:var(--paper-2);color:var(--ink)}
+.download-box{background:var(--green-bg);border:0.5px solid var(--green-b);border-radius:12px;padding:1.5rem;text-align:center;margin-top:1.5rem}
+.download-icon{font-size:36px;margin-bottom:.5rem}
+.download-title{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--green);margin-bottom:.5rem}
+.download-note{font-size:13px;color:var(--ink-3);margin-bottom:1.25rem;line-height:1.6}
+.dl-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.download-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;font-size:15px;font-weight:500;font-family:var(--sans);border-radius:8px;border:none;background:var(--green);color:white;cursor:pointer;transition:opacity .15s}
+.download-btn.alt{background:white;color:var(--green);border:0.5px solid var(--green-b)}
+.download-btn:hover{opacity:.85}
+.disclaimer{background:var(--amber-bg);border-radius:8px;padding:.9rem 1.1rem;margin-top:1rem;font-size:12px;color:var(--amber);line-height:1.6}
+.panel{display:none}
+.panel.active{display:block}
+footer{text-align:center;padding:2rem var(--pad);border-top:0.5px solid var(--rule);margin-top:2rem}
+footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
+@media(max-width:500px){.grid2,.grid3,.grounds-grid{grid-template-columns:1fr}.step-num{font-size:13px}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-name" href="https://vikrampanwar.com">Vikram Panwar, Advocate</a>
+  <a class="nav-back" href="https://vikrampanwar.com">← Back to home</a>
+</nav>
+<div class="wrap">
+  <h1>Exemption from personal appearance</h1>
+  <p class="subtitle">Application under Section 355 BNSS — Sessions or Magistrate court. Generates a one-page application in Word or PDF.</p>
+
+  <div class="step-bar">
+    <div class="step active" id="step-1" onclick="goStep(1)"><span class="step-num">1</span>Court &amp; case</div>
+    <div class="step" id="step-2" onclick="goStep(2)"><span class="step-num">2</span>Accused</div>
+    <div class="step" id="step-3" onclick="goStep(3)"><span class="step-num">3</span>Format &amp; generate</div>
+  </div>
+
+  <!-- PANEL 1 -->
+  <div class="panel active" id="panel-1">
+    <div class="section-label">Court details</div>
+    <div class="grid2">
+      <div class="field">
+        <label>Court</label>
+        <select id="court-name"></select>
+      </div>
+      <div class="field">
+        <label>Case number (e.g. CHI/617/2021)</label>
+        <input type="text" id="case-no" placeholder="e.g. CHI/617/2021"/>
+      </div>
+    </div>
+    <div class="field" id="custom-court-field" style="display:none">
+      <label>Court heading (custom — full text)</label>
+      <input type="text" id="custom-court" placeholder="e.g. In the Court of Ld. ACJM, Charkhi Dadri"/>
+    </div>
+
+    <div class="section-label" style="margin-top:1.5rem">Case details</div>
+    <div class="grid3">
+      <div class="field">
+        <label>FIR number</label>
+        <input type="text" id="fir-no" placeholder="e.g. 197/2021"/>
+      </div>
+      <div class="field">
+        <label>Under Sections</label>
+        <input type="text" id="sections" placeholder="e.g. 297, 337, 338 IPC"/>
+      </div>
+      <div class="field">
+        <label>Police station</label>
+        <input type="text" id="police-station" placeholder="e.g. City Dadri"/>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field">
+        <label>Complainant / State</label>
+        <select id="complainant-type">
+          <option value="State of Haryana">State of Haryana</option>
+          <option value="State">State (short form)</option>
+          <option value="custom-complainant">Named complainant</option>
+        </select>
+      </div>
+      <div class="field" id="complainant-name-field" style="display:none">
+        <label>Complainant name</label>
+        <input type="text" id="complainant-name" placeholder="Name of complainant"/>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:1.5rem">Stage &amp; reason</div>
+    <div class="grid2">
+      <div class="field">
+        <label>Case is fixed for (stage)</label>
+        <select id="case-stage" onchange="stageChanged()">
+          <option value="pw">Prosecution evidence (PWs)</option>
+          <option value="de">Defence evidence</option>
+          <option value="args">Arguments</option>
+          <option value="charge">Framing of charge</option>
+          <option value="appearance">Appearance / further proceedings</option>
+          <option value="other">Other (specify)</option>
+        </select>
+        <p class="field-note" id="pw-note">A "no objection to evidence in absence" paragraph is added for PW stage.</p>
+      </div>
+      <div class="field" id="stage-other-field" style="display:none">
+        <label>Stage (specify)</label>
+        <input type="text" id="stage-other" placeholder="e.g. consideration / orders"/>
+      </div>
+    </div>
+    <div class="field">
+      <label>Reason for absence</label>
+      <select id="reason" onchange="reasonChanged()">
+        <option value="sick">Sudden ill health / sickness</option>
+        <option value="out_station">Out of station — urgent work</option>
+        <option value="no_leave">Leave not sanctioned by employer</option>
+        <option value="ailing_family">Attending a seriously ill family member</option>
+        <option value="family_function">Unavoidable family function / ceremony</option>
+        <option value="other">Other (write your own)</option>
+      </select>
+    </div>
+    <div class="field" id="reason-other-field" style="display:none">
+      <label>Reason (in your own words)</label>
+      <textarea id="reason-other" oninput="reasonWords()" placeholder="State the reason for the accused's inability to appear today..."></textarea>
+      <p class="field-note"><span id="reason-count">0</span> words.</p>
+      <p class="req-note" id="reason-warn" style="display:none">⚠ Over 40 words — the application may run onto a second page. Keep it brief, or reduce the font size in step 3.</p>
+    </div>
+    <div class="nav-btns">
+      <button class="btn-next" onclick="goStep(2)">Next — Accused details →</button>
+    </div>
+  </div>
+
+  <!-- PANEL 2 -->
+  <div class="panel" id="panel-2">
+    <div class="section-label">Accused details</div>
+    <div class="grid2">
+      <div class="field">
+        <label>Full name of accused</label>
+        <input type="text" id="accused-name" placeholder="e.g. Sonu"/>
+      </div>
+      <div class="field">
+        <label>Son / daughter / wife of</label>
+        <input type="text" id="accused-parent" placeholder="e.g. Sh. Ramesh"/>
+      </div>
+    </div>
+    <div class="field">
+      <label>Permanent address</label>
+      <textarea id="accused-address" placeholder="Village/town, tehsil, district"></textarea>
+    </div>
+    <div class="nav-btns">
+      <button class="btn-back" onclick="goStep(1)">← Back</button>
+      <button class="btn-next" onclick="goStep(3)">Next — Format →</button>
+    </div>
+  </div>
+
+  <!-- PANEL 3 -->
+  <div class="panel" id="panel-3">
+    <div class="section-label">Formatting</div>
+    <div class="grid3">
+      <div class="field">
+        <label>Font</label>
+        <select id="doc-font">
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Merriweather">Merriweather</option>
+          <option value="Courier New">Courier New</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Font size</label>
+        <select id="doc-size">
+          <option value="12">12 pt (default)</option>
+          <option value="11">11 pt</option>
+          <option value="13">13 pt</option>
+          <option value="14">14 pt</option>
+        </select>
+        <p class="field-note">Increase only if space allows — must stay one page.</p>
+      </div>
+      <div class="field">
+        <label>Line spacing</label>
+        <select id="doc-spacing">
+          <option value="1.5">1.5 (default)</option>
+          <option value="1.8">1.8</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label style="display:flex;align-items:center;gap:8px;text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink-2);cursor:pointer">
+        <input type="checkbox" id="court-fee" checked style="width:16px;height:16px;accent-color:var(--blue)"/> Reserve ~1.5″ at top for the ₹10 court-fee stamp (shows a centred "affix here" box)
+      </label>
+    </div>
+
+    <div class="section-label" style="margin-top:1.5rem">Counsel &amp; signature</div>
+    <div class="grid2">
+      <div class="field">
+        <label>Advocate name</label>
+        <input type="text" id="adv-name" placeholder="e.g. Vikram Panwar"/>
+      </div>
+      <div class="field">
+        <label>Enrolment number (optional)</label>
+        <input type="text" id="adv-enrol" placeholder="e.g. H/1234/2015"/>
+      </div>
+    </div>
+
+    <div class="download-box">
+      <div class="download-icon">📄</div>
+      <div class="download-title">Application ready</div>
+      <div class="download-note">Download as Word to edit, or as PDF to print/file.</div>
+      <div class="dl-row">
+        <button class="download-btn" onclick="generateDocx()">⬇ Word (.docx)</button>
+        <button class="download-btn alt" onclick="generatePDF()">⬇ PDF (print / save)</button>
+      </div>
+    </div>
+    <div class="disclaimer">
+      ⚠ This draft is a structural framework only. The advocate must review and finalise before filing. An exemption application should ordinarily fit on one page. For PDF, choose "Save as PDF" in the print dialog.
+    </div>
+    <div class="nav-btns">
+      <button class="btn-back" onclick="goStep(2)">← Back</button>
+      <button class="btn-next" onclick="goStep(1)">Start new application</button>
+    </div>
+  </div>
+</div>
+<footer><p>vikrampanwar.com &nbsp;·&nbsp; Exemption from Personal Appearance (S.355 BNSS)<br>For structural reference only — advocate must review and finalise before filing. &copy; 2026 Vikram Panwar, Advocate</p></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.min.js"></script>
+<script>
+// ---------- DATA ----------
+const COURT_OPTS = {
+  sessions: [
+    ['In the Court of Ld. District &amp; Sessions Judge, Charkhi Dadri','Sessions Judge, Charkhi Dadri'],
+    ['In the Court of Ld. District &amp; Sessions Judge, Bhiwani','Sessions Judge, Bhiwani'],
+  ],
+  magistrate: [
+    ['In the Court of Ld. Chief Judicial Magistrate, Charkhi Dadri','CJM, Charkhi Dadri'],
+    ['In the Court of Ld. Chief Judicial Magistrate, Bhiwani','CJM, Bhiwani'],
+    ['In the Court of Ld. Judicial Magistrate Ist Class, Charkhi Dadri','JMIC, Charkhi Dadri'],
+    ['In the Court of Ld. Judicial Magistrate Ist Class, Bhiwani','JMIC, Bhiwani'],
+  ],
+};
+const REASONS = {
+  sick:'his sudden ill health',
+  out_station:'his being out of station on account of urgent and unavoidable work',
+  no_leave:'the non-sanctioning of his leave by his employer',
+  ailing_family:'the serious illness of a close family member whom he is attending',
+  family_function:'an unavoidable family function/ceremony at his native place',
+};
+const STAGES = {
+  pw:'recording of prosecution evidence (PWs)',
+  de:'recording of defence evidence',
+  args:'arguments',
+  charge:'framing of charge',
+  appearance:'appearance / further proceedings',
+};
+
+// ---------- UI WIRING ----------
+function getVal(id){ return (document.getElementById(id)||{}).value || ''; }
+function setCourtOptions(){
+  let opts = COURT_OPTS.sessions.concat(COURT_OPTS.magistrate).concat([['custom','Other (type below)']]);
+  document.getElementById('court-name').innerHTML = opts.map(o=>`<option value="${o[0]}">${o[1]}</option>`).join('');
+}
+setCourtOptions();
+document.getElementById('court-name').addEventListener('change', function(){
+  document.getElementById('custom-court-field').style.display = this.value==='custom' ? 'block':'none';
+});
+document.getElementById('complainant-type').addEventListener('change', function(){
+  document.getElementById('complainant-name-field').style.display = this.value==='custom-complainant' ? 'block':'none';
+});
+function stageChanged(){
+  let v=getVal('case-stage');
+  document.getElementById('stage-other-field').style.display = v==='other' ? 'block':'none';
+  document.getElementById('pw-note').style.display = v==='pw' ? 'block':'none';
+}
+function reasonChanged(){
+  document.getElementById('reason-other-field').style.display = getVal('reason')==='other' ? 'block':'none';
+}
+function reasonWords(){
+  let t=getVal('reason-other').trim();
+  let n=t? t.split(/\s+/).length:0;
+  document.getElementById('reason-count').textContent=n;
+  document.getElementById('reason-warn').style.display = n>40 ? 'block':'none';
+}
+stageChanged();
+
+let currentStep=1;
+function goStep(n){
+  document.getElementById('panel-'+currentStep).classList.remove('active');
+  document.getElementById('step-'+currentStep).classList.remove('active');
+  if(currentStep<n) document.getElementById('step-'+currentStep).classList.add('done');
+  currentStep=n;
+  document.getElementById('panel-'+n).classList.add('active');
+  document.getElementById('step-'+n).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function today(){ return new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'}); }
+
+// ---------- GATHER ----------
+function gather(){
+  let courtSel=getVal('court-name');
+  let court = courtSel==='custom' ? getVal('custom-court') : courtSel;
+  let stage=getVal('case-stage');
+  let stagePhrase = stage==='other' ? (getVal('stage-other')||'further proceedings') : STAGES[stage];
+  let reason=getVal('reason');
+  let reasonPhrase = reason==='other' ? (getVal('reason-other').trim()||'__________') : REASONS[reason];
+  let complainant = getVal('complainant-type')==='custom-complainant' ? (getVal('complainant-name')||'__________') : getVal('complainant-type');
+  return {
+    court: court || '__________',
+    caseNo:getVal('case-no'), firNo:getVal('fir-no')||'________', sections:getVal('sections')||'________', ps:getVal('police-station')||'________',
+    complainant, stage, stagePhrase, reasonPhrase, isPW: stage==='pw',
+    accusedName:getVal('accused-name')||'__________', accusedParent:getVal('accused-parent')||'__________', accusedAddress:getVal('accused-address')||'__________',
+    advName:getVal('adv-name')||'Advocate', advEnrol:getVal('adv-enrol'),
+    font:getVal('doc-font')||'Times New Roman', fontSize:parseInt(getVal('doc-size'))||12,
+    spacing:parseFloat(getVal('doc-spacing'))||1.5, courtFee: document.getElementById('court-fee').checked,
+  };
+}
+
+// ---------- CONTENT MODEL ----------
+function r(t,b,u){ return {t, b:!!b, u:!!u}; }
+function buildModel(d){
+  let B=[], n=0;
+  const sp=()=>B.push({kind:'spacer'});
+  const head=(text)=>B.push({kind:'head',text});
+  const line=(runs,a,opts)=>B.push(Object.assign({kind:'line',a:a||'both',runs:Array.isArray(runs)?runs:[r(runs)]},opts||{}));
+  const num=(t)=>{ n++; B.push({kind:'line',a:'both',num:n,runs:[r(t)]}); };
+
+  if(d.courtFee) B.push({kind:'fee'});
+
+  head(d.court.toUpperCase());
+  if(d.caseNo) line([r(d.caseNo)],'right');
+  line([r(d.complainant+' Vs '+d.accusedName)],'center');
+  line([r('FIR No. ',1), r(d.firNo)],'right');
+  line([r('Under Sections: ',1), r(d.sections)],'right');
+  line([r('P.S. ',1), r(d.ps)],'right');
+  sp();
+  line([r('Application seeking exemption from personal appearance under Section 355 BNSS on behalf of accused '+d.accusedName+'.',1)],'center');
+  sp();
+  line([r('Most Respectfully Showeth:-')],'left');
+  sp();
+
+  num('That the present case is pending before this Hon\u2019ble Court and is fixed for today for '+d.stagePhrase+'.');
+  num('That the accused has informed telephonically, through his family member, that due to '+d.reasonPhrase+', he will not be able to attend the court proceedings today.');
+  if(d.isPW) num('That the accused shall have no objection in case the evidence is recorded in his absence, and shall not raise any dispute in regard to his identity in future.');
+  num('That the absence of the accused is not intentional but is solely due to the aforesaid reason.');
+  sp();
+
+  line([r('Prayer:-',1)],'left');
+  line([r('It is, therefore, most respectfully prayed that the personal appearance of the accused be exempted for today only, in the interest of justice.')],'both');
+  sp();
+
+  // signature
+  B.push({kind:'gstart'});
+  line([r('Applicant/Accused-')],'right',{keep:true});
+  line([r(d.accusedName+' S/o '+d.accusedParent,1)],'right',{keep:true});
+  line([r('R/o '+String(d.accusedAddress).replace(/^\s*r\s*\/?\s*o\.?[\s,]*/i,''))],'right');
+  B.push({kind:'gend'});
+  sp();
+  B.push({kind:'gstart'});
+  line([r('Dated: '+today())],'left',{keep:true});
+  line([r('Through Counsel:-')],'left',{keep:true});
+  line([r(d.advName,1)],'left',{keep:true});
+  line([r('Advocate')],'left', d.advEnrol?{keep:true}:undefined);
+  if(d.advEnrol) line([r('Enrolment No.: '+d.advEnrol)],'left');
+  B.push({kind:'gend'});
+
+  return B;
+}
+
+// ---------- RENDER: DOCX ----------
+function renderDocx(B, font, fontSize, spacing, courtFee){
+  const { Document, Packer, Paragraph, TextRun, AlignmentType, Tab, TabStopType, TabStopPosition } = window.docx;
+  const SIZE = (fontSize||14)*2;
+  const LINE = Math.round((spacing||1.5)*240);
+  const UL = {type:'single'};
+  const AL={center:AlignmentType.CENTER,right:AlignmentType.RIGHT,left:AlignmentType.LEFT,both:AlignmentType.JUSTIFIED};
+  const mk=(x)=> new TextRun({text:x.t, bold:x.b, underline:x.u?UL:undefined, font, size:SIZE});
+  let paras = B.map(bk=>{
+    if(bk.kind==='gstart'||bk.kind==='gend') return null;
+    if(bk.kind==='fee'){
+      const bd={style:'single',size:6,color:'888888',space:6};
+      return new Paragraph({alignment:AlignmentType.CENTER, border:{top:bd,bottom:bd,left:bd,right:bd}, spacing:{before:60,after:360,line:LINE}, children:[new TextRun({text:'Space for affixing Rs. 10/- Court-Fee Stamp',italics:true,font,size:SIZE-2})]});
+    }
+    if(bk.kind==='spacer') return new Paragraph({children:[new TextRun({text:'',font,size:12})], spacing:{line:200}});
+    if(bk.kind==='head') return new Paragraph({children:[new TextRun({text:bk.text,bold:true,underline:UL,font,size:SIZE})],alignment:AlignmentType.CENTER,spacing:{before:60,after:80,line:LINE}});
+    if(bk.kind==='split'){
+      let kids=[]; bk.left.forEach(x=>kids.push(mk(x))); kids.push(new TextRun({children:[new Tab()]})); bk.right.forEach(x=>kids.push(mk(x)));
+      return new Paragraph({children:kids, tabStops:[{type:TabStopType.RIGHT, position:TabStopPosition.MAX}], spacing:{before:40,after:40,line:LINE}, keepNext:bk.keep||undefined, keepLines:bk.keep||undefined});
+    }
+    let runs=[]; if(bk.num) runs.push(new TextRun({text:bk.num+'. ',font,size:SIZE})); bk.runs.forEach(x=>runs.push(mk(x)));
+    return new Paragraph({children:runs, alignment:AL[bk.a]||AlignmentType.JUSTIFIED, spacing:{before:40,after:40,line:LINE}, keepNext:bk.keep||undefined, keepLines:bk.keep||undefined});
+  }).filter(Boolean);
+  const doc = new Document({creator:'vikrampanwar.com', sections:[{properties:{page:{size:{width:11906,height:16838},margin:{top:1440,right:1080,bottom:1440,left:1440}}},children:paras}]});
+  return Packer.toBlob(doc);
+}
+function generateDocx(){
+  let d=gather();
+  renderDocx(buildModel(d), d.font, d.fontSize, d.spacing, d.courtFee).then(blob=>{
+    let a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+    a.download='Exemption_Application_'+d.accusedName.replace(/\s+/g,'_')+'.docx'; a.click(); URL.revokeObjectURL(a.href);
+  });
+}
+
+// ---------- RENDER: PDF ----------
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function runHTML(x){ let t=esc(x.t); if(x.b)t='<b>'+t+'</b>'; if(x.u)t='<u>'+t+'</u>'; return t; }
+function renderHTML(B){
+  return B.map(bk=>{
+    if(bk.kind==='gstart') return '<div class="grp">';
+    if(bk.kind==='gend') return '</div>';
+    if(bk.kind==='fee') return '<div class="fee">Space for affixing Rs. 10/- Court-Fee Stamp</div>';
+    if(bk.kind==='spacer') return '<div class="sp"></div>';
+    if(bk.kind==='head') return `<div class="hd">${esc(bk.text)}</div>`;
+    if(bk.kind==='split'){ let L=bk.left.map(runHTML).join(''); let R=bk.right.map(runHTML).join(''); return `<table class="split"><tr><td class="sl">${L}</td><td class="sr">${R}</td></tr></table>`; }
+    let inner=(bk.num?bk.num+'. ':'')+bk.runs.map(runHTML).join('');
+    let cls = bk.a==='center'?'c':bk.a==='right'?'r':bk.a==='left'?'l':'j';
+    return `<div class="${cls}">${inner}</div>`;
+  }).join('');
+}
+function generatePDF(){
+  let d=gather();
+  let html=renderHTML(buildModel(d));
+  let fam = d.font==='Courier New' ? "'Courier New',monospace" : (d.font==='Merriweather' ? "'Merriweather',Georgia,serif" : "'Times New Roman',Times,serif");
+  let topMargin = d.courtFee ? '25.4mm' : '25.4mm';
+  let w=window.open('','_blank');
+  if(!w){ alert('Please allow pop-ups to generate the PDF.'); return; }
+  w.document.write(`<!doctype html><html><head><meta charset="utf-8">
+<title>Exemption Application — ${esc(d.accusedName)}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:${topMargin} 17mm 16mm 25.4mm}
+html,body{margin:0;padding:0}
+body{font-family:${fam};font-size:${d.fontSize}pt;line-height:${d.spacing};color:#000}
+.c{text-align:center}.r{text-align:right}.l{text-align:left}.j{text-align:justify;text-justify:inter-word}
+.hd{text-align:center;font-weight:700;text-decoration:underline;margin:3pt 0}
+.sp{height:4pt}
+.fee{border:1px dashed #888;text-align:center;font-style:italic;padding:5pt;width:62%;margin:0 auto 0.28in auto}
+table.split{width:100%;border-collapse:collapse;margin:2pt 0}
+table.split td{vertical-align:bottom;padding:0}
+td.sl{text-align:left}td.sr{text-align:right;white-space:nowrap;width:1%;padding-left:1.5em}
+.grp{break-inside:avoid;page-break-inside:avoid}
+div{margin:1pt 0}b{font-weight:700}
+@media screen{body{max-width:210mm;margin:0 auto;padding:${topMargin} 17mm 16mm 25.4mm;background:#fff}}
+</style></head><body>${html}
+<script>window.onload=function(){setTimeout(function(){window.print();},600);};<\/script>
+</body></html>`);
+  w.document.close();
+}
+</script>
+</body>
+</html>
