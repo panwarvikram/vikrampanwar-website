@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Civil Suit for Recovery of Money — Plaint Generator — vikrampanwar.com</title>
+<meta name="description" content="Free generator for a civil suit for recovery of money (ordinary or summary suit under Order XXXVII CPC) for Haryana District Courts. Drafts plaint, supporting affidavit, list of documents and index in Word or PDF, with ad-valorem court fee and interest computation."/>
+<meta name="keywords" content="civil suit recovery of money, plaint format, summary suit Order XXXVII CPC, recovery suit Charkhi Dadri, recovery suit Bhiwani, court fee recovery suit Haryana, suit for recovery format"/>
+<meta name="author" content="Vikram Panwar, Advocate"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://vikrampanwar.com/recovery-suit.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1a18;--ink-2:#4a4a46;--ink-3:#7a7a74;--ink-4:#b0b0a8;
+  --paper:#f7f4ee;--paper-2:#eeebe2;--rule:rgba(26,26,24,0.1);
+  --green:#2d6a4f;--green-bg:#d8f3dc;--green-b:#a8dab5;
+  --blue:#1d4e89;--blue-bg:#dbeafe;
+  --amber:#7d5a00;--amber-bg:#fff3cd;
+  --serif:"EB Garamond",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;
+  --pad:clamp(1.25rem,4vw,2.5rem);--max:780px;
+}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem var(--pad);border-bottom:0.5px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:100}
+.nav-name{font-family:var(--serif);font-size:16px;color:var(--ink);text-decoration:none}
+.nav-back{font-size:12px;color:var(--ink-3);text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:2rem var(--pad) 4rem}
+h1{font-family:var(--serif);font-size:clamp(24px,5vw,34px);font-weight:400;margin-bottom:.3rem}
+.subtitle{font-size:13px;color:var(--ink-3);margin-bottom:1.5rem}
+.step-bar{display:flex;gap:0;margin-bottom:2rem;border-radius:8px;overflow:hidden;border:0.5px solid var(--rule)}
+.step{flex:1;padding:10px 8px;text-align:center;font-size:12px;font-weight:500;background:var(--paper-2);color:var(--ink-4);cursor:pointer;transition:all .15s;border-right:0.5px solid var(--rule)}
+.step:last-child{border-right:none}
+.step.active{background:var(--ink);color:var(--paper)}
+.step.done{background:var(--green-bg);color:var(--green)}
+.step-num{display:block;font-size:16px;font-family:var(--serif);margin-bottom:2px}
+.section-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:0.5px solid var(--rule)}
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;padding:10px 14px;font-size:14px;border:0.5px solid var(--rule);border-radius:8px;background:white;color:var(--ink);font-family:var(--sans);outline:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ink-3)}
+.field textarea{resize:vertical;min-height:80px;line-height:1.5}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.field-note{font-size:12px;color:var(--ink-4);margin-top:4px}
+.req-note{font-size:12px;color:var(--amber);margin-top:4px}
+.grounds-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem}
+.ground-item{display:flex;align-items:flex-start;gap:10px;padding:.7rem .9rem;background:white;border:0.5px solid var(--rule);border-radius:8px;cursor:pointer;transition:all .15s}
+.ground-item:hover{background:var(--paper-2)}
+.ground-item.selected{background:var(--blue-bg);border-color:var(--blue)}
+.ground-item input[type=checkbox]{width:16px;height:16px;accent-color:var(--blue);cursor:pointer;flex-shrink:0;margin-top:2px}
+.ground-item span{font-size:13px;color:var(--ink-2);cursor:pointer;line-height:1.4}
+.ground-item.selected span{color:var(--blue)}
+.subfields{background:var(--paper-2);border:0.5px solid var(--rule);border-radius:8px;padding:1rem;margin-bottom:1rem;display:none}
+.subfields.show{display:block}
+.subfields .section-label{margin-top:0}
+.nav-btns{display:flex;gap:10px;margin-top:1.5rem}
+.btn-next{flex:1;padding:12px;font-size:15px;font-weight:500;font-family:var(--sans);border-radius:8px;border:none;background:var(--ink);color:var(--paper);cursor:pointer;transition:opacity .15s}
+.btn-next:hover{opacity:.85}
+.btn-back{padding:12px 20px;font-size:14px;font-weight:500;font-family:var(--sans);border-radius:8px;border:0.5px solid var(--rule);background:transparent;color:var(--ink-3);cursor:pointer}
+.btn-back:hover{background:var(--paper-2);color:var(--ink)}
+.download-box{background:var(--green-bg);border:0.5px solid var(--green-b);border-radius:12px;padding:1.5rem;text-align:center;margin-top:1.5rem}
+.download-icon{font-size:36px;margin-bottom:.5rem}
+.download-title{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--green);margin-bottom:.5rem}
+.download-note{font-size:13px;color:var(--ink-3);margin-bottom:1.25rem;line-height:1.6}
+.dl-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.download-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;font-size:15px;font-weight:500;font-family:var(--sans);border-radius:8px;border:none;background:var(--green);color:white;cursor:pointer;transition:opacity .15s}
+.download-btn.alt{background:white;color:var(--green);border:0.5px solid var(--green-b)}
+.download-btn:hover{opacity:.85}
+.disclaimer{background:var(--amber-bg);border-radius:8px;padding:.9rem 1.1rem;margin-top:1rem;font-size:12px;color:var(--amber);line-height:1.6}
+.panel{display:none}
+.panel.active{display:block}
+footer{text-align:center;padding:2rem var(--pad);border-top:0.5px solid var(--rule);margin-top:2rem}
+footer p{font-size:11px;color:var(--ink-4);line-height:1.6}
+@media(max-width:500px){.grid2,.grid3,.grounds-grid,.idx-grid{grid-template-columns:1fr}.step-num{font-size:13px}}
+</style>
+<style>
+.chip-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chip{padding:5px 10px;font-size:12px;border:0.5px solid var(--rule);border-radius:20px;background:#fff;color:var(--ink-2);cursor:pointer}
+.chip:hover{background:var(--paper-2)}
+.chip.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.def-block,.idx-row{border:0.5px solid var(--rule);border-radius:8px;padding:12px;margin-bottom:10px;background:rgba(255,255,255,0.4)}
+.mini-btn{padding:6px 12px;font-size:12px;border:0.5px solid var(--rule);border-radius:6px;background:#fff;color:var(--ink-2);cursor:pointer;margin-top:6px}
+.mini-btn:hover{background:var(--paper-2)}
+.calc-box{background:rgba(255,255,255,0.6);border:0.5px solid var(--rule);border-radius:10px;padding:14px;margin-top:10px;font-size:13px}
+.calc-row{display:flex;justify-content:space-between;padding:3px 0}
+.calc-row.total{border-top:0.5px solid var(--rule);margin-top:6px;padding-top:6px;font-weight:600}
+.doc-check{display:flex;align-items:center;gap:8px;padding:4px 0;font-size:13px;color:var(--ink-2)}
+.idx-grid{display:grid;grid-template-columns:1fr 80px 60px 80px;gap:8px;align-items:center}
+.idx-grid input{padding:6px 8px;font-size:13px;border:0.5px solid var(--rule);border-radius:6px}
+.idx-head{font-size:11px;color:var(--ink-4);text-transform:uppercase;letter-spacing:.05em}
+.stamp-pages{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.stamp-pages label{display:flex;align-items:center;gap:5px;font-size:13px;color:var(--ink-2);border:0.5px solid var(--rule);border-radius:6px;padding:5px 9px;cursor:pointer}
+.gdocs-hint{font-size:12px;color:var(--ink-3);margin-top:10px;line-height:1.5;font-style:italic}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-name" href="https://vikrampanwar.com">Vikram Panwar, Advocate</a>
+  <a class="nav-back" href="https://vikrampanwar.com">← Back to home</a>
+</nav>
+<div class="wrap">
+  <h1>Civil suit for recovery of money</h1>
+  <p class="subtitle">Ordinary or summary suit (Order XXXVII CPC) — Civil Judge (Senior Division), Charkhi Dadri / Bhiwani. Generates plaint, supporting affidavit, list of documents and index in Word or PDF.</p>
+
+  <div class="step-bar">
+    <div class="step active" id="step-1" onclick="goStep(1)"><span class="step-num">1</span>Court &amp; parties</div>
+    <div class="step" id="step-2" onclick="goStep(2)"><span class="step-num">2</span>Claim &amp; interest</div>
+    <div class="step" id="step-3" onclick="goStep(3)"><span class="step-num">3</span>Notice &amp; cause</div>
+    <div class="step" id="step-4" onclick="goStep(4)"><span class="step-num">4</span>Documents</div>
+    <div class="step" id="step-5" onclick="goStep(5)"><span class="step-num">5</span>Format &amp; generate</div>
+  </div>
+
+  <!-- STEP 1: COURT & PARTIES -->
+  <div class="panel active" id="panel-1">
+    <div class="section-label">Court &amp; suit</div>
+    <div class="grid3">
+      <div class="field">
+        <label>Court — place</label>
+        <select id="court-place">
+          <option value="Charkhi Dadri">Charkhi Dadri</option>
+          <option value="Bhiwani">Bhiwani</option>
+          <option value="custom">Other (type below)</option>
+        </select>
+      </div>
+      <div class="field" id="custom-place-field" style="display:none">
+        <label>Place (custom)</label>
+        <input type="text" id="custom-place" placeholder="e.g. Hisar"/>
+      </div>
+      <div class="field">
+        <label>Suit type</label>
+        <select id="suit-type" onchange="suitTypeChanged()">
+          <option value="ordinary">Ordinary money suit</option>
+          <option value="summary">Summary suit (Order XXXVII CPC)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Civil Suit No. (leave blank if not allotted)</label>
+        <input type="text" id="cs-no" placeholder="____"/>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:1.5rem">Plaintiff</div>
+    <div class="grid3">
+      <div class="field"><label>Name</label><input type="text" id="pl-name" placeholder="e.g. Sh. Ajit Singh"/></div>
+      <div class="field"><label>Son / wife / daughter of</label><input type="text" id="pl-parent" placeholder="e.g. Sh. Gaje Singh"/></div>
+      <div class="field"><label>Age (optional)</label><input type="text" id="pl-age" placeholder="e.g. 58"/></div>
+    </div>
+    <div class="field"><label>Resident of (address)</label><textarea id="pl-address" placeholder="Village/town, tehsil, district, State"></textarea></div>
+
+    <div class="section-label" style="margin-top:1.5rem">Defendant(s)</div>
+    <div id="def-container"></div>
+    <button class="mini-btn" onclick="addDefendant()">+ Add another defendant</button>
+
+    <div class="nav-btns"><button class="btn-next" onclick="goStep(2)">Next — Claim &amp; interest →</button></div>
+  </div>
+
+  <!-- STEP 2: CLAIM & INTEREST -->
+  <div class="panel" id="panel-2">
+    <div class="section-label">Basis of claim</div>
+    <div class="field">
+      <label>Nature of claim</label>
+      <select id="basis" onchange="basisChanged()">
+        <option value="hand_loan">Friendly / hand loan</option>
+        <option value="pronote">Promissory note</option>
+        <option value="bahi">Bahi entry (account-book entry)</option>
+        <option value="ack_stamp">Written acknowledgment on revenue stamp</option>
+        <option value="goods">Goods sold and delivered</option>
+        <option value="services">Services rendered</option>
+        <option value="cheque">Dishonoured cheque</option>
+        <option value="other">Other (describe in facts)</option>
+      </select>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Principal amount (₹)</label><input type="number" id="principal" placeholder="e.g. 162000" oninput="recalc()"/></div>
+      <div class="field"><label>Date of advance / transaction</label><input type="date" id="adv-date" oninput="recalc()"/></div>
+    </div>
+    <div class="field">
+      <label>Interest rate (% per annum, simple)</label>
+      <input type="number" id="rate" step="0.01" placeholder="e.g. 18" oninput="recalc()"/>
+      <div class="chip-row" id="rate-chips"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label>Date of filing (for interest till filing)</label><input type="date" id="filing-date" oninput="recalc()"/></div>
+    </div>
+    <div class="calc-box" id="calc-box">Enter principal, rate and dates to see the computation.</div>
+
+    <div class="section-label" style="margin-top:1.5rem">Transaction details (optional)</div>
+    <div class="field"><label>Witnesses to the transaction (comma-separated, optional)</label><input type="text" id="witnesses" placeholder="e.g. Ram Kishan S/o Duli Chand, Gaurav S/o Raj Kumar"/></div>
+    <div class="grid2">
+      <div class="field"><label>Scribe — who recorded the entry (optional)</label><input type="text" id="scribe" placeholder="e.g. Smt. Kamlesh W/o Sh. Jaipal"/></div>
+      <div class="field"><label>Recorded on / medium (optional)</label><input type="text" id="medium" placeholder="e.g. revenue stamp (Rasidi Ticket) / Bahi"/></div>
+    </div>
+    <div class="field"><label>Extra facts (optional — added to the transaction paragraph)</label><textarea id="facts" placeholder="Any additional facts you want stated..."></textarea></div>
+
+    <div class="nav-btns"><button class="btn-back" onclick="goStep(1)">← Back</button><button class="btn-next" onclick="goStep(3)">Next — Notice &amp; cause →</button></div>
+  </div>
+
+  <!-- STEP 3: NOTICE, CAUSE, JURISDICTION -->
+  <div class="panel" id="panel-3">
+    <div class="section-label">Legal notice</div>
+    <div class="field">
+      <label style="display:flex;align-items:center;gap:8px;text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink-2);cursor:pointer">
+        <input type="checkbox" id="notice-sent" onchange="noticeChanged()" style="width:16px;height:16px;accent-color:var(--blue)"/> A pre-suit legal notice was sent
+      </label>
+    </div>
+    <div id="notice-fields" style="display:none">
+      <div class="grid3">
+        <div class="field"><label>Notice date</label><input type="date" id="notice-date"/></div>
+        <div class="field"><label>Mode</label><select id="notice-mode"><option value="Registered Post A.D.">Registered Post A.D.</option><option value="Speed Post">Speed Post</option><option value="Registered Post and Speed Post">Regd. + Speed Post</option></select></div>
+        <div class="field"><label>Outcome</label><select id="notice-outcome" onchange="noticeOutcomeChanged()"><option value="refused">Returned "Refused" (deemed service)</option><option value="served_noreply">Served, but no reply</option><option value="returned">Returned undelivered</option><option value="noreply">No reply received</option></select></div>
+      </div>
+      <div class="field" id="notice-return-date-field"><label>Date returned / refused</label><input type="date" id="notice-return-date"/></div>
+    </div>
+
+    <div class="section-label" style="margin-top:1.5rem">Cause of action</div>
+    <div id="coa-no-notice">
+      <div class="grid2">
+        <div class="field"><label>Date repayment was requested</label><input type="date" id="coa-request-date"/></div>
+        <div class="field"><label>Date defendant denied / refused</label><input type="date" id="coa-deny-date"/></div>
+      </div>
+    </div>
+    <p class="field-note" id="coa-notice-note" style="display:none">With a legal notice, the cause-of-action paragraph will merge the loan date, demands, the notice date and its refusal/expiry automatically.</p>
+    <div class="field"><label>Cause of action — extra wording (optional, overrides nothing, appended)</label><textarea id="coa-extra" placeholder="Optional additional cause-of-action wording..."></textarea></div>
+
+    <div class="section-label" style="margin-top:1.5rem">Territorial jurisdiction (select all that apply)</div>
+    <div id="juris-grid"></div>
+    <div class="field" id="juris-other-field" style="display:none" ><label>Other jurisdiction ground</label><input type="text" id="juris-other" placeholder="Type the jurisdiction ground"/></div>
+
+    <div class="nav-btns"><button class="btn-back" onclick="goStep(2)">← Back</button><button class="btn-next" onclick="goStep(4)">Next — Documents →</button></div>
+  </div>
+
+  <!-- STEP 4: DOCUMENTS & SECTIONS -->
+  <div class="panel" id="panel-4">
+    <div class="section-label">Annexure marking</div>
+    <div class="field">
+      <select id="annex-style">
+        <option value="A">Annexure A, B, C …</option>
+        <option value="P">Annexure P-1, P-2, P-3 …</option>
+      </select>
+    </div>
+
+    <div class="section-label" style="margin-top:1.2rem">Sections to generate</div>
+    <div class="doc-check"><input type="checkbox" id="sec-plaint" checked disabled style="accent-color:var(--blue)"/> Plaint (always included)</div>
+    <div class="doc-check"><input type="checkbox" id="sec-affidavit" checked style="accent-color:var(--blue)"/> Supporting affidavit (own page)</div>
+    <div class="doc-check"><input type="checkbox" id="sec-list" checked onchange="syncIndex()" style="accent-color:var(--blue)"/> List of documents — Order VII Rule 14 (own page)</div>
+    <div class="doc-check"><input type="checkbox" id="sec-index" checked onchange="syncIndex()" style="accent-color:var(--blue)"/> Index (own page)</div>
+
+    <div class="section-label" style="margin-top:1.2rem">List of documents</div>
+    <p class="field-note">Tick the documents being filed; they appear in the list (and feed the index).</p>
+    <div id="doc-list"></div>
+    <input type="text" id="doc-extra" placeholder="Add another document (press Enter)" onkeydown="if(event.key==='Enter'){addDocExtra();event.preventDefault();}" style="margin-top:8px"/>
+    <div id="doc-extra-list"></div>
+
+    <div class="section-label" style="margin-top:1.2rem">Index — page numbers</div>
+    <p class="field-note">Enter page numbers manually, or auto-number sequentially and adjust.</p>
+    <div id="index-rows"></div>
+    <button class="mini-btn" onclick="autoNumberIndex()">Auto-number pages</button>
+
+    <div class="nav-btns"><button class="btn-back" onclick="goStep(3)">← Back</button><button class="btn-next" onclick="goStep(5)">Next — Format →</button></div>
+  </div>
+
+  <!-- STEP 5: FORMAT & GENERATE -->
+  <div class="panel" id="panel-5">
+    <div class="section-label">Formatting</div>
+    <div class="grid3">
+      <div class="field"><label>Font</label><select id="doc-font"><option value="Merriweather">Merriweather</option><option value="Times New Roman">Times New Roman</option><option value="Courier New">Courier New</option></select></div>
+      <div class="field"><label>Font size</label><select id="doc-size"><option value="14">14 pt</option><option value="13">13 pt</option><option value="12">12 pt</option></select></div>
+      <div class="field"><label>Line spacing</label><select id="doc-spacing"><option value="1.5">1.5</option><option value="1.8">1.8</option><option value="2">2.0 (double)</option></select></div>
+    </div>
+
+    <div class="section-label" style="margin-top:1.2rem">Stamp-paper top margin (plaint only)</div>
+    <p class="field-note">If the plaint is printed on court-fee/stamp paper, a 5-inch top space is reserved so text clears the printed stamp. Enter how many pages the plaint runs to, then tick the plaint pages that will be on stamp paper. This is applied to the plaint only — never to the affidavit, list or index.</p>
+    <div class="grid2">
+      <div class="field"><label>Plaint length (pages)</label><input type="number" id="plaint-pages" min="1" value="1" oninput="buildStampPages();syncIndex()"/></div>
+    </div>
+    <div class="stamp-pages" id="stamp-pages"></div>
+    <p class="field-note" id="stamp-note" style="display:none">Note: a generated file can't target an exact interior page reliably, so ticking page 1 only reserves the first plaint page; ticking any later page reserves the top of every plaint page (in Word). The affidavit, list and index are never affected.</p>
+
+    <div class="section-label" style="margin-top:1.2rem">Examination-in-chief affidavit (optional)</div>
+    <p class="field-note">Prepared from the same case details, on its own page(s), with documents shown as blank "Ex. ___" marks to fill in court. It is never included in the index.</p>
+    <div class="field">
+      <label style="display:flex;align-items:center;gap:8px;text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink-2);cursor:pointer">
+        <input type="checkbox" id="exam-on" onchange="examChanged()" style="width:16px;height:16px;accent-color:var(--blue)"/> Also generate an examination-in-chief affidavit
+      </label>
+    </div>
+    <div id="exam-fields" style="display:none">
+      <div class="grid2">
+        <div class="field"><label>Deponent</label><select id="exam-type" onchange="examPrefill()"><option value="plaintiff">Plaintiff</option><option value="witness">Witness (to the transaction)</option><option value="scribe">Scribe (who recorded the entry)</option></select></div>
+        <div class="field"><label>Name</label><input type="text" id="exam-name" placeholder="Deponent's name"/></div>
+      </div>
+      <div class="grid3">
+        <div class="field"><label>Son / wife / daughter of</label><input type="text" id="exam-parent" placeholder="e.g. Sh. ..."/></div>
+        <div class="field"><label>Age (optional)</label><input type="text" id="exam-age" placeholder="e.g. 45"/></div>
+        <div class="field"><label>Resident of</label><input type="text" id="exam-address" placeholder="Village, tehsil, district"/></div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:1.2rem">Counsel</div>
+    <div class="grid2">
+      <div class="field"><label>Advocate name</label><input type="text" id="adv-name" placeholder="e.g. Vikram Panwar"/></div>
+      <div class="field"><label>Enrolment number (optional)</label><input type="text" id="adv-enrol" placeholder="e.g. H/2451/2016"/></div>
+    </div>
+
+    <div class="download-box">
+      <div class="download-icon">⚖️</div>
+      <div class="download-title">Plaint ready</div>
+      <div class="download-note">Download as Word to edit, or as PDF to print/file.</div>
+      <div class="dl-row">
+        <button class="download-btn" onclick="generateDocx()">⬇ Word (.docx)</button>
+        <button class="download-btn alt" onclick="generatePDF()">⬇ PDF (print / save)</button>
+      </div>
+      <div class="gdocs-hint">To edit in Google Docs: download the .docx, then in Google Drive choose New → File upload, and open the uploaded file with Google Docs (it converts cleanly).</div>
+    </div>
+    <div class="disclaimer">⚠ This is a structural draft. The advocate must verify all facts, the interest computation, the court-fee figure (computed on your calculator's recovery slab — verify against the treasury/stamp before filing), limitation and jurisdiction before filing.</div>
+    <div class="nav-btns"><button class="btn-back" onclick="goStep(4)">← Back</button><button class="btn-next" onclick="goStep(1)">Start new</button></div>
+  </div>
+</div>
+<footer><p>vikrampanwar.com &nbsp;·&nbsp; Civil Suit for Recovery of Money<br>For structural reference only — advocate must review and finalise before filing. &copy; 2026 Vikram Panwar, Advocate</p></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.min.js"></script>
+<script>
+// ============ DATA ============
+const RATE_CHIPS = [['1 Sakra · 12%',12],['1.25 Sakra · 15%',15],['1.5 Sakra · 18%',18],['2 Sakra · 24%',24],['6%',6],['9%',9],['10%',10]];
+const JURIS = [
+  ['def_resides','Defendant resides / carries on business within jurisdiction','the defendant resides and carries on business within the territorial jurisdiction of this Hon\u2019ble Court'],
+  ['both_reside','Both parties reside within jurisdiction','both the plaintiff and the defendant reside within the territorial jurisdiction of this Hon\u2019ble Court'],
+  ['transaction','Loan advanced / transaction took place within jurisdiction','the loan was advanced and the transaction took place within the territorial jurisdiction of this Hon\u2019ble Court'],
+  ['coa_wholly','Cause of action arose wholly within jurisdiction','the cause of action has arisen wholly within the territorial jurisdiction of this Hon\u2019ble Court'],
+  ['coa_partly','Cause of action arose partly within jurisdiction','the cause of action has arisen, in part, within the territorial jurisdiction of this Hon\u2019ble Court'],
+  ['juris_other','Other (specify)','__OTHER__'],
+];
+const DOCS = [
+  ['pronote','Original promissory note'],
+  ['bahi','Original Bahi entry / account-book entry'],
+  ['ack','Written acknowledgment on revenue stamp'],
+  ['agreement','Loan agreement'],
+  ['cheque','Dishonoured cheque & bank return memo'],
+  ['notice','Copy of legal notice'],
+  ['receipt','Postal receipt'],
+  ['envelope','Returned envelope ("Refused")'],
+  ['statement','Statement of account'],
+];
+const RECOVERY_SLABS = [
+  {from:1,to:10000,base:0,rate:2.5,baseAt:1},
+  {from:10000,to:20000,base:250,rate:3.5,baseAt:10000},
+  {from:20000,to:30000,base:600,rate:4.5,baseAt:20000},
+  {from:30000,to:40000,base:1050,rate:5.5,baseAt:30000},
+  {from:40000,to:50000,base:1600,rate:6.5,baseAt:40000},
+  {from:50000,to:60000,base:2250,rate:7.5,baseAt:50000},
+  {from:60000,to:75000,base:3000,rate:6.5,baseAt:60000},
+  {from:75000,to:100000,base:3975,rate:5.5,baseAt:75000},
+  {from:100000,to:200000,base:5350,rate:3.5,baseAt:100000},
+  {from:200000,to:300000,base:8850,rate:2.25,baseAt:200000},
+  {from:300000,to:400000,base:11100,rate:2.25,baseAt:300000},
+  {from:400000,to:Infinity,base:13350,rate:2.25,baseAt:400000},
+];
+function calcRecovery(amt){ let s=RECOVERY_SLABS.find(s=>amt>s.from&&amt<=s.to)||RECOVERY_SLABS[RECOVERY_SLABS.length-1]; return Math.round(s.base+(amt-s.baseAt)*(s.rate/100)); }
+function toWords(n){
+  const a=['','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+  const b=['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+  n=Math.round(n); if(n===0) return 'zero'; let s='';
+  if(n>=10000000){s+=toWords(Math.floor(n/10000000))+' crore ';n%=10000000;}
+  if(n>=100000){s+=toWords(Math.floor(n/100000))+' lakh ';n%=100000;}
+  if(n>=1000){s+=toWords(Math.floor(n/1000))+' thousand ';n%=1000;}
+  if(n>=100){s+=a[Math.floor(n/100)]+' hundred ';n%=100;}
+  if(n>0){if(s!=='')s+='and '; if(n<20)s+=a[n]; else s+=b[Math.floor(n/10)]+(n%10?' '+a[n%10]:'');}
+  return s.trim();
+}
+function titleCase(s){ return s.replace(/\b\w/g,c=>c.toUpperCase()); }
+function rupeesWords(n){
+  let intp=Math.floor(n+1e-9), paise=Math.round((n-intp)*100);
+  let w='Rupees '+titleCase(toWords(intp));
+  if(paise>0) w+=' and Paise '+titleCase(toWords(paise));
+  return w+' Only';
+}
+function fmtMoney(n){
+  let intp=Math.floor(n+1e-9), paise=Math.round((n-intp)*100);
+  let s=intp.toLocaleString('en-IN');
+  if(paise>0) s+='.'+String(paise).padStart(2,'0');
+  return s;
+}
+// ============ HELPERS ============
+function gv(id){ return (document.getElementById(id)||{}).value || ''; }
+function parseISO(s){ if(!s) return null; let p=String(s).split('-'); let d=(p.length===3)?new Date(+p[0],+p[1]-1,+p[2]):new Date(s); return isNaN(d.getTime())?null:d; }
+function fmtD(s){ let d=parseISO(s); if(!d) return '________'; return String(d.getDate()).padStart(2,'0')+'.'+String(d.getMonth()+1).padStart(2,'0')+'.'+d.getFullYear(); }
+function todayISO(){ let d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function daysBetween(a,b){ let x=parseISO(a),y=parseISO(b); if(!x||!y) return 0; return Math.max(0,Math.round((y-x)/86400000)); }
+
+// ============ UI WIRING ============
+document.getElementById('court-place').addEventListener('change',function(){ document.getElementById('custom-place-field').style.display=this.value==='custom'?'block':'none'; });
+function suitTypeChanged(){}
+function basisChanged(){}
+function noticeChanged(){
+  let on=document.getElementById('notice-sent').checked;
+  document.getElementById('notice-fields').style.display=on?'block':'none';
+  document.getElementById('coa-no-notice').style.display=on?'none':'block';
+  document.getElementById('coa-notice-note').style.display=on?'block':'none';
+}
+function noticeOutcomeChanged(){
+  let o=gv('notice-outcome');
+  document.getElementById('notice-return-date-field').style.display=(o==='refused'||o==='returned')?'block':'none';
+}
+// rate chips
+document.getElementById('rate-chips').innerHTML=RATE_CHIPS.map(c=>`<span class="chip" onclick="setRate(${c[1]},this)">${c[0]}</span>`).join('');
+function setRate(v,el){ document.getElementById('rate').value=v; document.querySelectorAll('#rate-chips .chip').forEach(c=>c.classList.remove('active')); el.classList.add('active'); recalc(); }
+// jurisdiction grid
+document.getElementById('juris-grid').innerHTML=JURIS.map(j=>`<label class="doc-check"><input type="checkbox" id="j-${j[0]}" onchange="jurisChanged()" style="accent-color:var(--blue)"/> ${j[1]}</label>`).join('');
+function jurisChanged(){ document.getElementById('juris-other-field').style.display=document.getElementById('j-juris_other').checked?'block':'none'; }
+// defendants — numbered by DOM position
+let defSeq=0;
+function renumberDefendants(){
+  let blocks=document.querySelectorAll('#def-container .def-block');
+  blocks.forEach((b,i)=>{ let lab=b.querySelector('.d-name-label'); if(lab) lab.textContent='Defendant '+(i+1)+' — name'; let rm=b.querySelector('.def-remove'); if(rm) rm.style.display=blocks.length>1?'inline-block':'none'; });
+}
+function addDefendant(){
+  defSeq++;
+  let d=document.createElement('div'); d.className='def-block'; d.id='def-'+defSeq;
+  d.innerHTML=`<div class="grid3">
+    <div class="field"><label class="d-name-label">Defendant — name</label><input type="text" class="d-name" placeholder="e.g. Sh. Umed Singh"/></div>
+    <div class="field"><label>Son / wife / daughter of</label><input type="text" class="d-parent" placeholder="e.g. Sh. Sudhanram"/></div>
+    <div class="field"><label>Resident of</label><input type="text" class="d-address" placeholder="Village, tehsil, district"/></div>
+  </div><button class="mini-btn def-remove" style="display:none" onclick="this.parentNode.remove();renumberDefendants();">Remove this defendant</button>`;
+  document.getElementById('def-container').appendChild(d);
+  renumberDefendants();
+}
+addDefendant();
+// doc list
+document.getElementById('doc-list').innerHTML=DOCS.map(d=>`<label class="doc-check"><input type="checkbox" id="doc-${d[0]}" data-needpages="1" onchange="syncIndex()" style="accent-color:var(--blue)"/> ${d[1]}</label>`).join('');
+let extraDocs=[];
+function addDocExtra(){ let v=gv('doc-extra').trim(); if(!v) return; extraDocs.push(v); document.getElementById('doc-extra').value=''; renderExtraDocs(); syncIndex(); }
+function renderExtraDocs(){ document.getElementById('doc-extra-list').innerHTML=extraDocs.map((d,i)=>`<div class="doc-check">• ${d} <button class="mini-btn" style="margin:0 0 0 8px;padding:2px 8px" onclick="extraDocs.splice(${i},1);renderExtraDocs();syncIndex();">×</button></div>`).join(''); }
+
+// index rows — particulars / court-fee / sheets / page-range
+function currentDocLabels(){
+  let out=[];
+  DOCS.forEach(d=>{ if(document.getElementById('doc-'+d[0]).checked) out.push(d[1]); });
+  extraDocs.forEach(d=>out.push(d));
+  return out;
+}
+// rows: [particulars, fee, sheets, prepared?]  prepared docs => sheets fixed; not-prepared (filed docs) => user enters sheets
+function syncIndex(){
+  let plaintSheets=parseInt(gv('plaint-pages'))||1;
+  let rows=[];
+  rows.push(['Plaint', feeStr(), plaintSheets, true]);
+  if(document.getElementById('sec-affidavit').checked) rows.push(['Supporting Affidavit','-',1,true]);
+  rows.push(['Duplicate Plaint','-',plaintSheets,true]);
+  if(document.getElementById('sec-list').checked) rows.push(['List of Documents','-',1,true]);
+  currentDocLabels().forEach(l=>rows.push([l,'-','',false]));
+  rows.push(['Address form & Aadhaar','-',1,true]);
+  rows.push(['Process fee form','50/-',1,true]);
+  rows.push(['Vakalatnama','10/-',1,true]);
+  let html=`<div class="idx-grid idx-head"><div>Particulars</div><div>Court fee</div><div>Sheets</div><div>Page</div></div>`;
+  rows.forEach(r=>{ html+=`<div class="idx-grid" style="margin-top:6px"><input class="idx-part" value="${String(r[0]).replace(/"/g,'&quot;')}"/><input class="idx-fee" value="${r[1]}"/><input class="idx-sheets" type="number" min="0" value="${r[2]}" placeholder="${r[3]?'1':'?'}"/><input class="idx-page" value="" placeholder="—"/></div>`; });
+  document.getElementById('index-rows').innerHTML=html;
+}
+function feeStr(){ let p=parseFloat(gv('principal'))||0; let i=interestAmt(); let tot=p+i; if(tot<=0) return ''; return fmtMoney(calcRecovery(tot))+'/-'; }
+// page numbering counts BOTH sides of each sheet (front+back); a sheet => 2 sides
+function autoNumberIndex(){
+  let rows=document.querySelectorAll('#index-rows .idx-grid:not(.idx-head)');
+  let side=0;
+  rows.forEach(rw=>{
+    let sheets=parseInt(rw.querySelector('.idx-sheets').value)||0;
+    let pg=rw.querySelector('.idx-page');
+    if(sheets<=0){ pg.value=''; return; }
+    let start=side+1, end=side+2*sheets; side=end;
+    pg.value = (start===end)?String(start):(start+'-'+end);
+  });
+}
+
+// ============ INTEREST ============
+function interestAmt(){
+  let p=parseFloat(gv('principal'))||0, r=parseFloat(gv('rate'))||0;
+  let adv=gv('adv-date'), fil=gv('filing-date')||todayISO();
+  if(!p||!r||!adv) return 0;
+  let days=daysBetween(adv,fil);
+  return p*(r/100)*(days/365);
+}
+function recalc(){
+  let p=parseFloat(gv('principal'))||0, r=parseFloat(gv('rate'))||0;
+  let adv=gv('adv-date'), fil=gv('filing-date')||todayISO();
+  let box=document.getElementById('calc-box');
+  if(!p||!r||!adv){ box.textContent='Enter principal, rate and dates to see the computation.'; return; }
+  let days=daysBetween(adv,fil), i=interestAmt(), tot=p+i, fee=calcRecovery(tot);
+  let slab=RECOVERY_SLABS.find(s=>tot>s.from&&tot<=s.to)||RECOVERY_SLABS[RECOVERY_SLABS.length-1];
+  box.innerHTML=`<div class="calc-row"><span>Principal</span><span>₹${fmtMoney(p)}</span></div>
+  <div class="calc-row"><span>Interest @ ${r}% p.a. (${days} days, ${fmtD(adv)} → ${fmtD(fil)})</span><span>₹${fmtMoney(i)}</span></div>
+  <div class="calc-row total"><span>Suit valuation</span><span>₹${fmtMoney(tot)}</span></div>
+  <div class="calc-row"><span>Court fee (your recovery slab)</span><span>₹${fmtMoney(fee)}</span></div>
+  <div style="font-size:11px;color:var(--ink-3);margin-top:6px">Slab: ${slab.base?'₹'+slab.base.toLocaleString('en-IN')+' + '+slab.rate+'% of excess over ₹'+slab.baseAt.toLocaleString('en-IN'):slab.rate+'% of amount'}. Verify against treasury/stamp before filing.</div>`;
+  syncIndex();
+}
+
+// stamp-paper plaint page checkboxes
+function buildStampPages(){
+  let n=parseInt(gv('plaint-pages'))||1; if(n<1)n=1; if(n>40)n=40;
+  let host=document.getElementById('stamp-pages'); let html='';
+  for(let i=1;i<=n;i++) html+=`<label><input type="checkbox" value="${i}" style="accent-color:var(--blue)"/> Page ${i}</label>`;
+  host.innerHTML=html;
+  document.getElementById('stamp-note').style.display='block';
+}
+buildStampPages();
+// examination-in-chief affidavit
+function examChanged(){ document.getElementById('exam-fields').style.display=document.getElementById('exam-on').checked?'block':'none'; examPrefill(); }
+function examPrefill(){
+  let t=gv('exam-type'); let set=(id,v)=>{ let el=document.getElementById(id); if(el) el.value=v||''; };
+  if(t==='plaintiff'){ set('exam-name',gv('pl-name')); set('exam-parent',gv('pl-parent')); set('exam-age',gv('pl-age')); set('exam-address',gv('pl-address')); }
+  else if(t==='scribe'){ set('exam-name',gv('scribe')); set('exam-parent',''); set('exam-age',''); set('exam-address',''); }
+  else { set('exam-name',''); set('exam-parent',''); set('exam-age',''); set('exam-address',''); }
+}
+
+// ============ STEP NAV ============
+let currentStep=1;
+function goStep(n){
+  if(currentStep===2 && n>2){
+    if(!(parseFloat(gv('principal'))>0)){ alert('Please enter the principal amount before continuing.'); return; }
+    if(!gv('adv-date')){ alert('Please enter the date of advance / transaction before continuing.'); return; }
+  }
+  document.getElementById('panel-'+currentStep).classList.remove('active');
+  document.getElementById('step-'+currentStep).classList.remove('active');
+  if(currentStep<n) document.getElementById('step-'+currentStep).classList.add('done');
+  currentStep=n;
+  document.getElementById('panel-'+n).classList.add('active');
+  document.getElementById('step-'+n).classList.add('active');
+  if(n===4) syncIndex();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.getElementById('filing-date').value=todayISO();
+syncIndex();
+
+// ============ GATHER ============
+function gather(){
+  let place=gv('court-place')==='custom'?gv('custom-place'):gv('court-place');
+  let defs=[];
+  document.querySelectorAll('#def-container .def-block').forEach(b=>{
+    let n=b.querySelector('.d-name').value.trim();
+    if(n) defs.push({name:n, parent:b.querySelector('.d-parent').value.trim(), address:b.querySelector('.d-address').value.trim()});
+  });
+  if(!defs.length) defs=[{name:'__________',parent:'__________',address:'__________'}];
+  let juris=[]; JURIS.forEach(j=>{ if(document.getElementById('j-'+j[0]).checked){ juris.push(j[0]==='juris_other'?(gv('juris-other')||'').trim():j[2]); } });
+  let docs=[]; DOCS.forEach(d=>{ if(document.getElementById('doc-'+d[0]).checked) docs.push({key:d[0],label:d[1]}); });
+  extraDocs.forEach(d=>docs.push({key:'extra',label:d}));
+  let idx=[]; document.querySelectorAll('#index-rows .idx-grid:not(.idx-head)').forEach(g=>{ let part=g.querySelector('.idx-part'); if(part) idx.push({part:part.value, fee:g.querySelector('.idx-fee').value, page:g.querySelector('.idx-page').value}); });
+  let p=parseFloat(gv('principal'))||0, r=parseFloat(gv('rate'))||0, adv=gv('adv-date'), fil=gv('filing-date')||todayISO();
+  let interest=interestAmt(), total=p+interest, fee=total>0?calcRecovery(total):0;
+  // stamp margin: which plaint pages are ticked
+  let plaintPages=parseInt(gv('plaint-pages'))||1;
+  let stampPages=[]; document.querySelectorAll('#stamp-pages input:checked').forEach(c=>stampPages.push(parseInt(c.value)));
+  // examination-in-chief affidavit
+  let exam=null;
+  if(document.getElementById('exam-on') && document.getElementById('exam-on').checked){
+    exam={ type:gv('exam-type'), name:gv('exam-name')||'__________', parent:gv('exam-parent')||'__________', age:gv('exam-age'), address:gv('exam-address')||'__________' };
+  }
+  return {
+    place, suitType:gv('suit-type'), csNo:gv('cs-no')||'______', year:new Date().getFullYear(),
+    pl:{name:gv('pl-name')||'__________', parent:gv('pl-parent')||'__________', age:gv('pl-age'), address:gv('pl-address')||'__________'},
+    defs, basis:gv('basis'),
+    principal:p, rate:r, advDate:adv, filingDate:fil, days:daysBetween(adv,fil), interest, total, fee,
+    witnesses:gv('witnesses').trim(), scribe:gv('scribe').trim(), medium:gv('medium').trim(), facts:gv('facts').trim(),
+    noticeSent:document.getElementById('notice-sent').checked, noticeDate:gv('notice-date'), noticeMode:gv('notice-mode'), noticeOutcome:gv('notice-outcome'), noticeReturn:gv('notice-return-date'),
+    coaReq:gv('coa-request-date'), coaDeny:gv('coa-deny-date'), coaExtra:gv('coa-extra').trim(),
+    juris,
+    annexStyle:gv('annex-style'), docs,
+    secAff:document.getElementById('sec-affidavit').checked, secList:document.getElementById('sec-list').checked, secIndex:document.getElementById('sec-index').checked,
+    idx, exam,
+    font:gv('doc-font')||'Merriweather', fontSize:parseInt(gv('doc-size'))||14, spacing:parseFloat(gv('doc-spacing'))||1.5,
+    plaintPages, stampPages, advName:gv('adv-name')||'Advocate', advEnrol:gv('adv-enrol'),
+  };
+}
+function validateBasics(){
+  if(!(parseFloat(gv('principal'))>0)){ alert('Please enter the principal amount before continuing.'); goStep(2); return false; }
+  if(!gv('adv-date')){ alert('Please enter the date of advance / transaction before continuing.'); goStep(2); return false; }
+  return true;
+}
+
+// ============ CONTENT MODEL ============
+function r(t,b,u,i){ return {t,b:!!b,u:!!u,i:!!i}; }
+function defParty(d){ return (d.name)+(d.parent?' S/o '+d.parent:'')+(d.address?', R/o '+d.address:''); }
+function rsAmt(n){ return 'Rs. '+fmtMoney(n)+'/-'; }
+
+function buildModel(d){
+  let B=[], n=0;
+  const sp=()=>B.push({kind:'spacer'});
+  const head=(t,opts)=>B.push(Object.assign({kind:'line',a:'center',runs:[r(t,1)]},opts||{}));
+  const line=(runs,a,opts)=>B.push(Object.assign({kind:'line',a:a||'both',runs:Array.isArray(runs)?runs:[r(runs)]},opts||{}));
+  const num=(runs)=>{ n++; B.push({kind:'line',a:'both',num:n,runs:Array.isArray(runs)?runs:[r(runs)]}); };
+  const split=(L,R,opts)=>B.push(Object.assign({kind:'split',left:L,right:R},opts||{}));
+
+  // annexure marks
+  let markN=0; const marks={};
+  function markFor(key){ if(marks[key]) return marks[key]; markN++; marks[key]=(d.annexStyle==='P'?'P-'+markN:String.fromCharCode(64+markN)); return marks[key]; }
+  // pre-assign marks in document order for ticked docs
+  d.docs.forEach(dc=>{ if(['pronote','bahi','ack','agreement','cheque','notice','receipt','envelope','statement'].includes(dc.key)) markFor(dc.key); });
+
+  const courtHeading='IN THE COURT OF THE CIVIL JUDGE (SENIOR DIVISION), '+d.place.toUpperCase()+', HARYANA';
+  const defWord=d.defs.length>1?'defendants':'defendant';
+  const isLoan=['hand_loan','pronote','bahi','ack_stamp'].includes(d.basis);
+  const stampFirst=(d.stampPages||[]).includes(1);
+
+  function causeTitle(shortParties){
+    head(courtHeading);
+    line([r((d.suitType==='summary'?'Summary Suit':'Civil Suit')+' No. '+d.csNo+' of '+d.year,1)],'right');
+    sp();
+    if(shortParties){
+      line([r(d.pl.name+'  …Plaintiff')],'center');
+      line([r('VERSUS',1)],'center');
+      d.defs.forEach((df,i)=> line([r(df.name+'  …'+(d.defs.length>1?'Defendant '+(i+1):'Defendant'))],'center'));
+    } else {
+      line([r('Parties to the suit:-',1)],'left');
+      let plDetail=d.pl.name+(d.pl.parent?' S/o '+d.pl.parent:'')+(d.pl.age?', aged about '+d.pl.age+' years':'')+(d.pl.address?', R/o '+d.pl.address:'');
+      split([r(plDetail)],[r('…Plaintiff',0,0,1)]);
+      line([r('VERSUS',1)],'center');
+      d.defs.forEach((df,i)=> split([r(defParty(df))],[r('…'+(d.defs.length>1?'Defendant '+(i+1):'Defendant'),0,0,1)]) );
+    }
+  }
+
+  // ===== PLAINT =====
+  if(stampFirst) B.push({kind:'leadspace'});
+  causeTitle(false);
+  sp();
+  // HEADNOTE — bold CAPS, justified, first-line indent
+  let hn;
+  let pre=(d.suitType==='summary'?'SUMMARY SUIT UNDER ORDER XXXVII CPC FOR RECOVERY OF ':'SUIT FOR RECOVERY OF ');
+  hn=pre+rsAmt(d.total).toUpperCase()+' ('+rupeesWords(d.total).toUpperCase()+'), COMPRISING PRINCIPAL OF '+rsAmt(d.principal).toUpperCase()+' AND PRE-SUIT INTEREST OF '+rsAmt(d.interest).toUpperCase()+' CALCULATED @ '+d.rate+'% PER ANNUM FROM '+fmtD(d.advDate)+' TILL THE DATE OF FILING OF THE PRESENT SUIT, ALONG WITH PENDENTE LITE AND FUTURE INTEREST AT THE SAME RATE TILL REALIZATION, ALONG WITH COSTS OF SUIT.';
+  line([r(hn,1)],'both',{firstLine:true});
+  sp();
+  line([r('MOST RESPECTFULLY SHOWETH:',1)],'left');
+  sp();
+
+  // 1 identity + jurisdiction relation
+  num('That the plaintiff, '+d.pl.name+(d.pl.parent?' S/o '+d.pl.parent:'')+', is a law-abiding citizen and is competent to file the present suit. The '+defWord+(d.defs.length>1?' are':' is')+' resident'+(d.defs.length>1?'s':'')+' of the address'+(d.defs.length>1?'es':'')+' given in the cause-title and '+(d.defs.length>1?'are':'is')+' within the territorial jurisdiction of this Hon\u2019ble Court.');
+
+  // 2 transaction
+  if(isLoan){
+    num('That on '+fmtD(d.advDate)+', the '+defWord+', representing an urgent need of funds for personal needs and exigencies, approached and requested the plaintiff for a friendly loan; and, reposing trust in the '+defWord+', the plaintiff advanced and paid to the '+defWord+' a sum of '+rsAmt(d.principal)+' ('+rupeesWords(d.principal)+') by way of loan'+(d.facts?'. '+d.facts:'.'));
+  } else if(d.basis==='goods'){
+    num('That the plaintiff sold and delivered to the '+defWord+', goods of the value of '+rsAmt(d.principal)+' ('+rupeesWords(d.principal)+') on/around '+fmtD(d.advDate)+', which the '+defWord+' duly received and accepted'+(d.facts?'. '+d.facts:'.'));
+  } else if(d.basis==='services'){
+    num('That the plaintiff rendered to the '+defWord+' services of the agreed value of '+rsAmt(d.principal)+' ('+rupeesWords(d.principal)+') on/around '+fmtD(d.advDate)+', which the '+defWord+' duly availed and accepted'+(d.facts?'. '+d.facts:'.'));
+  } else if(d.basis==='cheque'){
+    num('That in discharge of an existing liability of '+rsAmt(d.principal)+' ('+rupeesWords(d.principal)+'), the '+defWord+' issued a cheque in favour of the plaintiff which, on presentation, was returned dishonoured by the bank'+(d.facts?'. '+d.facts:'.'));
+  } else {
+    num('That the '+defWord+' became liable to the plaintiff in the sum of '+rsAmt(d.principal)+' ('+rupeesWords(d.principal)+')'+(d.facts?'. '+d.facts:'.'));
+  }
+
+  // 3 acknowledgment / evidence (loan-type)
+  if(d.basis==='pronote'){
+    num([r('That in consideration of the said loan, the '+defWord+' executed a promissory note dated '+fmtD(d.advDate)+' in favour of the plaintiff, undertaking to repay the said amount with interest. The original promissory note is filed herewith and marked as Annexure '+markFor('pronote')+'.')]);
+  } else if(isLoan){
+    let s='That the said transaction was duly recorded in writing'+(d.scribe?' by '+d.scribe:'')+(d.medium?' on '+d.medium:'')+', and the '+defWord+' signed the same in acknowledgment of the receipt of the amount and '+(d.defs.length>1?'their':'his')+' liability to repay';
+    if(d.witnesses) s+=', in the presence of the witnesses, namely '+d.witnesses;
+    let key=d.basis==='bahi'?'bahi':(d.basis==='ack_stamp'?'ack':'ack');
+    s+='. The original document evidencing the transaction is filed herewith and marked as Annexure '+markFor(key)+'.';
+    num(s);
+  }
+
+  // 4 interest agreed
+  num('That it was mutually agreed between the parties that the '+defWord+' would repay the said principal amount along with interest @ '+d.rate+'% per annum from '+fmtD(d.advDate)+' until actual repayment, which the '+defWord+' unconditionally accepted.');
+
+  // 5 failure
+  num('That despite the passage of considerable time and despite repeated demands and personal requests made by the plaintiff, the '+defWord+' '+(d.defs.length>1?'have':'has')+' failed and refused to repay the said amount or any part thereof.');
+
+  // 6 notice
+  if(d.noticeSent){
+    let s='That the plaintiff, through his counsel, caused a legal notice dated '+fmtD(d.noticeDate)+' to be served upon the '+defWord+' by '+d.noticeMode+', calling upon '+(d.defs.length>1?'them':'him')+' to repay the principal sum together with interest. ';
+    if(d.noticeOutcome==='refused') s+='The said notice was returned on '+fmtD(d.noticeReturn)+' with the postal endorsement \u201CRefused\u201D, which amounts to deemed service in law.';
+    else if(d.noticeOutcome==='served_noreply') s+='Despite due service of the said notice, the '+defWord+' '+(d.defs.length>1?'have':'has')+' neither complied with the demand nor sent any reply.';
+    else if(d.noticeOutcome==='returned') s+='The said notice was returned undelivered on '+fmtD(d.noticeReturn)+'.';
+    else s+='The '+defWord+' '+(d.defs.length>1?'have':'has')+' not sent any reply to the said notice.';
+    s+=' A true copy of the legal notice is filed herewith and marked as Annexure '+markFor('notice')+'.';
+    num(s);
+    if(d.docs.some(x=>x.key==='receipt')) num('That the postal receipt evidencing the dispatch of the said legal notice is filed herewith and marked as Annexure '+markFor('receipt')+'.');
+    if(d.docs.some(x=>x.key==='envelope')) num('That the returned envelope containing the said legal notice, bearing the postal endorsement \u201CRefused\u201D, is filed herewith and marked as Annexure '+markFor('envelope')+'.');
+  }
+
+  // 7 statement of account
+  num('That as on the date of filing of the present suit, the '+defWord+' '+(d.defs.length>1?'are':'is')+' liable to pay the plaintiff a total sum of '+rsAmt(d.total)+' ('+rupeesWords(d.total)+'), comprising the principal of '+rsAmt(d.principal)+' and pre-suit interest of '+rsAmt(d.interest)+' calculated @ '+d.rate+'% per annum from '+fmtD(d.advDate)+' till the date of filing.');
+
+  // 8 cause of action
+  let coa;
+  if(d.noticeSent){
+    coa='That the cause of action first arose on '+fmtD(d.advDate)+' when the amount was advanced and the '+defWord+' agreed to repay it with interest; it continued on each date of demand and refusal; and further arose on '+fmtD(d.noticeDate)+' when the legal notice was served'+(d.noticeReturn?' and on '+fmtD(d.noticeReturn)+' when it was refused/returned':'')+'. The cause of action is continuing and subsisting.';
+  } else {
+    coa='That the cause of action first arose on '+fmtD(d.advDate)+' when the amount was advanced; further on '+fmtD(d.coaReq)+' when the plaintiff demanded repayment; and on '+fmtD(d.coaDeny)+' when the '+defWord+' denied and refused to repay. The cause of action is continuing and subsisting.';
+  }
+  if(d.coaExtra) coa+=' '+d.coaExtra;
+  num(coa);
+
+  // 9 jurisdiction
+  let jtxt = d.juris.length ? d.juris.join('; and ') : 'the '+defWord+' '+(d.defs.length>1?'reside':'resides')+' and the cause of action has arisen within the territorial jurisdiction of this Hon\u2019ble Court';
+  num('That this Hon\u2019ble Court has the territorial jurisdiction to entertain and try the present suit, inasmuch as '+jtxt+'.');
+
+  // 10 limitation
+  num('That the present suit is within the period of limitation prescribed under the Limitation Act, 1963, the cause of action being continuing.');
+
+  // 11 court fee
+  num('That the total valuation of the suit, for the purposes of court fee and jurisdiction, is '+rsAmt(d.total)+' ('+rupeesWords(d.total)+'), on which court fee of '+rsAmt(d.fee)+' has been affixed in accordance with the Court Fees Act applicable in Haryana.');
+
+  // 12 pendente lite
+  num('That the plaintiff is also entitled to pendente lite and future interest at the rate of '+d.rate+'% per annum, or such rate as this Hon\u2019ble Court deems just and equitable, on the principal sum of '+rsAmt(d.principal)+' from the date of filing of this suit till the date of actual realisation.');
+
+  // summary recital
+  if(d.suitType==='summary'){
+    let basisRecital = d.basis==='pronote'?'the promissory note executed by the '+defWord:(d.basis==='goods'?'the written contract, invoice and delivery as evidenced herein':'the written acknowledgment/contract executed by the '+defWord);
+    num('That the present suit is filed as a summary suit under the provisions of Order XXXVII of the Code of Civil Procedure, 1908, on the basis of '+basisRecital+', and no relief which does not fall within the ambit of Order XXXVII CPC has been claimed herein.');
+  }
+
+  let lastPara=n;
+  sp();
+  line([r('PRAYER',1)],'left');
+  line([r('It is, therefore, most respectfully prayed that this Hon\u2019ble Court may graciously be pleased to:')],'both');
+  line([r('(a) Decree the present suit in favour of the plaintiff and against the '+defWord+' for a sum of '+rsAmt(d.total)+' ('+rupeesWords(d.total)+'), comprising principal of '+rsAmt(d.principal)+' and pre-suit interest of '+rsAmt(d.interest)+' calculated from '+fmtD(d.advDate)+' to the date of filing;')],'both',{indent:true});
+  line([r('(b) Award pendente lite and future interest at the rate of '+d.rate+'% per annum (or such rate as this Hon\u2019ble Court deems fit) on the principal sum of '+rsAmt(d.principal)+' from the date of filing till the date of actual realisation;')],'both',{indent:true});
+  line([r('(c) Award the costs of the present suit to the plaintiff; and')],'both',{indent:true});
+  line([r('(d) Grant such other and further relief(s) as this Hon\u2019ble Court may deem fit and proper in the facts and circumstances of the case.')],'both',{indent:true});
+  sp();
+  split([r('Place: '+d.place)],[r('PLAINTIFF',1)],{keep:true});
+  line([r('Date: '+fmtD(d.filingDate))],'left');
+  sp();
+  line([r('VERIFICATION',1)],'left');
+  line([r('I, '+d.pl.name+(d.pl.parent?' S/o '+d.pl.parent:'')+', the plaintiff above-named, do hereby verify that the contents of paragraphs 1 to '+lastPara+' of the plaint are true and correct to my personal knowledge and belief, and nothing material has been concealed therefrom.')],'both');
+  line([r('Verified at '+d.place+' on this _____ day of ____________, '+d.year+'.')],'both');
+  sp();
+  line([r('PLAINTIFF ('+d.pl.name+')',1)],'right');
+
+  // plaint ends — isolate stamp margin to the plaint via a section break
+  if(d.secAff||d.secList||d.secIndex||d.exam) B.push({kind:'sectionbreak'});
+  let firstAfter=true;
+  const startSection=()=>{ if(firstAfter){ firstAfter=false; } else { B.push({kind:'pagebreak'}); } };
+
+  // ===== SUPPORTING AFFIDAVIT =====
+  if(d.secAff){
+    startSection();
+    causeTitle(true);
+    sp();
+    line([r('AFFIDAVIT IN SUPPORT OF PLAINT',1,1)],'center');
+    sp();
+    line([r('I, '+d.pl.name+(d.pl.parent?' S/o '+d.pl.parent:'')+(d.pl.age?', aged about '+d.pl.age+' years':'')+', R/o '+d.pl.address+', the plaintiff in the above-captioned suit, do hereby solemnly affirm and state on oath as under:-')],'both');
+    let m=0; const an=(t)=>{ m++; B.push({kind:'line',a:'both',num:m,runs:[r(t)]}); };
+    an('That I am the plaintiff in the present suit, am fully acquainted with the facts and circumstances of the case, and am competent to swear this affidavit.');
+    an('That the contents of the accompanying plaint, paragraphs 1 to '+lastPara+', may be read as part and parcel of this affidavit and are not repeated herein for the sake of brevity.');
+    an('That the '+defWord+' '+(d.defs.length>1?'are':'is')+' liable to pay to me a total sum of '+rsAmt(d.total)+' ('+rupeesWords(d.total)+'), comprising principal of '+rsAmt(d.principal)+' and pre-suit interest of '+rsAmt(d.interest)+' @ '+d.rate+'% per annum from '+fmtD(d.advDate)+' till the date of filing.');
+    an('That the contents of the accompanying plaint are true and correct to the best of my personal knowledge and belief, and nothing material has been concealed or misrepresented therein.');
+    an('That this affidavit is made bona fide and in support of the plaint filed by me before this Hon\u2019ble Court.');
+    sp();
+    line([r('DEPONENT ('+d.pl.name+')',1)],'right');
+    sp();
+    line([r('VERIFICATION',1)],'left');
+    line([r('Verified at '+d.place+' on this _____ day of ____________, '+d.year+', that the contents of the above affidavit are true and correct to the best of my knowledge and belief and that nothing material has been concealed therefrom.')],'both');
+    sp();
+    line([r('DEPONENT ('+d.pl.name+')',1)],'right');
+  }
+
+  // ===== LIST OF DOCUMENTS =====
+  if(d.secList){
+    startSection();
+    causeTitle(true);
+    sp();
+    line([r('LIST OF DOCUMENTS FILED ON BEHALF OF THE PLAINTIFF',1,1)],'center');
+    line([r('(Under Order VII Rule 14 of the Code of Civil Procedure, 1908)')],'center');
+    sp();
+    let k=0;
+    d.docs.forEach(dc=>{ k++; let mk=marks[dc.key]?' (Annexure '+marks[dc.key]+')':''; B.push({kind:'line',a:'both',num:k,runs:[r(dc.label+mk)]}); });
+    if(!d.docs.length) line([r('No documents listed.')],'left');
+    sp(); sp();
+    line([r('Filed by:')],'left',{keep:true});
+    line([r(d.advName,1)],'left',{keep:true});
+    line([r('Counsel for the Plaintiff'+(d.advEnrol?', Enrolment No. '+d.advEnrol:''))],'left');
+  }
+
+  // ===== INDEX =====
+  if(d.secIndex){
+    startSection();
+    causeTitle(true);
+    sp();
+    line([r('INDEX',1,1)],'center');
+    sp();
+    let tableRows=[['Sr.','Particulars','Court Fee','Page']];
+    (d.idx||[]).forEach((row,i)=> tableRows.push([String(i+1), row.part, row.fee||'-', row.page||'']) );
+    B.push({kind:'table', rows:tableRows});
+    sp(); sp();
+    line([r('Filed by:')],'left',{keep:true});
+    line([r(d.advName,1)],'left',{keep:true});
+    line([r('Counsel for the Plaintiff')],'left',{keep:true});
+    line([r('Dated: '+fmtD(d.filingDate))],'left');
+  }
+
+  // ===== EXAMINATION-IN-CHIEF AFFIDAVIT (separate; never in index) =====
+  if(d.exam){
+    startSection();
+    causeTitle(true);
+    sp();
+    let who = d.exam.type==='plaintiff'?'PLAINTIFF':(d.exam.type==='scribe'?'SCRIBE':'WITNESS');
+    line([r('AFFIDAVIT BY WAY OF EXAMINATION-IN-CHIEF OF '+who+' '+d.exam.name.toUpperCase(),1,1)],'center');
+    line([r('(Under Order XVIII Rule 4 of the Code of Civil Procedure, 1908)')],'center');
+    sp();
+    line([r('I, '+d.exam.name+(d.exam.parent?' S/o '+d.exam.parent:'')+(d.exam.age?', aged about '+d.exam.age+' years':'')+', R/o '+d.exam.address+', do hereby solemnly affirm and state on oath as under:-')],'both');
+    let m=0; const ex=(t)=>{ m++; B.push({kind:'line',a:'both',num:m,runs:[r(t)]}); };
+    if(d.exam.type==='plaintiff'){
+      ex('That I am the plaintiff in the present suit and am fully acquainted with the facts and circumstances of the case.');
+      ex('That on '+fmtD(d.advDate)+' I advanced to the '+defWord+' a sum of '+rsAmt(d.principal)+' ('+rupeesWords(d.principal)+') by way of loan, as stated in the plaint. The document evidencing the transaction is Ex. ______.');
+      ex('That it was agreed that the '+defWord+' would repay the said amount with interest @ '+d.rate+'% per annum. The '+defWord+' '+(d.defs.length>1?'have':'has')+' failed to repay despite demands, and a legal notice (Ex. ______) was served.');
+      ex('That as on the date of filing, a total sum of '+rsAmt(d.total)+' ('+rupeesWords(d.total)+') is due and recoverable from the '+defWord+'.');
+      ex('That the contents of my plaint and of this affidavit are true and correct to my personal knowledge.');
+    } else if(d.exam.type==='scribe'){
+      ex('That I know the plaintiff and the '+defWord+' and am acquainted with the facts stated below.');
+      ex('That on '+fmtD(d.advDate)+', at the request of the parties, I recorded/wrote the document evidencing the loan transaction between the plaintiff and the '+defWord+'. The said document is Ex. ______.');
+      ex('That the '+defWord+' signed the said document in my presence in acknowledgment of the receipt of '+rsAmt(d.principal)+' and '+(d.defs.length>1?'their':'his')+' liability to repay it with interest.');
+      ex('That I appended my signatures to the said document as the scribe; my signatures thereon are Ex. ______.');
+      ex('That the contents of this affidavit are true and correct to my personal knowledge.');
+    } else {
+      ex('That I know the plaintiff and the '+defWord+' and am a witness to the transaction stated below.');
+      ex('That on '+fmtD(d.advDate)+', in my presence, the plaintiff advanced to the '+defWord+' a sum of '+rsAmt(d.principal)+' ('+rupeesWords(d.principal)+') by way of loan, and the '+defWord+' agreed to repay it with interest @ '+d.rate+'% per annum.');
+      ex('That the '+defWord+' executed/signed the document evidencing the said transaction in my presence. The said document is Ex. ______, and my signature as a witness thereon is Ex. ______.');
+      ex('That the contents of this affidavit are true and correct to my personal knowledge.');
+    }
+    sp();
+    line([r('DEPONENT ('+d.exam.name+')',1)],'right');
+    sp();
+    line([r('VERIFICATION',1)],'left');
+    line([r('Verified at '+d.place+' on this _____ day of ____________, '+d.year+', that the contents of the above affidavit are true and correct to the best of my knowledge and belief and that nothing material has been concealed therefrom.')],'both');
+    sp();
+    line([r('DEPONENT ('+d.exam.name+')',1)],'right');
+  }
+
+  return B;
+}
+
+// ============ RENDER: DOCX ============
+function renderDocx(B, d){
+  const { Document, Packer, Paragraph, TextRun, AlignmentType, Tab, TabStopType, TabStopPosition, Table, TableRow, TableCell, WidthType } = window.docx;
+  const SIZE=(d.fontSize||14)*2, font=d.font, LINE=Math.round((d.spacing||1.5)*240), UL={type:'single'};
+  const AL={center:AlignmentType.CENTER,right:AlignmentType.RIGHT,left:AlignmentType.LEFT,both:AlignmentType.JUSTIFIED};
+  const mk=(x)=> new TextRun({text:x.t, bold:x.b, italics:x.i, underline:x.u?UL:undefined, font, size:SIZE});
+  const PAGE={width:11906,height:16838};
+  const stampAll=(d.stampPages||[]).some(p=>p>1);
+  const plaintTop = stampAll ? 7200 : 1440;       // plaint-only section
+  function mkSection(children, topMargin){ return {properties:{page:{size:PAGE, margin:{top:topMargin,right:1080,bottom:1440,left:1440}}}, children}; }
+  let sections=[];
+  let children=[];
+  let pendingBreak=false;
+  let isFirstSection=true;
+  function flush(){ sections.push(mkSection(children, isFirstSection?plaintTop:1440)); children=[]; isFirstSection=false; }
+  B.forEach(bk=>{
+    if(bk.kind==='sectionbreak'){ flush(); pendingBreak=false; return; }
+    if(bk.kind==='pagebreak'){ pendingBreak=true; return; }
+    let brk = pendingBreak; pendingBreak=false;
+    if(bk.kind==='leadspace'){ children.push(new Paragraph({children:[new TextRun({text:'',font,size:SIZE})], spacing:{before:5760,line:LINE}, pageBreakBefore:brk||undefined})); return; }
+    if(bk.kind==='spacer'){ children.push(new Paragraph({children:[new TextRun({text:'',font,size:SIZE})], spacing:{line:LINE}, pageBreakBefore:brk||undefined})); return; }
+    if(bk.kind==='table'){
+      if(brk) children.push(new Paragraph({children:[new TextRun({text:'',font,size:2})], pageBreakBefore:true, spacing:{line:20}}));
+      const cell=(txt,bold,w)=> new TableCell({width:{size:w,type:WidthType.PERCENTAGE}, children:[new Paragraph({children:[new TextRun({text:txt,bold,font,size:SIZE})]})]});
+      const widths=[8,62,18,12];
+      let rows=bk.rows.map((rw,ri)=> new TableRow({children:rw.map((c,ci)=>cell(String(c),ri===0,widths[ci]))}));
+      children.push(new Table({width:{size:100,type:WidthType.PERCENTAGE}, rows}));
+      return;
+    }
+    if(bk.kind==='split'){
+      let kids=[]; bk.left.forEach(x=>kids.push(mk(x))); kids.push(new TextRun({children:[new Tab()]})); bk.right.forEach(x=>kids.push(mk(x)));
+      children.push(new Paragraph({children:kids, tabStops:[{type:TabStopType.RIGHT,position:TabStopPosition.MAX}], spacing:{before:40,after:40,line:LINE}, pageBreakBefore:brk||undefined, keepNext:bk.keep||undefined, keepLines:bk.keep||undefined}));
+      return;
+    }
+    // line
+    let runs=[]; if(bk.num) runs.push(new TextRun({text:bk.num+'. ',font,size:SIZE})); bk.runs.forEach(x=>runs.push(mk(x)));
+    let indent=undefined;
+    if(bk.firstLine) indent={firstLine:1080};
+    else if(bk.indent) indent={left:720};
+    children.push(new Paragraph({children:runs, alignment:AL[bk.a]||AlignmentType.JUSTIFIED, spacing:{before:60,after:60,line:LINE}, indent, pageBreakBefore:brk||undefined, keepNext:bk.keep||undefined, keepLines:bk.keep||undefined}));
+  });
+  flush();
+  const doc=new Document({creator:'vikrampanwar.com', sections});
+  return Packer.toBlob(doc);
+}
+function generateDocx(){
+  if(!validateBasics()) return;
+  let d=gather();
+  renderDocx(buildModel(d), d).then(blob=>{
+    let a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+    a.download='Recovery_Suit_'+d.pl.name.replace(/[^a-zA-Z0-9]+/g,'_')+'.docx'; a.click(); URL.revokeObjectURL(a.href);
+  });
+}
+
+// ============ RENDER: PDF ============
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function runHTML(x){ let t=esc(x.t); if(x.b)t='<b>'+t+'</b>'; if(x.i)t='<i>'+t+'</i>'; if(x.u)t='<u>'+t+'</u>'; return t; }
+function renderHTML(B){
+  return B.map(bk=>{
+    if(bk.kind==='leadspace') return '<div class="leadspace"></div>';
+    if(bk.kind==='pagebreak'||bk.kind==='sectionbreak') return '<div class="pb"></div>';
+    if(bk.kind==='spacer') return '<div class="sp"></div>';
+    if(bk.kind==='table'){
+      let h='<table class="idxtbl">';
+      bk.rows.forEach((rw,ri)=>{ h+='<tr>'+rw.map(c=>ri===0?`<th>${esc(String(c))}</th>`:`<td>${esc(String(c))}</td>`).join('')+'</tr>'; });
+      return h+'</table>';
+    }
+    if(bk.kind==='split'){ let L=bk.left.map(runHTML).join(''); let R=bk.right.map(runHTML).join(''); return `<table class="split"><tr><td class="sl">${L}</td><td class="sr">${R}</td></tr></table>`; }
+    let inner=(bk.num?bk.num+'. ':'')+bk.runs.map(runHTML).join('');
+    let cls=bk.a==='center'?'c':bk.a==='right'?'r':bk.a==='left'?'l':'j';
+    if(bk.firstLine) cls+=' fl';
+    if(bk.indent) cls+=' ind';
+    return `<div class="${cls}">${inner}</div>`;
+  }).join('');
+}
+function generatePDF(){
+  if(!validateBasics()) return;
+  let d=gather();
+  let html=renderHTML(buildModel(d));
+  let fam = d.font==='Courier New'?"'Courier New',monospace":(d.font==='Times New Roman'?"'Times New Roman',Times,serif":"'Merriweather',Georgia,serif");
+  let topM = '25.4mm';
+  let lead = (d.stampPages&&d.stampPages.length) ? '<style>.leadspace{height:101mm}</style>' : '<style>.leadspace{height:0}</style>';
+  let w=window.open('','_blank'); if(!w){ alert('Please allow pop-ups to generate the PDF.'); return; }
+  w.document.write(`<!doctype html><html><head><meta charset="utf-8">
+<title>Recovery Suit — ${esc(d.pl.name)}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:${topM} 19mm 22mm 25.4mm}
+html,body{margin:0;padding:0}
+body{font-family:${fam};font-size:${d.fontSize}pt;line-height:${d.spacing};color:#000}
+.c{text-align:center}.r{text-align:right}.l{text-align:left}.j{text-align:justify;text-justify:inter-word}
+.fl{text-indent:0.75in}.ind{margin-left:0.5in}
+.sp{height:8pt}.pb{page-break-before:always}
+.split{display:table;width:100%}.split td{display:table-cell}
+table.split{width:100%;border-collapse:collapse;margin:2pt 0}
+table.split td{vertical-align:bottom;padding:0}
+td.sl{text-align:left}td.sr{text-align:right;white-space:nowrap;width:1%;padding-left:1.5em;font-weight:700}
+table.idxtbl{width:100%;border-collapse:collapse;margin:6pt 0}
+table.idxtbl th,table.idxtbl td{border:1px solid #000;padding:5px 7px;text-align:left;vertical-align:top}
+div{margin:2pt 0}b{font-weight:700}
+</style>${lead}</head><body>${html}
+<script>window.onload=function(){setTimeout(function(){window.print();},700);};<\/script>
+</body></html>`);
+  w.document.close();
+}
+</script>
+</body>
+</html>
