@@ -426,6 +426,7 @@ function renderCard(r) {
       <div class="action-row">
         <button class="action-btn" id="cp-${id}" onclick="cpSec('${id}','${r.bnss}','${r.crpc}','${r.subject.replace(/'/g,"\\'")}')">📋 Copy</button>
         <button class="action-btn" onclick="window.print()">🖨 Print</button>
+        ${r.bnss !== '—' ? `<button class="action-btn" style="background:var(--blue-bg);color:var(--blue);border-color:var(--blue-bg)" onclick="location.href='bnss.html#section-${r.bnss.replace(/\(.*/,'')}'">📖 Read in full Bare Act</button>` : ''}
       </div>
     </div>
   </div>`;
@@ -472,6 +473,21 @@ function expandCard(idx, from, val) {
   let area = document.getElementById('result-area');
   area.innerHTML = `<button onclick="search('${from}')" style="background:transparent;border:none;color:var(--ink-3);font-size:13px;cursor:pointer;margin-bottom:1rem;font-family:var(--sans)">← Back</button>` + renderCard(results[idx]);
 }
+
+/* Tier 1: arriving from the full Bare Act reader via bnss-crpc.html?bnss=173 */
+(function initFromQueryParam(){
+  let params = new URLSearchParams(location.search);
+  let bnssParam = params.get('bnss');
+  let crpcParam = params.get('crpc');
+  if (bnssParam) {
+    document.getElementById('bnss-input').value = bnssParam;
+    search('bnss');
+  } else if (crpcParam) {
+    document.getElementById('crpc-input').value = crpcParam;
+    search('crpc');
+  }
+})();
+
 </script>
 </body>
 </html>
