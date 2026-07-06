@@ -139,7 +139,10 @@ mark{background:#fff3cd;padding:0 2px;border-radius:2px}
 .reader-card{background:white;border:0.5px solid var(--rule);border-radius:12px;padding:1.5rem 1.75rem;margin-bottom:1rem}
 .reader-chapter-tag{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-4);margin-bottom:6px}
 .reader-num{font-family:var(--serif);font-size:28px;color:var(--ink);line-height:1.1;margin-bottom:2px}
-.reader-text{font-size:15px;line-height:1.85;color:var(--ink);white-space:pre-wrap}
+.reader-text{font-size:15px;line-height:1.85;color:var(--ink)}
+.reader-text p{margin-bottom:.85rem}
+.reader-text p:last-child{margin-bottom:0}
+.reader-text strong{color:var(--ink);font-weight:600}
 .disc-bar{background:var(--amber-bg);color:var(--amber);border-radius:8px;padding:.7rem 1rem;font-size:12px;line-height:1.5;margin-bottom:1.25rem}
 .action-btn.compare{background:var(--blue-bg);color:var(--blue);border-color:var(--blue-bg)}
 </style>
@@ -174,6 +177,21 @@ const SECTIONS=DATA.sections;
 const ALL_SECTIONS_SEQ=CHAPTERS.reduce((acc,c)=>acc.concat(c.sections),[]);
 
 function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+/* Format a section's full text for display: split numbered sub-sections
+   "(1)", "(2)"... onto separate lines/paragraphs, and bold the punishment
+   clause within each, so the operative penalty is easy to scan. */
+function formatSectionText(text){
+  let parts=text.split(/(?=(?:^|(?<=\.\s))\(\d{1,2}\))/);
+  return parts.map((part,i)=>{
+    let trimmed=part.trim();
+    if(!trimmed)return '';
+    if(i===0 && /^\d{1,3}[A-Z]{0,2}\.$/.test(trimmed))return '';
+    let esc=escHtml(trimmed);
+    esc=esc.replace(/(shall (?:be punished|also be liable)[^.]*\.)/gi,'<strong>$1</strong>');
+    return `<p>${esc}</p>`;
+  }).join('');
+}
 
 function buildTOC(){
   let el=document.getElementById('toc-area');
@@ -218,7 +236,7 @@ function showSection(num){
     <div class="reader-card" id="sec-${num}">
       <div class="reader-chapter-tag">Chapter ${ch?ch.roman:''} — ${ch?escHtml(ch.title):''}</div>
       <div class="reader-num">Section ${s.n}</div>
-      <div class="reader-text">${escHtml(s.text)}</div>
+      <div class="reader-text">${formatSectionText(s.text)}</div>
       <div class="action-row">
         <button class="action-btn" onclick="copyLink(${num})">🔗 Copy link</button>
         <button class="action-btn" onclick="copyText(${num})">📋 Copy text</button>
