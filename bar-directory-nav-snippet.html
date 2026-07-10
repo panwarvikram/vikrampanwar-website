@@ -1,0 +1,29 @@
+<!--
+  SNIPPET: Add this button inside your <nav> on index.html (and any other page
+  where you want quick access), placed as a sibling to nav-name / nav-back.
+  It links straight to the new bar-directory.html tool.
+
+  Example placement in index.html's <nav>:
+
+  <nav>
+    <a class="nav-name" href="https://vikrampanwar.com">Vikram Panwar, Advocate</a>
+    <a class="roll-link" href="https://vikrampanwar.com/bar-directory.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      Bar Directory
+    </a>
+  </nav>
+
+  Add this CSS alongside your existing nav styles:
+-->
+<style>
+.roll-link{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-family:var(--sans);font-size:13px;font-weight:500;
+  color:var(--ink);text-decoration:none;
+  background:var(--paper-2);border:1px solid var(--rule);
+  border-radius:999px;padding:.4rem .85rem;
+  transition:background .15s;
+}
+.roll-link:hover{background:var(--rule)}
+.roll-link svg{width:14px;height:14px;stroke:var(--ink-2)}
+</style>
