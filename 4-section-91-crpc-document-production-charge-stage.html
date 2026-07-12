@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Section 91 CrPC: When Courts Summon Documents Not in Chargesheet</title>
+  <meta name="description" content="Om Prakash v. CBI and Nitya Dharmananda explain Section 91 CrPC limits at charge stage — plus a Charkhi Dadri ASJ order applying the doctrine locally." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://vikrampanwar.com/2019-09-17-section-91-crpc-document-production-charge-stage.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a18;
+      --ink-2: #4a4a46;
+      --ink-3: #7a7a74;
+      --ink-4: #b0b0a8;
+      --paper: #f7f4ee;
+      --paper-2: #eeebe2;
+      --rule: rgba(26,26,24,0.1);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --mono: 'DM Mono', monospace;
+      --max: 760px;
+      --pad: clamp(1.5rem, 5vw, 4rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem clamp(1.5rem, 5vw, 4rem);
+      border-bottom: 0.5px solid var(--rule);
+      background: var(--paper);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      font-size: 12px;
+      color: var(--ink-3);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a.active, .nav-links a:hover { color: var(--ink); }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 3rem var(--pad) 5rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      text-decoration: none;
+      margin-bottom: 2rem;
+    }
+
+    .back-link:hover { color: var(--ink); }
+
+    .category-tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      border: 0.5px solid var(--ink-4);
+      border-radius: 3px;
+      padding: 4px 11px;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      line-height: 1.28;
+      margin: 0 0 1.25rem;
+      color: var(--ink);
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 1.4rem;
+      margin: 2.5rem 0 1rem;
+      color: var(--ink);
+      border-bottom: 0.5px solid var(--rule);
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: var(--ink-2);
+      margin: 0 0 1rem;
+    }
+
+    .byline {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink-3);
+      margin-bottom: 2rem;
+    }
+
+    .quickfacts {
+      background: var(--paper-2);
+      border-left: 3px solid var(--ink);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin: 0 0 2rem;
+    }
+
+    .quickfacts table { width: 100%; border-collapse: collapse; }
+
+    .quickfacts td {
+      padding: 5px 8px;
+      vertical-align: top;
+      font-size: 0.9rem;
+    }
+
+    .quickfacts td.label {
+      color: var(--ink-3);
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      width: 150px;
+    }
+
+    .quickfacts td.value { color: var(--ink); }
+
+    .cite { font-family: var(--mono); color: var(--ink); font-size: 0.95em; }
+
+    ul { padding-left: 22px; margin: 0 0 1rem; }
+    li { margin-bottom: 0.65rem; font-size: 1rem; color: var(--ink-2); }
+    strong { color: var(--ink); font-weight: 500; }
+
+    .disclaimer {
+      margin-top: 3rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--paper-2);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--ink-3);
+    }
+
+    .disclaimer strong { color: var(--ink-3); }
+
+    a { color: var(--ink); }
+
+    footer {
+      padding: 2rem clamp(1.5rem, 5vw, 4rem);
+      text-align: center;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    footer p { font-size: 11px; color: var(--ink-4); letter-spacing: 0.04em; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="/">Vikram Panwar, Advocate</a>
+    <ul class="nav-links">
+      <li><a href="/#tools">Tools</a></li>
+      <li><a href="/#bare-acts">Bare Acts</a></li>
+      <li><a href="/blog.html" class="active">Blog</a></li>
+      <li><a href="/bar-directory.html">Bar Directory</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="wrap">
+
+    <a class="back-link" href="/blog.html">&larr; Back to Blog</a>
+
+    <span class="category-tag">Criminal Law</span>
+
+    <h1>Section 91 CrPC and Document Production at the Charge Stage: From Om Prakash v. CBI to a Charkhi Dadri Sessions Court Order</h1>
+
+    <p class="byline">By Adv. Vikram Panwar &middot; District Courts, Charkhi Dadri &amp; Bhiwani, Haryana</p>
+
+    <div class="quickfacts">
+      <table>
+        <tr><td class="label">Leading Cases</td><td class="value">Om Prakash Sharma v. CBI (SC, 2000); Nitya Dharmananda @ K. Lenin v. Sri Gopal Sheelum Reddy (SC, 2017)</td></tr>
+        <tr><td class="label">Citations</td><td class="value"><span class="cite">AIR 2000 SC 2335 : 2000 AIR SCW 2420</span> &middot; <span class="cite">[2017] 12 SCR 118</span></td></tr>
+        <tr><td class="label">Local Illustration</td><td class="value">State of Haryana v. Madan &amp; Ors., Sessions Trial No. ST-16/2019, ASJ Charkhi Dadri, order dated 17.9.2019</td></tr>
+        <tr><td class="label">Key Section</td><td class="value">Section 91, Code of Criminal Procedure, 1973</td></tr>
+      </table>
+    </div>
+
+    <h2>What Section 91 CrPC actually allows</h2>
+
+    <p>Section 91 CrPC empowers a court — or, on written order, a police officer in charge of a station — to summon production of any document or thing considered <strong>"necessary or desirable"</strong> for the purposes of investigation, inquiry, trial, or other proceedings. In everyday district court practice, this provision comes up constantly at one specific flashpoint: an accused, facing framing of charge, wants documents that the investigating officer collected but did not include in the chargesheet.</p>
+
+    <p>Two Supreme Court judgments, seventeen years apart, mark out exactly how far this power extends at the charge stage — and a 2019 order from the Additional Sessions Judge, Charkhi Dadri shows the doctrine being applied on the ground, in a matter arising from Police Station Badhra.</p>
+
+    <h2>Om Prakash Sharma v. CBI (2000): discretion belongs to the trial court</h2>
+
+    <p>In this case, a CBI officer accused of favouring the "Jain Brothers" sought production of documents he claimed would show no such favour was shown, and that the CBI's action against him was mala fide. Both the Special Judge and the Delhi High Court rejected his Section 91 application, and the Supreme Court declined to interfere.</p>
+
+    <p>The Court's reasoning centred on the <strong>limited scope of appellate interference</strong> in such discretionary calls:</p>
+
+    <ul>
+      <li>At the charge stage, the question is only whether there is sufficient ground to proceed to trial — not a rehearsal of the final standard of proof. A refusal to look at genuinely reliable material that could affect the sustainability of the case risks injustice, but courts must guard against turning this stage into a "roving enquiry" weighing evidence as if at trial.</li>
+      <li>Where the trial court and the High Court have both properly applied their minds to the nature of the documents sought, their bearing, relevance, and necessity, that exercise of discretion is <strong>not to be lightly disturbed</strong> by a superior court. The Supreme Court called this "a large latitude in the matter of exercise of discretion."</li>
+      <li>The fact that a court exercised this power in one case is no ground to assume it must do so in every case — the analysis is fact-specific each time.</li>
+    </ul>
+
+    <h2>Nitya Dharmananda (2017): a narrow gate, not a right for the defence</h2>
+
+    <p>Here, an accused facing a Section 376 IPC charge applied for the entire body of investigation material not made part of the chargesheet to be summoned under Section 91. The trial court refused; the Karnataka High Court reversed and allowed it. The Supreme Court restored the trial court's refusal, while clarifying the underlying principle carefully.</p>
+
+    <p>The Court held that while ordinarily the trial court must proceed on the chargesheet material alone when deciding on charge — consistent with the earlier ruling in <em>State of Orissa v. Debendra Nath Padhi</em> — <strong>this is not an absolute bar</strong>. If the court itself becomes satisfied that material of "sterling quality" has been deliberately withheld by the investigator or prosecutor, the court retains the power to summon or rely on it, even at the charge stage. But — and this is the crucial qualification — this is a power vested in the court's own satisfaction, not <strong>a right the defence can invoke on demand</strong>. An accused cannot simply file a Section 91 application and compel production; the court must first be independently satisfied that the material is genuinely crucial.</p>
+
+    <h2>Applying the doctrine: State of Haryana v. Madan &amp; Ors., Charkhi Dadri (2019)</h2>
+
+    <p>A 2019 order from the Sessions Court at Charkhi Dadri shows this exact framework playing out at the district level. In a sessions trial arising out of Police Station Badhra, accused persons sought copies of two <em>rapats</em> (daily diary entries) and an application/statement recorded by the police — none of which were part of the chargesheet. The prosecution objected, arguing the documents were neither relied upon nor annexed to the final report, and that the accused merely sought to delay proceedings.</p>
+
+    <p>The Additional Sessions Judge took a <strong>practical middle path</strong> rather than deciding the Section 91 question definitively at that stage:</p>
+
+    <ul>
+      <li>The court did not order the documents produced immediately or summoned into the record.</li>
+      <li>Instead, it directed the SHO concerned to <strong>preserve the original documents</strong>, recognising that police records are routinely destroyed over time and the trial could take years to conclude.</li>
+      <li>The accused were left free to call for these documents later — during cross-examination of prosecution witnesses or while leading defence evidence — which is precisely the stage at which <em>Debendra Nath Padhi</em> and <em>Nitya Dharmananda</em> contemplate genuine defence-stage entitlement under Section 91.</li>
+    </ul>
+
+    <p>This order is a useful illustration of a pragmatic solution: rather than granting or refusing the Section 91 prayer outright at the charge stage, the court preserved the evidentiary record for a later, more appropriate stage of the trial.</p>
+
+    <h2>Why this matters for Criminal practitioners in Haryana</h2>
+
+    <p>This three-decision arc gives district court practitioners a complete toolkit for handling Section 91 applications at every stage of a criminal trial. At the charge-framing stage, counsel should not expect success merely by filing a Section 91 application listing every document the investigator may hold — <em>Nitya Dharmananda</em> makes clear the court's independent satisfaction on "sterling quality" is the real gatekeeper, not the accused's demand.</p>
+
+    <p>Where documents genuinely appear necessary for the defence but the case is still at an early stage, the Charkhi Dadri order offers a practical template: rather than pressing for immediate production and risking an adverse order that could be hard to reopen later, counsel can ask the court to direct <strong>preservation</strong> of the material with the investigating agency, deferring the actual production request to the cross-examination or defence-evidence stage. This is particularly important given how routinely daily diary entries (rapats) and preliminary statements are weeded out of police record-keeping over time.</p>
+
+    <p>For prosecutors and complainants' counsel, <em>Om Prakash Sharma</em> remains the standard citation for resisting Section 91 applications that amount to a fishing expedition or delay tactic at the charge stage — provided the trial court's order reflects genuine application of mind to the nature, relevance, and necessity of the documents sought, appellate courts will rarely interfere.</p>
+
+    <h2>Statutory cross-references</h2>
+
+    <p>Section 91 of the CrPC, 1973 now corresponds to <strong>Section 94 of the Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023</strong>, retaining substantially the same language empowering courts and police officers to summon production of documents or things "necessary or desirable" for investigation, inquiry, trial, or other proceedings. The charge-framing provisions discussed in these judgments — Sections 227 and 239 CrPC — now correspond to <strong>Sections 250 and 262 BNSS</strong> respectively. The doctrine on charge-stage document production developed under the old Code applies with equal force under the renumbered BNSS provisions, since the underlying language and purpose remain unchanged.</p>
+
+    <p>This is a foundational <strong>Section 91 CrPC Supreme Court</strong> line of authority for any advocate contesting or defending applications for document production before trial commences, and the Charkhi Dadri order is a working example of how District Courts in Haryana have applied it in practice.</p>
+
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> This article is for informational purposes only and does not constitute legal advice. It summarises the holdings of <span class="cite">AIR 2000 SC 2335</span> and <span class="cite">[2017] 12 SCR 118</span> based on the full reported judgment text, along with a publicly available order of the Sessions Court, Charkhi Dadri in State of Haryana v. Madan &amp; Ors. (2019). Readers should verify the analysis against the complete judgments and record before relying on it in any proceeding. For advice on a specific matter — including applications for document production, charge-stage strategy, or criminal defence before the District Courts of Charkhi Dadri and Bhiwani — consult a practising advocate directly.
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Vikram Panwar, Advocate &nbsp;&middot;&nbsp; Charkhi Dadri &amp; Bhiwani &nbsp;&middot;&nbsp; All rights reserved</p>
+  </footer>
+
+</body>
+</html>
