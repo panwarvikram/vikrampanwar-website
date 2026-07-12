@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Written Grounds of Arrest: The Supreme Court Doctrine</title>
+  <meta name="description" content="Pankaj Bansal, Prabir Purkayastha, Vihaan Kumar and Mihir Rajesh Shah trace how written grounds of arrest became mandatory for every arrest in India." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://vikrampanwar.com/6-written-grounds-of-arrest-supreme-court-doctrine.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a18;
+      --ink-2: #4a4a46;
+      --ink-3: #7a7a74;
+      --ink-4: #b0b0a8;
+      --paper: #f7f4ee;
+      --paper-2: #eeebe2;
+      --rule: rgba(26,26,24,0.1);
+      --serif: 'EB Garamond', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --mono: 'DM Mono', monospace;
+      --max: 760px;
+      --pad: clamp(1.5rem, 5vw, 4rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem clamp(1.5rem, 5vw, 4rem);
+      border-bottom: 0.5px solid var(--rule);
+      background: var(--paper);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      font-size: 12px;
+      color: var(--ink-3);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a.active, .nav-links a:hover { color: var(--ink); }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 3rem var(--pad) 5rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      text-decoration: none;
+      margin-bottom: 2rem;
+    }
+
+    .back-link:hover { color: var(--ink); }
+
+    .category-tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      border: 0.5px solid var(--ink-4);
+      border-radius: 3px;
+      padding: 4px 11px;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      line-height: 1.28;
+      margin: 0 0 1.25rem;
+      color: var(--ink);
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 1.4rem;
+      margin: 2.5rem 0 1rem;
+      color: var(--ink);
+      border-bottom: 0.5px solid var(--rule);
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: var(--ink-2);
+      margin: 0 0 1rem;
+    }
+
+    .byline {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink-3);
+      margin-bottom: 2rem;
+    }
+
+    .quickfacts {
+      background: var(--paper-2);
+      border-left: 3px solid var(--ink);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin: 0 0 2rem;
+    }
+
+    .quickfacts table { width: 100%; border-collapse: collapse; }
+
+    .quickfacts td {
+      padding: 5px 8px;
+      vertical-align: top;
+      font-size: 0.9rem;
+    }
+
+    .quickfacts td.label {
+      color: var(--ink-3);
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      width: 150px;
+    }
+
+    .quickfacts td.value { color: var(--ink); }
+
+    .cite { font-family: var(--mono); color: var(--ink); font-size: 0.95em; }
+
+    ul { padding-left: 22px; margin: 0 0 1rem; }
+    li { margin-bottom: 0.65rem; font-size: 1rem; color: var(--ink-2); }
+    strong { color: var(--ink); font-weight: 500; }
+
+    .disclaimer {
+      margin-top: 3rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--paper-2);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--ink-3);
+    }
+
+    .disclaimer strong { color: var(--ink-3); }
+
+    a { color: var(--ink); }
+
+    footer {
+      padding: 2rem clamp(1.5rem, 5vw, 4rem);
+      text-align: center;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    footer p { font-size: 11px; color: var(--ink-4); letter-spacing: 0.04em; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="/">Vikram Panwar, Advocate</a>
+    <ul class="nav-links">
+      <li><a href="/#tools">Tools</a></li>
+      <li><a href="/#bare-acts">Bare Acts</a></li>
+      <li><a href="/blog.html" class="active">Blog</a></li>
+      <li><a href="/bar-directory.html">Bar Directory</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="wrap">
+
+    <a class="back-link" href="/blog.html">&larr; Back to Blog</a>
+
+    <span class="category-tag">Criminal Law</span>
+
+    <h1>Written Grounds of Arrest: How the Supreme Court Turned a PMLA Safeguard Into a Rule for Every Arrest</h1>
+
+    <p class="byline">By Adv. Vikram Panwar &middot; District Courts, Charkhi Dadri &amp; Bhiwani, Haryana</p>
+
+    <div class="quickfacts">
+      <table>
+        <tr><td class="label">Leading Cases</td><td class="value">Pankaj Bansal v. Union of India (2023); Prabir Purkayastha v. State (NCT of Delhi) (2024); Vihaan Kumar v. State of Haryana (2025); Mihir Rajesh Shah v. State of Maharashtra (2025)</td></tr>
+        <tr><td class="label">Citations</td><td class="value"><span class="cite">2023 INSC 866</span> &middot; <span class="cite">2024 INSC 414 : [2024] 6 SCR 666</span> &middot; <span class="cite">2025 INSC 162</span> &middot; <span class="cite">2025 INSC 1288 : 2025 SCC OnLine SC 2356</span></td></tr>
+        <tr><td class="label">Dates</td><td class="value">3 Oct 2023 &middot; 15 May 2024 &middot; 7 Feb 2025 &middot; 6 Nov 2025</td></tr>
+        <tr><td class="label">Key Provisions</td><td class="value">Article 22(1), Constitution of India; Section 50 CrPC / Section 47 BNSS; Section 50A CrPC / Section 48 BNSS</td></tr>
+      </table>
+    </div>
+
+    <h2>What "grounds of arrest" means, and why it is not a formality</h2>
+
+    <p>Article 22(1) of the Constitution guarantees every arrested person the right to be informed, "as soon as may be," of the grounds for the arrest. For decades this was treated as satisfied by an oral remark at the time of arrest, or by a bare mention of the FIR number and sections in the arrest memo. Over the last three years, in a sequence of four judgments, the Supreme Court has systematically closed that gap — holding that the grounds of arrest must be furnished in writing, must be specific to the individual (not just the case), and must now be given for every arrest, not only under special statutes.</p>
+
+    <p>For practitioners, this line of authority has become one of the most frequently invoked bail grounds in recent memory — because non-compliance does not just taint the arrest, it can vitiate the remand and entitle the accused to release.</p>
+
+    <h2>Pankaj Bansal (2023): the foundational rule, under the PMLA</h2>
+
+    <p>The doctrine began in a case involving the arrest of two real-estate group directors by the Enforcement Directorate under Section 19 of the Prevention of Money Laundering Act, 2002. The Supreme Court held that merely reading out or orally explaining the grounds of arrest to the arrestee was not enough — the ED was required to <strong>furnish the grounds of arrest in writing</strong>, as a matter of course, to satisfy the constitutional guarantee under Article 22(1) read with the PMLA's own arrest rules. The Court clarified that this requirement would apply prospectively, "henceforth," rather than unsettle arrests already made.</p>
+
+    <h2>Prabir Purkayastha (2024): extended to UAPA</h2>
+
+    <p>A year later, the Court extended the same ratio to arrests under the Unlawful Activities (Prevention) Act, 1967. The arrest memo of the NewsClick editor contained no column at all for "grounds of arrest" — only the offence and FIR particulars. The Supreme Court held this was constitutionally insufficient, quashed the arrest and the subsequent remand as illegal, and held that grounds of arrest must be communicated in writing at the earliest, so the arrestee can meaningfully consult counsel and seek bail.</p>
+
+    <h2>Vihaan Kumar (2025): extended to ordinary IPC arrests — and it started in Haryana</h2>
+
+    <p>This case matters most for district practice, because it did not involve a special statute at all — just an ordinary FIR under Sections 409, 420, 467, 468 and 471 read with 120-B IPC, registered at DLF Police Station, Sector 29, Gurugram. The Punjab &amp; Haryana High Court had rejected the accused's plea that he was never informed of the grounds of arrest, accepting the prosecution's case diary entry that he was told at 6:10 PM on the day of arrest. The Supreme Court reversed. It drew a sharp distinction between being <strong>told you are arrested</strong> and being <strong>told why</strong> — holding that "mere information of arrest will not amount to furnishing grounds of arrest." Since the State could not show written or otherwise adequately proved communication of the actual grounds, the arrest was held unconstitutional and the accused ordered released.</p>
+
+    <h2>Mihir Rajesh Shah (2025): a universal rule, in a language the arrestee understands</h2>
+
+    <p>Most recently, a Bench led by the Chief Justice of India went further still, holding that written grounds of arrest are now mandatory in <strong>all</strong> arrests, regardless of the statute invoked, and — critically — that they must be communicated in a language the arrestee actually understands. Non-compliance, the Court held, renders both the arrest and any consequent remand illegal, with release to follow unless the defect is cured and fresh judicial scrutiny applied. This closes the loop that began with Pankaj Bansal: what started as a PMLA-specific safeguard is now a general constitutional rule applicable to every arrest made in India.</p>
+
+    <h2>Why this matters for Criminal practitioners in Haryana</h2>
+
+    <p>This is now a standard, and often decisive, first line of attack in bail and quashing applications. On taking up any matter where a client has already been arrested, counsel should immediately call for the arrest memo, remand application, and case diary entries to check whether the grounds of arrest were reduced to writing and handed over — as distinct from the offence being merely read out or the FIR number cited. Given that <em>Vihaan Kumar</em> itself arose out of a Gurugram FIR and was rejected at the High Court stage before being reversed by the Supreme Court, District Courts across Haryana should expect this ground to be raised routinely, and prosecutors should ensure investigating officers are sensitised to complete the "grounds of arrest" column in every arrest memo, in writing, in a language the accused understands.</p>
+
+    <h2>Statutory cross-references</h2>
+
+    <p>Section 50 of the CrPC, 1973 — the provision requiring a person arrested without warrant to be informed of the grounds of arrest — now corresponds to <strong>Section 47 of the Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023</strong>. Section 50A CrPC, which additionally requires that a friend, relative, or nominated person of the arrestee be informed, now corresponds to <strong>Section 48 BNSS</strong>. The doctrine traced above, though built under the old Code, applies with undiminished force under the renumbered BNSS provisions, since both flow directly from the same constitutional guarantee under Article 22(1).</p>
+
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> This article is for informational purposes only and does not constitute legal advice. It summarises the holdings of <span class="cite">2023 INSC 866</span>, <span class="cite">2024 INSC 414</span>, <span class="cite">2025 INSC 162</span> and <span class="cite">2025 INSC 1288</span> based on publicly reported judgment text. Readers should verify the analysis against the full judgments before relying on it in any proceeding. For advice on a specific arrest, remand, or bail matter, consult a practising advocate directly.
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Vikram Panwar, Advocate &nbsp;&middot;&nbsp; Charkhi Dadri &amp; Bhiwani &nbsp;&middot;&nbsp; All rights reserved</p>
+  </footer>
+
+</body>
+</html>
