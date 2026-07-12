@@ -85,4 +85,67 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://vikrampanwar.com/blog.html</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://vikrampanwar.com/bar-directory.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://vikrampanwar.com/1-shiv-kumar-v-state-of-haryana-juvenile-justice.html</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://vikrampanwar.com/2-delhi-race-club-v-state-of-up-cheating-criminal-breach-of-trust.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://vikrampanwar.com/3-satta-ram-v-state-of-punjab-ndps-fsl-chain-of-custody.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://vikrampanwar.com/4-section-91-crpc-document-production-charge-stage.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://vikrampanwar.com/5-common-intention-vs-common-object-section-34-149-ipc.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://vikrampanwar.com/6-written-grounds-of-arrest-supreme-court-doctrine.html</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://vikrampanwar.com/7-ndps-procedural-lapses-leading-to-acquittal.html</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
