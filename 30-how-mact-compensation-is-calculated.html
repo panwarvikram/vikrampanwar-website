@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Is MACT Compensation Calculated? The Structured Formula</title>
+  <meta name="description" content="How Motor Accident Claims Tribunals calculate compensation in India — income, future prospects, the Sarla Verma multiplier table, deductions, and conventional heads, explained." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://vikrampanwar.com/30-how-mact-compensation-is-calculated.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1a1a18; --ink-2: #4a4a46; --ink-3: #7a7a74; --ink-4: #b0b0a8;
+      --paper: #f7f4ee; --paper-2: #eeebe2; --rule: rgba(26,26,24,0.1);
+      --serif: 'EB Garamond', Georgia, serif; --sans: 'DM Sans', system-ui, sans-serif; --mono: 'DM Mono', monospace;
+      --max: 760px; --pad: clamp(1.5rem, 5vw, 4rem);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem clamp(1.5rem, 5vw, 4rem); border-bottom: 0.5px solid var(--rule); background: var(--paper); position: sticky; top: 0; z-index: 100; }
+    .nav-name { font-family: var(--serif); font-size: 17px; font-weight: 400; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 12px; color: var(--ink-3); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a.active, .nav-links a:hover { color: var(--ink); }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 3rem var(--pad) 5rem; }
+    .back-link { display: inline-block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); text-decoration: none; margin-bottom: 2rem; }
+    .back-link:hover { color: var(--ink); }
+    .category-tag { display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); border: 0.5px solid var(--ink-4); border-radius: 3px; padding: 4px 11px; margin-bottom: 1.25rem; }
+    h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(1.8rem, 4vw, 2.3rem); line-height: 1.28; margin: 0 0 1.25rem; color: var(--ink); }
+    h2 { font-family: var(--serif); font-weight: 500; font-size: 1.4rem; margin: 2.5rem 0 1rem; color: var(--ink); border-bottom: 0.5px solid var(--rule); padding-bottom: 0.5rem; }
+    p { font-size: 1rem; color: var(--ink-2); margin: 0 0 1rem; }
+    .byline { font-family: var(--mono); font-size: 12px; color: var(--ink-3); margin-bottom: 2rem; }
+    .quickfacts { background: var(--paper-2); border-left: 3px solid var(--ink); border-radius: 6px; padding: 1.25rem 1.5rem; margin: 0 0 2rem; }
+    .quickfacts table { width: 100%; border-collapse: collapse; }
+    .quickfacts td { padding: 5px 8px; vertical-align: top; font-size: 0.9rem; }
+    .quickfacts td.label { color: var(--ink-3); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; width: 150px; }
+    .quickfacts td.value { color: var(--ink); }
+    .cite { font-family: var(--mono); color: var(--ink); font-size: 0.95em; }
+    ul { padding-left: 22px; margin: 0 0 1rem; }
+    li { margin-bottom: 0.65rem; font-size: 1rem; color: var(--ink-2); }
+    strong { color: var(--ink); font-weight: 500; }
+    .disclaimer { margin-top: 3rem; padding: 1.25rem 1.5rem; background: var(--paper-2); border-radius: 6px; font-size: 0.85rem; color: var(--ink-3); }
+    .disclaimer strong { color: var(--ink-3); }
+    a { color: var(--ink); }
+    footer { padding: 2rem clamp(1.5rem, 5vw, 4rem); text-align: center; max-width: var(--max); margin: 0 auto; }
+    footer p { font-size: 11px; color: var(--ink-4); letter-spacing: 0.04em; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="nav-name" href="/">Vikram Panwar, Advocate</a>
+    <ul class="nav-links">
+      <li><a href="/#tools">Tools</a></li>
+      <li><a href="/#bare-acts">Bare Acts</a></li>
+      <li><a href="/blog.html" class="active">Blog</a></li>
+      <li><a href="/bar-directory.html">Bar Directory</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="wrap">
+    <a class="back-link" href="/blog.html">&larr; Back to Blog</a>
+    <span class="category-tag">MACT</span>
+    <h1>How Is Compensation Calculated in a Motor Accident Claim? The Structured Formula, Explained</h1>
+    <p class="byline">By Adv. Vikram Panwar &middot; District Courts, Charkhi Dadri &amp; Bhiwani, Haryana</p>
+    <div class="quickfacts">
+      <table>
+        <tr><td class="label">Leading Cases</td><td class="value">Sarla Verma v. DTC (2009); National Insurance Co. Ltd. v. Pranay Sethi (2017)</td></tr>
+        <tr><td class="label">Court</td><td class="value">Supreme Court of India</td></tr>
+        <tr><td class="label">Citation</td><td class="value"><span class="cite">(2009) 6 SCC 121 &middot; (2017) 16 SCC 680</span></td></tr>
+        <tr><td class="label">Key Sections</td><td class="value">Ss. 166 &amp; 168, Motor Vehicles Act, 1988</td></tr>
+        <tr><td class="label">Forum</td><td class="value">Motor Accident Claims Tribunal (MACT), District Courts</td></tr>
+      </table>
+    </div>
+
+    <h2>What the topic is about</h2>
+    <p>Every year, thousands of families in Haryana approach the Motor Accident Claims Tribunal seeking compensation after a road accident causes death or permanent disability. One of the most common questions a claimant asks is deceptively simple: how much compensation will I actually get? Unlike a civil damages suit where the claimant must plead and prove an exact figure at the outset, MACT compensation follows a structured, formula-driven method laid down by the Supreme Court &mdash; designed precisely so that, as the Court has repeatedly emphasised, similar facts produce broadly similar awards across the country rather than depending on the guesswork of an individual Tribunal.</p>
+    <p>The foundational judgment is <em>Sarla Verma v. Delhi Transport Corporation</em> (2009), which introduced a standardised multiplier table linked to the age of the deceased. This was refined and made uniform for both salaried and self-employed persons by a Constitution Bench in <em>National Insurance Co. Ltd. v. Pranay Sethi</em> (2017), which also fixed the "future prospects" addition and the conventional heads of compensation. Together, these two judgments form the backbone of every MACT award passed in Haryana's district courts today, whether the claim arises from a fatal accident on the Delhi&ndash;Narnaul highway or a permanent disability suffered in a village-road collision near Bhiwani.</p>
+
+    <h2>What the legal position is</h2>
+    <p>The calculation proceeds in five broad steps.</p>
+    <p><strong>Step 1 &mdash; Determine annual income.</strong> The Tribunal first ascertains the deceased's (or injured claimant's) annual income from salary slips, income tax returns, or, where no documentary proof exists, notional income based on minimum wages or comparable local earnings. Where the income is proved through ITRs, courts look at a representative period rather than picking an artificially high or low year in isolation.</p>
+    <p><strong>Step 2 &mdash; Add future prospects.</strong> Because a young deceased person would ordinarily have seen their income rise over a working life, <em>Pranay Sethi</em> mandates an addition for future prospects even where the deceased was self-employed or on a fixed salary with no prospect of promotion. The addition is age-banded: 40% where the deceased was below 40 years, 25% where aged 40&ndash;50 years, and 10% where aged 50&ndash;60 years, applied uniformly regardless of whether the deceased was permanently employed or self-employed &mdash; a point on which <em>Pranay Sethi</em> departed from and clarified earlier, less consistent case law.</p>
+    <p><strong>Step 3 &mdash; Deduct personal and living expenses.</strong> Since the family did not receive the full income of the deceased for its own use, a portion is deducted as the amount the deceased would have spent on themselves. The standard deduction is one-third where the deceased leaves behind 2&ndash;3 dependents, one-fourth for 4&ndash;6 dependents, and one-fifth for more than 6 dependents. Where the deceased was unmarried, a higher deduction (typically 50%) applies, subject to adjustment based on the facts.</p>
+    <p><strong>Step 4 &mdash; Apply the multiplier.</strong> The resulting net annual dependency is multiplied by an age-linked multiplier drawn from the Sarla Verma table, ranging from 18 (for a deceased aged 15&ndash;20 years) down to 5 (for a deceased aged 60&ndash;70 years) at the elder end. The multiplier corresponds to the age of the deceased, not the age of the dependents, and reflects the number of years of dependency reduced to present value.</p>
+    <p><strong>Step 5 &mdash; Add conventional heads.</strong> Finally, fixed conventional sums are added for loss of estate, loss of consortium (payable to spouse, and, following later Supreme Court rulings, also to children and parents of the deceased in appropriate cases), and funeral expenses. <em>Pranay Sethi</em> fixed these amounts subject to a 10% enhancement for every three years that elapse, to account for inflation, and Tribunals across Haryana routinely apply the updated figures as revised by subsequent Supreme Court benches.</p>
+    <p>For permanent disability claims (as opposed to death claims), a broadly parallel method applies: the percentage of functional/whole-body disability is assessed from medical evidence, applied to the income to derive loss of earning capacity, and then run through a similar multiplier exercise, with additional heads for pain and suffering, medical expenses, attendant charges, and loss of amenities of life.</p>
+
+    <h2>Why this matters for MACT practitioners in Haryana</h2>
+    <p>For advocates practising before the MACTs at Charkhi Dadri, Bhiwani, and elsewhere in Haryana, the structured formula is both a discipline and an opportunity. It is a discipline because it leaves little room for arguing a Tribunal award is "too low" or "too high" in the abstract &mdash; challenges must instead target a specific input: was the income wrongly assessed, was the future-prospects percentage misapplied, was the wrong multiplier used, or were conventional heads left out or under-calculated at outdated figures. It is an opportunity because claimants' counsel who carefully assemble income proof (ITRs, salary certificates, or credible oral evidence of daily wages where the deceased was in the unorganised sector) can materially increase the eventual award, since the formula amplifies the base income figure through the future-prospects percentage and the multiplier.</p>
+    <p>A recurring point of dispute in Haryana's Tribunals is the proof of income for self-employed persons, agricultural labourers, and drivers &mdash; categories that make up a large share of road accident victims in this region. Where no documentary income proof exists, Tribunals frequently fall back on notional income pegged to the state's minimum wage notification, and advocates should keep updated minimum wage figures on hand when arguing quantum. Insurance companies, conversely, frequently appeal on the ground that the Tribunal applied too generous a multiplier or an inflated notional income, making a firm grasp of the Sarla Verma/Pranay Sethi framework essential defence material as well.</p>
+
+    <h2>Statutory cross-references</h2>
+    <p>The substantive claim is founded on Sections 166 and 168 of the Motor Vehicles Act, 1988, which remain in force and are not affected by the BNS/BNSS 2023 recodification, since motor accident compensation is a civil/statutory remedy rather than a criminal procedure matter. Where the accident also gives rise to a criminal prosecution (for example, for rash or negligent driving), the relevant offence provisions now fall under Sections 106 (culpable homicide not amounting to murder, and causing death by negligence) and related provisions of the Bharatiya Nyaya Sanhita, 2023, in place of the earlier Section 304A IPC, though the two proceedings &mdash; criminal and MACT &mdash; remain independent of each other.</p>
+
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> This article explains the general legal framework for MACT compensation established in <em>Sarla Verma v. Delhi Transport Corporation</em>, (2009) 6 SCC 121, and <em>National Insurance Co. Ltd. v. Pranay Sethi</em>, (2017) 16 SCC 680, both well-settled Supreme Court authorities, along with subsequent decisions applying and updating the conventional-heads figures. It is intended as a general educational guide and does not constitute legal advice. Actual compensation in any specific case depends on its particular facts, evidence, and the Tribunal's assessment; readers with a pending or contemplated MACT claim should consult a practising advocate.
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2026 Vikram Panwar, Advocate &nbsp;&middot;&nbsp; Charkhi Dadri &amp; Bhiwani &nbsp;&middot;&nbsp; All rights reserved</p>
+  </footer>
+</body>
+</html>
