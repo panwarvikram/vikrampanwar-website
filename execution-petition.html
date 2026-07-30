@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Execution Petition Generator — vikrampanwar.com</title>
+<meta name="author" content="Vikram Panwar, Advocate">
+<meta name="description" content="Free execution petition generator for Haryana District Courts. Drafts an execution petition under Order 21 Rule 10 CPC with Rule 11 particulars, amount &amp; interest computation, supporting affidavit, address form, process fee form and index, in Word or PDF.">
+<meta name="keywords" content="execution petition format, execution petition Order 21 CPC, execution petition Charkhi Dadri, execution petition Bhiwani, decree execution application, attachment of immovable property CPC, Order 21 Rule 11 particulars">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://vikrampanwar.com/execution-petition.html">
+<meta property="og:title" content="Execution Petition Generator — vikrampanwar.com">
+<meta property="og:description" content="Free execution petition generator (Order 21 Rule 10 CPC) for Haryana District Courts — petition, affidavit, address form, process fee form and index in Word or PDF.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vikrampanwar.com/execution-petition.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Execution Petition Generator — vikrampanwar.com">
+<meta name="twitter:description" content="Free execution petition generator (Order 21 Rule 10 CPC) for Haryana District Courts.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Execution Petition Generator",
+  "url": "https://vikrampanwar.com/execution-petition.html",
+  "author": { "@type": "Person", "name": "Vikram Panwar" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vikrampanwar.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Execution Petition Generator", "item": "https://vikrampanwar.com/execution-petition.html" }
+    ]
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after{ box-sizing:border-box; }
+:root{
+  --ink:#1a1a18;
+  --ink-2:#4a4a46;
+  --ink-3:#7a7a74;
+  --ink-4:#b0b0a8;
+  --paper:#f7f4ee;
+  --paper-2:#eeebe2;
+  --rule:rgba(26,26,24,0.1);
+  --serif:'EB Garamond', Georgia, serif;
+  --sans:'DM Sans', system-ui, sans-serif;
+  --warn:#8a3b1f;
+  --warn-bg:#f3e6dc;
+  --ok:#3d5c3a;
+  --ok-bg:#e7ece2;
+}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{
+  font-family:var(--serif);
+  font-weight:400;
+  margin:0 0 .4em;
+}
+a{color:var(--ink-2);}
+nav.site{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.2rem clamp(1.5rem,5vw,4rem);border-bottom:0.5px solid var(--rule);
+  background:var(--paper);position:sticky;top:0;z-index:100;
+  flex-wrap:wrap;gap:8px;
+}
+nav.site .nav-name{font-family:var(--serif);font-size:17px;font-weight:400;color:var(--ink);text-decoration:none;}
+nav.site a.back{font-size:12px;color:var(--ink-3);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;}
+nav.site a.back:hover{color:var(--ink);}
+main{max-width:820px;margin:0 auto;padding:24px clamp(1.5rem,5vw,4rem) 80px;}
+.intro h1{font-size:clamp(28px,5vw,38px);}
+.intro p{color:var(--ink-3);max-width:640px;font-size:15px;}
+.steps-nav{
+  display:flex;flex-wrap:wrap;gap:6px;margin:20px 0 26px;
+  font-size:11px;letter-spacing:.03em;
+}
+.steps-nav span{
+  padding:5px 10px;border-radius:999px;border:0.5px solid var(--rule);
+  background:var(--paper-2);color:var(--ink-3);
+}
+.steps-nav span.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.steps-nav span.done{background:transparent;color:var(--ink-2);border-color:var(--ink-4);}
+fieldset{
+  border:0.5px solid var(--rule);border-radius:8px;
+  padding:16px 18px;margin:0 0 16px;background:transparent;
+}
+legend{font-family:var(--serif);font-size:1.1rem;padding:0 8px;color:var(--ink);}
+label{display:block;font-size:12px;color:var(--ink-3);margin:10px 0 3px;letter-spacing:.02em;}
+label.inline{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;color:var(--ink);margin:6px 12px 6px 0;}
+input[type=text],input[type=number],input[type=date],select,textarea{
+  width:100%;padding:8px 10px;border:0.5px solid var(--rule);border-radius:6px;
+  font-family:inherit;font-size:.92rem;background:#fff;color:var(--ink);
+}
+textarea{min-height:70px;resize:vertical;}
+.row{display:flex;gap:14px;flex-wrap:wrap;}
+.row > div{flex:1 1 220px;}
+.help{font-size:.76rem;color:var(--ink-4);margin-top:4px;}
+.card{
+  border:0.5px solid var(--rule);border-radius:8px;padding:10px 12px;margin:10px 0;background:var(--paper-2);
+}
+.card h4{margin:0 0 6px;font-size:.88rem;font-family:var(--serif);color:var(--ink);}
+button{
+  font-family:var(--sans);font-size:.85rem;font-weight:500;cursor:pointer;border-radius:6px;
+  border:0.5px solid var(--ink);background:var(--ink);color:var(--paper);padding:9px 16px;
+  transition:background .15s,color .15s,border-color .15s;
+}
+button:hover{background:var(--ink-2);}
+button.secondary{background:transparent;color:var(--ink);border-color:var(--rule);}
+button.secondary:hover{background:var(--paper-2);}
+button.ghost{background:transparent;color:var(--ink-3);border-color:var(--rule);}
+button.ghost:hover{background:var(--paper-2);color:var(--ink);}
+button.small{padding:5px 10px;font-size:.78rem;}
+button:disabled{opacity:.5;cursor:not-allowed;}
+.nav-buttons{display:flex;justify-content:space-between;margin-top:18px;}
+.warn-box{
+  background:var(--warn-bg);border:0.5px solid var(--warn);color:var(--warn);
+  border-radius:8px;padding:10px 14px;margin:12px 0;font-size:.85rem;
+}
+.ok-box{
+  background:var(--ok-bg);border:0.5px solid var(--ok);color:var(--ok);
+  border-radius:8px;padding:10px 14px;margin:12px 0;font-size:.85rem;
+}
+.remove-btn{background:transparent;border:none;color:var(--warn);font-size:.78rem;cursor:pointer;padding:2px 4px;}
+.step{display:none;}
+.step.active{display:block;}
+table.amount-preview{width:100%;border-collapse:collapse;font-size:.86rem;margin-top:8px;}
+table.amount-preview td{border:0.5px solid var(--rule);padding:5px 8px;}
+table.amount-preview td.label{color:var(--ink-3);}
+table.amount-preview tr.total td{font-weight:700;background:var(--paper-2);}
+.result-box{
+  border:0.5px solid var(--rule);border-radius:12px;background:var(--paper-2);
+  padding:26px;text-align:center;margin-top:10px;
+}
+.result-box .icon{font-size:2rem;opacity:.6;}
+.download-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0;}
+.disclaimer{font-size:.78rem;color:var(--warn);background:var(--warn-bg);border-radius:8px;padding:10px 14px;margin-top:16px;text-align:left;}
+footer{text-align:center;font-size:11px;color:var(--ink-4);letter-spacing:.04em;padding:2rem 10px;border-top:0.5px solid var(--rule);margin-top:40px;}
+.gdocs-note{font-size:.78rem;color:var(--ink-3);margin-top:6px;}
+</style>
+</head>
+<body>
+<nav class="site">
+  <a href="https://vikrampanwar.com/" class="nav-name">Vikram Panwar, Advocate</a>
+  <a href="https://vikrampanwar.com/" class="back">← Back to home</a>
+</nav>
+
+<main>
+  <div class="intro">
+    <h1>Execution petition</h1>
+    <p>Application for execution of a money or possession decree under Order 21 Rule 10 CPC — Civil Judge (Senior/Junior Division), Charkhi Dadri / Bhiwani. Generates the execution petition, supporting affidavit, address form, process fee form and index.</p>
+  </div>
+
+  <div class="steps-nav" id="stepsNav"></div>
+
+  <form id="wizard" onsubmit="return false;">
+
+    <!-- STEP 1 -->
+    <div class="step" data-step="1">
+      <fieldset>
+        <legend>Executing court</legend>
+        <div class="row">
+          <div>
+            <label>Court — place</label>
+            <select id="court">
+              <option value="Charkhi Dadri">Charkhi Dadri</option>
+              <option value="Bhiwani">Bhiwani</option>
+              <option value="Other">Other (type below)</option>
+            </select>
+          </div>
+          <div>
+            <label>Place (custom)</label>
+            <input type="text" id="customPlace" placeholder="Only if 'Other' selected">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Executing court designation</label>
+            <select id="courtType">
+              <option value="Civil Judge, Sr. Division">Ld. Civil Judge, Sr. Division</option>
+              <option value="Civil Judge, Jr. Division">Ld. Civil Judge, Jr. Division</option>
+              <option value="Additional Civil Judge, Sr. Division">Ld. Additional Civil Judge, Sr. Division</option>
+              <option value="Other">Other (type below)</option>
+            </select>
+          </div>
+          <div>
+            <label>Custom court designation</label>
+            <input type="text" id="customCourtType" placeholder="Only if 'Other' selected">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Presiding officer (optional)</label>
+            <input type="text" id="presidingOfficer" placeholder="Sh. ___, Ld. Civil Judge">
+          </div>
+          <div>
+            <label>Execution No. (leave blank if not allotted)</label>
+            <input type="text" id="exeNo" placeholder="EXE No. ___ of 20__">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Decree holder(s)</legend>
+        <div id="dhList"></div>
+        <button type="button" class="secondary small" onclick="addParty('dh')">+ Add another decree holder</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Judgment debtor(s)</legend>
+        <div id="jdList"></div>
+        <button type="button" class="secondary small" onclick="addParty('jd')">+ Add another judgment debtor</button>
+      </fieldset>
+
+      <div class="nav-buttons">
+        <span></span>
+        <button type="button" onclick="goStep(2)">Next — Decree particulars →</button>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step" data-step="2">
+      <fieldset>
+        <legend>Underlying suit &amp; decree</legend>
+        <div class="row">
+          <div>
+            <label>Civil Suit No.</label>
+            <input type="text" id="suitNo" placeholder="e.g. 161 of 2013">
+          </div>
+          <div>
+            <label>Suit title (short)</label>
+            <input type="text" id="suitTitle" placeholder="e.g. Anjali Vs Ombir">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Date of judgment &amp; decree</label>
+            <input type="date" id="decreeDate">
+          </div>
+          <div>
+            <label>Judge who passed the decree</label>
+            <input type="text" id="decreeJudge" placeholder="Sh. ___, Ld. C.J. (Jr. Division)">
+          </div>
+        </div>
+        <div id="limitationWarnings"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Order 21 Rule 11 particulars</legend>
+        <label>Whether any appeal has been preferred from the decree</label>
+        <select id="appealFiled">
+          <option value="no">No / Nil</option>
+          <option value="yes">Yes — give particulars</option>
+        </select>
+        <div id="appealDetailsWrap" style="display:none;">
+          <label>Appeal particulars</label>
+          <input type="text" id="appealDetails" placeholder="Appeal No., court, status">
+        </div>
+
+        <label>Whether any payment or adjustment has been made between the parties since the decree — Rule 11(2)(e)</label>
+        <select id="partPayment">
+          <option value="no">No / Nil</option>
+          <option value="yes">Yes — give particulars</option>
+        </select>
+        <div id="partPaymentDetailsWrap" style="display:none;">
+          <label>Payment / adjustment particulars</label>
+          <input type="text" id="partPaymentDetails" placeholder="Amount, date, mode">
+        </div>
+
+        <label>Whether any previous execution application has been made, with dates and results — Rule 11(2)(f)</label>
+        <select id="priorExecution">
+          <option value="no">None</option>
+          <option value="yes">Yes — give particulars</option>
+        </select>
+        <div id="priorExecutionDetailsWrap" style="display:none;">
+          <label>Previous application particulars</label>
+          <input type="text" id="priorExecutionDetails" placeholder="EXE No., date filed, result">
+        </div>
+      </fieldset>
+
+      <div class="nav-buttons">
+        <button type="button" class="ghost" onclick="goStep(1)">← Back</button>
+        <button type="button" onclick="goStep(3)">Next — Amount &amp; interest →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step" data-step="3">
+      <fieldset>
+        <legend>Amount decreed</legend>
+        <div class="row">
+          <div><label>Decretal amount (₹)</label><input type="number" id="decretalAmount" step="0.01"></div>
+          <div><label>Cost of suit (₹)</label><input type="number" id="costOfSuit" step="0.01"></div>
+        </div>
+        <div class="row">
+          <div><label>Counsel fee at trial (₹, if separately awarded)</label><input type="number" id="counselFeeTrial" step="0.01"></div>
+          <div><label>Expert fee (₹, if any)</label><input type="number" id="expertFee" step="0.01"></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Interest computation</legend>
+        <div class="row">
+          <div><label>Interest rate (% per annum, simple)</label><input type="number" id="interestRate" value="6" step="0.01"></div>
+          <div><label>Interest running from</label><input type="date" id="interestFrom"></div>
+        </div>
+        <div class="row">
+          <div><label>Date of filing this execution petition</label><input type="date" id="filingDate"></div>
+          <div><label>Ongoing interest rate till realisation (% p.a.)</label><input type="number" id="ongoingRate" value="6" step="0.01"></div>
+        </div>
+        <div id="interestPreview" class="help"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Execution petition costs</legend>
+        <div class="row">
+          <div><label>Counsel fee for execution petition (₹)</label><input type="number" id="counselFeeExecution" step="0.01"></div>
+          <div><label>Costs of execution petition (₹)</label><input type="number" id="costsExecution" step="0.01"></div>
+        </div>
+        <table class="amount-preview" id="amountTable"></table>
+      </fieldset>
+
+      <div class="nav-buttons">
+        <button type="button" class="ghost" onclick="goStep(2)">← Back</button>
+        <button type="button" onclick="goStep(4)">Next — Mode of execution →</button>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step" data-step="4">
+      <fieldset>
+        <legend>Mode(s) in which the court's assistance is required</legend>
+        <label class="inline"><input type="checkbox" id="modeImmovable" checked> Attachment &amp; sale of immovable property of the judgment debtor</label>
+        <label class="inline"><input type="checkbox" id="modeMovable"> Attachment of movable property / bank account</label>
+        <label class="inline"><input type="checkbox" id="modeSalary"> Attachment of salary</label>
+        <label class="inline"><input type="checkbox" id="modePossession"> Delivery of possession of immovable property</label>
+        <label class="inline"><input type="checkbox" id="modeArrest" checked> Arrest &amp; detention in civil prison (as fallback, if property proves insufficient)</label>
+        <div class="help">Both proforma petitions on file prayed for attachment &amp; sale of immovable property with civil prison as a fallback — kept as the default. Add other modes as needed; multiple modes are combined into one prayer clause.</div>
+      </fieldset>
+
+      <div id="immovableCard" class="card">
+        <h4>Immovable property to be attached</h4>
+        <div class="row">
+          <div><label>Village</label><input type="text" id="propVillage"></div>
+          <div><label>Tehsil</label><input type="text" id="propTehsil"></div>
+          <div><label>District</label><input type="text" id="propDistrict" value="Charkhi Dadri"></div>
+        </div>
+        <div class="row">
+          <div><label>Khewat No.</label><input type="text" id="propKhewat"></div>
+          <div><label>Khatoni No.</label><input type="text" id="propKhatoni"></div>
+          <div><label>Jamabandi year</label><input type="text" id="propJamabandiYear"></div>
+        </div>
+        <div class="row">
+          <div><label>Share of JD (if less than whole)</label><input type="text" id="propShare" placeholder="e.g. 61/255 share"></div>
+          <div><label>Area / extent (optional)</label><input type="text" id="propArea" placeholder="e.g. 1 Kanal 6 Marlas"></div>
+        </div>
+        <label>Additional description (optional — e.g. fraudulent transfer to defeat decree)</label>
+        <textarea id="propExtra" placeholder="e.g. transferred by the JD in favour of his wife in order to defeat the decreed amount"></textarea>
+      </div>
+
+      <div id="movableCard" class="card" style="display:none;">
+        <h4>Movable property / bank account</h4>
+        <label class="inline"><input type="checkbox" id="bankUnknown"> Particulars unknown — pray for notice to JD to disclose assets</label>
+        <div class="row">
+          <div><label>Bank name</label><input type="text" id="bankName"></div>
+          <div><label>Branch</label><input type="text" id="bankBranch"></div>
+        </div>
+        <div class="row">
+          <div><label>Account holder</label><input type="text" id="bankAccHolder"></div>
+          <div><label>Account no. (if known)</label><input type="text" id="bankAccNo"></div>
+        </div>
+      </div>
+
+      <div id="salaryCard" class="card" style="display:none;">
+        <h4>Salary attachment</h4>
+        <div class="row">
+          <div><label>Employer / department name</label><input type="text" id="employerName"></div>
+          <div><label>Employer address</label><input type="text" id="employerAddress"></div>
+        </div>
+        <label>JD's designation (optional)</label>
+        <input type="text" id="employerDesignation">
+        <div class="help">Attachment is subject to the exemption limits under Section 60 CPC (proviso).</div>
+      </div>
+
+      <div id="possessionCard" class="card" style="display:none;">
+        <h4>Property of which possession is to be delivered</h4>
+        <textarea id="possessionDesc" placeholder="Full description of the property, boundaries, and how JD is in possession"></textarea>
+      </div>
+
+      <div class="nav-buttons">
+        <button type="button" class="ghost" onclick="goStep(3)">← Back</button>
+        <button type="button" onclick="goStep(5)">Next — Annexures →</button>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step" data-step="5">
+      <fieldset>
+        <legend>Documents being filed (feeds the index)</legend>
+        <label class="inline"><input type="checkbox" id="annexPetition" checked disabled> Execution petition under Order 21 Rule 10 CPC</label>
+        <label class="inline"><input type="checkbox" id="annexAffidavit" checked disabled> Supporting affidavit</label>
+        <label class="inline"><input type="checkbox" id="annexDecreeSheet" checked> Certified copy of decree sheet</label>
+        <label class="inline"><input type="checkbox" id="annexListOfDocs" checked> List of documents</label>
+        <label class="inline"><input type="checkbox" id="annexJamabandi"> Certified copy of jamabandi</label>
+        <label class="inline"><input type="checkbox" id="annexInteqal"> Copy of inteqal register</label>
+        <label class="inline"><input type="checkbox" id="annexAadhar"> Aadhar card of petitioner</label>
+        <label class="inline"><input type="checkbox" id="annexVakalatnama" checked> Vakalatnama</label>
+        <label>Other document (optional, one line)</label>
+        <input type="text" id="annexOther">
+      </fieldset>
+
+      <fieldset>
+        <legend>Ancillary forms</legend>
+        <label class="inline"><input type="checkbox" id="genAddressForm" checked> Generate Address Form (for service on the judgment debtor)</label>
+        <label class="inline"><input type="checkbox" id="genProcessFeeForm" checked> Generate Process Fee Form</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Index — page numbers</legend>
+        <label class="inline"><input type="checkbox" id="autoNumberPages" checked onchange="renderIndexPreview()"> Auto-number pages sequentially</label>
+        <div id="indexPreviewWrap"></div>
+      </fieldset>
+
+      <div class="nav-buttons">
+        <button type="button" class="ghost" onclick="goStep(4)">← Back</button>
+        <button type="button" onclick="goStep(6)">Next — Format →</button>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="step" data-step="6">
+      <fieldset>
+        <legend>Formatting</legend>
+        <div class="row">
+          <div>
+            <label>Font</label>
+            <select id="docFont">
+              <option value="Merriweather">Merriweather</option>
+              <option value="Times New Roman">Times New Roman</option>
+              <option value="Courier New">Courier New</option>
+            </select>
+          </div>
+          <div>
+            <label>Font size</label>
+            <select id="docFontSize">
+              <option value="14">14 pt</option>
+              <option value="13">13 pt</option>
+              <option value="12">12 pt</option>
+            </select>
+          </div>
+          <div>
+            <label>Line spacing</label>
+            <select id="docSpacing">
+              <option value="1.5">1.5</option>
+              <option value="1.8">1.8</option>
+              <option value="2.0">2.0 (double)</option>
+            </select>
+          </div>
+        </div>
+        <div class="help">Merriweather renders only if installed on the machine opening the file; Word substitutes otherwise.</div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Counsel</legend>
+        <div class="row">
+          <div><label>Advocate name</label><input type="text" id="advocateName" value="Vikram Panwar"></div>
+          <div><label>Enrolment number (optional)</label><input type="text" id="enrolment"></div>
+        </div>
+      </fieldset>
+
+      <div class="nav-buttons">
+        <button type="button" class="ghost" onclick="goStep(5)">← Back</button>
+        <button type="button" onclick="generateDraft()">Generate draft →</button>
+      </div>
+
+      <div class="result-box" id="resultBox" style="display:none;">
+        <div class="icon">⚖️</div>
+        <h3>Execution petition ready</h3>
+        <p>Download as Word to edit, or as PDF to print/file.</p>
+        <div class="download-row">
+          <button onclick="downloadDocx()">⬇ Word (.docx)</button>
+          <button class="secondary" onclick="downloadPdf()">⬇ PDF (print / save)</button>
+        </div>
+        <p class="gdocs-note">To edit in Google Docs: download the .docx, then in Google Drive choose New → File upload, and open the uploaded file with Google Docs (it converts cleanly).</p>
+        <div class="disclaimer">⚠ This is a structural draft. The advocate must verify all facts, the interest computation, the property/asset description, limitation (Article 136, Limitation Act) and the Order 21 Rule 22 notice requirement, and the court-fee figure, before filing.</div>
+      </div>
+    </div>
+
+  </form>
+</main>
+
+<footer>
+  vikrampanwar.com · Execution Petition Generator<br>
+  For structural reference only — advocate must review and finalise before filing. © 2026 Vikram Panwar, Advocate
+</footer>
+
+<div id="printArea" style="display:none;"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
+<script>
+/* ---------------------------------------------------------------------
+   STATE
+--------------------------------------------------------------------- */
+let parties = {
+  dh: [{name:'', parentage:'', age:'', address:''}],
+  jd: [{name:'', parentage:'', age:'', address:''}]
+};
+
+function partyRowHtml(kind, idx, p){
+  const label = kind === 'dh' ? 'Decree holder' : 'Judgment debtor';
+  return `
+  <div class="card" data-kind="${kind}" data-idx="${idx}">
+    <h4>${label} ${idx+1} ${idx>0 ? `<button type="button" class="remove-btn" onclick="removeParty('${kind}',${idx})">remove</button>` : ''}</h4>
+    <div class="row">
+      <div><label>Full name</label><input type="text" value="${p.name}" oninput="updateParty('${kind}',${idx},'name',this.value)"></div>
+      <div><label>Son / wife / daughter of</label><input type="text" value="${p.parentage}" oninput="updateParty('${kind}',${idx},'parentage',this.value)"></div>
+    </div>
+    <div class="row">
+      <div><label>Age (optional)</label><input type="text" value="${p.age}" oninput="updateParty('${kind}',${idx},'age',this.value)"></div>
+      <div><label>Resident of (address)</label><input type="text" value="${p.address}" oninput="updateParty('${kind}',${idx},'address',this.value)"></div>
+    </div>
+  </div>`;
+}
+
+function renderParties(){
+  document.getElementById('dhList').innerHTML = parties.dh.map((p,i)=>partyRowHtml('dh',i,p)).join('');
+  document.getElementById('jdList').innerHTML = parties.jd.map((p,i)=>partyRowHtml('jd',i,p)).join('');
+}
+function addParty(kind){
+  parties[kind].push({name:'', parentage:'', age:'', address:''});
+  renderParties();
+}
+function removeParty(kind, idx){
+  parties[kind].splice(idx,1);
+  renderParties();
+}
+function updateParty(kind, idx, field, val){
+  parties[kind][idx][field] = val;
+}
+renderParties();
+
+/* ---------------------------------------------------------------------
+   STEP NAVIGATION
+--------------------------------------------------------------------- */
+const stepLabels = ['Court & parties','Decree particulars','Amount & interest','Mode of execution','Annexures','Format & generate'];
+function renderStepsNav(current){
+  const nav = document.getElementById('stepsNav');
+  nav.innerHTML = stepLabels.map((label,i)=>{
+    const n = i+1;
+    let cls = '';
+    if(n === current) cls = 'active';
+    else if(n < current) cls = 'done';
+    return `<span class="${cls}">${n}. ${label}</span>`;
+  }).join('');
+}
+function goStep(n){
+  document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
+  document.querySelector(`.step[data-step="${n}"]`).classList.add('active');
+  renderStepsNav(n);
+  if(n===2) renderLimitationWarnings();
+  if(n===3){ updateInterestPreview(); updateAmountTable(); }
+  if(n===5) renderIndexPreview();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+goStep(1);
+
+/* ---------------------------------------------------------------------
+   MODE OF EXECUTION — show/hide detail cards
+--------------------------------------------------------------------- */
+function syncModeCards(){
+  document.getElementById('immovableCard').style.display = document.getElementById('modeImmovable').checked ? 'block':'none';
+  document.getElementById('movableCard').style.display = document.getElementById('modeMovable').checked ? 'block':'none';
+  document.getElementById('salaryCard').style.display = document.getElementById('modeSalary').checked ? 'block':'none';
+  document.getElementById('possessionCard').style.display = document.getElementById('modePossession').checked ? 'block':'none';
+}
+['modeImmovable','modeMovable','modeSalary','modePossession','modeArrest'].forEach(id=>{
+  document.getElementById(id).addEventListener('change', syncModeCards);
+});
+document.getElementById('bankUnknown').addEventListener('change', function(){
+  ['bankName','bankBranch','bankAccHolder','bankAccNo'].forEach(id=>{
+    document.getElementById(id).disabled = this.checked;
+  });
+});
+syncModeCards();
+
+/* ---------------------------------------------------------------------
+   RULE 11 conditional detail fields
+--------------------------------------------------------------------- */
+function bindYesNo(selectId, wrapId){
+  document.getElementById(selectId).addEventListener('change', function(){
+    document.getElementById(wrapId).style.display = this.value === 'yes' ? 'block':'none';
+  });
+}
+bindYesNo('appealFiled','appealDetailsWrap');
+bindYesNo('partPayment','partPaymentDetailsWrap');
+bindYesNo('priorExecution','priorExecutionDetailsWrap');
+
+/* ---------------------------------------------------------------------
+   LIMITATION / RULE 22 WARNINGS
+--------------------------------------------------------------------- */
+function daysBetween(a,b){
+  return (b - a) / (1000*60*60*24);
+}
+function renderLimitationWarnings(){
+  const box = document.getElementById('limitationWarnings');
+  const decreeDate = document.getElementById('decreeDate').value;
+  const filingDate = document.getElementById('filingDate').value || new Date().toISOString().slice(0,10);
+  if(!decreeDate){ box.innerHTML=''; return; }
+  const d1 = new Date(decreeDate);
+  const d2 = new Date(filingDate);
+  const years = daysBetween(d1,d2) / 365.25;
+  let html = '';
+  if(years > 2){
+    html += `<div class="warn-box">More than 2 years have passed between the decree (${decreeDate}) and this filing. Under Order 21 Rule 22 CPC, the executing court must issue notice to the judgment debtor to show cause before execution proceeds, unless this application follows within 2 years of the last order on a previous execution application. Verify and plead accordingly.</div>`;
+  }
+  if(years > 11){
+    html += `<div class="warn-box">This filing is approaching the 12-year outer limit under Article 136, Limitation Act, 1963 (running from when the decree became enforceable). Verify limitation carefully before filing.</div>`;
+  }
+  box.innerHTML = html;
+}
+document.getElementById('decreeDate').addEventListener('change', renderLimitationWarnings);
+document.getElementById('filingDate').addEventListener('change', renderLimitationWarnings);
+
+/* ---------------------------------------------------------------------
+   AMOUNT & INTEREST
+--------------------------------------------------------------------- */
+function num(id){ const v = parseFloat(document.getElementById(id).value); return isNaN(v) ? 0 : v; }
+function fmtINR(n){
+  return 'Rs. ' + n.toLocaleString('en-IN', {minimumFractionDigits:0, maximumFractionDigits:2}) + '/-';
+}
+function computeInterest(){
+  const rate = num('interestRate');
+  const from = document.getElementById('interestFrom').value || document.getElementById('decreeDate').value;
+  const to = document.getElementById('filingDate').value || new Date().toISOString().slice(0,10);
+  if(!from || !to || rate<=0) return 0;
+  const d1 = new Date(from), d2 = new Date(to);
+  const days = Math.max(0, daysBetween(d1,d2));
+  const principal = num('decretalAmount');
+  return principal * rate * days / (365*100);
+}
+function updateInterestPreview(){
+  const interest = computeInterest();
+  const from = document.getElementById('interestFrom').value || document.getElementById('decreeDate').value || '—';
+  const to = document.getElementById('filingDate').value || '—';
+  document.getElementById('interestPreview').textContent =
+    `Interest from ${from} to ${to}: ${fmtINR(interest)} (simple interest, ${num('interestRate')}% p.a. on the decretal amount).`;
+  updateAmountTable();
+}
+['interestRate','interestFrom','filingDate','decretalAmount'].forEach(id=>{
+  document.getElementById(id).addEventListener('input', updateInterestPreview);
+});
+
+function amountBreakup(){
+  const decretal = num('decretalAmount');
+  const cost = num('costOfSuit');
+  const counselTrial = num('counselFeeTrial');
+  const expert = num('expertFee');
+  const interest = computeInterest();
+  const counselExec = num('counselFeeExecution');
+  const costsExec = num('costsExecution');
+  const total = decretal + cost + counselTrial + expert + interest + counselExec + costsExec;
+  return {decretal, cost, counselTrial, expert, interest, counselExec, costsExec, total};
+}
+function updateAmountTable(){
+  const b = amountBreakup();
+  const rows = [
+    ['Decretal amount', b.decretal],
+    ['Cost of suit', b.cost],
+    ['Counsel fee (trial)', b.counselTrial],
+    ['Expert fee', b.expert],
+    [`Interest from ${document.getElementById('interestFrom').value || document.getElementById('decreeDate').value || '—'} till ${document.getElementById('filingDate').value || 'today'}`, b.interest],
+    ['Counsel fee for execution petition', b.counselExec],
+    ['Costs of execution petition', b.costsExec]
+  ];
+  let html = rows.map(r=>`<tr><td class="label">${r[0]}</td><td>${fmtINR(r[1])}</td></tr>`).join('');
+  html += `<tr class="total"><td>Total</td><td>${fmtINR(b.total)}</td></tr>`;
+  document.getElementById('amountTable').innerHTML = html;
+}
+['costOfSuit','counselFeeTrial','expertFee','counselFeeExecution','costsExecution'].forEach(id=>{
+  document.getElementById(id).addEventListener('input', updateAmountTable);
+});
+
+/* ---------------------------------------------------------------------
+   INDEX PREVIEW
+--------------------------------------------------------------------- */
+function indexItems(){
+  const items = ['Execution petition under Order 21 Rule 10 CPC', 'Supporting affidavit'];
+  if(document.getElementById('annexDecreeSheet').checked) items.push('Certified copy of decree sheet');
+  if(document.getElementById('annexListOfDocs').checked) items.push('List of documents');
+  if(document.getElementById('annexJamabandi').checked) items.push('Certified copy of jamabandi');
+  if(document.getElementById('annexInteqal').checked) items.push('Copy of inteqal register');
+  if(document.getElementById('genAddressForm').checked) items.push('Address form');
+  if(document.getElementById('genProcessFeeForm').checked) items.push('Process fee form');
+  if(document.getElementById('annexAadhar').checked) items.push('Aadhar card of petitioner');
+  if(document.getElementById('annexVakalatnama').checked) items.push('Vakalatnama');
+  const other = document.getElementById('annexOther').value.trim();
+  if(other) items.push(other);
+  return items;
+}
+function renderIndexPreview(){
+  const auto = document.getElementById('autoNumberPages').checked;
+  const items = indexItems();
+  let page = 1;
+  const rows = items.map((it,i)=>{
+    const pg = auto ? page++ : '';
+    return `<div class="row" style="align-items:center;"><div style="flex:0 0 30px;">${i+1}.</div><div style="flex:3;">${it}</div><div style="flex:1;"><input type="text" data-idx="${i}" class="idx-page" value="${pg}" placeholder="page"></div></div>`;
+  }).join('');
+  document.getElementById('indexPreviewWrap').innerHTML = rows;
+}
+['annexDecreeSheet','annexListOfDocs','annexJamabandi','annexInteqal','annexAadhar','annexVakalatnama','annexOther','genAddressForm','genProcessFeeForm'].forEach(id=>{
+  document.getElementById(id).addEventListener('input', renderIndexPreview);
+  document.getElementById(id).addEventListener('change', renderIndexPreview);
+});
+
+/* ---------------------------------------------------------------------
+   CONTENT MODEL — shared between docx and print/PDF renderers
+--------------------------------------------------------------------- */
+function courtLine(){
+  const court = document.getElementById('court').value === 'Other' ? document.getElementById('customPlace').value : document.getElementById('court').value;
+  let designation = document.getElementById('courtType').value === 'Other' ? document.getElementById('customCourtType').value : document.getElementById('courtType').value;
+  const officer = document.getElementById('presidingOfficer').value.trim();
+  const base = officer ? `IN THE COURT OF ${officer.toUpperCase()}, ${designation.toUpperCase()}, ${court.toUpperCase()}` : `IN THE COURT OF LD. ${designation.toUpperCase()}, ${court.toUpperCase()}`;
+  return base;
+}
+function partyBlockLines(kind){
+  return parties[kind].map(p=>{
+    let line = p.name || '';
+    if(p.parentage) line += ` S/o/W/o/D/o ${p.parentage}`;
+    if(p.age) line += `, aged ${p.age} years`;
+    if(p.address) line += `, R/o ${p.address}`;
+    return line;
+  });
+}
+function prayerText(){
+  const modes = [];
+  if(document.getElementById('modeImmovable').checked){
+    const v = document.getElementById('propVillage').value;
+    const teh = document.getElementById('propTehsil').value;
+    const dist = document.getElementById('propDistrict').value;
+    const khewat = document.getElementById('propKhewat').value;
+    const khatoni = document.getElementById('propKhatoni').value;
+    const jyear = document.getElementById('propJamabandiYear').value;
+    const share = document.getElementById('propShare').value;
+    const area = document.getElementById('propArea').value;
+    const extra = document.getElementById('propExtra').value;
+    let seg = `by attachment of the immovable property of the judgment debtor`;
+    if(area) seg += ` measuring ${area}`;
+    if(khewat || khatoni) seg += ` in Khewat No. ${khewat || '___'}, Khatoni No. ${khatoni || '___'}`;
+    if(share) seg += ` (${share})`;
+    if(v) seg += ` situated in Village ${v}`;
+    if(teh) seg += `, Tehsil ${teh}`;
+    if(dist) seg += `, District ${dist}`;
+    if(jyear) seg += `, by virtue of Jamabandi for the year ${jyear}`;
+    if(extra) seg += `, ${extra}`;
+    seg += `, the said property be sold in public auction and the sale proceeds applied towards satisfaction of the decree`;
+    modes.push(seg);
+  }
+  if(document.getElementById('modeMovable').checked){
+    if(document.getElementById('bankUnknown').checked){
+      modes.push(`by attachment of the movable property and bank account(s) of the judgment debtor, particulars whereof are not presently known to the decree holder, and notice be issued to the judgment debtor under Order 21 Rule 41 CPC to disclose the same`);
+    } else {
+      const bn = document.getElementById('bankName').value, br = document.getElementById('bankBranch').value, ah = document.getElementById('bankAccHolder').value, an = document.getElementById('bankAccNo').value;
+      modes.push(`by attachment of the bank account of the judgment debtor maintained with ${bn || '___'}${br ? ', '+br+' branch' : ''}${ah ? ', in the name of '+ah : ''}${an ? ', account no. '+an : ''}`);
+    }
+  }
+  if(document.getElementById('modeSalary').checked){
+    const en = document.getElementById('employerName').value, ea = document.getElementById('employerAddress').value, ed = document.getElementById('employerDesignation').value;
+    modes.push(`by attachment of the salary of the judgment debtor${ed ? ', working as '+ed : ''}${en ? ' with '+en : ''}${ea ? ', '+ea : ''}, subject to the exemption limits prescribed under the proviso to Section 60 CPC`);
+  }
+  if(document.getElementById('modePossession').checked){
+    const pd = document.getElementById('possessionDesc').value;
+    modes.push(`by delivery of vacant/actual possession of the property described as: ${pd || '___'}, to the decree holder`);
+  }
+  let arrestClause = '';
+  if(document.getElementById('modeArrest').checked){
+    arrestClause = `, and in case the property/other assets of the judgment debtor are found to be insufficient to satisfy the decree, the judgment debtor be arrested and sent to civil prison`;
+  }
+  return modes.join('; and ') + arrestClause + '.';
+}
+
+function buildIndexRows(){
+  const auto = document.getElementById('autoNumberPages').checked;
+  const items = indexItems();
+  const pageInputs = document.querySelectorAll('.idx-page');
+  return items.map((it,i)=>{
+    let pg = '';
+    if(pageInputs[i]) pg = pageInputs[i].value;
+    else if(auto) pg = String(i+1);
+    return [String(i+1), it, pg];
+  });
+}
+
+function rule11Rows(){
+  const suitNo = document.getElementById('suitNo').value;
+  const decreeDate = document.getElementById('decreeDate').value;
+  const dhNames = partyBlockLines('dh').join('; ');
+  const jdNames = partyBlockLines('jd').join('; ');
+  const appeal = document.getElementById('appealFiled').value === 'yes' ? (document.getElementById('appealDetails').value || 'Yes') : 'Nil';
+  const payment = document.getElementById('partPayment').value === 'yes' ? (document.getElementById('partPaymentDetails').value || 'Yes') : 'Nil';
+  const prior = document.getElementById('priorExecution').value === 'yes' ? (document.getElementById('priorExecutionDetails').value || 'Yes') : 'None';
+  const b = amountBreakup();
+  return [
+    ['1', 'No. of suit', `Civil Suit No. ${suitNo || '___'}`],
+    ['2', 'Names of the parties', `Decree Holder(s): ${dhNames}\nJudgment Debtor(s): ${jdNames}`],
+    ['3', 'Date of the decree', decreeDate || '___'],
+    ['4', 'Whether any appeal has been preferred from the decree', appeal],
+    ['5', 'Whether any payment or adjustment of the matter in controversy has been made between the parties since the decree', payment],
+    ['6', 'Whether any previous applications have been made for execution, dates and results', prior],
+    ['7', "Amount with interest (if any) due upon the decree, or other relief granted", `${fmtINR(b.decretal)} + interest ${fmtINR(b.interest)} = ${fmtINR(b.decretal + b.interest)}`],
+    ['8', 'Amount of costs (if any) awarded', fmtINR(b.cost)],
+    ['9', 'The person against whom execution of the decree is sought', jdNames],
+    ['10', "Mode in which the assistance of the court is required", prayerText()]
+  ];
+}
+
+/* ---------------------------------------------------------------------
+   DOCX GENERATION
+--------------------------------------------------------------------- */
+let generatedBlob = null;
+
+function fontChoice(){ return document.getElementById('docFont').value; }
+function fontSizeHalfPoints(){ return parseInt(document.getElementById('docFontSize').value,10) * 2; }
+function lineSpacingValue(){
+  const s = document.getElementById('docSpacing').value;
+  return Math.round(parseFloat(s) * 240);
+}
+
+async function buildDocxBlob(){
+  const { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, WidthType, AlignmentType, VerticalAlign, BorderStyle } = docx;
+  const font = fontChoice();
+  const size = fontSizeHalfPoints();
+  const spacing = { line: lineSpacingValue() };
+
+  function P(text, opts={}){
+    return new Paragraph(Object.assign({
+      alignment: opts.align || AlignmentType.LEFT,
+      spacing: Object.assign({ after: 120 }, spacing),
+      children: [new TextRun({ text: text || '', bold: !!opts.bold, size, font })]
+    }, opts.para || {}));
+  }
+  function centerP(text, bold){ return P(text, {align: AlignmentType.CENTER, bold}); }
+
+  function titleBlockParas(){
+    const paras = [];
+    paras.push(centerP(courtLine(), true));
+    const exeNo = document.getElementById('exeNo').value;
+    paras.push(centerP(exeNo || 'EXE No. ___ of 20___'));
+    paras.push(P(''));
+    partyBlockLines('dh').forEach((l,i)=> paras.push(P(l)));
+    paras.push(P('…(Decree Holder' + (parties.dh.length>1?'s)':')') , {align: AlignmentType.RIGHT}));
+    paras.push(centerP('Versus'));
+    partyBlockLines('jd').forEach((l,i)=> paras.push(P(l)));
+    paras.push(P('…(Judgment Debtor' + (parties.jd.length>1?'s)':')') , {align: AlignmentType.RIGHT}));
+    paras.push(P(''));
+    return paras;
+  }
+
+  function amountTableDocx(){
+    const b = amountBreakup();
+    const rows = [
+      ['Decretal amount', fmtINR(b.decretal)],
+      ['Cost of suit', fmtINR(b.cost)],
+      ['Counsel fee', fmtINR(b.counselTrial)],
+      ['Expert fee', b.expert ? fmtINR(b.expert) : '-'],
+      [`Interest from ${document.getElementById('interestFrom').value || document.getElementById('decreeDate').value || '___'} till ${document.getElementById('filingDate').value || 'today'}`, fmtINR(b.interest)],
+      ['Counsel fees for execution petition', fmtINR(b.counselExec)],
+      ['Costs of execution petition', fmtINR(b.costsExec)],
+      ['Total', fmtINR(b.total)]
+    ];
+    return new Table({
+      width: { size: 100, type: WidthType.PERCENTAGE },
+      rows: rows.map((r,i)=> new TableRow({ children: [
+        new TableCell({ width:{size:60,type:WidthType.PERCENTAGE}, children:[P(r[0], {bold:i===rows.length-1})] }),
+        new TableCell({ width:{size:40,type:WidthType.PERCENTAGE}, children:[P(r[1], {bold:i===rows.length-1})] })
+      ]}))
+    });
+  }
+
+  function rule11TableDocx(){
+    const rows = rule11Rows();
+    const trs = [ new TableRow({ children: [
+      new TableCell({children:[P('Sr.',{bold:true})]}),
+      new TableCell({children:[P('Particulars',{bold:true})]}),
+      new TableCell({children:[P('Details',{bold:true})]})
+    ]})];
+    rows.forEach(r=>{
+      trs.push(new TableRow({ children: [
+        new TableCell({ width:{size:8,type:WidthType.PERCENTAGE}, children:[P(r[0])] }),
+        new TableCell({ width:{size:32,type:WidthType.PERCENTAGE}, children:[P(r[1])] }),
+        new TableCell({ width:{size:60,type:WidthType.PERCENTAGE}, children: r[2].split('\n').map(t=>P(t)) })
+      ]}));
+    });
+    return new Table({ width:{size:100,type:WidthType.PERCENTAGE}, rows: trs });
+  }
+
+  const advocateName = document.getElementById('advocateName').value || 'Vikram Panwar';
+  const enrolment = document.getElementById('enrolment').value;
+  const filingDate = document.getElementById('filingDate').value;
+  const place = document.getElementById('court').value === 'Other' ? document.getElementById('customPlace').value : document.getElementById('court').value;
+  const suitNo = document.getElementById('suitNo').value;
+  const suitTitle = document.getElementById('suitTitle').value;
+  const decreeDate = document.getElementById('decreeDate').value;
+  const decreeJudge = document.getElementById('decreeJudge').value;
+  const ongoingRate = document.getElementById('ongoingRate').value;
+
+  const children = [];
+
+  /* --- EXECUTION PETITION --- */
+  children.push(...titleBlockParas());
+  children.push(centerP(`Execution petition under Order 21 Rule 10 of C.P.C of judgment and decree Dt. ${decreeDate || '___'} passed by ${decreeJudge || '___'} in Civil Suit No. ${suitNo || '___'} titled ${suitTitle || '___'}.`, true));
+  children.push(P(''));
+  children.push(P('Most Respectfully,', {bold:true}));
+  children.push(P(`I the above named plaintiff/decree holder hereby apply for the execution of the decree, under Order 21 Rule 10 of C.P.C.`));
+  children.push(P('The amount of the DH which is to be recovered from the JD is as under:-'));
+  children.push(amountTableDocx());
+  children.push(P(`*Along with interest of ${ongoingRate}% annually from filing of this petition till actual realisation.`));
+  children.push(P(''));
+  children.push(P('Order 21 Rule 11(2) CPC particulars:', {bold:true}));
+  children.push(rule11TableDocx());
+  children.push(P(''));
+  children.push(P('Mode in which assistance of court is required:', {bold:true}));
+  children.push(P(`It is most respectfully prayed that the judgment and decree Dt. ${decreeDate || '___'} passed by this Hon'ble court in Civil Suit No. ${suitNo || '___'} titled ${suitTitle || '___'} may kindly be got executed and the decreed amount along with cost and interest, execution expenses and costs be recovered from the judgment debtor ${prayerText()}`));
+  children.push(P(''));
+  children.push(P('Decree Holder / Plaintiff', {align: AlignmentType.RIGHT}));
+  partyBlockLines('dh').forEach(l => children.push(P(l, {align: AlignmentType.RIGHT})));
+  children.push(P(''));
+  children.push(P('Verification:-', {bold:true}));
+  children.push(P('Verified that the contents of the above execution petition are true and correct to the best of my knowledge.'));
+  children.push(P(''));
+  children.push(P(`Place: ${place || '___'}`));
+  children.push(P(`Dated: ${filingDate || '___'}`));
+  children.push(P(''));
+  children.push(P('Deponent', {align: AlignmentType.RIGHT}));
+  children.push(P(''));
+  children.push(P('Filed by:', {para:{keepNext:true}}));
+  children.push(P(advocateName + (enrolment ? `, Advocate (Enrl. No. ${enrolment})` : ', Advocate')));
+  children.push(P('Advocate for the Decree Holder'));
+  children.push(P(`Dated: ${filingDate || '___'}`));
+  children.push(P(`Place: ${place || '___'}`));
+
+  /* --- SUPPORTING AFFIDAVIT --- */
+  children.push(new Paragraph({ children: [new TextRun('')], pageBreakBefore: true }));
+  children.push(...titleBlockParas());
+  children.push(centerP('SUPPORTING AFFIDAVIT', true));
+  children.push(P(''));
+  const firstDh = partyBlockLines('dh')[0] || '___';
+  children.push(P(`I, ${firstDh}, do hereby solemnly declare and affirm as under:-`));
+  children.push(P('1. That I am the decree holder in the accompanying execution petition.'));
+  children.push(P('2. That the contents of the accompanying execution petition are true and correct and have been drafted by my lawyer under my instructions.'));
+  children.push(P('3. That nothing has been concealed therein deliberately or intentionally.'));
+  children.push(P(''));
+  children.push(P('Deponent', {align: AlignmentType.RIGHT}));
+  children.push(P('Verification:-', {bold:true, para:{keepNext:true}}));
+  children.push(P('Verified that the contents of the affidavit from paragraph 1 to 3 are true and correct to the best of my knowledge and nothing has been concealed herein.'));
+  children.push(P(`Place: ${place || '___'}`));
+  children.push(P(`Dated: ${filingDate || '___'}`));
+  children.push(P('Deponent', {align: AlignmentType.RIGHT}));
+
+  /* --- ADDRESS FORM --- */
+  if(document.getElementById('genAddressForm').checked){
+    children.push(new Paragraph({ children: [new TextRun('')], pageBreakBefore: true }));
+    children.push(...titleBlockParas());
+    children.push(centerP('ADDRESS FORM', true));
+    children.push(P(''));
+    children.push(P('Particulars of the judgment debtor(s) for service of notice/warrant:', {para:{keepNext:true}}));
+    parties.jd.forEach((p,i)=>{
+      children.push(P(`${i+1}. ${p.name || '___'} S/o/W/o/D/o ${p.parentage || '___'}, R/o ${p.address || '___'}`));
+    });
+    children.push(P(''));
+    children.push(P('Decree Holder / Advocate for Decree Holder', {align: AlignmentType.RIGHT}));
+  }
+
+  /* --- PROCESS FEE FORM --- */
+  if(document.getElementById('genProcessFeeForm').checked){
+    children.push(new Paragraph({ children: [new TextRun('')], pageBreakBefore: true }));
+    children.push(...titleBlockParas());
+    children.push(centerP('PROCESS FEE FORM', true));
+    children.push(P(''));
+    children.push(P('Process required for service of notice of execution / warrant of attachment upon the judgment debtor(s):', {para:{keepNext:true}}));
+    parties.jd.forEach((p,i)=>{
+      children.push(P(`${i+1}. ${p.name || '___'}, R/o ${p.address || '___'}`));
+    });
+    children.push(P(''));
+    children.push(P('Mode of service requested: Registered Post / Process Server / Substituted Service (strike out whichever is not applicable).'));
+    children.push(P(''));
+    children.push(P('Process fee deposited: Rs. ______/- vide receipt No. ______ dated ______.'));
+    children.push(P(''));
+    children.push(P('Decree Holder / Advocate for Decree Holder', {align: AlignmentType.RIGHT}));
+  }
+
+  /* --- INDEX --- */
+  children.push(new Paragraph({ children: [new TextRun('')], pageBreakBefore: true }));
+  children.push(...titleBlockParas());
+  children.push(centerP('INDEX', true));
+  children.push(P(''));
+  const idxRows = buildIndexRows();
+  const idxTable = new Table({
+    width: { size: 100, type: WidthType.PERCENTAGE },
+    rows: [ new TableRow({ children: [
+      new TableCell({children:[P('Sr. No.',{bold:true})]}),
+      new TableCell({children:[P('Particulars',{bold:true})]}),
+      new TableCell({children:[P('Page',{bold:true})]})
+    ]}) ].concat(idxRows.map(r => new TableRow({ children: [
+      new TableCell({ width:{size:10,type:WidthType.PERCENTAGE}, children:[P(r[0])] }),
+      new TableCell({ width:{size:70,type:WidthType.PERCENTAGE}, children:[P(r[1])] }),
+      new TableCell({ width:{size:20,type:WidthType.PERCENTAGE}, children:[P(r[2])] })
+    ]})))
+  });
+  children.push(idxTable);
+  children.push(P(''));
+  children.push(P('Filed by:'));
+  children.push(P(advocateName + (enrolment ? `, Advocate (Enrl. No. ${enrolment})` : ', Advocate')));
+  children.push(P('Advocate for the Decree Holder'));
+  children.push(P(`Dated: ${filingDate || '___'}`));
+  children.push(P(`Place: ${place || '___'}`));
+
+  const doc = new Document({
+    sections: [{ properties: {}, children }]
+  });
+
+  return await Packer.toBlob(doc);
+}
+
+async function generateDraft(){
+  generatedBlob = await buildDocxBlob();
+  document.getElementById('resultBox').style.display = 'block';
+  document.getElementById('resultBox').scrollIntoView({behavior:'smooth'});
+}
+
+function downloadDocx(){
+  if(!generatedBlob) return;
+  const url = URL.createObjectURL(generatedBlob);
+  const a = document.createElement('a');
+  const dhName = (parties.dh[0] && parties.dh[0].name) ? parties.dh[0].name.replace(/[^a-z0-9]+/gi,'-') : 'execution-petition';
+  a.href = url;
+  a.download = `execution-petition-${dhName}.docx`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url), 2000);
+}
+
+/* ---------------------------------------------------------------------
+   PDF (print) RENDERER — shares the same content logic
+--------------------------------------------------------------------- */
+function escapeHtml(s){
+  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function htmlTitleBlock(){
+  let h = `<p style="text-align:center;font-weight:700;">${escapeHtml(courtLine())}</p>`;
+  const exeNo = document.getElementById('exeNo').value;
+  h += `<p style="text-align:center;">${escapeHtml(exeNo || 'EXE No. ___ of 20___')}</p>`;
+  h += partyBlockLines('dh').map(l=>`<p>${escapeHtml(l)}</p>`).join('');
+  h += `<p style="text-align:right;">…(Decree Holder${parties.dh.length>1?'s)':')'}</p>`;
+  h += `<p style="text-align:center;">Versus</p>`;
+  h += partyBlockLines('jd').map(l=>`<p>${escapeHtml(l)}</p>`).join('');
+  h += `<p style="text-align:right;">…(Judgment Debtor${parties.jd.length>1?'s)':')'}</p>`;
+  return h;
+}
+function htmlAmountTable(){
+  const b = amountBreakup();
+  const rows = [
+    ['Decretal amount', fmtINR(b.decretal)],
+    ['Cost of suit', fmtINR(b.cost)],
+    ['Counsel fee', fmtINR(b.counselTrial)],
+    ['Expert fee', b.expert ? fmtINR(b.expert) : '-'],
+    [`Interest from ${document.getElementById('interestFrom').value || document.getElementById('decreeDate').value || '___'} till ${document.getElementById('filingDate').value || 'today'}`, fmtINR(b.interest)],
+    ['Counsel fees for execution petition', fmtINR(b.counselExec)],
+    ['Costs of execution petition', fmtINR(b.costsExec)],
+    ['Total', fmtINR(b.total)]
+  ];
+  return `<table class="print-table">${rows.map((r,i)=>`<tr${i===rows.length-1?' style="font-weight:700;"':''}><td>${escapeHtml(r[0])}</td><td>${escapeHtml(r[1])}</td></tr>`).join('')}</table>`;
+}
+function htmlRule11Table(){
+  const rows = rule11Rows();
+  return `<table class="print-table"><tr style="font-weight:700;"><td>Sr.</td><td>Particulars</td><td>Details</td></tr>` +
+    rows.map(r=>`<tr><td>${r[0]}</td><td>${escapeHtml(r[1])}</td><td>${escapeHtml(r[2]).replace(/\n/g,'<br>')}</td></tr>`).join('') +
+    `</table>`;
+}
+function htmlIndexTable(){
+  const rows = buildIndexRows();
+  return `<table class="print-table"><tr style="font-weight:700;"><td>Sr. No.</td><td>Particulars</td><td>Page</td></tr>` +
+    rows.map(r=>`<tr><td>${r[0]}</td><td>${escapeHtml(r[1])}</td><td>${escapeHtml(r[2])}</td></tr>`).join('') +
+    `</table>`;
+}
+
+function buildPrintHtml(){
+  const font = fontChoice();
+  const size = document.getElementById('docFontSize').value;
+  const spacing = document.getElementById('docSpacing').value;
+  const advocateName = document.getElementById('advocateName').value || 'Vikram Panwar';
+  const enrolment = document.getElementById('enrolment').value;
+  const filingDate = document.getElementById('filingDate').value;
+  const place = document.getElementById('court').value === 'Other' ? document.getElementById('customPlace').value : document.getElementById('court').value;
+  const suitNo = document.getElementById('suitNo').value;
+  const suitTitle = document.getElementById('suitTitle').value;
+  const decreeDate = document.getElementById('decreeDate').value;
+  const decreeJudge = document.getElementById('decreeJudge').value;
+  const ongoingRate = document.getElementById('ongoingRate').value;
+  const firstDh = partyBlockLines('dh')[0] || '___';
+
+  let html = `<div class="page">`;
+  html += htmlTitleBlock();
+  html += `<p style="text-align:center;font-weight:700;">Execution petition under Order 21 Rule 10 of C.P.C of judgment and decree Dt. ${escapeHtml(decreeDate||'___')} passed by ${escapeHtml(decreeJudge||'___')} in Civil Suit No. ${escapeHtml(suitNo||'___')} titled ${escapeHtml(suitTitle||'___')}.</p>`;
+  html += `<p><strong>Most Respectfully,</strong></p>`;
+  html += `<p>I the above named plaintiff/decree holder hereby apply for the execution of the decree, under Order 21 Rule 10 of C.P.C.</p>`;
+  html += `<p>The amount of the DH which is to be recovered from the JD is as under:-</p>`;
+  html += htmlAmountTable();
+  html += `<p>*Along with interest of ${escapeHtml(ongoingRate)}% annually from filing of this petition till actual realisation.</p>`;
+  html += `<p><strong>Order 21 Rule 11(2) CPC particulars:</strong></p>`;
+  html += htmlRule11Table();
+  html += `<p><strong>Mode in which assistance of court is required:</strong></p>`;
+  html += `<p>It is most respectfully prayed that the judgment and decree Dt. ${escapeHtml(decreeDate||'___')} passed by this Hon'ble court in Civil Suit No. ${escapeHtml(suitNo||'___')} titled ${escapeHtml(suitTitle||'___')} may kindly be got executed and the decreed amount along with cost and interest, execution expenses and costs be recovered from the judgment debtor ${escapeHtml(prayerText())}</p>`;
+  html += `<p style="text-align:right;">Decree Holder / Plaintiff<br>${partyBlockLines('dh').map(escapeHtml).join('<br>')}</p>`;
+  html += `<p><strong>Verification:-</strong><br>Verified that the contents of the above execution petition are true and correct to the best of my knowledge.</p>`;
+  html += `<p>Place: ${escapeHtml(place||'___')}<br>Dated: ${escapeHtml(filingDate||'___')}</p>`;
+  html += `<p style="text-align:right;">Deponent</p>`;
+  html += `<p>Filed by:<br>${escapeHtml(advocateName)}${enrolment?', Advocate (Enrl. No. '+escapeHtml(enrolment)+')':', Advocate'}<br>Advocate for the Decree Holder<br>Dated: ${escapeHtml(filingDate||'___')}<br>Place: ${escapeHtml(place||'___')}</p>`;
+  html += `</div>`;
+
+  html += `<div class="page">`;
+  html += htmlTitleBlock();
+  html += `<p style="text-align:center;font-weight:700;">SUPPORTING AFFIDAVIT</p>`;
+  html += `<p>I, ${escapeHtml(firstDh)}, do hereby solemnly declare and affirm as under:-</p>`;
+  html += `<p>1. That I am the decree holder in the accompanying execution petition.<br>2. That the contents of the accompanying execution petition are true and correct and have been drafted by my lawyer under my instructions.<br>3. That nothing has been concealed therein deliberately or intentionally.</p>`;
+  html += `<p style="text-align:right;">Deponent</p>`;
+  html += `<p><strong>Verification:-</strong><br>Verified that the contents of the affidavit from paragraph 1 to 3 are true and correct to the best of my knowledge and nothing has been concealed herein.</p>`;
+  html += `<p>Place: ${escapeHtml(place||'___')}<br>Dated: ${escapeHtml(filingDate||'___')}</p>`;
+  html += `<p style="text-align:right;">Deponent</p>`;
+  html += `</div>`;
+
+  if(document.getElementById('genAddressForm').checked){
+    html += `<div class="page">`;
+    html += htmlTitleBlock();
+    html += `<p style="text-align:center;font-weight:700;">ADDRESS FORM</p>`;
+    html += `<p>Particulars of the judgment debtor(s) for service of notice/warrant:</p>`;
+    html += parties.jd.map((p,i)=>`<p>${i+1}. ${escapeHtml(p.name||'___')} S/o/W/o/D/o ${escapeHtml(p.parentage||'___')}, R/o ${escapeHtml(p.address||'___')}</p>`).join('');
+    html += `<p style="text-align:right;">Decree Holder / Advocate for Decree Holder</p>`;
+    html += `</div>`;
+  }
+
+  if(document.getElementById('genProcessFeeForm').checked){
+    html += `<div class="page">`;
+    html += htmlTitleBlock();
+    html += `<p style="text-align:center;font-weight:700;">PROCESS FEE FORM</p>`;
+    html += `<p>Process required for service of notice of execution / warrant of attachment upon the judgment debtor(s):</p>`;
+    html += parties.jd.map((p,i)=>`<p>${i+1}. ${escapeHtml(p.name||'___')}, R/o ${escapeHtml(p.address||'___')}</p>`).join('');
+    html += `<p>Mode of service requested: Registered Post / Process Server / Substituted Service (strike out whichever is not applicable).</p>`;
+    html += `<p>Process fee deposited: Rs. ______/- vide receipt No. ______ dated ______.</p>`;
+    html += `<p style="text-align:right;">Decree Holder / Advocate for Decree Holder</p>`;
+    html += `</div>`;
+  }
+
+  html += `<div class="page">`;
+  html += htmlTitleBlock();
+  html += `<p style="text-align:center;font-weight:700;">INDEX</p>`;
+  html += htmlIndexTable();
+  html += `<p>Filed by:<br>${escapeHtml(advocateName)}${enrolment?', Advocate (Enrl. No. '+escapeHtml(enrolment)+')':', Advocate'}<br>Advocate for the Decree Holder<br>Dated: ${escapeHtml(filingDate||'___')}<br>Place: ${escapeHtml(place||'___')}</p>`;
+  html += `</div>`;
+
+  return `
+  <style>
+    @media print{
+      body *{ visibility:hidden; }
+      #printArea, #printArea *{ visibility:visible; }
+      #printArea{ position:absolute; top:0; left:0; width:100%; }
+      .page{ page-break-after: always; padding: 0.6in; }
+    }
+    #printArea{ font-family:'${font}', serif; font-size:${size}pt; line-height:${spacing}; }
+    #printArea .print-table{ width:100%; border-collapse:collapse; margin:8px 0; }
+    #printArea .print-table td{ border:1px solid #999; padding:4px 8px; vertical-align:top; }
+  </style>
+  ${html}`;
+}
+
+function downloadPdf(){
+  const container = document.getElementById('printArea');
+  container.innerHTML = buildPrintHtml();
+  container.style.display = 'block';
+  window.print();
+  setTimeout(()=>{ container.style.display = 'none'; }, 500);
+}
+</script>
+</body>
+</html>
